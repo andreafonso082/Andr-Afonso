@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import Logo from './Logo';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { t, language, setLanguage } = useLanguage();
+
+  const isHome = location.pathname === '/';
+  // Force solid navbar style if scrolled OR if we are NOT on the home page
+  const showSolidNav = isScrolled || !isHome;
 
   // Handle scroll effect for sticky navbar
   useEffect(() => {
@@ -26,64 +32,94 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   }, [location]);
 
+  const toggleLanguage = () => {
+    setLanguage(language === 'pt' ? 'en' : 'pt');
+  };
+
   const navLinks = [
-    { name: 'Início', path: '/' },
-    { name: 'Sobre Nós', path: '/about' },
-    { name: 'Serviços', path: '/services' },
-    { name: 'Recrutamento', path: '/recrutamento' },
-    { name: 'Contactos', path: '/contact' },
+    { name: t.nav.home, path: '/' },
+    { name: t.nav.about, path: '/about' },
+    { name: t.nav.services, path: '/services' },
+    { name: t.nav.smartCities, path: '/smart-cities' },
+    { name: t.nav.partners, path: '/partners' },
+    { name: t.nav.careers, path: '/recrutamento' },
+    { name: t.nav.contact, path: '/contact' },
   ];
 
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+        showSolidNav ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo Area */}
-        <Link to="/" className="flex items-center gap-2 group" aria-label="Joaquim & Fernandes - Início">
+        <Link to="/" className="flex items-center gap-2 group" aria-label="Joaquim & Fernandes">
           <div className="hover:scale-105 transition-transform duration-300">
-            <Logo className="h-16 w-16 md:h-20 md:w-20 shadow-sm rounded-full" />
+            {/* Removed rounded-full and shadow to avoid clipping the actual image */}
+            <Logo className="h-16 w-16 md:h-20 md:w-20" />
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`font-semibold text-sm uppercase tracking-wide transition-colors hover:text-brand-light ${
+              className={`font-semibold text-xs xl:text-sm uppercase tracking-wide transition-colors hover:text-brand-light ${
                 location.pathname === link.path 
                   ? 'text-brand-light' 
-                  : (isScrolled ? 'text-corporate' : 'text-white drop-shadow-md')
+                  : (showSolidNav ? 'text-corporate' : 'text-white drop-shadow-md')
               }`}
             >
               {link.name}
             </Link>
           ))}
+          
+          {/* Language Switcher */}
+          <button 
+            onClick={toggleLanguage}
+            className={`flex items-center gap-1 font-bold text-xs uppercase py-1 px-3 border rounded transition-all ${
+               showSolidNav 
+                ? 'border-corporate text-corporate hover:bg-corporate hover:text-white' 
+                : 'border-white text-white hover:bg-white hover:text-corporate drop-shadow-md'
+            }`}
+          >
+            <Globe size={14} />
+            {language === 'pt' ? 'EN' : 'PT'}
+          </button>
+
           <Link
             to="/contact"
             className="bg-accent hover:bg-[#2A3345] text-white font-bold py-2 px-6 rounded-sm transition-colors uppercase text-xs tracking-widest shadow-lg border-b-2 border-transparent hover:border-brand-light"
           >
-            Peça Orçamento
+            {t.nav.quote}
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-corporate bg-white/90 p-2 rounded shadow-sm"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="lg:hidden flex items-center gap-4">
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 font-bold text-xs uppercase py-1 px-2 border border-corporate rounded text-corporate bg-white/90"
+          >
+             {language === 'pt' ? 'EN' : 'PT'}
+          </button>
+
+          <button
+            className="text-corporate bg-white/90 p-2 rounded shadow-sm"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col py-4 px-6 animate-fade-in">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col py-4 px-6 animate-fade-in">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -97,7 +133,7 @@ const Navbar: React.FC = () => {
             to="/contact"
             className="mt-4 bg-accent text-center text-white font-bold py-3 rounded shadow-md uppercase text-sm"
           >
-            Peça Orçamento
+            {t.nav.quote}
           </Link>
         </div>
       )}

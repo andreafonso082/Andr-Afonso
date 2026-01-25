@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
+import { useLanguage } from '../context/LanguageContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     subject: '',
+    interest: '',
     message: ''
   });
 
@@ -18,18 +22,18 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Obrigado pelo seu contacto! Entraremos em contacto brevemente.');
+    alert('Obrigado pelo seu contacto! / Thank you for contacting us!');
     // Here you would typically connect to a backend service
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', subject: '', interest: '', message: '' });
   };
 
   return (
     <div className="pt-24 pb-12 bg-white">
       {/* Header */}
       <div className="bg-corporate py-16 mb-16 text-center text-white">
-        <h1 className="text-4xl font-normal font-sans mb-4">Contacte-nos</h1>
+        <h1 className="text-4xl font-normal font-heading mb-4">{t.contact.heroTitle}</h1>
         <p className="text-gray-300 max-w-2xl mx-auto font-light">
-          Estamos disponíveis para esclarecer dúvidas e apresentar propostas.
+          {t.contact.heroDesc}
         </p>
       </div>
 
@@ -39,7 +43,7 @@ const Contact: React.FC = () => {
           {/* Contact Info Side */}
           <div className="lg:w-1/3">
             <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
-              Informações
+              {t.contact.infoTitle}
             </h2>
             
             <div className="space-y-8">
@@ -48,11 +52,11 @@ const Contact: React.FC = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="font-normal text-corporate mb-1">Morada</h3>
+                  <h3 className="font-normal text-corporate mb-1">{t.contact.labels.address}</h3>
                   <p className="text-gray-600 text-sm">
-                    Av. da Indústria, Lote 123<br />
-                    2600-000 Zona Industrial<br />
-                    Lisboa, Portugal
+                    {t.common.address}<br />
+                    2600-000 {t.common.city}<br />
+                    Portugal
                   </p>
                 </div>
               </div>
@@ -62,9 +66,9 @@ const Contact: React.FC = () => {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h3 className="font-normal text-corporate mb-1">Telefone</h3>
+                  <h3 className="font-normal text-corporate mb-1">{t.contact.labels.phone}</h3>
                   <p className="text-gray-600 text-sm mb-1">+351 210 000 000</p>
-                  <p className="text-gray-500 text-xs">(Chamada para rede fixa nacional)</p>
+                  <p className="text-gray-500 text-xs">{t.contact.labels.callCost}</p>
                 </div>
               </div>
 
@@ -73,7 +77,7 @@ const Contact: React.FC = () => {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h3 className="font-normal text-corporate mb-1">Email</h3>
+                  <h3 className="font-normal text-corporate mb-1">{t.contact.labels.email}</h3>
                   <p className="text-gray-600 text-sm">geral@joaquimefernandes.pt</p>
                   <p className="text-gray-600 text-sm">orcamentos@joaquimefernandes.pt</p>
                 </div>
@@ -84,16 +88,16 @@ const Contact: React.FC = () => {
                   <Clock size={24} />
                 </div>
                 <div>
-                  <h3 className="font-normal text-corporate mb-1">Horário</h3>
-                  <p className="text-gray-600 text-sm">Segunda a Sexta: 09:00 - 18:00</p>
-                  <p className="text-gray-600 text-sm">Sábado e Domingo: Encerrado</p>
+                  <h3 className="font-normal text-corporate mb-1">{t.contact.labels.schedule}</h3>
+                  <p className="text-gray-600 text-sm">{t.contact.labels.weekdays}</p>
+                  <p className="text-gray-600 text-sm">{t.contact.labels.weekend}</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-10 p-6 bg-detail rounded border border-gray-200">
-               <h4 className="font-bold text-corporate mb-2">Emergências?</h4>
-               <p className="text-sm text-gray-600 mb-4">Para contratos de manutenção ativos, utilize a linha de apoio 24h.</p>
+               <h4 className="font-normal text-corporate mb-2">{t.contact.labels.emergency}</h4>
+               <p className="text-sm text-gray-600 mb-4">{t.contact.labels.emergencyDesc}</p>
                <span className="font-bold text-accent text-lg">800 000 000</span>
             </div>
           </div>
@@ -101,13 +105,13 @@ const Contact: React.FC = () => {
           {/* Form Side */}
           <div className="lg:w-2/3">
             <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
-              Envie-nos uma mensagem
+              {t.contact.formTitle}
             </h2>
             
             <form onSubmit={handleSubmit} className="bg-white rounded shadow-sm border border-gray-100 p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">Nome Completo</label>
+                  <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.name}</label>
                   <input
                     type="text"
                     id="name"
@@ -119,7 +123,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.email}</label>
                   <input
                     type="email"
                     id="email"
@@ -134,7 +138,7 @@ const Contact: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-2">Telefone</label>
+                  <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.phone}</label>
                   <input
                     type="tel"
                     id="phone"
@@ -145,7 +149,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-bold text-gray-700 mb-2">Assunto</label>
+                  <label htmlFor="subject" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.subject}</label>
                   <select
                     id="subject"
                     name="subject"
@@ -153,17 +157,46 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                   >
-                    <option value="">Selecione um assunto...</option>
-                    <option value="orcamento">Pedido de Orçamento</option>
-                    <option value="informacao">Informação Geral</option>
-                    <option value="recrutamento">Recrutamento</option>
-                    <option value="outros">Outros</option>
+                    <option value="">{t.contact.form.subjectPlaceholder}</option>
+                    <option value="orcamento">{t.contact.form.optQuote}</option>
+                    <option value="informacao">{t.contact.form.optInfo}</option>
+                    <option value="recrutamento">{t.contact.form.optRecruitment}</option>
+                    <option value="outros">{t.contact.form.optOther}</option>
                   </select>
                 </div>
               </div>
 
+              {/* Conditional Field: Area of Interest */}
+              <AnimatePresence>
+                {formData.subject === 'orcamento' && (
+                  <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mb-6 overflow-hidden"
+                  >
+                    <label htmlFor="interest" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.interest}</label>
+                    <select
+                      id="interest"
+                      name="interest"
+                      value={formData.interest}
+                      onChange={handleChange}
+                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                    >
+                      <option value="">{t.contact.form.interestPlaceholder}</option>
+                      <option value="projects">{t.contact.form.optsInterest.projects}</option>
+                      <option value="plrs">{t.contact.form.optsInterest.plrs}</option>
+                      <option value="installations">{t.contact.form.optsInterest.installations}</option>
+                      <option value="substations">{t.contact.form.optsInterest.substations}</option>
+                      <option value="ev_charging">{t.contact.form.optsInterest.ev_charging}</option>
+                      <option value="others">{t.contact.form.optsInterest.others}</option>
+                    </select>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <div className="mb-8">
-                <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2">Mensagem</label>
+                <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.message}</label>
                 <textarea
                   id="message"
                   name="message"
@@ -179,7 +212,7 @@ const Contact: React.FC = () => {
                 type="submit"
                 className="w-full md:w-auto bg-accent hover:bg-[#2A3345] text-white font-bold py-3 px-8 rounded shadow-lg uppercase tracking-widest text-sm transition-all duration-300 flex items-center justify-center gap-2"
               >
-                Enviar Pedido <Send size={16} />
+                {t.contact.form.submit} <Send size={16} />
               </button>
             </form>
           </div>
@@ -187,7 +220,7 @@ const Contact: React.FC = () => {
 
         {/* Map Section */}
         <div className="mt-20">
-          <h2 className="text-2xl font-normal text-corporate mb-8">Localização</h2>
+          <h2 className="text-2xl font-normal text-corporate mb-8">{t.contact.locationTitle}</h2>
           <div className="w-full h-96 bg-gray-200 rounded-lg overflow-hidden relative shadow-inner">
              {/* Iframe for Google Maps visualization (using a generic location for demo) */}
              <iframe 

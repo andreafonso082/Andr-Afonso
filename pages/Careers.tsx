@@ -2,39 +2,11 @@ import React from 'react';
 import { Briefcase, MapPin, Clock, ArrowRight, Mail, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import CTAButton from '../components/CTAButton';
-
-// Mock Data for Job Openings
-const jobOpenings = [
-  {
-    id: 1,
-    title: "Eletricista Credenciado (M/F)",
-    location: "Lisboa / Grande Lisboa",
-    type: "Full-time",
-    description: "Procuramos eletricista com carteira profissional para integrar equipa de manutenção industrial e instalações prediais.",
-    requirements: ["Carteira Profissional DGEG", "Experiência mínima de 3 anos", "Carta de condução", "Disponibilidade imediata"],
-    emailSubject: "Candidatura: Eletricista Credenciado"
-  },
-  {
-    id: 2,
-    title: "Engenheiro Eletrotécnico Sénior",
-    location: "Sede (Lisboa)",
-    type: "Full-time",
-    description: "Responsável pela gestão de projetos de mobilidade elétrica e coordenação de equipas em obra.",
-    requirements: ["Mestrado em Engenharia Eletrotécnica", "Inscrição na Ordem", "Experiência em gestão de projetos", "Domínio de AutoCAD"],
-    emailSubject: "Candidatura: Engenheiro Eletrotécnico"
-  },
-  {
-    id: 3,
-    title: "Técnico de Manutenção Civil",
-    location: "Zona Centro",
-    type: "Full-time",
-    description: "Execução de tarefas de manutenção preventiva e corretiva em edifícios (pintura, pequenas reparações, pladur).",
-    requirements: ["Polivalência", "Experiência em manutenção hoteleira ou similar", "Espírito de equipa"],
-    emailSubject: "Candidatura: Técnico Manutenção"
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Careers: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-24 pb-12 bg-white">
       
@@ -42,9 +14,9 @@ const Careers: React.FC = () => {
       <div className="bg-corporate py-16 mb-16 text-center text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <h1 className="text-4xl font-normal font-sans mb-4">Carreiras</h1>
+          <h1 className="text-4xl font-normal font-heading mb-4">{t.careers.heroTitle}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto font-light">
-            Junte-se a uma equipa com quase 40 anos de história. Construímos o futuro com rigor e inovação.
+            {t.careers.heroDesc}
           </p>
         </div>
       </div>
@@ -54,17 +26,12 @@ const Careers: React.FC = () => {
         {/* Intro Section */}
         <div className="flex flex-col md:flex-row gap-12 items-center mb-20">
           <div className="md:w-1/2">
-            <h2 className="text-3xl font-normal text-corporate mb-6">Porquê trabalhar connosco?</h2>
+            <h2 className="text-3xl font-normal text-corporate mb-6">{t.careers.introTitle}</h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Na Joaquim & Fernandes, acreditamos que as pessoas são a nossa maior energia. Oferecemos estabilidade, formação contínua e a oportunidade de trabalhar em projetos desafiantes nas áreas de eletricidade, construção e mobilidade sustentável.
+              {t.careers.introDesc}
             </p>
             <ul className="space-y-3">
-              {[
-                "Formação e Certificação Contínua",
-                "Seguro de Saúde",
-                "Progressão na Carreira",
-                "Equipa Unida e Dinâmica"
-              ].map((item, index) => (
+              {t.careers.benefits.map((item: string, index: number) => (
                 <li key={index} className="flex items-center gap-3 text-gray-700 font-semibold">
                   <CheckCircle size={18} className="text-brand-light" />
                   {item}
@@ -84,11 +51,11 @@ const Careers: React.FC = () => {
         {/* Job Listings (Blog Style) */}
         <div className="mb-24">
           <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
-            Oportunidades em Aberto
+            {t.careers.openingsTitle}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {jobOpenings.map((job, index) => (
+            {t.careers.jobs.map((job: any, index: number) => (
               <motion.div 
                 key={job.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -104,7 +71,7 @@ const Careers: React.FC = () => {
                   <Briefcase size={20} className="text-brand-light" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-corporate mb-2 group-hover:text-accent transition-colors">
+                <h3 className="text-xl font-normal text-corporate mb-2 group-hover:text-accent transition-colors">
                   {job.title}
                 </h3>
                 
@@ -117,15 +84,15 @@ const Careers: React.FC = () => {
                 </p>
 
                 <div className="mb-6">
-                  <h4 className="text-xs font-bold text-gray-400 uppercase mb-2">Requisitos:</h4>
+                  <h4 className="text-xs font-normal text-gray-400 uppercase mb-2">{t.careers.reqTitle}</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    {job.requirements.slice(0, 2).map((req, i) => (
+                    {job.requirements.slice(0, 2).map((req: string, i: number) => (
                       <li key={i} className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
                         {req}
                       </li>
                     ))}
-                    {job.requirements.length > 2 && <li className="text-xs text-gray-400 pt-1">+ outros requisitos</li>}
+                    {job.requirements.length > 2 && <li className="text-xs text-gray-400 pt-1">{t.careers.otherReq}</li>}
                   </ul>
                 </div>
 
@@ -133,7 +100,7 @@ const Careers: React.FC = () => {
                   href={`mailto:recrutamento@joaquimefernandes.pt?subject=${encodeURIComponent(job.emailSubject)}`}
                   className="mt-auto w-full flex items-center justify-center gap-2 bg-white border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-4 rounded transition-colors uppercase text-xs tracking-widest"
                 >
-                  Candidatar-se <ArrowRight size={14} />
+                  {t.careers.applyBtn} <ArrowRight size={14} />
                 </a>
               </motion.div>
             ))}
@@ -145,9 +112,9 @@ const Careers: React.FC = () => {
           {/* Decorative icons */}
           <Mail className="absolute top-10 left-10 text-gray-200 w-24 h-24 -rotate-12" />
           <div className="relative z-10">
-            <h2 className="text-3xl font-normal text-corporate mb-4">Não encontrou a vaga ideal?</h2>
+            <h2 className="text-3xl font-normal text-corporate mb-4">{t.careers.spontaneousTitle}</h2>
             <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-              Estamos sempre à procura de novos talentos. Envie-nos o seu currículo (CV) para a nossa base de dados. Se surgir uma oportunidade compatível com o seu perfil, entraremos em contacto.
+              {t.careers.spontaneousDesc}
             </p>
             
             <a 
@@ -155,11 +122,11 @@ const Careers: React.FC = () => {
               className="inline-flex items-center gap-3 bg-accent hover:bg-[#2A3345] text-white font-bold py-4 px-10 rounded shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 uppercase tracking-widest text-sm"
             >
               <Mail size={18} />
-              Envie o seu Currículo
+              {t.careers.spontaneousBtn}
             </a>
             
             <p className="mt-4 text-xs text-gray-400">
-              Ao enviar o seu CV, aceita a nossa política de tratamento de dados para fins de recrutamento.
+              {t.careers.spontaneousDisclaimer}
             </p>
           </div>
         </div>

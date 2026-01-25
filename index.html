@@ -2,14 +2,14 @@
 <html lang="pt-PT">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joaquim & Fernandes - Soluções de Eletricidade e Construção</title>
     
     <!-- Fonts: Anton for Headings, Montserrat for Body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,14 +19,15 @@
           extend: {
             colors: {
               corporate: '#1A1A1A', // Primary Black/Dark Gray
-              accent: '#3A445C',    // New Dark Blue (Slate) - For Buttons/Text
-              'brand-light': '#A7D1EC', // New Light Blue (Sky) - For Highlights/Borders
+              accent: '#3A445C',    // Dark Blue Slate
+              'brand-light': '#A7D1EC', // Light Blue Sky
               secondary: '#333333', // Text Dark Gray
               detail: '#F5F5F5',    // Light Gray Background
             },
             fontFamily: {
-              sans: ['Anton', 'sans-serif'],
-              body: ['Montserrat', 'sans-serif'],
+              sans: ['Montserrat', 'sans-serif'], // Default UI font changed to Montserrat
+              heading: ['Anton', 'sans-serif'], // Specific Heading font
+              body: ['Montserrat', 'sans-serif'], // Body font changed to Montserrat
             }
           }
         }
@@ -39,8 +40,8 @@
       }
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Anton', sans-serif;
-        letter-spacing: 0.05em; /* Anton benefits from slightly more spacing */
-        font-weight: 400 !important; /* Force normal weight for Anton as requested */
+        font-weight: 400; /* Ensure no artificial bolding is applied */
+        letter-spacing: 0.05em; /* Slight spacing for better readability with Anton */
       }
       .scroll-smooth {
         scroll-behavior: smooth;
