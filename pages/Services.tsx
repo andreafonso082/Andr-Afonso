@@ -2,6 +2,7 @@ import React from 'react';
 import { Zap, Car, Lightbulb, HardHat, Check, FileText, Activity, Wrench, BatteryCharging, Layers } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 const Services: React.FC = () => {
@@ -35,6 +36,10 @@ const Services: React.FC = () => {
 
   return (
     <div className="pt-24 pb-12">
+      <SEO 
+        title={t.seo.services.title} 
+        description={t.seo.services.description} 
+      />
       <div className="bg-corporate py-16 mb-16 text-center text-white">
         <h1 className="text-4xl font-normal font-heading mb-4">{t.services.heroTitle}</h1>
         <p className="text-gray-300 max-w-2xl mx-auto font-light">

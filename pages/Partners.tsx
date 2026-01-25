@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Handshake, Award, Zap, Building2, HardHat } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 const Partners: React.FC = () => {
@@ -9,7 +10,11 @@ const Partners: React.FC = () => {
 
   return (
     <div className="pt-24 pb-12 bg-white overflow-hidden">
-      
+      <SEO 
+        title={t.seo.partners.title} 
+        description={t.seo.partners.description} 
+      />
+
       {/* 1. Hero Section */}
       <div className="bg-corporate py-20 mb-16 text-center text-white relative">
         <div className="container mx-auto px-6 md:px-12 relative z-10">

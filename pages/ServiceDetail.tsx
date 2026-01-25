@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Check, ArrowLeft, ArrowRight, Tag } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 const ServiceDetail: React.FC = () => {
@@ -28,6 +29,7 @@ const ServiceDetail: React.FC = () => {
   if (!serviceData) {
     return (
       <div className="pt-32 pb-20 text-center container mx-auto px-6">
+        <SEO title="Serviço Não Encontrado | J&F" description="O serviço que procura não foi encontrado." />
         <h2 className="text-2xl font-normal text-corporate mb-4">Serviço não encontrado / Service not found</h2>
         <CTAButton to="/services" text="Voltar / Back" variant="secondary" />
       </div>
@@ -36,6 +38,12 @@ const ServiceDetail: React.FC = () => {
 
   return (
     <div className="bg-white">
+      {/* Dynamic SEO based on service data */}
+      <SEO 
+        title={`${serviceData.seoTitle} | Joaquim & Fernandes`} 
+        description={serviceData.seoDescription || serviceData.description} 
+      />
+
       {/* 1. SEO HERO SECTION */}
       <div className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

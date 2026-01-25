@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Wifi, Cpu, Server, BatteryCharging, ArrowRight, Activity, TrendingUp, Zap } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 const SmartCities: React.FC = () => {
@@ -16,7 +17,11 @@ const SmartCities: React.FC = () => {
 
   return (
     <div className="pt-24 pb-12 bg-white overflow-hidden">
-      
+      <SEO 
+        title={t.seo.smartCities.title} 
+        description={t.seo.smartCities.description} 
+      />
+
       {/* 1. FUTURISTIC HERO */}
       <div className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-corporate">
         {/* Abstract Tech Background */}

@@ -9,9 +9,10 @@ interface ServiceCardProps {
   description: string;
   icon: React.ReactNode;
   delay?: number;
+  link?: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, delay = 0 }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, delay = 0, link }) => {
   const { t } = useLanguage();
   return (
     <motion.div 
@@ -31,7 +32,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
       <p className="text-gray-600 mb-6 font-body text-sm leading-relaxed flex-grow">
         {description}
       </p>
-      <Link to="/services" className="inline-flex items-center text-accent font-bold uppercase text-xs tracking-wider group-hover:underline">
+      <Link to={link || "/services"} className="inline-flex items-center text-accent font-bold uppercase text-xs tracking-wider group-hover:underline">
         {t.common.learnMore} <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
       </Link>
     </motion.div>

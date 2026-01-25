@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Award, Briefcase, Users, HardHat, GraduationCap } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 // Helper icons
@@ -24,7 +25,11 @@ const About: React.FC = () => {
 
   return (
     <div className="pt-24 pb-12 bg-white overflow-hidden">
-      
+      <SEO 
+        title={t.seo.about.title} 
+        description={t.seo.about.description} 
+      />
+
       {/* Header */}
       <div className="bg-corporate py-16 mb-20 text-center text-white relative">
         <div className="container mx-auto px-6 md:px-12 relative z-10">

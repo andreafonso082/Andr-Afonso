@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, Check, Upload, FileText, X } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -11,8 +12,10 @@ const Contact: React.FC = () => {
     email: '',
     phone: '',
     subject: '',
-    interest: '',
-    message: ''
+    interest: [] as string[], 
+    selectedJobs: [] as string[],
+    message: '',
+    cvFile: null as File | null
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -20,15 +23,68 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Handler for interest checkboxes
+  const handleInterestToggle = (value: string) => {
+    setFormData(prev => {
+      const currentInterests = prev.interest;
+      if (currentInterests.includes(value)) {
+        return { ...prev, interest: currentInterests.filter(i => i !== value) };
+      } else {
+        return { ...prev, interest: [...currentInterests, value] };
+      }
+    });
+  };
+
+  // Handler for Job vacancies (Recrutamento)
+  const handleJobToggle = (value: string) => {
+    setFormData(prev => {
+      const currentJobs = prev.selectedJobs;
+      if (currentJobs.includes(value)) {
+        return { ...prev, selectedJobs: currentJobs.filter(j => j !== value) };
+      } else {
+        return { ...prev, selectedJobs: [...currentJobs, value] };
+      }
+    });
+  };
+
+  // Handler for File Upload
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.type === 'application/pdf') {
+        setFormData(prev => ({ ...prev, cvFile: file }));
+      } else {
+        alert("Por favor, selecione apenas ficheiros PDF. / Please select PDF files only.");
+      }
+    }
+  };
+
+  const removeFile = () => {
+    setFormData(prev => ({ ...prev, cvFile: null }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Form Data Submitted:", formData);
+    if(formData.cvFile) {
+        console.log("File attached:", formData.cvFile.name);
+    }
     alert('Obrigado pelo seu contacto! / Thank you for contacting us!');
-    // Here you would typically connect to a backend service
-    setFormData({ name: '', email: '', phone: '', subject: '', interest: '', message: '' });
+    
+    // Reset form
+    setFormData({ 
+      name: '', email: '', phone: '', subject: '', 
+      interest: [], selectedJobs: [], message: '', cvFile: null 
+    });
   };
 
   return (
     <div className="pt-24 pb-12 bg-white">
+      <SEO 
+        title={t.seo.contact.title} 
+        description={t.seo.contact.description} 
+      />
+
       {/* Header */}
       <div className="bg-corporate py-16 mb-16 text-center text-white">
         <h1 className="text-4xl font-normal font-heading mb-4">{t.contact.heroTitle}</h1>
@@ -55,7 +111,7 @@ const Contact: React.FC = () => {
                   <h3 className="font-normal text-corporate mb-1">{t.contact.labels.address}</h3>
                   <p className="text-gray-600 text-sm">
                     {t.common.address}<br />
-                    2600-000 {t.common.city}<br />
+                    {t.common.city}<br />
                     Portugal
                   </p>
                 </div>
@@ -166,7 +222,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              {/* Conditional Field: Area of Interest */}
+              {/* Conditional Field: Area of Interest (for 'orcamento') */}
               <AnimatePresence>
                 {formData.subject === 'orcamento' && (
                   <motion.div 
@@ -175,22 +231,125 @@ const Contact: React.FC = () => {
                     exit={{ opacity: 0, height: 0 }}
                     className="mb-6 overflow-hidden"
                   >
-                    <label htmlFor="interest" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.interest}</label>
-                    <select
-                      id="interest"
-                      name="interest"
-                      value={formData.interest}
-                      onChange={handleChange}
-                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                    >
-                      <option value="">{t.contact.form.interestPlaceholder}</option>
-                      <option value="projects">{t.contact.form.optsInterest.projects}</option>
-                      <option value="plrs">{t.contact.form.optsInterest.plrs}</option>
-                      <option value="installations">{t.contact.form.optsInterest.installations}</option>
-                      <option value="substations">{t.contact.form.optsInterest.substations}</option>
-                      <option value="ev_charging">{t.contact.form.optsInterest.ev_charging}</option>
-                      <option value="others">{t.contact.form.optsInterest.others}</option>
-                    </select>
+                    <label className="block text-sm font-bold text-gray-700 mb-3">
+                      {t.contact.form.interest} <span className="text-gray-400 font-normal text-xs ml-1">(Selecione múltiplas opções)</span>
+                    </label>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1">
+                      {Object.entries(t.contact.form.optsInterest).map(([key, label]) => {
+                         const isSelected = formData.interest.includes(key);
+                         return (
+                           <div 
+                              key={key} 
+                              onClick={() => handleInterestToggle(key)}
+                              className={`
+                                cursor-pointer rounded border p-3 flex items-center gap-3 transition-all duration-200 select-none
+                                ${isSelected 
+                                  ? 'bg-brand-light/20 border-accent text-corporate shadow-sm' 
+                                  : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'}
+                              `}
+                           >
+                             <div className={`
+                               w-5 h-5 rounded border flex items-center justify-center transition-colors
+                               ${isSelected ? 'bg-accent border-accent' : 'bg-white border-gray-300'}
+                             `}>
+                               {isSelected && <Check size={14} className="text-white" />}
+                             </div>
+                             <span className="text-sm font-medium">{label as string}</span>
+                           </div>
+                         );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Conditional Fields: Recruitment (Job Selection & File Upload) */}
+              <AnimatePresence>
+                {formData.subject === 'recrutamento' && (
+                  <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mb-6 overflow-hidden space-y-6"
+                  >
+                    {/* Job Selection */}
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-3">
+                        {t.contact.form.jobPosition}
+                      </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1">
+                        {t.careers.jobs.map((job: any) => {
+                          const isSelected = formData.selectedJobs.includes(job.title);
+                          return (
+                            <div 
+                                key={job.id} 
+                                onClick={() => handleJobToggle(job.title)}
+                                className={`
+                                  cursor-pointer rounded border p-3 flex items-center gap-3 transition-all duration-200 select-none
+                                  ${isSelected 
+                                    ? 'bg-brand-light/20 border-accent text-corporate shadow-sm' 
+                                    : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'}
+                                `}
+                            >
+                              <div className={`
+                                w-5 h-5 rounded border flex items-center justify-center transition-colors shrink-0
+                                ${isSelected ? 'bg-accent border-accent' : 'bg-white border-gray-300'}
+                              `}>
+                                {isSelected && <Check size={14} className="text-white" />}
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-sm font-medium leading-tight">{job.title}</span>
+                                <span className="text-xs text-gray-400 mt-0.5">{job.location}</span>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* CV Upload */}
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-3">
+                         {t.contact.form.cv}
+                      </label>
+                      
+                      {!formData.cvFile ? (
+                        <div className="relative border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg p-6 text-center group cursor-pointer">
+                           <input 
+                             type="file" 
+                             accept="application/pdf"
+                             onChange={handleFileChange}
+                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                           />
+                           <div className="flex flex-col items-center justify-center pointer-events-none">
+                              <Upload className="text-gray-400 group-hover:text-accent mb-2 transition-colors" size={24} />
+                              <span className="text-sm font-semibold text-gray-600 group-hover:text-corporate transition-colors">
+                                {t.contact.form.uploadFile}
+                              </span>
+                              <span className="text-xs text-gray-400 mt-1">PDF (Max. 5MB)</span>
+                           </div>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
+                           <div className="flex items-center gap-3 overflow-hidden">
+                              <div className="bg-red-100 p-2 rounded text-red-500">
+                                 <FileText size={20} />
+                              </div>
+                              <span className="text-sm font-medium text-gray-700 truncate max-w-[200px] sm:max-w-xs">
+                                {formData.cvFile.name}
+                              </span>
+                           </div>
+                           <button 
+                             type="button" 
+                             onClick={removeFile}
+                             className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors"
+                           >
+                             <X size={18} />
+                           </button>
+                        </div>
+                      )}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -222,9 +381,9 @@ const Contact: React.FC = () => {
         <div className="mt-20">
           <h2 className="text-2xl font-normal text-corporate mb-8">{t.contact.locationTitle}</h2>
           <div className="w-full h-96 bg-gray-200 rounded-lg overflow-hidden relative shadow-inner">
-             {/* Iframe for Google Maps visualization (using a generic location for demo) */}
+             {/* Iframe for Google Maps visualization (Pointing to Moncarapacho/Olhão) */}
              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.957585258671!2d-9.139336684654058!3d38.71666667959885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19347a508f773b%3A0x8e874934149e3739!2sLisboa!5e0!3m2!1spt-PT!2spt!4v1652885934521!5m2!1spt-PT!2spt" 
+                src="https://maps.google.com/maps?q=Estrada+Nacional+125+Bias+Norte+Moncarapacho,+8700-066+Olhão&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

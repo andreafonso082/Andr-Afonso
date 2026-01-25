@@ -1,8 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Zap, HardHat, Car, Lightbulb, CheckCircle, Quote, Star, FileText, Activity, Wrench, BatteryCharging } from 'lucide-react';
+import { Zap, HardHat, Car, Lightbulb, CheckCircle, Quote, Star, FileText, Activity, Wrench, BatteryCharging, Cpu } from 'lucide-react';
 import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
 import CTAButton from '../components/CTAButton';
 import ServiceCard from '../components/ServiceCard';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 // Partners remain static as they are names
@@ -60,6 +61,10 @@ const Home: React.FC = () => {
 
   return (
     <div ref={containerRef} className="flex flex-col w-full relative">
+      <SEO 
+        title={t.seo.home.title} 
+        description={t.seo.home.description} 
+      />
       
       {/* === FLOATING BULB COMPONENT === */}
       {/* Only visible when CTA is NOT in view/started. */}
@@ -156,30 +161,42 @@ const Home: React.FC = () => {
               description={t.home.serviceCards.projects.desc}
               icon={<FileText size={32} />}
               delay={0.1}
+              link="/services/projects"
             />
             <ServiceCard 
               title={t.home.serviceCards.plrs.title}
               description={t.home.serviceCards.plrs.desc}
               icon={<Activity size={32} />}
               delay={0.2}
+              link="/services/plrs"
             />
             <ServiceCard 
               title={t.home.serviceCards.installations.title}
               description={t.home.serviceCards.installations.desc}
               icon={<Wrench size={32} />}
               delay={0.3}
+              link="/services/installations"
             />
              <ServiceCard 
               title={t.home.serviceCards.substations.title}
               description={t.home.serviceCards.substations.desc}
               icon={<Zap size={32} />}
               delay={0.4}
+              link="/services/substations"
             />
              <ServiceCard 
               title={t.home.serviceCards.ev_charging.title}
               description={t.home.serviceCards.ev_charging.desc}
               icon={<BatteryCharging size={32} />}
               delay={0.5}
+              link="/services/ev_charging"
+            />
+             <ServiceCard 
+              title={t.home.serviceCards.smart_cities.title}
+              description={t.home.serviceCards.smart_cities.desc}
+              icon={<Cpu size={32} />}
+              delay={0.6}
+              link="/smart-cities"
             />
           </div>
         </div>

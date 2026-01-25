@@ -2,6 +2,7 @@ import React from 'react';
 import { Briefcase, MapPin, Clock, ArrowRight, Mail, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import CTAButton from '../components/CTAButton';
+import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 const Careers: React.FC = () => {
@@ -9,7 +10,11 @@ const Careers: React.FC = () => {
 
   return (
     <div className="pt-24 pb-12 bg-white">
-      
+      <SEO 
+        title={t.seo.careers.title} 
+        description={t.seo.careers.description} 
+      />
+
       {/* Header */}
       <div className="bg-corporate py-16 mb-16 text-center text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
