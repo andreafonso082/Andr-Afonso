@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Zap, HardHat, Car, Lightbulb, CheckCircle, Quote, Star, FileText, Activity, Wrench, BatteryCharging, Cpu } from 'lucide-react';
+import { Zap, HardHat, Car, Lightbulb, CheckCircle, Quote, Star, FileText, Activity, Wrench, BatteryCharging, Cpu, Pen } from 'lucide-react';
 import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
 import CTAButton from '../components/CTAButton';
 import ServiceCard from '../components/ServiceCard';
@@ -10,6 +10,22 @@ import { useLanguage } from '../context/LanguageContext';
 const partners = [
   "Schneider Electric", "Siemens", "EFACEC", "Bosch", "Legrand", "Hager"
 ];
+
+// Custom Lightning Bolt Component to match the requested style
+const LightningBoltIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="1.5" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    {/* Shape similar to the requested image: A jagged lightning bolt */}
+    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+  </svg>
+);
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
@@ -47,10 +63,10 @@ const Home: React.FC = () => {
     }
   }, [isCtaInView, hasLitUp]);
 
-  // PHYSICS: Bulb Rotation linked to scroll
+  // PHYSICS: Bolt Rotation linked to scroll
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 720]); 
   
-  // PHYSICS: Bulb Position (X, Y)
+  // PHYSICS: Bolt Position (X, Y)
   const bulbX = useTransform(scrollYProgress, [0, 0.15], ["-50%", "-20%"]); 
   const bulbY = useTransform(scrollYProgress, [0, 0.15], ["0%", "35vh"]);
   
@@ -66,7 +82,7 @@ const Home: React.FC = () => {
         description={t.seo.home.description} 
       />
       
-      {/* === FLOATING BULB COMPONENT === */}
+      {/* === FLOATING BOLT COMPONENT (Previously Bulb) === */}
       {/* Only visible when CTA is NOT in view/started. */}
       <AnimatePresence>
         {!startHammer && !hasLitUp && (
@@ -97,12 +113,13 @@ const Home: React.FC = () => {
               }}
               className="relative"
             >
-               <div className="absolute inset-0 bg-brand-light/30 blur-[40px] rounded-full animate-pulse"></div>
-               <Lightbulb 
-                  className="w-32 h-32 md:w-48 md:h-48 text-brand-light drop-shadow-[0_0_15px_rgba(167,209,236,0.5)]" 
-                  strokeWidth={1}
-                  fill="rgba(167,209,236,0.1)"
-                />
+               {/* Blue Glow Effect updated to match #8DC8E8 */}
+               <div className="absolute inset-0 bg-[#8DC8E8]/40 blur-[50px] rounded-full animate-pulse"></div>
+               
+               {/* The Lightning Bolt SVG */}
+               <LightningBoltIcon 
+                  className="w-32 h-32 md:w-56 md:h-56 text-[#8DC8E8] drop-shadow-[0_0_15px_rgba(141,200,232,0.8)]"
+               />
             </motion.div>
           </motion.div>
         )}
@@ -192,11 +209,11 @@ const Home: React.FC = () => {
               link="/services/ev_charging"
             />
              <ServiceCard 
-              title={t.home.serviceCards.smart_cities.title}
-              description={t.home.serviceCards.smart_cities.desc}
-              icon={<Cpu size={32} />}
+              title={t.home.serviceCards.lighting?.title || "Iluminação"}
+              description={t.home.serviceCards.lighting?.desc || "Soluções de iluminação."}
+              icon={<Lightbulb size={32} />}
               delay={0.6}
-              link="/smart-cities"
+              link="/lighting"
             />
           </div>
         </div>
@@ -232,7 +249,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. INTERMEDIATE CTA - THE "HAMMER" SECTION */}
+      {/* 4. INTERMEDIATE CTA - THE "HAMMER/STRIKE" SECTION */}
       <section 
         ref={ctaSectionRef}
         className={`py-24 relative overflow-hidden transition-colors duration-200 ease-out ${
@@ -254,18 +271,18 @@ const Home: React.FC = () => {
         {/* Background Overlay */}
         <div className={`absolute inset-0 bg-black transition-opacity duration-500 z-0 ${hasLitUp ? 'opacity-0' : 'opacity-95'}`}></div>
 
-        {/* The Hammering Bulb Animation */}
+        {/* The Hammering Bolt Animation */}
         <AnimatePresence>
           {startHammer && !hasLitUp && (
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none w-full max-w-4xl h-64">
-               {/* Positioning the bulb relative to the text area to hit the "corner" of the title */}
+               {/* Positioning the bolt relative to the text area to hit the "corner" of the title */}
                <motion.div
                   className="absolute top-0 left-1/2 md:-ml-32 -mt-12 origin-bottom-right"
                   initial={{ rotate: -45, opacity: 0, scale: 0.8 }}
                   animate={{ 
                     opacity: 1,
                     scale: 1,
-                    rotate: [-45, -130, 10], // The Hammer Swing: Start -> Wind up back -> Hit forward
+                    rotate: [-45, -130, 10], // The Swing: Start -> Wind up back -> Hit forward
                   }}
                   transition={{ 
                     duration: 0.6,
@@ -274,10 +291,8 @@ const Home: React.FC = () => {
                   }}
                   exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.1 } }}
                >
-                 <Lightbulb 
-                   size={180} 
-                   className="text-gray-200 fill-gray-500 drop-shadow-2xl" 
-                   strokeWidth={1}
+                 <LightningBoltIcon 
+                   className="w-[180px] h-[180px] text-[#8DC8E8] drop-shadow-[0_0_20px_rgba(141,200,232,0.8)]" 
                  />
                  {/* Motion blur trail effect could be added here */}
                </motion.div>
@@ -336,19 +351,32 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="bg-detail p-8 rounded-lg relative"
+                className="bg-detail p-8 rounded-lg relative flex flex-col justify-between"
               >
-                <Quote className="text-brand-light/40 absolute top-4 right-4" size={48} />
-                <div className="flex gap-1 text-accent mb-4">
-                  {[1,2,3,4,5].map(star => <Star key={star} size={16} fill="currentColor" />)}
+                <div>
+                   <Quote className="text-brand-light/40 absolute top-4 right-4" size={48} />
+                   <div className="flex gap-1 text-accent mb-4">
+                     {[1,2,3,4,5].map(star => <Star key={star} size={16} fill="currentColor" />)}
+                   </div>
+                   <p className="text-gray-600 italic mb-6 font-body text-sm leading-relaxed">"{tr.text}"</p>
                 </div>
-                <p className="text-gray-600 italic mb-6 font-body text-sm leading-relaxed">"{tr.text}"</p>
                 <div>
                   <h4 className="font-normal text-corporate">{tr.name}</h4>
-                  <p className="text-xs text-gray-500 uppercase tracking-wide">{tr.role}, {tr.company}</p>
+                  {tr.role && <p className="text-xs text-gray-500 uppercase tracking-wide">{tr.role}, {tr.company}</p>}
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <a 
+              href="https://www.google.com/maps/place/Joaquim+%26+Fernandes-electricidade+E+Telecomunica%C3%A7%C3%B5es+Lda/@37.0499496,-7.7845862,17z/data=!4m18!1m9!3m8!1s0xd100015fa93cb27:0x9f2e8973008bd28a!2sJoaquim+%26+Fernandes-electricidade+E+Telecomunica%C3%A7%C3%B5es+Lda!8m2!3d37.0499453!4d-7.7820113!9m1!1b1!16s%2Fg%2F1ts3gwcy!3m7!1s0xd100015fa93cb27:0x9f2e8973008bd28a!8m2!3d37.0499453!4d-7.7820113!9m1!1b1!16s%2Fg%2F1ts3gwcy?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-8 rounded-sm transition-colors uppercase tracking-widest text-sm"
+            >
+              {t.home.leaveReview} <Pen size={16} />
+            </a>
           </div>
         </div>
       </section>

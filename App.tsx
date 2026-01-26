@@ -7,7 +7,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Careers from './pages/Careers';
-import SmartCities from './pages/SmartCities';
+import Lighting from './pages/Lighting';
 import Partners from './pages/Partners';
 import ServiceDetail from './pages/ServiceDetail';
 import QualityPolicy from './pages/QualityPolicy';
@@ -37,7 +37,7 @@ const App: React.FC = () => {
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:id" element={<ServiceDetail />} />
-              <Route path="/smart-cities" element={<SmartCities />} />
+              <Route path="/lighting" element={<Lighting />} />
               <Route path="/partners" element={<Partners />} />
               <Route path="/recrutamento" element={<Careers />} />
               <Route path="/contact" element={<Contact />} />

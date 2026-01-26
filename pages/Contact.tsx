@@ -123,7 +123,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-normal text-corporate mb-1">{t.contact.labels.phone}</h3>
-                  <p className="text-gray-600 text-sm mb-1">+351 210 000 000</p>
+                  <p className="text-gray-600 text-sm mb-1">+351 289 790 500</p>
                   <p className="text-gray-500 text-xs">{t.contact.labels.callCost}</p>
                 </div>
               </div>
@@ -134,7 +134,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-normal text-corporate mb-1">{t.contact.labels.email}</h3>
-                  <p className="text-gray-600 text-sm">geral@joaquimefernandes.pt</p>
+                  <p className="text-gray-600 text-sm">mail@joaquimfernandes.pt</p>
                   <p className="text-gray-600 text-sm">orcamentos@joaquimefernandes.pt</p>
                 </div>
               </div>
@@ -252,7 +252,7 @@ const Contact: React.FC = () => {
                              <div className={`
                                w-5 h-5 rounded border flex items-center justify-center transition-colors
                                ${isSelected ? 'bg-accent border-accent' : 'bg-white border-gray-300'}
-                             `}>
+                              `}>
                                {isSelected && <Check size={14} className="text-white" />}
                              </div>
                              <span className="text-sm font-medium">{label as string}</span>

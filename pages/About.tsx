@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Award, Briefcase, Users, HardHat, GraduationCap } from 'lucide-react';
+import { Calendar, Award, Briefcase, Users, HardHat, GraduationCap, GripHorizontal } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -11,6 +11,15 @@ const StarIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height
 
 const About: React.FC = () => {
   const { t } = useLanguage();
+  const [width, setWidth] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      // Calculate the scrollable width: Total content width - Visible container width
+      setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+    }
+  }, [t.about.timeline]); // Recalculate if timeline data changes
 
   const getIcon = (index: number) => {
     switch(index) {
@@ -30,8 +39,8 @@ const About: React.FC = () => {
         description={t.seo.about.description} 
       />
 
-      {/* Header */}
-      <div className="bg-corporate py-16 mb-20 text-center text-white relative">
+      {/* 1. HEADER / HERO */}
+      <div className="bg-corporate py-16 mb-0 text-center text-white relative">
         <div className="container mx-auto px-6 md:px-12 relative z-10">
           <h1 className="text-4xl font-normal font-heading mb-4">{t.about.heroTitle}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto font-light">
@@ -44,58 +53,56 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12">
-        
-        {/* Timeline Container */}
-        <div className="relative mb-32">
-          {/* Vertical Line */}
-          {/* Mobile: Line on left. Desktop: Line in center */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-1 h-full bg-gray-100 rounded-full">
-            <div className="w-full h-full bg-gradient-to-b from-accent via-brand-light to-gray-100 opacity-30"></div>
-          </div>
-
-          {t.about.timeline.map((event: any, index: number) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div key={index} className={`flex items-center justify-between w-full mb-12 md:mb-24 ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
-                
-                {/* Empty Space for Desktop (to push content to side) */}
-                <div className="hidden md:block w-5/12"></div>
-
-                {/* Center Node (Timeline Dot) */}
-                <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-accent rounded-full border-4 border-white shadow-lg">
-                  {getIcon(index)}
-                </div>
-
-                {/* Content Card */}
-                <motion.div 
-                  initial={{ opacity: 0, x: window.innerWidth >= 768 ? (isEven ? 50 : -50) : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="w-[calc(100%-80px)] ml-20 md:ml-0 md:w-5/12 bg-white p-6 md:p-8 rounded shadow-sm border border-gray-100 hover:shadow-xl hover:border-brand-light transition-all duration-300 relative group"
-                >
-                  {/* Decorator line for mobile connecting to main line */}
-                  <div className="md:hidden absolute top-6 -left-12 w-10 h-0.5 bg-brand-light/50"></div>
-                  
-                  <span className="inline-block px-3 py-1 bg-brand-light/20 text-accent font-bold rounded text-sm mb-3">
-                    {event.year}
-                  </span>
-                  <h3 className="text-xl md:text-2xl font-normal text-corporate mb-3 font-heading">
-                    {event.title}
-                  </h3>
-                  <p className="text-gray-600 font-body text-sm leading-relaxed">
-                    {event.description}
+      {/* 2. AWARDS & CERTIFICATIONS (High Relevance/Trust) */}
+      <section className="bg-white py-16 mb-0 border-b border-gray-100">
+         <div className="container mx-auto px-6 md:px-12">
+            <div className="text-center mb-12">
+               <h2 className="text-3xl font-normal text-corporate mb-4 font-heading">{t.about.awards.title}</h2>
+               <p className="text-gray-500 max-w-2xl mx-auto">{t.about.awards.subtitle}</p>
+            </div>
+            
+            <div className="flex flex-col md:flex-row justify-center items-center gap-12 lg:gap-24">
+               {/* PME Líder Mockup/Placeholder */}
+               <motion.div 
+                 initial={{ opacity: 0, scale: 0.8 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 transition={{ delay: 0.1 }}
+                 className="flex flex-col items-center"
+               >
+                  <img 
+                    src="https://placehold.co/200x200/0056b3/white?text=PME+Lider" 
+                    alt="PME Líder" 
+                    className="h-32 w-auto mb-4 hover:scale-105 transition-transform duration-300 object-contain"
+                  />
+                  <h3 className="font-bold text-corporate text-lg">PME Líder</h3>
+                  <p className="text-xs text-gray-400 text-center max-w-[200px]">
+                    {t.about.awards.list[0].desc}
                   </p>
-                </motion.div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+               </motion.div>
 
-      {/* NEW SECTION: TEAM */}
-      <section className="bg-detail py-20 relative overflow-hidden mb-24">
+               {/* PME Excelência Mockup/Placeholder */}
+               <motion.div 
+                 initial={{ opacity: 0, scale: 0.8 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 transition={{ delay: 0.3 }}
+                 className="flex flex-col items-center"
+               >
+                  <img 
+                    src="https://placehold.co/200x200/FFC107/black?text=PME+Excelencia" 
+                    alt="PME Excelência" 
+                    className="h-32 w-auto mb-4 hover:scale-105 transition-transform duration-300 object-contain"
+                  />
+                  <h3 className="font-bold text-corporate text-lg">PME Excelência</h3>
+                  <p className="text-xs text-gray-400 text-center max-w-[200px]">
+                    {t.about.awards.list[1].desc}
+                  </p>
+               </motion.div>
+            </div>
+         </div>
+      </section>
+
+      {/* 3. TEAM (Human Connection) */}
+      <section className="bg-detail py-20 relative overflow-hidden mb-16">
          <div className="container mx-auto px-6 md:px-12 relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-16">
                
@@ -172,7 +179,77 @@ const About: React.FC = () => {
          </div>
       </section>
 
-      {/* Closing / CTA Section */}
+      {/* 4. TIMELINE (Interactive Depth) */}
+      <div className="container mx-auto px-6 md:px-12 mb-24">
+        
+        <div className="text-center mb-8">
+            <h2 className="text-2xl font-normal text-corporate font-heading">O Nosso Percurso</h2>
+        </div>
+
+        {/* Draggable Hint */}
+        <div className="flex items-center justify-center gap-2 text-gray-400 mb-8 animate-pulse">
+            <GripHorizontal size={20} />
+            <span className="text-xs uppercase tracking-widest">Arraste para explorar</span>
+        </div>
+
+        {/* Horizontal Timeline Container */}
+        <div ref={carouselRef} className="cursor-grab active:cursor-grabbing overflow-hidden">
+          <motion.div 
+            drag="x" 
+            dragConstraints={{ right: 0, left: -width }}
+            whileTap={{ cursor: "grabbing" }}
+            className="flex items-center min-h-[450px] pl-4 md:pl-12"
+          >
+            {t.about.timeline.map((event: any, index: number) => {
+              const isEven = index % 2 === 0;
+              return (
+                <div key={index} className="relative flex-shrink-0 w-[300px] md:w-[400px] flex flex-col items-center justify-center h-full group">
+                  
+                  {/* The Horizontal Line Segment */}
+                  <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-100 group-last:bg-gradient-to-r group-last:from-gray-100 group-last:to-transparent"></div>
+                  
+                  {/* The Dot / Node */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 bg-accent rounded-full border-4 border-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+                    {getIcon(index)}
+                  </div>
+
+                  {/* Content Card - Alternating Top/Bottom */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className={`
+                      relative w-[90%] bg-white p-6 rounded shadow-sm border border-gray-100 hover:shadow-xl hover:border-brand-light transition-all duration-300 z-20
+                      ${isEven ? 'mb-24 md:mb-32' : 'mt-24 md:mt-32'}
+                    `}
+                  >
+                     {/* Connector Line to the main axis */}
+                     <div className={`
+                       absolute left-1/2 -translate-x-1/2 w-0.5 h-8 md:h-12 bg-brand-light/50
+                       ${isEven ? '-bottom-8 md:-bottom-12' : '-top-8 md:-top-12'}
+                     `}></div>
+
+                    <span className="inline-block px-3 py-1 bg-brand-light/20 text-accent font-bold rounded text-sm mb-3">
+                      {event.year}
+                    </span>
+                    <h3 className="text-xl font-normal text-corporate mb-2 font-heading">
+                      {event.title}
+                    </h3>
+                    <p className="text-gray-600 font-body text-sm leading-relaxed">
+                      {event.description}
+                    </p>
+                  </motion.div>
+                </div>
+              );
+            })}
+            
+            {/* Extra padding at the end to ensure last item isn't cut off */}
+            <div className="w-12 flex-shrink-0"></div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* 5. CLOSING / CTA Section */}
       <div className="container mx-auto px-6 md:px-12 text-center">
           <h2 className="text-3xl font-normal text-corporate mb-6">{t.about.closingTitle}</h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto">

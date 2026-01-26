@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Car, Lightbulb, HardHat, Check, FileText, Activity, Wrench, BatteryCharging, Layers } from 'lucide-react';
+import { Zap, Car, Lightbulb, HardHat, Check, FileText, Activity, Wrench, BatteryCharging, Layers, Router } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
@@ -16,6 +16,7 @@ const Services: React.FC = () => {
          case 'installations': return <Wrench className="w-12 h-12 text-accent" />;
          case 'substations': return <Zap className="w-12 h-12 text-accent" />;
          case 'ev_charging': return <BatteryCharging className="w-12 h-12 text-accent" />;
+         case 'telecommunications': return <Router className="w-12 h-12 text-accent" />;
          case 'others': return <Layers className="w-12 h-12 text-accent" />;
          default: return <Zap className="w-12 h-12 text-accent" />;
      }
@@ -29,6 +30,7 @@ const Services: React.FC = () => {
         case 'installations': return "https://picsum.photos/seed/electrician_work/800/600";
         case 'substations': return "https://picsum.photos/seed/transformer/800/600";
         case 'ev_charging': return "https://picsum.photos/seed/evcharging/800/600";
+        case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
         case 'others': return "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop";
         default: return "https://picsum.photos/seed/electricity/800/600";
     }

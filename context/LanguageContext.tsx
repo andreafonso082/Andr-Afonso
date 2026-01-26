@@ -23,9 +23,9 @@ const translations = {
         title: "Serviços de Eletricidade e Telecomunicações | Algarve e Alentejo",
         description: "Serviços completos no Sul do país: Projetos de Eletricidade, PLR's, Postos de Transformação, Instalações Elétricas Industriais e Carregamento de Veículos Elétricos."
       },
-      smartCities: {
-        title: "Smart Cities & IoT | Soluções Urbanas Inteligentes | J&F Algarve",
-        description: "Desenvolvimento de Smart Cities, iluminação pública inteligente e eficiência energética para municípios no Algarve e Baixo Alentejo."
+      lighting: {
+        title: "Iluminação Profissional | Festiva, Pública e Decorativa | J&F",
+        description: "Soluções completas de iluminação no Algarve. Iluminação de Natal, Iluminação Pública Inteligente (Smart Cities) e Iluminação Arquitetural."
       },
       partners: {
         title: "Parceiros e Marcas | Schneider, E-Redes, Siemens",
@@ -44,7 +44,7 @@ const translations = {
       home: 'Início',
       about: 'Sobre Nós',
       services: 'Serviços',
-      smartCities: 'Smart Cities',
+      lighting: 'Iluminação',
       partners: 'Parceiros',
       careers: 'Recrutamento',
       contact: 'Contactos',
@@ -91,32 +91,27 @@ const translations = {
       lightUp: {
         title: "Tem um projeto em Faro, Portimão ou Beja?",
         desc: "A nossa luz está pronta para guiar a sua visão. Especialistas em instalações complexas e ligação à rede pública.",
-        cta: "Peça a sua avaliação gratuita"
+        cta: "Peça um Orçamento Gratuito"
       },
       testimonialsTitle: "O que dizem os nossos clientes",
       testimonials: [
         {
           id: 1,
-          name: "Carlos Mendes",
-          role: "Diretor de Operações",
-          company: "Logística Algarve SA",
-          text: "A instalação dos carregadores elétricos na nossa frota em Loulé foi impecável. Profissionalismo e rapidez."
+          name: "Narciso Barradas",
+          text: "A receção ao cliente, o atendimento e da resolução ao problema reportado, manifesta todo o profissionalismo desta equipa. Muito obrigado pela atenção e dedicação."
         },
         {
           id: 2,
-          name: "Ana Pereira",
-          role: "Proprietária",
-          company: "Resort Solar Alentejano",
-          text: "A renovação elétrica e a iluminação festiva transformaram o nosso espaço turístico em Mértola. Recomendo vivamente."
+          name: "Carolina Morais",
+          text: "Gostei muito do atendimento de Segunda-feira dia 13/05/2025, muito simpatico o senhor da receção"
         },
         {
           id: 3,
-          name: "Miguel Santos",
-          role: "Gestor de Condomínio",
-          company: "GestCondo Tavira",
-          text: "Manutenção de edifícios exemplar. Resolvemos problemas antigos de infiltração e eletricidade."
+          name: "Ana Clara",
+          text: "Os funcionários Lucas Penido e Maikel Denny são os melhores."
         }
       ],
+      leaveReview: "Deixe a sua avaliação",
       partnersTitle: "Parceiros e Marcas de Confiança",
       serviceCards: {
          projects: { title: "Projetos de Eletricidade", desc: "Desenvolvimento de projetos de engenharia elétrica e telecomunicações, licenciamento e consultoria técnica especializada." },
@@ -124,40 +119,40 @@ const translations = {
          installations: { title: "Instalações Elétricas", desc: "Instalações elétricas de Baixa e Média Tensão para indústria, comércio e habitação no Algarve e Baixo Alentejo." },
          substations: { title: "Postos de Transformação", desc: "Montagem, manutenção e ensaios de Postos de Transformação (PTs) aéreos e em cabine." },
          ev_charging: { title: "Postos de Carregamento", desc: "Soluções chave-na-mão para carregamento de veículos elétricos (PCVE) em espaços públicos e privados." },
-         smart_cities: { title: "Smart Cities", desc: "Soluções integradas de IoT, iluminação inteligente e gestão urbana para cidades do futuro." }
+         lighting: { title: "Iluminação Profissional", desc: "Iluminação Festiva, Iluminação Pública Inteligente e Soluções Arquiteturais." }
       }
     },
-    smartCities: {
-      heroTitle: "Smart Cities & Inovação",
-      heroDesc: "Conectamos o ambiente urbano do Sul ao futuro através da tecnologia IoT, eficiência energética e gestão inteligente de recursos.",
-      introTitle: "A Cidade do Futuro é Agora",
-      introDesc: "Desenvolvemos soluções integradas que tornam as cidades algarvias e alentejanas mais eficientes, sustentáveis e habitáveis. Da iluminação pública inteligente à gestão centralizada de edifícios.",
-      features: [
+    lighting: {
+      heroTitle: "Iluminação que Transforma",
+      heroDesc: "Da magia das luzes de Natal à eficiência da iluminação pública inteligente. Criamos atmosferas e garantimos segurança através da luz.",
+      introTitle: "Soluções de Luz 360º",
+      introDesc: "Na Joaquim & Fernandes, a luz é mais do que visibilidade — é experiência, segurança e identidade. Oferecemos um portfólio completo que abrange desde a iluminação decorativa para épocas festivas até sistemas técnicos avançados para cidades e indústrias.",
+      types: [
         {
-          title: "Iluminação Pública Inteligente",
-          desc: "Sistemas LED com telegestão ponto-a-ponto, sensores de movimento e adaptação automática de luminosidade para máxima poupança energética."
+          title: "Iluminação Festiva",
+          desc: "Transformamos cidades e centros comerciais com iluminações de Natal e festas populares. Designs personalizados, túneis de luz e motifs 3D que atraem visitantes e dinamizam o comércio local."
         },
         {
-          title: "Mobilidade Urbana Conectada",
-          desc: "Hubs de carregamento integrados na infraestrutura urbana, monitorização de tráfego e soluções de estacionamento inteligente."
+          title: "Iluminação Pública & Smart Cities",
+          desc: "Substituição e instalação de luminárias LED de alta eficiência com sistemas de telegestão. Reduzimos a fatura energética dos municípios e aumentamos a segurança das vias públicas."
         },
         {
-          title: "Edifícios Cognitivos",
-          desc: "Integração de sensores IoT para monitorização da qualidade do ar, gestão de consumos e automação predial avançada (BMS)."
+          title: "Iluminação Arquitetural",
+          desc: "Valorização de fachadas, monumentos e hotéis. Utilizamos projetores RGBW e técnicas de 'wall-washing' para destacar a beleza do património edificado durante a noite."
         },
         {
-          title: "Redes Energéticas Digitais",
-          desc: "Implementação de Smart Grids e comunidades de energia renovável para descentralização e otimização da produção energética."
+          title: "Iluminação Desportiva",
+          desc: "Projetos luminotécnicos para campos de futebol, ténis e pavilhões, garantindo os níveis de lux exigidos para competições oficiais e transmissões televisivas."
         }
       ],
-      innovationTitle: "Centro de Inovação",
-      innovationDesc: "Utilizamos as mais recentes tecnologias de monitorização remota e Inteligência Artificial para antecipar falhas e otimizar recursos em tempo real.",
-      stat1: "Poupança Energética",
-      stat2: "Redução de CO2",
-      stat3: "Eficiência Operacional",
-      ctaTitle: "Transforme a sua infraestrutura",
-      ctaDesc: "As nossas soluções Smart City são modulares e escaláveis.",
-      ctaButton: "Agendar Consultoria Técnica"
+      innovationTitle: "Tecnologia & Design",
+      innovationDesc: "Combinamos a arte do design de luz com a engenharia mais avançada.",
+      stat1: "Projetos Festivos",
+      stat2: "Pontos de Luz LED",
+      stat3: "Poupança Média",
+      ctaTitle: "Vamos iluminar o seu projeto?",
+      ctaDesc: "Seja para decorar a sua cidade no Natal ou renovar a iluminação pública.",
+      ctaButton: "Pedir Proposta de Iluminação"
     },
     partners: {
       heroTitle: "Parceiros de Confiança",
@@ -198,6 +193,14 @@ const translations = {
         { year: "2020", title: "Mobilidade Elétrica", description: "Lançamento da divisão dedicada à mobilidade elétrica, instalando postos de carregamento em todo o Sul." },
         { year: "Hoje", title: "Líderes de Mercado no Sul", description: "Continuamos a inovar, mantendo os valores de confiança que nos definem há quase 40 anos." }
       ],
+      awards: {
+        title: "Reconhecimento e Prémios",
+        subtitle: "A distinção pública da nossa robustez financeira e desempenho superior no setor.",
+        list: [
+          { name: "PME Líder", desc: "Estatuto de referência que distingue o mérito e o perfil de risco das PME nacionais." },
+          { name: "PME Excelência", desc: "Selo de reputação que premeia os melhores desempenhos económico-financeiros." }
+        ]
+      },
       teamSection: {
         title: "Quem Somos Nós",
         subtitle: "A Força da Nossa Equipa",
@@ -244,6 +247,12 @@ const translations = {
           title: "Postos de Carregamento",
           description: "Soluções chave-na-mão para a mobilidade elétrica, desde a instalação doméstica até grandes hubs de carregamento.",
           details: ["Wallboxes Domésticas", "Postos de Carregamento Rápido", "Rede Mobi.E", "Gestão de Frotas", "Condomínios"]
+        },
+        {
+          id: "telecommunications",
+          title: "Telecomunicações",
+          description: "Infraestruturas de redes de nova geração, fibra ótica e certificação ITED/ITUR para edifícios residenciais e comerciais.",
+          details: ["Redes de Fibra Ótica", "Projetos ITED/ITUR", "Certificação de Redes", "Bastidores e Racks", "Manutenção de Redes"]
         },
         {
           id: "others",
@@ -300,17 +309,75 @@ const translations = {
         description: "O futuro move-se a eletricidade. Nós instalamos a infraestrutura.",
         fullText: "Como entidade instaladora certificada, oferecemos soluções completas para o carregamento de veículos elétricos. Seja para uma garagem privada, um condomínio ou um parque de estacionamento empresarial, dimensionamos a solução ideal para carregar o seu veículo com rapidez e segurança, sem disparar o quadro elétrico. Integramos os postos com a rede Mobi.E quando necessário e configuramos sistemas de gestão de carga (Load Balancing) para otimizar o consumo energético do edifício.",
         features: ["Wallboxes Domésticas", "Postos de Carregamento Rápido (DC)", "Integração na Rede Mobi.E", "Sistemas de Load Balancing", "Soluções para Condomínios"],
-        keywords: ["Carregamento Elétricos", "Wallbox", "Mobi.E", "Mobilidade Elétrica", "Tesla"]
+        keywords: ["EV Charging", "Wallbox", "Mobi.E", "Electric Mobility", "Tesla"]
+      },
+      telecommunications: {
+        title: "Telecomunicações e Redes",
+        seoTitle: "ITED, ITUR e Fibra Ótica",
+        seoDescription: "Empresa certificada para projetos de telecomunicações (ITED/ITUR) e fibra ótica no Algarve.",
+        description: "Conectividade de alta velocidade para o seu negócio ou habitação.",
+        fullText: "A Joaquim & Fernandes oferece serviços especializados de infraestruturas de telecomunicações, garantindo que o seu edifício está preparado para as exigências digitais do futuro. Realizamos projetos e instalações ITED (Infraestruturas de Telecomunicações em Edifícios) e ITUR, cumprindo todas as normas da ANACOM. A nossa equipa está equipada para realizar fusões de fibra ótica, certificação de redes estruturadas e montagem de bastidores, assegurando conectividade fiável e de alto desempenho.",
+        features: ["ITED / ITUR Projects e Instalação", "Fusão e Certificação de Fibra Ótica", "Redes Estruturadas de Voz e Dados", "Montagem de Bastidores e Racks", "Manutenção de Infraestruturas de Telecomunicações"],
+        keywords: ["Telecomunicações", "Fibra Ótica", "ITED", "ITUR", "Redes Estruturadas"]
       },
       others: {
         title: "Serviços Complementares",
         seoTitle: "Consultoria Energética e Segurança",
         seoDescription: "Auditorias energéticas, fiscalização de obra e sistemas de segurança. Serviços complementares de engenharia e construção.",
         description: "Uma abordagem 360º às necessidades do seu edifício.",
-        fullText: "Para além da eletricidade pura, a nossa competência estende-se a áreas vitais para o funcionamento de qualquer infraestrutura. Oferecemos serviços de fiscalização de obra para garantir que o seu projeto é cumprido pelo empreiteiro. Implementamos sistemas de segurança eletrónica (CCTV, Intrusão) e realizamos auditorias energéticas para identificar onde pode poupar dinheiro. Também dispomos de equipas de construção civil para pequenos arranjos e acabamentos, facilitando a gestão da sua obra num único fornecedor.",
-        features: ["Fiscalização e Gestão de Obra", "Sistemas de Videovigilância (CCTV)", "Deteção de Incêndio (SADI)", "Auditorias de Eficiência Energética", "Pequena Construção Civil e Reparações"],
+        fullText: "Para além da eletricidade pura, a nossa competência estende-se a áreas vitais para o funcionamento de qualquer infraestrutura. Oferecemos serviços de fiscalização de obra para garantir que o seu projeto é cumprido pelo empreiteiro. Implementamos sistemas de segurança eletrónica (CCTV, Intrusão) e realizamos auditorias energéticas para identificar onde pode poupar. Dispomos ainda de equipas de construção civil para pequenas reparações e acabamentos, facilitando a gestão da sua obra com um único fornecedor.",
+        features: ["Fiscalização e Gestão de Obra", "Sistemas de Videovigilância (CCTV)", "Deteção de Incêndios (SADI)", "Auditorias de Eficiência Energética", "Pequena Construção Civil e Reparações"],
         keywords: ["Consultoria", "Fiscalização", "CCTV", "Segurança", "Auditoria Energética"]
       }
+    },
+    careers: {
+      heroTitle: "Carreiras",
+      heroDesc: "Junte-se a uma equipa com quase 40 anos de história. Construímos o futuro no Algarve e Alentejo com rigor e inovação.",
+      introTitle: "Porquê trabalhar connosco?",
+      introDesc: "Na Joaquim & Fernandes, acreditamos que as pessoas são a nossa maior energia. Oferecemos estabilidade, formação contínua e a oportunidade de trabalhar em projetos desafiantes nas áreas de eletricidade, construção e mobilidade sustentável.",
+      benefits: [
+        "Formação e Certificação Contínua",
+        "Seguro de Saúde",
+        "Progressão na Carreira",
+        "Equipa Unida e Dinâmica"
+      ],
+      openingsTitle: "Oportunidades em Aberto",
+      reqTitle: "Requisitos:",
+      otherReq: "+ outros requisitos",
+      applyBtn: "Candidatar-se",
+      jobs: [
+        {
+          id: 1,
+          title: "Eletricista Credenciado (M/F)",
+          location: "Algarve / Baixo Alentejo",
+          type: "Full-time",
+          description: "Procuramos eletricista com carteira profissional para integrar equipa de manutenção industrial e instalações prediais.",
+          requirements: ["Carteira Profissional DGEG", "Experiência mínima de 3 anos", "Carta de condução", "Disponibilidade imediata"],
+          emailSubject: "Candidatura: Eletricista Credenciado"
+        },
+        {
+          id: 2,
+          title: "Engenheiro Eletrotécnico Sénior",
+          location: "Sede (Faro)",
+          type: "Full-time",
+          description: "Responsável pela gestão de projetos de mobilidade elétrica e coordenação de equipas em obra.",
+          requirements: ["Mestrado em Engenharia Eletrotécnica", "Inscrição na Ordem", "Experiência em gestão de projetos", "Domínio de AutoCAD"],
+          emailSubject: "Candidatura: Engenheiro Eletrotécnico"
+        },
+        {
+          id: 3,
+          title: "Técnico de Manutenção Civil",
+          location: "Portimão / Lagos",
+          type: "Full-time",
+          description: "Execução de tarefas de manutenção preventiva e corretiva em edifícios (pintura, pequenas reparações, pladur).",
+          requirements: ["Polivalência", "Experiência em manutenção hoteleira ou similar", "Espírito de equipa"],
+          emailSubject: "Candidatura: Técnico Manutenção"
+        }
+      ],
+      spontaneousTitle: "Não encontrou a vaga ideal?",
+      spontaneousDesc: "Estamos sempre à procura de novos talentos no Algarve. Envie-nos o seu currículo (CV) para a nossa base de dados.",
+      spontaneousBtn: "Envie o seu Currículo",
+      spontaneousDisclaimer: "Ao enviar o seu CV, aceita a nossa política de tratamento de dados para fins de recrutamento."
     },
     contact: {
       heroTitle: "Contacte-nos",
@@ -325,7 +392,7 @@ const translations = {
         weekdays: "Segunda a Sexta: 09:00 - 18:00",
         weekend: "Sábado e Domingo: Encerrado",
         emergency: "Emergências?",
-        emergencyDesc: "For active maintenance contracts, use the 24h support line."
+        emergencyDesc: "Para contratos de manutenção ativos, utilize a linha de apoio 24h."
       },
       formTitle: "Envie-nos uma mensagem",
       form: {
@@ -347,7 +414,7 @@ const translations = {
         optsInterest: {
           projects: "Projetos",
           plrs: "PLR's",
-          installations: "Installations",
+          installations: "Instalações Elétricas",
           substations: "Postos de Transformação",
           ev_charging: "Mobilidade Elétrica / Carregamento",
           others: "Outros Serviços"
@@ -360,61 +427,61 @@ const translations = {
     qualityPage: {
       title: "Política de Qualidade",
       visionTitle: "Visão",
-      visionDesc: "A Joaquim & Fernandes Lda tem como visão ser uma empresa líder e um parceiro estratégico na construção de infra-estruturas na região do Algarve, acompanhando a inovação e sendo um exemplo na sua área de negócio.",
+      visionDesc: "A Joaquim & Fernandes Lda pretende ser uma empresa de referência e parceiro estratégico na construção de infraestruturas na região do Algarve, acompanhando a inovação e dando o exemplo na sua área de negócio.",
       missionTitle: "Missão",
-      missionDesc: "Prestar serviços com eficácia e rapidez na área da construção e manutenção de infra-estruturas no Sul de Portugal.",
+      missionDesc: "Prestar serviços eficazes e rápidos na área de construção e manutenção de infraestruturas no Sul de Portugal.",
       valuesTitle: "Valores",
       values: [
-        { title: "Integridade", desc: "Seriousness and honesty predominate in decisions and day-to-day life." },
-        { title: "Responsabilidade", desc: "Commitment to assume the duties and functions assigned, as well as guaranteeing compliance with the agreed contract/service." },
-        { title: "Service Efficacy", desc: "Do it right the first time." },
-        { title: "Customer Orientation", desc: "Work according to the customer's expectations and requirements." }
+        { title: "Integridade", desc: "A seriedade e honestidade predominam nas decisões e no dia-a-dia." },
+        { title: "Responsabilidade", desc: "Compromisso em assumir os deveres e funções atribuídos, bem como garantir o cumprimento do contrato/serviço acordado." },
+        { title: "Eficácia de Serviço", desc: "Fazer bem à primeira." },
+        { title: "Orientação para o Cliente", desc: "Trabalhar de acordo com as expectativas e requisitos do cliente." }
       ],
-      strategyTitle: "Strategic Guidelines",
+      strategyTitle: "Orientações Estratégicas",
       strategies: [
-        "Continually improve the effectiveness of the QMS and our services for the satisfaction of customers and employees, as well as contributing to the development of the Algarve region we serve.",
-        "Train, inform, and develop all our human resources, contributing to the development of their skills.",
-        "Promote safety and health conditions to harmonize work and provide well-being for all employees.",
-        "Ensure compliance with all standards, legislation, and regulations in force and technical specifications required by our customers."
+        "Melhorar continuamente a eficácia do SGQ e dos nossos serviços para a satisfação dos clientes e colaboradores, bem como contribuir para o desenvolvimento da região do Algarve que servimos.",
+        "Formar, informar e desenvolver todos os nossos recursos humanos, contribuindo para o desenvolvimento das suas competências.",
+        "Promover condições de segurança e saúde para harmonizar o trabalho e proporcionar bem-estar a todos os colaboradores.",
+        "Garantir o cumprimento de todas as normas, legislação e regulamentos em vigor e especificações técnicas exigidas pelos nossos clientes."
       ]
     },
     privacyPage: {
-      title: "Privacy Policy",
-      intro: "Joaquim & Fernandes, Lda respects your privacy and is committed to protecting your personal data. This policy describes how we collect, use, and protect your information, in compliance with the General Data Protection Regulation (GDPR - EU Regulation 2016/679).",
+      title: "Política de Privacidade",
+      intro: "A Joaquim & Fernandes, Lda respeita a sua privacidade e compromete-se a proteger os seus dados pessoais. Esta política descreve como recolhemos, utilizamos e protegemos a sua informação, em conformidade com o Regulamento Geral de Proteção de Dados (RGPD).",
       sections: [
         {
-          title: "1. Data Controller",
-          content: "The entity responsible for processing your personal data is Joaquim & Fernandes, Lda, headquartered at Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. For any questions related to data protection, you can contact us via email at geral@joaquimefernandes.pt."
+          title: "1. Responsável pelo Tratamento",
+          content: "A entidade responsável pelo tratamento dos seus dados pessoais é a Joaquim & Fernandes, Lda, com sede na Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. Para quaisquer questões relacionadas com a proteção de dados, pode contactar-nos através do email mail@joaquimfernandes.pt."
         },
         {
-          title: "2. Data Collected",
-          content: "We collect data that you provide voluntarily through our contact forms, quote requests, and job applications. These may include: Name, Email, Phone, Address, and Curriculum Vitae (in case of recruitment). We also collect technical navigation data (Cookies) anonymously to improve site performance."
+          title: "2. Dados Recolhidos",
+          content: "Recolhemos os dados que nos fornece voluntariamente através dos nossos formulários de contacto, pedidos de orçamento e candidaturas de emprego. Estes podem incluir: Nome, Email, Telefone, Morada e Currículo (no caso de recrutamento). Também recolhemos dados técnicos de navegação (Cookies) de forma anónima para melhorar a performance do site."
         },
         {
-          title: "3. Purpose of Processing",
-          content: "Your data is processed for the following purposes: \n- Management of quote requests and commercial contact;\n- Execution of service provision contracts;\n- Recruitment and selection processes;\n- Compliance with legal obligations (invoicing)."
+          title: "3. Finalidade do Tratamento",
+          content: "Os seus dados são tratados para as seguintes finalidades: \n- Gestão de pedidos de orçamento e contacto comercial;\n- Execução de contratos de prestação de serviços;\n- Processos de recrutamento e seleção;\n- Cumprimento de obrigações legais (faturação)."
         },
         {
-          title: "4. Data Sharing",
-          content: "We do not sell your data to third parties. Your data may be shared only with subcontractors strictly necessary for service provision (e.g., accounting, IT), ensuring they also comply with GDPR, or with public authorities when required by law."
+          title: "4. Partilha de Dados",
+          content: "Não vendemos os seus dados a terceiros. Os seus dados podem ser partilhados apenas com subcontratantes estritamente necessários para a prestação do serviço (ex: contabilidade, informática), garantindo que estes também cumprem o RGPD, ou com autoridades públicas quando exigido por lei."
         },
         {
-          title: "5. Data Subject Rights",
-          content: "Under GDPR, you have the right to access, rectify, limit, object to processing, and request the deletion of your personal data (right to be forgotten). To exercise these rights, simply send a written request to our general email."
+          title: "5. Direitos dos Titulares",
+          content: "Nos termos do RGPD, tem o direito de aceder, retificar, limitar, opor-se ao tratamento e solicitar o apagamento dos seus dados pessoais (direito ao esquecimento). Para exercer estes direitos, basta enviar um pedido por escrito para o nosso email geral."
         },
         {
-          title: "6. Security and Retention",
-          content: "We implement technical and organizational security measures to protect your data. Data is kept only for the period necessary for the purpose for which it was collected, or as required by law (e.g., 10 years for invoicing data)."
+          title: "6. Segurança e Retenção",
+          content: "Implementamos medidas de segurança técnicas e organizativas para proteger os seus dados. Os dados são conservados apenas pelo período necessário para a finalidade para a qual foram recolhidos, ou conforme exigido por lei (ex: 10 anos para dados de faturação)."
         }
       ],
-      lastUpdated: "Last updated: October 2024"
+      lastUpdated: "Última atualização: Outubro 2024"
     },
     termsPage: {
-      title: "Terms and Conditions",
-      intro: "Welcome to the Joaquim & Fernandes website. By accessing and using this site, you agree to the following terms and conditions of use.",
+      title: "Termos e Condições",
+      intro: "Bem-vindo ao website da Joaquim & Fernandes. Ao aceder e utilizar este site, concorda com os seguintes termos e condições de utilização.",
       sections: [
         {
-          title: "1. Intellectual Property",
+          title: "1. Propriedade Intelectual",
           content: "All content present on this site (texts, images, logótipos, vídeos) is the exclusive property of Joaquim & Fernandes, Lda or its partners, being protected by Copyright and Industrial Property legislation. Copying, reproduction, or distribution without prior authorization is prohibited."
         },
         {
@@ -454,9 +521,9 @@ const translations = {
         title: "Electrical Services & Telecommunications | Algarve & Alentejo",
         description: "Complete services in the South: Electrical Projects, PLR's, Transformation Stations, Industrial Electrical Installations, and EV Charging."
       },
-      smartCities: {
-        title: "Smart Cities & IoT | Intelligent Urban Solutions | J&F Algarve",
-        description: "Developing Smart Cities, smart public lighting, and energy efficiency for municipalities in Algarve and Lower Alentejo."
+      lighting: {
+        title: "Professional Lighting | Festive, Public & Decorative | J&F",
+        description: "Complete lighting solutions in Algarve. Christmas Lighting, Smart Public Lighting, and Architectural Lighting."
       },
       partners: {
         title: "Partners & Brands | Schneider, E-Redes, Siemens",
@@ -475,7 +542,7 @@ const translations = {
       home: 'Home',
       about: 'About Us',
       services: 'Services',
-      smartCities: 'Smart Cities',
+      lighting: 'Lighting',
       partners: 'Partners',
       careers: 'Careers',
       contact: 'Contacts',
@@ -528,26 +595,21 @@ const translations = {
       testimonials: [
         {
           id: 1,
-          name: "Carlos Mendes",
-          role: "Operations Director",
-          company: "Logística Algarve SA",
-          text: "The installation of electric chargers in our fleet in Loulé was impeccable. Professionalism and speed."
+          name: "Narciso Barradas",
+          text: "The customer reception, service, and resolution of the reported problem manifest all the professionalism of this team. Thank you very much for the attention and dedication."
         },
         {
           id: 2,
-          name: "Ana Pereira",
-          role: "Owner",
-          company: "Resort Solar Alentejano",
-          text: "The electrical renovation and festive lighting transformed our tourist space in Mértola. Highly recommend."
+          name: "Carolina Morais",
+          text: "I really liked the service on Monday 05/13/2025, the gentleman at the reception was very friendly."
         },
         {
           id: 3,
-          name: "Miguel Santos",
-          role: "Condominium Manager",
-          company: "GestCondo Tavira",
-          text: "Exemplary building maintenance. We solved old infiltration and electrical problems."
+          name: "Ana Clara",
+          text: "Employees Lucas Penido and Maikel Denny are the best."
         }
       ],
+      leaveReview: "Leave your review",
       partnersTitle: "Trusted Partners and Brands",
       serviceCards: {
          projects: { title: "Electrical Projects", desc: "Development of electrical engineering and telecommunications projects, licensing, and specialized technical consulting." },
@@ -555,40 +617,40 @@ const translations = {
          installations: { title: "Electrical Installations", desc: "Low and Medium Voltage electrical installations for industry, commerce, and housing in Algarve and Lower Alentejo." },
          substations: { title: "Transformation Stations", desc: "Assembly, maintenance, and testing of Transformation Stations (PTs), aerial and cabin." },
          ev_charging: { title: "EV Charging Stations", desc: "Turnkey solutions for electric vehicle charging (EVCS) in public and private spaces." },
-         smart_cities: { title: "Smart Cities", desc: "Integrated IoT solutions, smart lighting, and urban management for future cities." }
+         lighting: { title: "Professional Lighting", desc: "Festive Lighting, Smart Public Lighting, and Architectural Solutions." }
       }
     },
-    smartCities: {
-      heroTitle: "Smart Cities & Innovation",
-      heroDesc: "We connect the urban environment of the South to the future through IoT technology, energy efficiency, and intelligent resource management.",
-      introTitle: "The Future City is Now",
-      introDesc: "We develop integrated solutions that make Algarve and Alentejo cities more efficient, sustainable, and livable. From smart public lighting to centralized building management.",
-      features: [
+    lighting: {
+      heroTitle: "Lighting that Transforms",
+      heroDesc: "From the magic of Christmas lights to the efficiency of smart public lighting. We create atmospheres and ensure safety through light.",
+      introTitle: "360º Lighting Solutions",
+      introDesc: "At Joaquim & Fernandes, light is more than visibility — it's experience, safety, and identity. We offer a complete portfolio covering decorative lighting for festive seasons to advanced technical systems for cities and industries.",
+      types: [
         {
-          title: "Smart Public Lighting",
-          desc: "LED systems with point-to-point telemanagement, motion sensors, and automatic brightness adaptation for maximum energy savings."
+          title: "Festive Lighting",
+          desc: "We transform cities and shopping centers with Christmas lights and popular festivals. Custom designs, light tunnels, and 3D motifs that attract visitors and boost local commerce."
         },
         {
-          title: "Connected Urban Mobility",
-          desc: "Charging hubs integrated into urban infrastructure, traffic monitoring, and smart parking solutions."
+          title: "Public Lighting & Smart Cities",
+          desc: "Replacement and installation of high-efficiency LED luminaires with telemanagement systems. We reduce municipalities' energy bills and increase public safety."
         },
         {
-          title: "Cognitive Buildings",
-          desc: "IoT sensor integration for air quality monitoring, consumption management, and advanced building automation (BMS)."
+          title: "Architectural Lighting",
+          desc: "Enhancing facades, monuments, and hotels. We use RGBW projectors and wall-washing techniques to highlight the beauty of built heritage at night."
         },
         {
-          title: "Digital Energy Networks",
-          desc: "Implementation of Smart Grids and renewable energy communities for decentralization and optimization of energy production."
+          title: "Sports Lighting",
+          desc: "Lighting projects for football fields, tennis courts, and pavilions, ensuring lux levels required for official competitions and TV broadcasts."
         }
       ],
-      innovationTitle: "Innovation Hub",
-      innovationDesc: "We use the latest remote monitoring and Artificial Intelligence technologies to anticipate failures and optimize resources in real time.",
-      stat1: "Energy Savings",
-      stat2: "CO2 Reduction",
-      stat3: "Operational Efficiency",
-      ctaTitle: "Transform your infrastructure",
-      ctaDesc: "Our Smart City solutions are modular and scalable.",
-      ctaButton: "Schedule Technical Consult"
+      innovationTitle: "Technology & Design",
+      innovationDesc: "We combine the art of lighting design with advanced engineering.",
+      stat1: "Festive Projects",
+      stat2: "LED Light Points",
+      stat3: "Average Savings",
+      ctaTitle: "Ready to light up your project?",
+      ctaDesc: "Whether decorating your city for Christmas or renewing public lighting.",
+      ctaButton: "Request Lighting Proposal"
     },
     partners: {
       heroTitle: "Trusted Partners",
@@ -629,6 +691,14 @@ const translations = {
         { year: "2020", title: "Electric Mobility", description: "Launch of the division dedicated to electric mobility, installing charging stations nationwide." },
         { year: "Today", title: "Market Leaders in the South", description: "We continue to innovate, maintaining the values of trust that have defined us for almost 40 years." }
       ],
+      awards: {
+        title: "Recognition and Awards",
+        subtitle: "Public distinction of our financial robustness and superior performance in the sector.",
+        list: [
+          { name: "SME Leader", desc: "Reference status distinguishing the merit and risk profile of national SMEs." },
+          { name: "SME Excellence", desc: "Reputation seal awarding best economic-financial performances." }
+        ]
+      },
       teamSection: {
         title: "Who We Are",
         subtitle: "The Strength of Our Team",
@@ -675,6 +745,12 @@ const translations = {
           title: "EV Charging Stations",
           description: "Turnkey solutions for electric mobility, from home installation to large charging hubs.",
           details: ["Home Wallboxes", "Fast Charging Stations", "Mobi.E Network", "Fleet Management", "Condominiums"]
+        },
+        {
+          id: "telecommunications",
+          title: "Telecommunications & Networks",
+          description: "Next-generation network infrastructures, fiber optics, and ITED/ITUR certification for residential and commercial buildings.",
+          details: ["Fiber Optic Networks", "ITED/ITUR Projects", "Network Certification", "Racks & Cabinets", "Network Maintenance"]
         },
         {
           id: "others",
@@ -732,6 +808,15 @@ const translations = {
         fullText: "As a certified installation entity, we offer complete solutions for electric vehicle charging. Whether for a private garage, a condominium, or a corporate parking lot, we size the ideal solution to charge your vehicle quickly and safely without tripping the circuit breaker. We integrate stations with the Mobi.E network when necessary and configure Load Balancing systems to optimize the building's energy consumption.",
         features: ["Home Wallboxes", "Fast Charging Stations (DC)", "Mobi.E Network Integration", "Load Balancing Systems", "Condominium Solutions"],
         keywords: ["EV Charging", "Wallbox", "Mobi.E", "Electric Mobility", "Tesla"]
+      },
+      telecommunications: {
+        title: "Telecommunications & Networks",
+        seoTitle: "ITED, ITUR and Fiber Optic Installation",
+        seoDescription: "Certified company for telecommunications projects (ITED/ITUR) and fiber optics in Algarve.",
+        description: "High-speed connectivity for your business or home.",
+        fullText: "Joaquim & Fernandes offers specialized telecommunications infrastructure services, ensuring your building is ready for future digital demands. We perform ITED (Telecommunications Infrastructure in Buildings) and ITUR projects and installations, complying with all ANACOM standards. Our team is equipped to perform fiber optic splicing, structured network certification, and rack assembly, ensuring reliable and high-performance connectivity.",
+        features: ["ITED / ITUR Projects and Installation", "Fiber Optic Splicing and Certification", "Structured Voice and Data Networks", "Rack and Cabinet Assembly", "Telecommunications Infrastructure Maintenance"],
+        keywords: ["Telecommunications", "Fiber Optics", "ITED", "ITUR", "Structured Networks"]
       },
       others: {
         title: "Complementary Services",
@@ -801,11 +886,11 @@ const translations = {
         phone: "Telefone",
         callCost: "(Chamada para rede fixa nacional)",
         email: "Email",
-        schedule: "Schedule",
-        weekdays: "Monday to Friday: 09:00 - 18:00",
-        weekend: "Saturday and Sunday: Closed",
+        schedule: "Horário",
+        weekdays: "Segunda a Sexta: 09:00 - 18:00",
+        weekend: "Sábado e Domingo: Encerrado",
         emergency: "Emergências?",
-        emergencyDesc: "For active maintenance contracts, use the 24h support line."
+        emergencyDesc: "Para contratos de manutenção ativos, utilize a linha de apoio 24h."
       },
       formTitle: "Envie-nos uma mensagem",
       form: {
@@ -864,7 +949,7 @@ const translations = {
       sections: [
         {
           title: "1. Data Controller",
-          content: "The entity responsible for processing your personal data is Joaquim & Fernandes, Lda, headquartered at Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. For any questions related to data protection, you can contact us via email at geral@joaquimefernandes.pt."
+          content: "The entity responsible for processing your personal data is Joaquim & Fernandes, Lda, headquartered at Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. For any questions related to data protection, you can contact us via email at mail@joaquimfernandes.pt."
         },
         {
           title: "2. Data Collected",
@@ -919,7 +1004,7 @@ const translations = {
         }
       ]
     }
-  }
+  },
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);

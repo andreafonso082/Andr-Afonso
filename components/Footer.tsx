@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
               <li><Link to="/" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.home}</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.about}</Link></li>
               <li><Link to="/services" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.services}</Link></li>
-              <li><Link to="/smart-cities" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.smartCities}</Link></li>
+              <li><Link to="/lighting" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.lighting}</Link></li>
               <li><Link to="/partners" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.partners}</Link></li>
               <li><Link to="/recrutamento" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.careers}</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.contact}</Link></li>
@@ -57,11 +57,11 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-brand-light shrink-0" />
-                <span className="text-gray-400">+351 210 000 000</span>
+                <span className="text-gray-400">+351 289 790 500</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-brand-light shrink-0" />
-                <span className="text-gray-400">geral@joaquimefernandes.pt</span>
+                <span className="text-gray-400">mail@joaquimfernandes.pt</span>
               </li>
             </ul>
           </div>

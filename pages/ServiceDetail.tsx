@@ -18,6 +18,7 @@ const ServiceDetail: React.FC = () => {
         case 'installations': return "https://picsum.photos/seed/electrician_work/1920/1080";
         case 'substations': return "https://picsum.photos/seed/transformer/1920/1080";
         case 'ev_charging': return "https://picsum.photos/seed/evcharging/1920/1080";
+        case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
         case 'others': return "https://picsum.photos/seed/consulting/1920/1080";
         default: return "https://picsum.photos/seed/electricity/1920/1080";
     }
