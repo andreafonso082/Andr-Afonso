@@ -83,11 +83,11 @@ const Home: React.FC = () => {
       />
       
       {/* === FLOATING BOLT COMPONENT (Previously Bulb) === */}
-      {/* Only visible when CTA is NOT in view/started. */}
+      {/* Only visible when CTA is NOT in view/started. Hidden on mobile to avoid clutter */}
       <AnimatePresence>
         {!startHammer && !hasLitUp && (
           <motion.div
-            className="fixed right-10 md:right-16 top-1/2 z-50 pointer-events-none hidden md:block"
+            className="fixed right-4 md:right-16 top-1/2 z-50 pointer-events-none hidden md:block"
             style={{ 
               rotate: smoothRotate,
               x: smoothX,
@@ -118,7 +118,7 @@ const Home: React.FC = () => {
                
                {/* The Lightning Bolt SVG */}
                <LightningBoltIcon 
-                  className="w-32 h-32 md:w-56 md:h-56 text-[#8DC8E8] drop-shadow-[0_0_15px_rgba(141,200,232,0.8)]"
+                  className="w-24 h-24 md:w-56 md:h-56 text-[#8DC8E8] drop-shadow-[0_0_15px_rgba(141,200,232,0.8)]"
                />
             </motion.div>
           </motion.div>
@@ -127,52 +127,52 @@ const Home: React.FC = () => {
 
 
       {/* 1. HERO SECTION */}
-      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen md:h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://picsum.photos/seed/construction/1920/1080" 
             alt="Obra de construção e eletricidade" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30"></div>
         </div>
 
-        <div className="container mx-auto px-6 md:px-12 relative z-10 pt-20">
+        <div className="container mx-auto px-4 md:px-12 relative z-10 pt-24 md:pt-20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-full lg:w-1/2 max-w-3xl"
+              className="w-full lg:w-3/4 max-w-4xl"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6 leading-tight">
                 {t.home.hero.title.split(',').map((part: string, i: number) => (
                   <span key={i} className="block">{part}{i < 2 ? ',' : ''}</span>
                 ))}
               </h1>
-              <p className="text-xl text-gray-200 mb-10 font-light border-l-4 border-brand-light pl-4">
+              <p className="text-lg md:text-xl text-gray-200 mb-10 font-light border-l-4 border-brand-light pl-4 leading-relaxed max-w-2xl">
                 {t.home.hero.subtitle}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <CTAButton to="/contact" text={t.home.hero.ctaPrimary} variant="primary" />
-                <CTAButton to="/contact" text={t.home.hero.ctaSecondary} variant="outline" />
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <CTAButton to="/contact" text={t.home.hero.ctaPrimary} variant="primary" className="w-full sm:w-auto text-center" />
+                <CTAButton to="/contact" text={t.home.hero.ctaSecondary} variant="outline" className="w-full sm:w-auto text-center" />
               </div>
             </motion.div>
 
-            <div className="hidden lg:block w-full lg:w-1/2"></div>
+            <div className="hidden lg:block w-full lg:w-1/4"></div>
           </div>
         </div>
       </section>
 
       {/* 2. FEATURED SERVICES */}
-      <section className="py-20 bg-white relative z-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-normal text-corporate mb-4">{t.home.servicesTitle}</h2>
-            <div className="w-20 h-1 bg-brand-light mx-auto"></div>
+      <section className="py-16 md:py-20 bg-white relative z-20">
+        <div className="container mx-auto px-4 md:px-12">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.home.servicesTitle}</h2>
+            <div className="w-16 md:w-20 h-1 bg-brand-light mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
             <ServiceCard 
               title={t.home.serviceCards.projects.title}
               description={t.home.serviceCards.projects.desc}
@@ -220,30 +220,30 @@ const Home: React.FC = () => {
       </section>
 
       {/* 3. BENEFITS */}
-      <section className="py-20 bg-detail relative z-20">
-        <div className="container mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2">
+      <section className="py-16 md:py-20 bg-detail relative z-20">
+        <div className="container mx-auto px-4 md:px-12 flex flex-col lg:flex-row items-center gap-12">
+          <div className="w-full lg:w-1/2">
             <img 
               src="https://picsum.photos/seed/engineer/800/600" 
               alt="Engenheiro a trabalhar" 
-              className="rounded-lg shadow-2xl"
+              className="rounded-lg shadow-2xl w-full h-auto object-cover"
             />
           </div>
-          <div className="lg:w-1/2">
-            <h2 className="text-3xl font-normal text-corporate mb-6">{t.home.whyUsTitle}</h2>
-            <p className="text-gray-600 mb-8 font-body">
+          <div className="w-full lg:w-1/2">
+            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-6">{t.home.whyUsTitle}</h2>
+            <p className="text-gray-600 mb-8 font-body leading-relaxed">
               {t.home.whyUsDesc}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               {t.home.benefits.map((benefit: any) => (
                 <div key={benefit.id} className="flex items-center gap-3 bg-white p-4 rounded shadow-sm border-l-4 border-accent">
                   <CheckCircle className="text-accent shrink-0" size={20} />
-                  <span className="font-semibold text-corporate font-body">{benefit.text}</span>
+                  <span className="font-semibold text-corporate font-body text-sm md:text-base">{benefit.text}</span>
                 </div>
               ))}
             </div>
             <div className="mt-10">
-              <CTAButton to="/services" text={t.home.ctaButton} variant="secondary" />
+              <CTAButton to="/services" text={t.home.ctaButton} variant="secondary" className="w-full sm:w-auto text-center" />
             </div>
           </div>
         </div>
@@ -252,7 +252,7 @@ const Home: React.FC = () => {
       {/* 4. INTERMEDIATE CTA - THE "HAMMER/STRIKE" SECTION */}
       <section 
         ref={ctaSectionRef}
-        className={`py-24 relative overflow-hidden transition-colors duration-200 ease-out ${
+        className={`py-16 md:py-24 relative overflow-hidden transition-colors duration-200 ease-out ${
           hasLitUp ? 'bg-corporate' : 'bg-black' 
         }`}
       >
@@ -292,7 +292,7 @@ const Home: React.FC = () => {
                   exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.1 } }}
                >
                  <LightningBoltIcon 
-                   className="w-[180px] h-[180px] text-[#8DC8E8] drop-shadow-[0_0_20px_rgba(141,200,232,0.8)]" 
+                   className="w-32 h-32 md:w-[180px] md:h-[180px] text-[#8DC8E8] drop-shadow-[0_0_20px_rgba(141,200,232,0.8)]" 
                  />
                  {/* Motion blur trail effect could be added here */}
                </motion.div>
@@ -301,7 +301,7 @@ const Home: React.FC = () => {
         </AnimatePresence>
 
         {/* Content */}
-        <div className="container mx-auto px-6 md:px-12 text-center relative z-20">
+        <div className="container mx-auto px-4 md:px-12 text-center relative z-20">
           <motion.div
              // Text appears instantly when hasLitUp becomes true
              initial={{ opacity: 0 }}
@@ -309,11 +309,11 @@ const Home: React.FC = () => {
              transition={{ duration: 0.1 }} // Fast appearance after hit
           >
             {/* Corner Spark Effect on text */}
-            <div className="relative inline-block">
-               <h2 className="text-3xl md:text-5xl font-normal mb-6 text-white drop-shadow-lg relative">
+            <div className="relative inline-block max-w-full">
+               <h2 className="text-2xl sm:text-3xl md:text-5xl font-normal mb-6 text-white drop-shadow-lg relative">
                  {hasLitUp && (
                     <motion.div 
-                      className="absolute -top-6 -left-6 text-yellow-400"
+                      className="absolute -top-6 -left-6 text-yellow-400 hidden sm:block"
                       initial={{ scale: 0, opacity: 1 }}
                       animate={{ scale: 2, opacity: 0 }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -325,36 +325,36 @@ const Home: React.FC = () => {
                </h2>
             </div>
             
-            <p className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light drop-shadow-md">
+            <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light drop-shadow-md px-2">
               {t.home.lightUp.desc}
             </p>
-            <div className="relative inline-block">
-               <div className="absolute inset-0 bg-brand-light blur-xl opacity-30 animate-pulse rounded-full"></div>
-               <CTAButton to="/contact" text={t.home.lightUp.cta} variant="primary" className="text-lg py-4 px-10 relative z-10 border border-brand-light/50" />
+            <div className="relative inline-block w-full sm:w-auto">
+               <div className="absolute inset-0 bg-brand-light blur-xl opacity-30 animate-pulse rounded-full hidden sm:block"></div>
+               <CTAButton to="/contact" text={t.home.lightUp.cta} variant="primary" className="text-base md:text-lg py-3 md:py-4 px-8 md:px-10 relative z-10 border border-brand-light/50 w-full sm:w-auto" />
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* 5. TESTIMONIALS */}
-      <section className="py-20 bg-white relative z-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-normal text-corporate mb-4">{t.home.testimonialsTitle}</h2>
-            <div className="w-20 h-1 bg-brand-light mx-auto"></div>
+      <section className="py-16 md:py-20 bg-white relative z-20">
+        <div className="container mx-auto px-4 md:px-12">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.home.testimonialsTitle}</h2>
+            <div className="w-16 md:w-20 h-1 bg-brand-light mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {t.home.testimonials.map((tr: any) => (
               <motion.div 
                 key={tr.id} 
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="bg-detail p-8 rounded-lg relative flex flex-col justify-between"
+                className="bg-detail p-6 md:p-8 rounded-lg relative flex flex-col justify-between"
               >
                 <div>
-                   <Quote className="text-brand-light/40 absolute top-4 right-4" size={48} />
+                   <Quote className="text-brand-light/40 absolute top-4 right-4" size={40} />
                    <div className="flex gap-1 text-accent mb-4">
                      {[1,2,3,4,5].map(star => <Star key={star} size={16} fill="currentColor" />)}
                    </div>
@@ -373,7 +373,7 @@ const Home: React.FC = () => {
               href="https://www.google.com/maps/place/Joaquim+%26+Fernandes-electricidade+E+Telecomunica%C3%A7%C3%B5es+Lda/@37.0499496,-7.7845862,17z/data=!4m18!1m9!3m8!1s0xd100015fa93cb27:0x9f2e8973008bd28a!2sJoaquim+%26+Fernandes-electricidade+E+Telecomunica%C3%A7%C3%B5es+Lda!8m2!3d37.0499453!4d-7.7820113!9m1!1b1!16s%2Fg%2F1ts3gwcy!3m7!1s0xd100015fa93cb27:0x9f2e8973008bd28a!8m2!3d37.0499453!4d-7.7820113!9m1!1b1!16s%2Fg%2F1ts3gwcy?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-8 rounded-sm transition-colors uppercase tracking-widest text-sm"
+              className="inline-flex items-center gap-2 bg-white border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-6 md:px-8 rounded-sm transition-colors uppercase tracking-widest text-xs md:text-sm"
             >
               {t.home.leaveReview} <Pen size={16} />
             </a>
@@ -382,8 +382,8 @@ const Home: React.FC = () => {
       </section>
 
       {/* 6. PARTNERS CAROUSEL */}
-      <section className="py-16 bg-gray-50 border-t border-gray-200 overflow-hidden relative z-20">
-        <div className="container mx-auto px-6 md:px-12 mb-10">
+      <section className="py-12 md:py-16 bg-gray-50 border-t border-gray-200 overflow-hidden relative z-20">
+        <div className="container mx-auto px-4 md:px-12 mb-8 md:mb-10">
           <p className="text-center text-gray-400 uppercase text-xs tracking-widest font-bold">{t.home.partnersTitle}</p>
         </div>
 
@@ -402,8 +402,8 @@ const Home: React.FC = () => {
             style={{ width: "fit-content" }}
           >
             {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (
-               <div key={index} className="flex-shrink-0 mx-8 md:mx-12">
-                 <span className="text-2xl md:text-3xl font-normal text-gray-400 font-heading opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default">
+               <div key={index} className="flex-shrink-0 mx-6 md:mx-12">
+                 <span className="text-xl md:text-3xl font-normal text-gray-400 font-heading opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default whitespace-nowrap">
                    {partner}
                  </span>
                </div>

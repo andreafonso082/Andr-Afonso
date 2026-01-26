@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, Check, Upload, FileText, X } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, Check, Upload, FileText, X, MessageCircle } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -87,24 +87,26 @@ const Contact: React.FC = () => {
 
       {/* Header */}
       <div className="bg-corporate py-16 mb-16 text-center text-white">
-        <h1 className="text-4xl font-normal font-heading mb-4">{t.contact.heroTitle}</h1>
-        <p className="text-gray-300 max-w-2xl mx-auto font-light">
-          {t.contact.heroDesc}
-        </p>
+        <div className="container mx-auto px-4 md:px-12">
+          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.contact.heroTitle}</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
+            {t.contact.heroDesc}
+          </p>
+        </div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row gap-16">
+      <div className="container mx-auto px-4 md:px-12">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
           
           {/* Contact Info Side */}
-          <div className="lg:w-1/3">
+          <div className="w-full lg:w-1/3">
             <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
               {t.contact.infoTitle}
             </h2>
             
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <div className="flex items-start gap-4">
-                <div className="bg-detail p-3 rounded text-accent">
+                <div className="bg-detail p-3 rounded text-accent shrink-0">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -118,7 +120,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-detail p-3 rounded text-accent">
+                <div className="bg-detail p-3 rounded text-accent shrink-0">
                   <Phone size={24} />
                 </div>
                 <div>
@@ -129,18 +131,18 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-detail p-3 rounded text-accent">
+                <div className="bg-detail p-3 rounded text-accent shrink-0">
                   <Mail size={24} />
                 </div>
-                <div>
+                <div className="overflow-hidden">
                   <h3 className="font-normal text-corporate mb-1">{t.contact.labels.email}</h3>
-                  <p className="text-gray-600 text-sm">mail@joaquimfernandes.pt</p>
-                  <p className="text-gray-600 text-sm">orcamentos@joaquimefernandes.pt</p>
+                  <p className="text-gray-600 text-sm break-words">mail@joaquimfernandes.pt</p>
+                  <p className="text-gray-600 text-sm break-words">orcamentos@joaquimefernandes.pt</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-detail p-3 rounded text-accent">
+                <div className="bg-detail p-3 rounded text-accent shrink-0">
                   <Clock size={24} />
                 </div>
                 <div>
@@ -151,20 +153,27 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-10 p-6 bg-detail rounded border border-gray-200">
-               <h4 className="font-normal text-corporate mb-2">{t.contact.labels.emergency}</h4>
-               <p className="text-sm text-gray-600 mb-4">{t.contact.labels.emergencyDesc}</p>
-               <span className="font-bold text-accent text-lg">800 000 000</span>
+            <div className="mt-10 p-6 bg-[#25D366]/10 rounded border border-[#25D366]/30">
+               <h4 className="font-normal text-corporate mb-4 text-lg">{t.contact.labels.whatsappBox.title}</h4>
+               <a 
+                 href="https://wa.me/351937700906" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 px-6 rounded transition-colors uppercase tracking-widest text-sm w-full justify-center md:w-auto"
+               >
+                 <MessageCircle size={18} />
+                 {t.contact.labels.whatsappBox.button}
+               </a>
             </div>
           </div>
 
           {/* Form Side */}
-          <div className="lg:w-2/3">
+          <div className="w-full lg:w-2/3">
             <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
               {t.contact.formTitle}
             </h2>
             
-            <form onSubmit={handleSubmit} className="bg-white rounded shadow-sm border border-gray-100 p-8">
+            <form onSubmit={handleSubmit} className="bg-white rounded shadow-sm border border-gray-100 p-6 md:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.name}</label>
@@ -250,7 +259,7 @@ const Contact: React.FC = () => {
                               `}
                            >
                              <div className={`
-                               w-5 h-5 rounded border flex items-center justify-center transition-colors
+                               w-5 h-5 rounded border flex items-center justify-center transition-colors shrink-0
                                ${isSelected ? 'bg-accent border-accent' : 'bg-white border-gray-300'}
                               `}>
                                {isSelected && <Check size={14} className="text-white" />}
@@ -333,10 +342,10 @@ const Contact: React.FC = () => {
                       ) : (
                         <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
                            <div className="flex items-center gap-3 overflow-hidden">
-                              <div className="bg-red-100 p-2 rounded text-red-500">
+                              <div className="bg-red-100 p-2 rounded text-red-500 shrink-0">
                                  <FileText size={20} />
                               </div>
-                              <span className="text-sm font-medium text-gray-700 truncate max-w-[200px] sm:max-w-xs">
+                              <span className="text-sm font-medium text-gray-700 truncate max-w-[150px] sm:max-w-xs">
                                 {formData.cvFile.name}
                               </span>
                            </div>
@@ -378,9 +387,9 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Map Section */}
-        <div className="mt-20">
+        <div className="mt-16 md:mt-20">
           <h2 className="text-2xl font-normal text-corporate mb-8">{t.contact.locationTitle}</h2>
-          <div className="w-full h-96 bg-gray-200 rounded-lg overflow-hidden relative shadow-inner">
+          <div className="w-full h-80 md:h-96 bg-gray-200 rounded-lg overflow-hidden relative shadow-inner">
              {/* Iframe for Google Maps visualization (Pointing to Moncarapacho/Olhão) */}
              <iframe 
                 src="https://maps.google.com/maps?q=Estrada+Nacional+125+Bias+Norte+Moncarapacho,+8700-066+Olhão&t=&z=13&ie=UTF8&iwloc=&output=embed"

@@ -41,9 +41,9 @@ const About: React.FC = () => {
 
       {/* 1. HEADER / HERO */}
       <div className="bg-corporate py-16 mb-0 text-center text-white relative">
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <h1 className="text-4xl font-normal font-heading mb-4">{t.about.heroTitle}</h1>
-          <p className="text-gray-300 max-w-2xl mx-auto font-light">
+        <div className="container mx-auto px-4 md:px-12 relative z-10">
+          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.about.heroTitle}</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
             {t.about.heroDesc}
           </p>
         </div>
@@ -54,14 +54,14 @@ const About: React.FC = () => {
       </div>
 
       {/* 2. AWARDS & CERTIFICATIONS (High Relevance/Trust) */}
-      <section className="bg-white py-16 mb-0 border-b border-gray-100">
-         <div className="container mx-auto px-6 md:px-12">
-            <div className="text-center mb-12">
-               <h2 className="text-3xl font-normal text-corporate mb-4 font-heading">{t.about.awards.title}</h2>
+      <section className="bg-white py-12 md:py-16 mb-0 border-b border-gray-100">
+         <div className="container mx-auto px-4 md:px-12">
+            <div className="text-center mb-10 md:mb-12">
+               <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4 font-heading">{t.about.awards.title}</h2>
                <p className="text-gray-500 max-w-2xl mx-auto">{t.about.awards.subtitle}</p>
             </div>
             
-            <div className="flex flex-col md:flex-row justify-center items-center gap-12 lg:gap-24">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-24">
                {/* PME Líder Mockup/Placeholder */}
                <motion.div 
                  initial={{ opacity: 0, scale: 0.8 }}
@@ -72,7 +72,7 @@ const About: React.FC = () => {
                   <img 
                     src="https://placehold.co/200x200/0056b3/white?text=PME+Lider" 
                     alt="PME Líder" 
-                    className="h-32 w-auto mb-4 hover:scale-105 transition-transform duration-300 object-contain"
+                    className="h-24 md:h-32 w-auto mb-4 hover:scale-105 transition-transform duration-300 object-contain"
                   />
                   <h3 className="font-bold text-corporate text-lg">PME Líder</h3>
                   <p className="text-xs text-gray-400 text-center max-w-[200px]">
@@ -90,7 +90,7 @@ const About: React.FC = () => {
                   <img 
                     src="https://placehold.co/200x200/FFC107/black?text=PME+Excelencia" 
                     alt="PME Excelência" 
-                    className="h-32 w-auto mb-4 hover:scale-105 transition-transform duration-300 object-contain"
+                    className="h-24 md:h-32 w-auto mb-4 hover:scale-105 transition-transform duration-300 object-contain"
                   />
                   <h3 className="font-bold text-corporate text-lg">PME Excelência</h3>
                   <p className="text-xs text-gray-400 text-center max-w-[200px]">
@@ -102,9 +102,9 @@ const About: React.FC = () => {
       </section>
 
       {/* 3. TEAM (Human Connection) */}
-      <section className="bg-detail py-20 relative overflow-hidden mb-16">
-         <div className="container mx-auto px-6 md:px-12 relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-16">
+      <section className="bg-detail py-16 md:py-20 relative overflow-hidden mb-16">
+         <div className="container mx-auto px-4 md:px-12 relative z-10">
+            <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16">
                
                {/* Image Side */}
                <motion.div 
@@ -112,38 +112,38 @@ const About: React.FC = () => {
                  whileInView={{ opacity: 1, x: 0 }}
                  viewport={{ once: true }}
                  transition={{ duration: 0.6 }}
-                 className="lg:w-1/2 relative"
+                 className="w-full lg:w-1/2 relative"
                >
                   <div className="absolute top-4 left-4 w-full h-full border-2 border-corporate rounded-lg z-0"></div>
                   <img 
                     src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2064&auto=format&fit=crop" 
                     alt="Equipa Joaquim & Fernandes" 
-                    className="relative z-10 rounded-lg shadow-xl w-full object-cover h-[400px]"
+                    className="relative z-10 rounded-lg shadow-xl w-full object-cover h-[300px] md:h-[400px]"
                   />
                   {/* Floating Badge */}
-                  <div className="absolute -bottom-6 -right-6 bg-accent text-white p-6 rounded shadow-lg z-20 hidden md:block">
-                     <span className="block text-4xl font-normal font-heading">38</span>
+                  <div className="absolute -bottom-6 -right-6 bg-accent text-white p-4 md:p-6 rounded shadow-lg z-20 hidden md:block">
+                     <span className="block text-3xl md:text-4xl font-normal font-heading">40</span>
                      <span className="text-xs uppercase tracking-widest">Anos de Experiência</span>
                   </div>
                </motion.div>
 
                {/* Text Side */}
-               <div className="lg:w-1/2">
+               <div className="w-full lg:w-1/2">
                   <motion.div
                      initial={{ opacity: 0, x: 50 }}
                      whileInView={{ opacity: 1, x: 0 }}
                      viewport={{ once: true }}
                      transition={{ duration: 0.6 }}
                   >
-                     <h4 className="text-brand-light font-normal uppercase tracking-widest text-sm mb-2">{t.about.teamSection.title}</h4>
-                     <h2 className="text-3xl md:text-4xl font-normal text-corporate mb-6 font-heading leading-tight">
+                     <h4 className="text-brand-light font-normal uppercase tracking-widest text-xs md:text-sm mb-2">{t.about.teamSection.title}</h4>
+                     <h2 className="text-2xl md:text-4xl font-normal text-corporate mb-6 font-heading leading-tight">
                         {t.about.teamSection.subtitle}
                      </h2>
                      <p className="text-gray-600 mb-8 leading-relaxed font-body">
                         {t.about.teamSection.description}
                      </p>
                      
-                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8">
                         <div className="flex items-start gap-3">
                            <div className="bg-white p-2 rounded shadow-sm text-accent">
                               <Users size={20} />
@@ -180,7 +180,7 @@ const About: React.FC = () => {
       </section>
 
       {/* 4. TIMELINE (Interactive Depth) */}
-      <div className="container mx-auto px-6 md:px-12 mb-24">
+      <div className="container mx-auto px-4 md:px-12 mb-24">
         
         <div className="text-center mb-8">
             <h2 className="text-2xl font-normal text-corporate font-heading">O Nosso Percurso</h2>
@@ -203,13 +203,13 @@ const About: React.FC = () => {
             {t.about.timeline.map((event: any, index: number) => {
               const isEven = index % 2 === 0;
               return (
-                <div key={index} className="relative flex-shrink-0 w-[300px] md:w-[400px] flex flex-col items-center justify-center h-full group">
+                <div key={index} className="relative flex-shrink-0 w-[280px] md:w-[400px] flex flex-col items-center justify-center h-full group">
                   
                   {/* The Horizontal Line Segment */}
                   <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-100 group-last:bg-gradient-to-r group-last:from-gray-100 group-last:to-transparent"></div>
                   
                   {/* The Dot / Node */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 bg-accent rounded-full border-4 border-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-accent rounded-full border-4 border-white shadow-lg transition-transform duration-300 group-hover:scale-110">
                     {getIcon(index)}
                   </div>
 
@@ -249,13 +249,22 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* 5. CLOSING / CTA Section */}
-      <div className="container mx-auto px-6 md:px-12 text-center">
-          <h2 className="text-3xl font-normal text-corporate mb-6">{t.about.closingTitle}</h2>
-          <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-            {t.about.closingDesc}
-          </p>
-          <CTAButton to="/recrutamento" text={t.about.closingCta} variant="primary" />
+      {/* 5. CLOSING / CTA Section - Centered with Blue Background */}
+      <div className="w-full py-16 bg-[#3B455B] md:bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center">
+        <div className="container mx-auto px-4 md:px-12">
+           <h2 className="text-2xl md:text-3xl font-normal text-white mb-2 font-heading uppercase tracking-wide">
+             {t.about.closingTitle}
+           </h2>
+           <p className="text-gray-300 max-w-xl mx-auto mb-8 text-lg">
+             {t.about.closingDesc}
+           </p>
+           <CTAButton 
+             to="/recrutamento" 
+             text={t.about.closingCta} 
+             variant="outline"
+             className="text-white border-white hover:bg-white hover:text-[#3B455B]"
+           />
+        </div>
       </div>
 
     </div>

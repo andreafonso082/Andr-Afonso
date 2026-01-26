@@ -108,7 +108,7 @@ const Partners: React.FC = () => {
         </section>
 
         {/* 4. Exclusive Partnerships Section */}
-        <section className="bg-corporate text-white rounded-2xl p-10 md:p-16 relative overflow-hidden">
+        <section className="bg-corporate text-white rounded-2xl p-10 md:p-16 relative overflow-hidden mb-20">
            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
            <div className="relative z-10">
              <div className="text-center mb-12">
@@ -142,16 +142,26 @@ const Partners: React.FC = () => {
            </div>
         </section>
 
-        {/* 5. CTA */}
-        <section className="py-20 text-center">
-            <h2 className="text-3xl font-normal text-corporate mb-4">{t.partners.ctaTitle}</h2>
-            <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+      </div>
+      
+      {/* 5. CTA - Centered with Blue Background */}
+      <section className="w-full py-16 bg-[#3B455B] md:bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center">
+         <div className="container mx-auto px-6 md:px-12">
+            <h2 className="text-2xl md:text-3xl font-normal text-white mb-2 font-heading uppercase tracking-wide">
+              {t.partners.ctaTitle}
+            </h2>
+            <p className="text-gray-300 text-lg max-w-xl mx-auto mb-8">
               {t.partners.ctaDesc}
             </p>
-            <CTAButton to="/contact" text={t.partners.ctaButton} variant="primary" />
-        </section>
+            <CTAButton 
+              to="/contact" 
+              text={t.partners.ctaButton} 
+              variant="outline"
+              className="text-white border-white hover:bg-white hover:text-[#3B455B]"
+            />
+         </div>
+      </section>
 
-      </div>
     </div>
   );
 };

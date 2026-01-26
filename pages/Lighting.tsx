@@ -28,7 +28,7 @@ const Lighting: React.FC = () => {
       />
 
       {/* 1. HERO */}
-      <div className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-corporate">
+      <div className="relative h-[60vh] min-h-[400px] md:h-[70vh] md:min-h-[500px] flex items-center justify-center overflow-hidden bg-corporate">
         <div className="absolute inset-0 z-0">
           {/* Use an image of lights or night city */}
           <img 
@@ -39,7 +39,7 @@ const Lighting: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-corporate via-corporate/80 to-transparent"></div>
         </div>
 
-        <div className="container mx-auto px-6 md:px-12 relative z-10 text-center">
+        <div className="container mx-auto px-4 md:px-12 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -49,10 +49,10 @@ const Lighting: React.FC = () => {
               <Star size={14} className="animate-pulse" />
               LIGHTING & SMART SOLUTIONS
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal font-heading text-white mb-6 tracking-tight leading-none">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-heading text-white mb-6 tracking-tight leading-none">
               {t.lighting.heroTitle}
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
               {t.lighting.heroDesc}
             </p>
           </motion.div>
@@ -60,16 +60,16 @@ const Lighting: React.FC = () => {
       </div>
 
       {/* 2. INTRO */}
-      <section className="py-24 bg-white relative">
-        <div className="container mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2">
+      <section className="py-16 md:py-24 bg-white relative">
+        <div className="container mx-auto px-4 md:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <div className="w-full lg:w-1/2">
              <motion.div
                initial={{ opacity: 0, x: -50 }}
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
                transition={{ duration: 0.6 }}
              >
-               <h2 className="text-4xl font-normal text-corporate mb-8 leading-tight">
+               <h2 className="text-3xl md:text-4xl font-normal text-corporate mb-8 leading-tight">
                  {t.lighting.introTitle}
                </h2>
                <div className="w-24 h-1 bg-accent mb-8"></div>
@@ -78,34 +78,34 @@ const Lighting: React.FC = () => {
                </p>
                <div className="mt-8 flex gap-4">
                  <div className="flex flex-col">
-                    <span className="text-4xl font-bold text-accent">100+</span>
+                    <span className="text-3xl md:text-4xl font-bold text-accent">100+</span>
                     <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.lighting.stat1}</span>
                  </div>
                  <div className="w-px bg-gray-200 mx-4"></div>
                  <div className="flex flex-col">
-                    <span className="text-4xl font-bold text-brand-light">15k</span>
+                    <span className="text-3xl md:text-4xl font-bold text-brand-light">15k</span>
                     <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.lighting.stat2}</span>
                  </div>
                </div>
              </motion.div>
           </div>
-          <div className="lg:w-1/2 relative">
+          <div className="w-full lg:w-1/2 relative">
              <div className="absolute -inset-4 bg-yellow-400/20 rounded-lg blur-xl transform -rotate-2"></div>
              <img 
                src="https://images.unsplash.com/photo-1562916172-23c2a6132711?q=80&w=2070&auto=format&fit=crop" 
                alt="Festive Lighting" 
-               className="relative rounded-lg shadow-2xl z-10"
+               className="relative rounded-lg shadow-2xl z-10 w-full h-auto"
              />
           </div>
         </div>
       </section>
 
       {/* 3. LIGHTING TYPES GRID */}
-      <section className="py-24 bg-detail relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-detail relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-light/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container mx-auto px-4 md:px-12 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {t.lighting.types.map((type: any, index: number) => (
               <motion.div
                 key={index}
@@ -131,16 +131,16 @@ const Lighting: React.FC = () => {
       </section>
 
       {/* 4. INNOVATION HIGHLIGHT */}
-      <section className="py-24 bg-corporate text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-corporate text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
          
-         <div className="container mx-auto px-6 md:px-12 relative z-10">
+         <div className="container mx-auto px-4 md:px-12 relative z-10">
             <div className="flex flex-col lg:flex-row items-center gap-12">
-               <div className="lg:w-1/2">
+               <div className="w-full lg:w-1/2">
                   <div className="inline-block bg-accent px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
                     Engineering + Art
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-normal font-heading mb-6">
+                  <h2 className="text-3xl md:text-5xl font-normal font-heading mb-6">
                     {t.lighting.innovationTitle}
                   </h2>
                   <p className="text-gray-400 text-lg mb-8 font-light">
@@ -149,14 +149,14 @@ const Lighting: React.FC = () => {
                   
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                       <Lightbulb className="text-yellow-400 mt-1" />
+                       <Lightbulb className="text-yellow-400 mt-1 shrink-0" />
                        <div>
                          <h4 className="font-normal text-white text-lg font-heading">LEDs de Alta Eficiência</h4>
                          <p className="text-gray-500 text-sm">Tecnologia que garante menor consumo e maior durabilidade.</p>
                        </div>
                     </div>
                     <div className="flex items-start gap-4">
-                       <Zap className="text-brand-light mt-1" />
+                       <Zap className="text-brand-light mt-1 shrink-0" />
                        <div>
                          <h4 className="font-normal text-white text-lg font-heading">Sistemas de Telegestão</h4>
                          <p className="text-gray-500 text-sm">Controlo remoto de luminárias públicas para gestão inteligente.</p>
@@ -165,7 +165,7 @@ const Lighting: React.FC = () => {
                   </div>
                </div>
                
-               <div className="lg:w-1/2 w-full">
+               <div className="w-full lg:w-1/2">
                   <div className="relative bg-gray-800 rounded-xl p-2 border border-gray-700 shadow-2xl">
                      <div className="absolute -top-10 -right-10 w-32 h-32 bg-yellow-500 rounded-full blur-3xl opacity-20"></div>
                      <img 
@@ -180,15 +180,15 @@ const Lighting: React.FC = () => {
       </section>
 
       {/* 5. CTA */}
-      <section className="py-20 bg-white text-center">
-        <div className="container mx-auto px-6">
+      <section className="py-16 md:py-20 bg-white text-center">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
              initial={{ opacity: 0, scale: 0.95 }}
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
-             className="bg-gradient-to-br from-detail to-white border border-gray-100 p-12 rounded-2xl shadow-xl max-w-4xl mx-auto"
+             className="bg-gradient-to-br from-detail to-white border border-gray-100 p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-normal text-corporate mb-4">{t.lighting.ctaTitle}</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.lighting.ctaTitle}</h2>
             <p className="text-gray-600 mb-8 text-lg">{t.lighting.ctaDesc}</p>
             <CTAButton to="/contact" text={t.lighting.ctaButton} variant="primary" />
           </motion.div>
