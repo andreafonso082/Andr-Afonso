@@ -20,10 +20,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
-      className="bg-white p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow group flex flex-col h-full rounded-sm"
+      className="bg-white p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow group flex flex-col h-full rounded-sm relative overflow-hidden"
     >
+      <div className="absolute top-0 left-0 w-1 h-0 bg-brand-light group-hover:h-full transition-all duration-300"></div>
+      
       <div className="bg-detail p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-accent transition-colors duration-300">
-        {/* Default icon is accent (dark blue), on hover it becomes white */}
+        {/* Default icon is accent, on hover it becomes white */}
         <div className="text-accent group-hover:text-white transition-colors duration-300">
           {icon}
         </div>

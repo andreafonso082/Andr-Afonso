@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Check, ArrowLeft, ArrowRight, Tag } from 'lucide-react';
+import { Check, ArrowLeft, ArrowRight, Tag, ShieldCheck, TrendingUp, Settings, FileText, ImageIcon } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -22,6 +22,15 @@ const ServiceDetail: React.FC = () => {
         case 'others': return "https://picsum.photos/seed/consulting/1920/1080";
         default: return "https://picsum.photos/seed/electricity/1920/1080";
     }
+  };
+
+  // Helper to get Gallery Images (Mock data based on ID seed)
+  const getGalleryImages = (serviceId: string) => {
+     return [
+        `https://picsum.photos/seed/${serviceId}1/600/400`,
+        `https://picsum.photos/seed/${serviceId}2/600/400`,
+        `https://picsum.photos/seed/${serviceId}3/600/400`,
+     ];
   };
 
   // Safe check if service exists
@@ -75,7 +84,7 @@ const ServiceDetail: React.FC = () => {
       <div className="container mx-auto px-4 md:px-12 py-12 md:py-16">
         
         {/* Breadcrumb / Back Link */}
-        <Link to="/services" className="inline-flex items-center text-gray-500 hover:text-accent mb-8 md:mb-12 transition-colors font-semibold text-sm">
+        <Link to="/services" className="inline-flex items-center text-gray-500 hover:text-brand-light mb-8 md:mb-12 transition-colors font-semibold text-sm">
           <ArrowLeft size={16} className="mr-2" /> {t.nav.services}
         </Link>
 
@@ -88,15 +97,18 @@ const ServiceDetail: React.FC = () => {
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
             >
-              <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-6 md:mb-8 border-l-4 border-accent pl-4">
+              <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-6 md:mb-8 border-l-4 border-brand-light pl-4">
                 {serviceData.title}
               </h2>
-              <div className="prose prose-lg text-gray-600 font-body leading-relaxed mb-8 md:mb-12 text-sm md:text-base">
+              <div className="prose prose-lg text-gray-600 font-body leading-relaxed mb-12 text-sm md:text-base text-justify">
                 <p>{serviceData.fullText}</p>
               </div>
 
-              <h3 className="text-lg md:text-xl font-normal text-corporate mb-4 md:mb-6">O que incluímos neste serviço:</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+              {/* FEATURES LIST */}
+              <h3 className="text-lg md:text-xl font-normal text-corporate mb-4 md:mb-6 uppercase tracking-wider">
+                 O que incluímos
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
                 {serviceData.features.map((feature: string, index: number) => (
                   <div key={index} className="flex items-start gap-3 bg-detail p-4 rounded border border-gray-100">
                     <Check size={20} className="text-accent shrink-0 mt-0.5" />
@@ -104,6 +116,63 @@ const ServiceDetail: React.FC = () => {
                   </div>
                 ))}
               </div>
+
+              {/* BENEFITS SECTION - NEW */}
+              {serviceData.benefits && (
+                <div className="mb-16">
+                   <h3 className="text-lg md:text-xl font-normal text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
+                      <ShieldCheck className="text-brand-light" /> Porquê a J&F?
+                   </h3>
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {serviceData.benefits.map((benefit: any, index: number) => (
+                         <div key={index} className="bg-white p-6 rounded shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                            <h4 className="text-corporate font-bold mb-2 text-base">{benefit.title}</h4>
+                            <p className="text-gray-500 text-sm leading-relaxed">{benefit.desc}</p>
+                         </div>
+                      ))}
+                   </div>
+                </div>
+              )}
+
+              {/* PROCESS SECTION - NEW */}
+              {serviceData.process && (
+                <div className="mb-16">
+                   <h3 className="text-lg md:text-xl font-normal text-corporate mb-8 uppercase tracking-wider flex items-center gap-2">
+                      <Settings className="text-brand-light" /> Metodologia de Trabalho
+                   </h3>
+                   <div className="relative border-l-2 border-brand-light/30 ml-4 space-y-8 py-2">
+                      {serviceData.process.map((step: any, index: number) => (
+                         <div key={index} className="relative pl-8">
+                            <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-light border-2 border-white shadow-sm"></div>
+                            <h4 className="text-corporate font-bold text-base mb-1">
+                               <span className="text-accent mr-2">0{index + 1}.</span>{step.title}
+                            </h4>
+                            <p className="text-gray-500 text-sm">{step.desc}</p>
+                         </div>
+                      ))}
+                   </div>
+                </div>
+              )}
+
+              {/* GALLERY SECTION - NEW */}
+              <div className="mb-12">
+                 <h3 className="text-lg md:text-xl font-normal text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
+                    <ImageIcon className="text-brand-light" /> Galeria
+                 </h3>
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {getGalleryImages(id || 'default').map((img, index) => (
+                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 ? 'md:col-span-2 md:h-full' : ''}`}>
+                          <img 
+                             src={img} 
+                             alt="Exemplo de Obra" 
+                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                          />
+                          <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                       </div>
+                    ))}
+                 </div>
+              </div>
+
             </motion.div>
           </div>
 
@@ -117,17 +186,17 @@ const ServiceDetail: React.FC = () => {
                   Fale com a nossa equipa técnica especializada para obter um orçamento personalizado para o seu projeto.
                 </p>
                 <Link 
-                  to="/contact" 
-                  className="block w-full text-center bg-brand-light hover:bg-white text-corporate font-bold py-3 px-6 rounded transition-colors uppercase tracking-widest text-sm"
+                  to={`/contact?subject=orcamento&interest=${id}`}
+                  className="block w-full text-center bg-white hover:bg-detail text-accent font-bold py-3 px-6 rounded transition-colors uppercase tracking-widest text-sm"
                 >
                   {t.nav.quote}
                 </Link>
               </div>
 
               {/* SEO Keyword Cloud (Visible) */}
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
+              <div className="bg-white border border-gray-200 p-6 rounded-lg mb-8">
                 <h4 className="flex items-center gap-2 font-normal text-corporate mb-4 text-sm uppercase tracking-wider">
-                  <Tag size={16} className="text-accent" /> Áreas de Foco
+                  <Tag size={16} className="text-brand-light" /> Áreas de Foco
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {serviceData.keywords.map((keyword: string, index: number) => (
@@ -137,6 +206,24 @@ const ServiceDetail: React.FC = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Downloads / Tech Specs Placeholder */}
+              <div className="bg-detail p-6 rounded-lg border border-gray-200">
+                  <h4 className="flex items-center gap-2 font-normal text-corporate mb-4 text-sm uppercase tracking-wider">
+                     <FileText size={16} className="text-brand-light" /> Documentação
+                  </h4>
+                  <ul className="space-y-3">
+                     <li className="flex items-center justify-between text-sm text-gray-600 border-b border-gray-200 pb-2">
+                        <span>Ficha Técnica</span>
+                        <span className="text-xs bg-gray-200 px-2 py-0.5 rounded">PDF</span>
+                     </li>
+                     <li className="flex items-center justify-between text-sm text-gray-600">
+                        <span>Portefólio J&F</span>
+                        <span className="text-xs bg-gray-200 px-2 py-0.5 rounded">PDF</span>
+                     </li>
+                  </ul>
+              </div>
+
             </div>
           </div>
 

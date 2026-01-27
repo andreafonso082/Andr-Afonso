@@ -20,14 +20,14 @@
             colors: {
               corporate: '#1A1A1A', // Primary Black/Dark Gray
               accent: '#3A445C',    // Dark Blue Slate
-              'brand-light': '#8DC8E8', // Light Blue Sky - Updated to #8DC8E8
+              'brand-light': '#8DC8E8', // Light Blue Sky
               secondary: '#333333', // Text Dark Gray
               detail: '#F5F5F5',    // Light Gray Background
             },
             fontFamily: {
-              sans: ['Montserrat', 'sans-serif'], // Default UI font changed to Montserrat
-              heading: ['Anton', 'sans-serif'], // Specific Heading font
-              body: ['Montserrat', 'sans-serif'], // Body font changed to Montserrat
+              sans: ['Montserrat', 'sans-serif'],
+              heading: ['Anton', 'sans-serif'], 
+              body: ['Montserrat', 'sans-serif'],
             }
           }
         }
@@ -38,10 +38,11 @@
         font-family: 'Montserrat', sans-serif;
         color: #333333;
       }
-      h1, h2, h3, h4, h5, h6 {
+      /* STRICTLY enforce non-bold for Anton to maintain clean aesthetics */
+      h1, h2, h3, h4, h5, h6, .font-heading {
         font-family: 'Anton', sans-serif;
-        font-weight: 400; /* Ensure no artificial bolding is applied */
-        letter-spacing: 0.05em; /* Slight spacing for better readability with Anton */
+        font-weight: 400 !important; 
+        letter-spacing: 0.05em; 
       }
       .scroll-smooth {
         scroll-behavior: smooth;

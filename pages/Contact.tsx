@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, Check, Upload, FileText, X, MessageCircle } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -7,6 +8,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
+  const location = useLocation();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,6 +20,25 @@ const Contact: React.FC = () => {
     message: '',
     cvFile: null as File | null
   });
+
+  // Handle URL Query Params for Pre-filling
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const subjectParam = params.get('subject');
+    const interestParam = params.get('interest');
+
+    if (subjectParam || interestParam) {
+      setFormData(prev => ({
+        ...prev,
+        // Set subject if provided, otherwise keep existing
+        subject: subjectParam || prev.subject,
+        // Add interest if provided and not already in the list
+        interest: interestParam && !prev.interest.includes(interestParam) 
+          ? [...prev.interest, interestParam] 
+          : prev.interest
+      }));
+    }
+  }, [location]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -244,7 +266,7 @@ const Contact: React.FC = () => {
                       {t.contact.form.interest} <span className="text-gray-400 font-normal text-xs ml-1">(Selecione múltiplas opções)</span>
                     </label>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1 mb-6">
                       {Object.entries(t.contact.form.optsInterest).map(([key, label]) => {
                          const isSelected = formData.interest.includes(key);
                          return (
@@ -268,6 +290,49 @@ const Contact: React.FC = () => {
                            </div>
                          );
                       })}
+                    </div>
+
+                    {/* File Upload for Budget */}
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-3">
+                         Anexar Projeto/Planta (PDF)
+                      </label>
+                      
+                      {!formData.cvFile ? (
+                        <div className="relative border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg p-6 text-center group cursor-pointer">
+                           <input 
+                             type="file" 
+                             accept="application/pdf"
+                             onChange={handleFileChange}
+                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                           />
+                           <div className="flex flex-col items-center justify-center pointer-events-none">
+                              <Upload className="text-gray-400 group-hover:text-accent mb-2 transition-colors" size={24} />
+                              <span className="text-sm font-semibold text-gray-600 group-hover:text-corporate transition-colors">
+                                {t.contact.form.uploadFile}
+                              </span>
+                              <span className="text-xs text-gray-400 mt-1">PDF (Max. 5MB)</span>
+                           </div>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
+                           <div className="flex items-center gap-3 overflow-hidden">
+                              <div className="bg-red-100 p-2 rounded text-red-500 shrink-0">
+                                 <FileText size={20} />
+                              </div>
+                              <span className="text-sm font-medium text-gray-700 truncate max-w-[150px] sm:max-w-xs">
+                                {formData.cvFile.name}
+                              </span>
+                           </div>
+                           <button 
+                             type="button" 
+                             onClick={removeFile}
+                             className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors"
+                           >
+                             <X size={18} />
+                           </button>
+                        </div>
+                      )}
                     </div>
                   </motion.div>
                 )}

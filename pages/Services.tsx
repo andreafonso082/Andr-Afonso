@@ -11,13 +11,14 @@ const Services: React.FC = () => {
   // Mapping icons to category IDs for rendering
   const getIcon = (id: string) => {
      switch(id) {
-         case 'projects': return <FileText className="w-12 h-12 text-accent" />;
          case 'plrs': return <Activity className="w-12 h-12 text-accent" />;
          case 'installations': return <Wrench className="w-12 h-12 text-accent" />;
-         case 'substations': return <Zap className="w-12 h-12 text-accent" />;
-         case 'ev_charging': return <BatteryCharging className="w-12 h-12 text-accent" />;
          case 'telecommunications': return <Router className="w-12 h-12 text-accent" />;
+         case 'substations': return <Zap className="w-12 h-12 text-accent" />;
+         case 'projects': return <FileText className="w-12 h-12 text-accent" />;
          case 'others': return <Layers className="w-12 h-12 text-accent" />;
+         // Fallback cases just in case
+         case 'ev_charging': return <BatteryCharging className="w-12 h-12 text-accent" />;
          default: return <Zap className="w-12 h-12 text-accent" />;
      }
   };
@@ -25,13 +26,13 @@ const Services: React.FC = () => {
   // Mapping images (could be in translation file or static, keeping static here but mapped by ID)
   const getImage = (id: string) => {
     switch(id) {
-        case 'projects': return "https://picsum.photos/seed/blueprints/800/600";
         case 'plrs': return "https://picsum.photos/seed/electric_grid/800/600";
         case 'installations': return "https://picsum.photos/seed/electrician_work/800/600";
-        case 'substations': return "https://picsum.photos/seed/transformer/800/600";
-        case 'ev_charging': return "https://picsum.photos/seed/evcharging/800/600";
         case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
+        case 'substations': return "https://picsum.photos/seed/transformer/800/600";
+        case 'projects': return "https://picsum.photos/seed/blueprints/800/600";
         case 'others': return "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop";
+        case 'ev_charging': return "https://picsum.photos/seed/evcharging/800/600";
         default: return "https://picsum.photos/seed/electricity/800/600";
     }
   };

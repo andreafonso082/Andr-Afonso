@@ -179,10 +179,10 @@ const About: React.FC = () => {
          </div>
       </section>
 
-      {/* 4. TIMELINE (Interactive Depth) */}
-      <div className="container mx-auto px-4 md:px-12 mb-24">
+      {/* 4. TIMELINE (Interactive Depth) - Full Width */}
+      <div className="mb-24 w-full">
         
-        <div className="text-center mb-8">
+        <div className="container mx-auto px-4 md:px-12 text-center mb-8">
             <h2 className="text-2xl font-normal text-corporate font-heading">O Nosso Percurso</h2>
         </div>
 
@@ -193,12 +193,12 @@ const About: React.FC = () => {
         </div>
 
         {/* Horizontal Timeline Container */}
-        <div ref={carouselRef} className="cursor-grab active:cursor-grabbing overflow-hidden">
+        <div ref={carouselRef} className="cursor-grab active:cursor-grabbing overflow-hidden w-full bg-gray-50/50 py-12">
           <motion.div 
             drag="x" 
             dragConstraints={{ right: 0, left: -width }}
             whileTap={{ cursor: "grabbing" }}
-            className="flex items-center min-h-[450px] pl-4 md:pl-12"
+            className="flex items-center min-h-[450px] pl-0"
           >
             {t.about.timeline.map((event: any, index: number) => {
               const isEven = index % 2 === 0;
@@ -206,7 +206,7 @@ const About: React.FC = () => {
                 <div key={index} className="relative flex-shrink-0 w-[280px] md:w-[400px] flex flex-col items-center justify-center h-full group">
                   
                   {/* The Horizontal Line Segment */}
-                  <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-100 group-last:bg-gradient-to-r group-last:from-gray-100 group-last:to-transparent"></div>
+                  <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-200 group-last:bg-gradient-to-r group-last:from-gray-200 group-last:to-transparent"></div>
                   
                   {/* The Dot / Node */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-accent rounded-full border-4 border-white shadow-lg transition-transform duration-300 group-hover:scale-110">
@@ -244,7 +244,7 @@ const About: React.FC = () => {
             })}
             
             {/* Extra padding at the end to ensure last item isn't cut off */}
-            <div className="w-12 flex-shrink-0"></div>
+            <div className="w-12 md:w-[20vw] flex-shrink-0"></div>
           </motion.div>
         </div>
       </div>

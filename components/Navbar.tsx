@@ -130,7 +130,7 @@ const Navbar: React.FC = () => {
             <Link
               key={link.path}
               to={link.path}
-              className="py-4 px-6 text-corporate font-semibold border-b border-gray-100 last:border-0 hover:text-accent hover:bg-gray-50 transition-colors text-sm uppercase tracking-wider"
+              className="py-4 px-6 text-corporate font-semibold border-b border-gray-100 last:border-0 hover:text-brand-light hover:bg-gray-50 transition-colors text-sm uppercase tracking-wider"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
@@ -140,7 +140,7 @@ const Navbar: React.FC = () => {
             <Link
               to="/contact"
               onClick={() => setIsOpen(false)}
-              className="block w-full bg-accent text-center text-white font-bold py-3 rounded shadow-md uppercase text-sm tracking-widest"
+              className="block w-full bg-accent hover:bg-[#2A3345] text-center text-white font-bold py-3 rounded shadow-md uppercase text-sm tracking-widest transition-colors"
             >
               {t.nav.quote}
             </Link>
