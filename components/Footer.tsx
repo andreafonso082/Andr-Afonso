@@ -7,17 +7,22 @@ import { useLanguage } from '../context/LanguageContext';
 const Footer: React.FC = () => {
   const { t } = useLanguage();
 
+  // Defensive check: Ensure translations are available
+  if (!t || !t.footer || !t.nav) {
+    return null;
+  }
+
   return (
     <footer className="bg-corporate text-white pt-16 pb-8 border-t-4 border-brand-light">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-12">
           
-          {/* Company Info */}
-          <div>
+          {/* Company Info - Full width on mobile/tablet, 1 col on desktop */}
+          <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block mb-6 hover:opacity-90 transition-opacity" aria-label="Joaquim & Fernandes - Início">
                <Logo className="h-24 w-24" />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 font-body">
+            <p className="text-gray-400 text-sm leading-relaxed mb-6 font-body max-w-md">
               {t.footer.desc}
             </p>
             <div className="flex gap-4">
@@ -40,7 +45,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="col-span-1">
             <h4 className="text-lg font-normal font-heading mb-6 border-b-2 border-brand-light inline-block pb-1">{t.footer.navTitle}</h4>
             <ul className="space-y-3 font-body text-sm">
               <li><Link to="/" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.home}</Link></li>
@@ -53,23 +58,41 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contacts */}
-          <div>
+          {/* Contacts & Support - Right aligned on mobile/tablet (icon right), Left on desktop (icon left) */}
+          <div className="col-span-1 text-right lg:text-left">
             <h4 className="text-lg font-normal font-heading mb-6 border-b-2 border-brand-light inline-block pb-1">{t.footer.contactTitle}</h4>
-            <ul className="space-y-4 font-body text-sm">
-              <li className="flex items-start gap-3">
+            <ul className="space-y-4 font-body text-sm mb-8">
+              <li className="flex items-start gap-3 flex-row-reverse lg:flex-row">
                 <MapPin size={18} className="text-brand-light shrink-0 mt-1" />
                 <span className="text-gray-400">{t.common.address}<br />{t.common.city}</span>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3 flex-row-reverse lg:flex-row">
                 <Phone size={18} className="text-brand-light shrink-0" />
-                <a href="tel:+351289790500" className="text-gray-400 hover:text-white transition-colors">+351 289 790 500</a>
+                <a href="tel:+351289790500" className="text-gray-400 hover:text-white transition-colors whitespace-nowrap">+351 289 790 500</a>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-3 flex-row-reverse lg:flex-row">
                 <Mail size={18} className="text-brand-light shrink-0" />
-                <a href="mailto:mail@joaquimfernandes.pt" className="text-gray-400 hover:text-white transition-colors">mail@joaquimfernandes.pt</a>
+                <a href="mailto:mail@joaquimfernandes.pt" className="text-gray-400 hover:text-white transition-colors whitespace-nowrap text-xs sm:text-sm">mail@joaquimfernandes.pt</a>
               </li>
             </ul>
+
+            {/* FAQs CTA - Desktop Only (Hidden on Mobile/Tablet) */}
+             <Link 
+               to="/faqs"
+               className="hidden lg:inline-flex items-center bg-brand-light hover:bg-white text-corporate font-bold py-3 px-6 rounded-sm text-xs uppercase tracking-widest transition-colors w-full justify-center shadow-lg"
+             >
+               FAQS
+             </Link>
+          </div>
+
+          {/* FAQs CTA - Mobile/Tablet Only (Full Width below nav/contacts) */}
+          <div className="col-span-2 lg:hidden">
+             <Link 
+               to="/faqs"
+               className="inline-flex items-center bg-brand-light hover:bg-white text-corporate font-bold py-3 px-6 rounded-sm text-xs uppercase tracking-widest transition-colors w-full justify-center shadow-lg"
+             >
+               FAQS
+             </Link>
           </div>
         </div>
 

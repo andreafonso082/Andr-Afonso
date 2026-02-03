@@ -13,6 +13,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import QualityPolicy from './pages/QualityPolicy';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
+import FAQ from './pages/FAQ';
 import { LanguageProvider } from './context/LanguageContext';
 
 // Helper to scroll to top on route change
@@ -44,6 +45,7 @@ const App: React.FC = () => {
               <Route path="/quality-policy" element={<QualityPolicy />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsConditions />} />
+              <Route path="/faqs" element={<FAQ />} />
             </Routes>
           </main>
           <Footer />

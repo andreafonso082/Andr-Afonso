@@ -31,35 +31,17 @@ const Lighting: React.FC = () => {
         description={t.seo.lighting?.description || "Soluções de Iluminação Festiva, Pública e Arquitetural."} 
       />
 
-      {/* 1. HERO */}
-      <div className="relative h-[60vh] min-h-[400px] md:h-[70vh] md:min-h-[500px] flex items-center justify-center overflow-hidden bg-corporate">
-        <div className="absolute inset-0 z-0">
-          {/* Use an image of lights or night city */}
-          <img 
-            src="https://images.unsplash.com/photo-1517457210348-703079e57d4b?q=80&w=2070&auto=format&fit=crop" 
-            alt="Lighting Solutions" 
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-corporate via-corporate/80 to-transparent"></div>
+      {/* 1. HEADER / HERO (Standardized) */}
+      <div className="bg-corporate py-16 mb-16 text-center text-white relative">
+        <div className="container mx-auto px-4 md:px-12 relative z-10">
+          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.lighting.heroTitle}</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
+            {t.lighting.heroDesc}
+          </p>
         </div>
-
-        <div className="container mx-auto px-4 md:px-12 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/10 border border-brand-light/30 text-brand-light text-sm font-mono mb-6 backdrop-blur-sm">
-              <Star size={14} className="animate-pulse" />
-              LIGHTING & SMART SOLUTIONS
-            </div>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-heading text-white mb-6 tracking-tight leading-none">
-              {t.lighting.heroTitle}
-            </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-              {t.lighting.heroDesc}
-            </p>
-          </motion.div>
+        {/* Background Element */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+           <div className="absolute -right-20 -top-20 w-96 h-96 bg-brand-light rounded-full blur-3xl"></div>
         </div>
       </div>
 
@@ -230,7 +212,7 @@ const Lighting: React.FC = () => {
           >
             <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.lighting.ctaTitle}</h2>
             <p className="text-gray-600 mb-8 text-lg">{t.lighting.ctaDesc}</p>
-            <CTAButton to="/contact" text={t.lighting.ctaButton} variant="primary" />
+            <CTAButton to="/contact?subject=orcamento&interest=lighting" text={t.lighting.ctaButton} variant="primary" />
           </motion.div>
         </div>
       </section>

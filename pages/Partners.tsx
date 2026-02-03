@@ -1,12 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Handshake, Award, Zap, Building2, HardHat } from 'lucide-react';
+import { ShieldCheck, Zap, Building2, HardHat, Star, Award, CheckCircle } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 const Partners: React.FC = () => {
   const { t } = useLanguage();
+
+  // Defensive check: Ensure translations are loaded
+  if (!t || !t.partners) {
+    return null;
+  }
 
   return (
     <div className="pt-24 pb-12 bg-white overflow-hidden">
@@ -16,124 +21,134 @@ const Partners: React.FC = () => {
       />
 
       {/* 1. Hero Section */}
-      <div className="bg-corporate py-20 mb-16 text-center text-white relative">
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center justify-center p-3 bg-white/10 rounded-full mb-6">
-               <Handshake size={32} className="text-brand-light" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-normal font-heading mb-6">
-              {t.partners.heroTitle}
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-              {t.partners.heroDesc}
-            </p>
-          </motion.div>
+      <div className="bg-corporate py-16 mb-12 text-center text-white relative">
+        <div className="container mx-auto px-4 md:px-12 relative z-10">
+          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.partners.heroTitle}</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
+            {t.partners.heroDesc}
+          </p>
         </div>
-         {/* Background Element */}
-         <div className="absolute top-0 right-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-           <div className="absolute -left-20 top-20 w-96 h-96 bg-brand-light rounded-full blur-3xl"></div>
+        {/* Background Element */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+           <div className="absolute -right-20 -top-20 w-96 h-96 bg-brand-light rounded-full blur-3xl"></div>
         </div>
       </div>
 
       <div className="container mx-auto px-6 md:px-12">
         
-        {/* 2. SEO & Intro Text Block */}
+        {/* 2. FEATURED SECTION: E-REDES (The Highlight) */}
         <section className="mb-20">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-1/2">
-              <h2 className="text-3xl font-normal text-corporate mb-6 border-l-4 border-accent pl-4">
-                {t.partners.suppliersTitle}
-              </h2>
-              <p className="text-gray-600 leading-relaxed text-lg mb-6">
-                {t.partners.suppliersDesc}
-              </p>
-              <div className="flex gap-4">
-                <div className="flex items-center gap-2 text-sm font-bold text-corporate">
-                  <ShieldCheck className="text-green-500" /> Certificação ISO
-                </div>
-                <div className="flex items-center gap-2 text-sm font-bold text-corporate">
-                  <Award className="text-brand-light" /> Materiais Homologados
-                </div>
-              </div>
-            </div>
-            {/* E-Redes Highlight Card - Strong SEO focus */}
-            <div className="md:w-1/2 w-full">
-              <motion.div 
-                initial={{ scale: 0.95, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-yellow-50 to-white border-2 border-yellow-400 p-8 rounded-lg shadow-lg relative overflow-hidden"
-              >
-                 <div className="absolute top-0 right-0 bg-yellow-400 text-corporate text-xs font-bold px-3 py-1 rounded-bl">
-                   {t.partners.eredesHighlight.badge}
+           <motion.div 
+             initial={{ y: 20, opacity: 0 }}
+             whileInView={{ y: 0, opacity: 1 }}
+             viewport={{ once: true }}
+             className="relative bg-gradient-to-r from-yellow-50 to-white border border-yellow-200 rounded-xl p-8 md:p-12 shadow-sm overflow-hidden"
+           >
+              {/* Decorative Background Icon */}
+              <Zap className="absolute -right-10 -bottom-10 w-64 h-64 text-yellow-100 opacity-50 rotate-12 pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8">
+                 <div className="bg-white p-6 rounded-full shadow-md border-2 border-yellow-400 shrink-0">
+                    <Zap size={48} className="text-yellow-500 fill-yellow-500" />
                  </div>
-                 <h3 className="text-2xl font-normal text-gray-900 mb-2 flex items-center gap-2">
-                   <Zap className="text-yellow-500 fill-yellow-500" />
-                   E-Redes
-                 </h3>
-                 <h4 className="text-sm font-normal text-gray-500 uppercase tracking-wide mb-4">
-                   {t.partners.eredesHighlight.title}
-                 </h4>
-                 <p className="text-gray-700 text-sm mb-0">
-                   {t.partners.eredesHighlight.desc}
-                 </p>
-              </motion.div>
-            </div>
-          </div>
+                 
+                 <div className="flex-grow">
+                    <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+                       <ShieldCheck size={14} />
+                       {t.partners.eredesHighlight.badge}
+                    </div>
+                    <h2 className="text-3xl font-normal text-corporate mb-2 font-heading">
+                      Parceiro Certificado E-Redes
+                    </h2>
+                    <h3 className="text-lg text-gray-500 mb-4 font-medium">
+                      {t.partners.eredesHighlight.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed max-w-3xl">
+                      {t.partners.eredesHighlight.desc}
+                    </p>
+                 </div>
+              </div>
+           </motion.div>
         </section>
 
-        {/* 3. General Suppliers Grid */}
+        {/* 3. SUPPLIERS & BRANDS (Clean Grid) */}
         <section className="mb-24">
-           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="text-center mb-12">
+             <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">
+               {t.partners.suppliersTitle}
+             </h2>
+             <p className="text-gray-500 max-w-2xl mx-auto mb-6">
+               {t.partners.suppliersDesc}
+             </p>
+             <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-sm font-semibold text-corporate">
+                <span className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
+                  <CheckCircle size={16} className="text-green-500" /> Certificação ISO
+                </span>
+                <span className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
+                  <Award size={16} className="text-brand-light" /> Materiais Homologados
+                </span>
+             </div>
+          </div>
+
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
              {t.partners.brandsList.map((brand: any, index: number) => (
                <motion.div
                  key={index}
                  whileHover={{ y: -5 }}
-                 className="bg-gray-50 p-6 rounded border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all duration-300"
+                 className="group bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-lg hover:border-brand-light transition-all duration-300 flex flex-col h-full"
                >
-                 {/* Placeholder for Logo */}
-                 <div className="w-16 h-16 bg-gray-200 rounded-full mb-4 flex items-center justify-center text-gray-400 font-bold text-xl">
-                   {brand.name.charAt(0)}
+                 <div className="mb-4">
+                    <Star className="text-gray-300 group-hover:text-accent group-hover:fill-accent transition-colors" size={24} />
                  </div>
-                 <h4 className="font-normal text-corporate mb-2">{brand.name}</h4>
-                 <p className="text-xs text-gray-500">{brand.desc}</p>
+                 <h4 className="text-lg font-normal text-corporate mb-2 font-heading">{brand.name}</h4>
+                 <p className="text-sm text-gray-500 leading-snug">{brand.desc}</p>
                </motion.div>
              ))}
            </div>
         </section>
 
-        {/* 4. Exclusive Partnerships Section */}
-        <section className="bg-corporate text-white rounded-2xl p-10 md:p-16 relative overflow-hidden mb-20">
-           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        {/* 4. EXCLUSIVE PARTNERS (Professional Dark Section) */}
+        <section className="bg-corporate text-white rounded-2xl p-8 md:p-16 relative overflow-hidden mb-20">
+           {/* Abstract shapes instead of noisy texture for a cleaner look */}
+           <div className="absolute top-0 right-0 w-64 h-64 bg-accent rounded-full mix-blend-overlay filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+           <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-light rounded-full mix-blend-overlay filter blur-3xl opacity-10 transform -translate-x-1/2 translate-y-1/2"></div>
+           
            <div className="relative z-10">
-             <div className="text-center mb-12">
-               <h2 className="text-3xl font-normal font-heading mb-4">{t.partners.exclusiveTitle}</h2>
-               <div className="w-20 h-1 bg-brand-light mx-auto mb-6"></div>
-               <p className="text-gray-400 max-w-2xl mx-auto">
-                 {t.partners.exclusiveDesc}
-               </p>
+             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-gray-700 pb-8">
+               <div className="max-w-2xl">
+                 <h2 className="text-2xl md:text-3xl font-normal font-heading mb-4 text-white">
+                   {t.partners.exclusiveTitle}
+                 </h2>
+                 <p className="text-gray-400 text-lg">
+                   {t.partners.exclusiveDesc}
+                 </p>
+               </div>
+               <div className="shrink-0">
+                  <CTAButton 
+                    to="/contact" 
+                    text={t.partners.ctaButton} 
+                    variant="primary"
+                    className="bg-brand-light text-corporate hover:bg-white hover:text-corporate border-none"
+                  />
+               </div>
              </div>
 
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                {t.partners.exclusivePartners.map((partner: any, index: number) => (
-                 <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-lg hover:bg-white/10 transition-colors">
-                    <div className="mb-4 text-brand-light">
-                      {partner.type === 'Construção Civil' && <HardHat size={32} />}
-                      {partner.type === 'Hotelaria' && <Building2 size={32} />}
-                      {partner.type === 'Gestão de Imóveis' && <ShieldCheck size={32} />}
-                      {/* Fallback icons for english mapping or other types */}
-                      {partner.type === 'Civil Construction' && <HardHat size={32} />}
-                      {partner.type === 'Hospitality' && <Building2 size={32} />}
-                      {partner.type === 'Property Management' && <ShieldCheck size={32} />}
+                 <div key={index} className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors group">
+                    <div className="mb-6 inline-flex p-3 bg-accent/30 rounded-lg text-brand-light group-hover:text-white transition-colors">
+                      {partner.type === 'Construção Civil' && <HardHat size={28} />}
+                      {partner.type === 'Hotelaria' && <Building2 size={28} />}
+                      {partner.type === 'Gestão de Imóveis' && <ShieldCheck size={28} />}
+                      {/* Fallback icons */}
+                      {partner.type === 'Civil Construction' && <HardHat size={28} />}
+                      {partner.type === 'Hospitality' && <Building2 size={28} />}
+                      {partner.type === 'Property Management' && <ShieldCheck size={28} />}
                     </div>
-                    <h3 className="text-xl font-normal mb-1">{partner.name}</h3>
-                    <span className="text-xs font-bold text-brand-light uppercase tracking-wider mb-4 block">{partner.type}</span>
-                    <p className="text-gray-400 text-sm">
+                    
+                    <span className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">{partner.type}</span>
+                    <h3 className="text-xl font-normal mb-3 text-white">{partner.name}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">
                       {partner.desc}
                     </p>
                  </div>
@@ -144,20 +159,19 @@ const Partners: React.FC = () => {
 
       </div>
       
-      {/* 5. CTA - Centered with Blue Background */}
-      <section className="w-full py-16 bg-[#3B455B] md:bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center">
+      {/* 5. Bottom CTA Area */}
+      <section className="w-full py-16 bg-gray-50 text-center border-t border-gray-100">
          <div className="container mx-auto px-6 md:px-12">
-            <h2 className="text-2xl md:text-3xl font-normal text-white mb-2 font-heading uppercase tracking-wide">
+            <h2 className="text-2xl font-normal text-corporate mb-4 font-heading">
               {t.partners.ctaTitle}
             </h2>
-            <p className="text-gray-300 text-lg max-w-xl mx-auto mb-8">
+            <p className="text-gray-600 mb-8">
               {t.partners.ctaDesc}
             </p>
             <CTAButton 
-              to="/contact" 
-              text={t.partners.ctaButton} 
-              variant="outline"
-              className="text-white border-white hover:bg-white hover:text-[#3B455B]"
+              to="/contact?subject=parceria" 
+              text={t.common.seeMore || "Contactar Agora"} 
+              variant="secondary"
             />
          </div>
       </section>

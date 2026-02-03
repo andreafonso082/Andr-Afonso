@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Check, ArrowLeft, ArrowRight, Tag, ShieldCheck, TrendingUp, Settings, FileText, ImageIcon } from 'lucide-react';
+import { Check, ArrowLeft, Tag, ShieldCheck, ImageIcon } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,6 +9,8 @@ import { useLanguage } from '../context/LanguageContext';
 const ServiceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useLanguage();
+
+  if (!t) return null;
 
   // Helper to map images (reused logic for consistency)
   const getImage = (serviceId: string) => {
@@ -55,7 +57,8 @@ const ServiceDetail: React.FC = () => {
       />
 
       {/* 1. SEO HERO SECTION */}
-      <div className="relative h-[50vh] min-h-[350px] md:h-[60vh] md:min-h-[400px] flex items-center justify-center overflow-hidden">
+      {/* Adjusted min-height for mobile to avoid taking up entire screen if not needed */}
+      <div className="relative h-[40vh] min-h-[300px] md:h-[60vh] md:min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={getImage(id || '')} 
@@ -71,10 +74,10 @@ const ServiceDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-normal font-heading text-white mb-4 md:mb-6 leading-tight max-w-4xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-normal font-heading text-white mb-4 md:mb-6 leading-tight max-w-4xl mx-auto px-2">
               {serviceData.seoTitle}
             </h1>
-            <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-sm md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed hidden sm:block">
               {serviceData.description}
             </p>
           </motion.div>
@@ -134,26 +137,6 @@ const ServiceDetail: React.FC = () => {
                 </div>
               )}
 
-              {/* PROCESS SECTION - NEW */}
-              {serviceData.process && (
-                <div className="mb-16">
-                   <h3 className="text-lg md:text-xl font-normal text-corporate mb-8 uppercase tracking-wider flex items-center gap-2">
-                      <Settings className="text-brand-light" /> Metodologia de Trabalho
-                   </h3>
-                   <div className="relative border-l-2 border-brand-light/30 ml-4 space-y-8 py-2">
-                      {serviceData.process.map((step: any, index: number) => (
-                         <div key={index} className="relative pl-8">
-                            <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-light border-2 border-white shadow-sm"></div>
-                            <h4 className="text-corporate font-bold text-base mb-1">
-                               <span className="text-accent mr-2">0{index + 1}.</span>{step.title}
-                            </h4>
-                            <p className="text-gray-500 text-sm">{step.desc}</p>
-                         </div>
-                      ))}
-                   </div>
-                </div>
-              )}
-
               {/* GALLERY SECTION - NEW */}
               <div className="mb-12">
                  <h3 className="text-lg md:text-xl font-normal text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
@@ -205,23 +188,6 @@ const ServiceDetail: React.FC = () => {
                     </span>
                   ))}
                 </div>
-              </div>
-
-              {/* Downloads / Tech Specs Placeholder */}
-              <div className="bg-detail p-6 rounded-lg border border-gray-200">
-                  <h4 className="flex items-center gap-2 font-normal text-corporate mb-4 text-sm uppercase tracking-wider">
-                     <FileText size={16} className="text-brand-light" /> Documentação
-                  </h4>
-                  <ul className="space-y-3">
-                     <li className="flex items-center justify-between text-sm text-gray-600 border-b border-gray-200 pb-2">
-                        <span>Ficha Técnica</span>
-                        <span className="text-xs bg-gray-200 px-2 py-0.5 rounded">PDF</span>
-                     </li>
-                     <li className="flex items-center justify-between text-sm text-gray-600">
-                        <span>Portefólio J&F</span>
-                        <span className="text-xs bg-gray-200 px-2 py-0.5 rounded">PDF</span>
-                     </li>
-                  </ul>
               </div>
 
             </div>

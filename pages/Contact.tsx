@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, Check, Upload, FileText, X, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Phone, Mail, MapPin, Clock, Send, Check, Upload, FileText, X, MessageCircle, AlertTriangle, Loader2 } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
@@ -7,9 +7,14 @@ import { useLanguage } from '../context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Contact: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const location = useLocation();
+  const formRef = useRef<HTMLDivElement>(null);
   
+  // ESTADOS DO FORMULÁRIO
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,7 +23,11 @@ const Contact: React.FC = () => {
     interest: [] as string[], 
     selectedJobs: [] as string[],
     message: '',
-    cvFile: null as File | null
+    cvFile: null as File | null,
+    companyName: '',
+    companyAddress: '',
+    companyType: '',
+    companyContact: '',
   });
 
   // Handle URL Query Params for Pre-filling
@@ -26,26 +35,59 @@ const Contact: React.FC = () => {
     const params = new URLSearchParams(location.search);
     const subjectParam = params.get('subject');
     const interestParam = params.get('interest');
+    const jobParam = params.get('job');
 
-    if (subjectParam || interestParam) {
+    if (subjectParam || interestParam || jobParam) {
       setFormData(prev => ({
         ...prev,
-        // Set subject if provided, otherwise keep existing
-        subject: subjectParam || prev.subject,
-        // Add interest if provided and not already in the list
+        subject: subjectParam || (jobParam ? 'recrutamento' : prev.subject),
         interest: interestParam && !prev.interest.includes(interestParam) 
           ? [...prev.interest, interestParam] 
-          : prev.interest
+          : prev.interest,
+        selectedJobs: jobParam && !prev.selectedJobs.includes(jobParam)
+          ? [...prev.selectedJobs, jobParam]
+          : prev.selectedJobs
       }));
+
+      setTimeout(() => {
+        if (formRef.current) {
+          formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
     }
   }, [location]);
+
+  // --- VALIDATION HANDLERS ---
+  const handleInvalid = (e: React.InvalidEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    // Custom validation messages based on language
+    if (language === 'pt') {
+        if (e.target.validity.valueMissing) {
+            e.target.setCustomValidity("Por favor, preencha este campo.");
+        } else if (e.target.validity.typeMismatch && e.target.type === 'email') {
+            e.target.setCustomValidity("Por favor, introduza um endereço de email válido.");
+        }
+    } else {
+        // Enforce English messages if site is in EN (overriding browser default if needed)
+        if (e.target.validity.valueMissing) {
+            e.target.setCustomValidity("Please fill out this field.");
+        } else if (e.target.validity.typeMismatch && e.target.type === 'email') {
+            e.target.setCustomValidity("Please enter a valid email address.");
+        } else {
+            e.target.setCustomValidity("");
+        }
+    }
+  };
+
+  const handleInputValidation = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+     // Clear custom validity when user starts typing
+     e.currentTarget.setCustomValidity("");
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Handler for interest checkboxes
   const handleInterestToggle = (value: string) => {
     setFormData(prev => {
       const currentInterests = prev.interest;
@@ -57,7 +99,6 @@ const Contact: React.FC = () => {
     });
   };
 
-  // Handler for Job vacancies (Recrutamento)
   const handleJobToggle = (value: string) => {
     setFormData(prev => {
       const currentJobs = prev.selectedJobs;
@@ -69,14 +110,17 @@ const Contact: React.FC = () => {
     });
   };
 
-  // Handler for File Upload
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       if (file.type === 'application/pdf') {
+        if (file.size > 5 * 1024 * 1024) { // 5MB Limit check
+            alert("O ficheiro é demasiado grande (Máx 5MB).");
+            return;
+        }
         setFormData(prev => ({ ...prev, cvFile: file }));
       } else {
-        alert("Por favor, selecione apenas ficheiros PDF. / Please select PDF files only.");
+        alert(t?.contact?.form?.fileError || "Erro no ficheiro");
       }
     }
   };
@@ -85,27 +129,155 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, cvFile: null }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    if(formData.cvFile) {
-        console.log("File attached:", formData.cvFile.name);
+  const closePopup = () => {
+    if (submitStatus === 'success') {
+      // Reset form only on success closing
+      setFormData({ 
+        name: '', email: '', phone: '', subject: '', 
+        interest: [], selectedJobs: [], message: '', cvFile: null,
+        companyName: '', companyAddress: '', companyType: '', companyContact: ''
+      });
     }
-    alert('Obrigado pelo seu contacto! / Thank you for contacting us!');
-    
-    // Reset form
-    setFormData({ 
-      name: '', email: '', phone: '', subject: '', 
-      interest: [], selectedJobs: [], message: '', cvFile: null 
-    });
+    setSubmitStatus('idle');
   };
 
+  // --- INTEGRATION: FORMSPREE SUBMISSION ---
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Double check subject is selected (HTML5 required handles this mostly, but good for safety)
+    if (!formData.subject) {
+      alert("Por favor, selecione um assunto.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // 1. Prepare FormData for the POST request
+    const data = new FormData();
+    data.append('name', formData.name);
+    data.append('email', formData.email);
+    data.append('phone', formData.phone);
+    data.append('subject', formData.subject);
+    data.append('message', formData.message);
+
+    // Conditionally append specific fields based on subject
+    if (formData.subject === 'orcamento') {
+        data.append('areas_interesse', formData.interest.join(', '));
+    }
+    if (formData.subject === 'recrutamento') {
+        data.append('vagas_selecionadas', formData.selectedJobs.join(', '));
+    }
+    if (formData.subject === 'parceria') {
+        data.append('empresa_nome', formData.companyName);
+        data.append('empresa_tipo', formData.companyType);
+        data.append('empresa_contacto', formData.companyContact);
+        data.append('empresa_morada', formData.companyAddress);
+    }
+
+    // Append File if exists
+    if (formData.cvFile) {
+        data.append('attachment', formData.cvFile);
+    }
+
+    try {
+        // !!! IMPORTANTE: SUBSTITUA PELO SEU ID FORMSPREE !!!
+        const FORMSPREE_ENDPOINT = "https://formspree.io/f/INSIRA_O_SEU_ID_FORMSPREE_AQUI"; 
+        
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            setSubmitStatus('success');
+        } else {
+            const errorData = await response.json();
+            console.error("Formspree Error:", errorData);
+            setSubmitStatus('error');
+        }
+    } catch (error) {
+        console.error("Network Error:", error);
+        setSubmitStatus('error');
+    } finally {
+        setIsSubmitting(false);
+    }
+  };
+
+  // Safe check if translation exists
+  if (!t || !t.contact) {
+    return null;
+  }
+
   return (
-    <div className="pt-24 pb-12 bg-white">
+    <div className="pt-24 pb-12 bg-white relative">
       <SEO 
         title={t.seo.contact.title} 
         description={t.seo.contact.description} 
       />
+
+      {/* MODAL POPUP (Success/Error) */}
+      <AnimatePresence>
+        {(submitStatus === 'success' || submitStatus === 'error') && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center px-4">
+             {/* Backdrop */}
+             <motion.div 
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               className="absolute inset-0 bg-corporate/80 backdrop-blur-sm"
+               onClick={closePopup}
+             ></motion.div>
+
+             {/* Modal Content */}
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.9, y: 20 }}
+               animate={{ opacity: 1, scale: 1, y: 0 }}
+               exit={{ opacity: 0, scale: 0.9, y: 20 }}
+               className="bg-white rounded-lg shadow-2xl w-full max-w-md relative z-10 overflow-hidden"
+             >
+                {/* Header Strip */}
+                <div className={`h-2 w-full ${submitStatus === 'success' ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                
+                <div className="p-8 text-center">
+                   {/* Icon */}
+                   <div className={`mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-6 ${
+                      submitStatus === 'success' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
+                   }`}>
+                      {submitStatus === 'success' ? <Check size={32} /> : <AlertTriangle size={32} />}
+                   </div>
+
+                   {/* Title */}
+                   <h3 className="text-2xl font-normal font-heading text-corporate mb-4">
+                      {submitStatus === 'success' ? 'Mensagem Enviada!' : 'Erro ao Enviar'}
+                   </h3>
+
+                   {/* Description */}
+                   <p className="text-gray-600 mb-8 font-body text-sm leading-relaxed">
+                      {submitStatus === 'success' 
+                        ? t.contact.form.successMsg 
+                        : "Ocorreu um problema técnico ao enviar a sua mensagem. Por favor, tente novamente ou contacte-nos telefonicamente."}
+                   </p>
+
+                   {/* Action Button */}
+                   <button 
+                     onClick={closePopup}
+                     className={`w-full py-3 px-6 rounded font-bold uppercase tracking-widest text-sm transition-colors ${
+                        submitStatus === 'success' 
+                          ? 'bg-corporate text-white hover:bg-accent' 
+                          : 'bg-red-500 text-white hover:bg-red-600'
+                     }`}
+                   >
+                     {submitStatus === 'success' ? 'Fechar' : 'Tentar Novamente'}
+                   </button>
+                </div>
+             </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Header */}
       <div className="bg-corporate py-16 mb-16 text-center text-white">
@@ -159,7 +331,6 @@ const Contact: React.FC = () => {
                 <div className="overflow-hidden">
                   <h3 className="font-normal text-corporate mb-1">{t.contact.labels.email}</h3>
                   <p className="text-gray-600 text-sm break-words">mail@joaquimfernandes.pt</p>
-                  <p className="text-gray-600 text-sm break-words">orcamentos@joaquimefernandes.pt</p>
                 </div>
               </div>
 
@@ -190,180 +361,112 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Form Side */}
-          <div className="w-full lg:w-2/3">
+          <div className="w-full lg:w-2/3" ref={formRef}>
             <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
               {t.contact.formTitle}
             </h2>
             
-            <form onSubmit={handleSubmit} className="bg-white rounded shadow-sm border border-gray-100 p-6 md:p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.name}</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                  />
+            <div className="bg-white rounded shadow-sm border border-gray-100 p-6 md:p-8">
+              
+              {/* FORM START */}
+              <form onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.name}</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      disabled={isSubmitting}
+                      value={formData.name}
+                      onChange={handleChange}
+                      onInvalid={handleInvalid}
+                      onInput={handleInputValidation}
+                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.email}</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      disabled={isSubmitting}
+                      value={formData.email}
+                      onChange={handleChange}
+                      onInvalid={handleInvalid}
+                      onInput={handleInputValidation}
+                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.email}</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                  />
-                </div>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.phone}</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.subject}</label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                  >
-                    <option value="">{t.contact.form.subjectPlaceholder}</option>
-                    <option value="orcamento">{t.contact.form.optQuote}</option>
-                    <option value="informacao">{t.contact.form.optInfo}</option>
-                    <option value="recrutamento">{t.contact.form.optRecruitment}</option>
-                    <option value="outros">{t.contact.form.optOther}</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Conditional Field: Area of Interest (for 'orcamento') */}
-              <AnimatePresence>
-                {formData.subject === 'orcamento' && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="mb-6 overflow-hidden"
-                  >
-                    <label className="block text-sm font-bold text-gray-700 mb-3">
-                      {t.contact.form.interest} <span className="text-gray-400 font-normal text-xs ml-1">(Selecione múltiplas opções)</span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.phone}</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      disabled={isSubmitting}
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-bold text-gray-700 mb-2">
+                      {t.contact.form.subject} <span className="text-red-500">*</span>
                     </label>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1 mb-6">
-                      {Object.entries(t.contact.form.optsInterest).map(([key, label]) => {
-                         const isSelected = formData.interest.includes(key);
-                         return (
-                           <div 
-                              key={key} 
-                              onClick={() => handleInterestToggle(key)}
-                              className={`
-                                cursor-pointer rounded border p-3 flex items-center gap-3 transition-all duration-200 select-none
-                                ${isSelected 
-                                  ? 'bg-brand-light/20 border-accent text-corporate shadow-sm' 
-                                  : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'}
-                              `}
-                           >
-                             <div className={`
-                               w-5 h-5 rounded border flex items-center justify-center transition-colors shrink-0
-                               ${isSelected ? 'bg-accent border-accent' : 'bg-white border-gray-300'}
-                              `}>
-                               {isSelected && <Check size={14} className="text-white" />}
-                             </div>
-                             <span className="text-sm font-medium">{label as string}</span>
-                           </div>
-                         );
-                      })}
-                    </div>
+                    <select
+                      id="subject"
+                      name="subject"
+                      required
+                      disabled={isSubmitting}
+                      value={formData.subject}
+                      onChange={handleChange}
+                      onInvalid={handleInvalid}
+                      onInput={handleInputValidation}
+                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50 appearance-none"
+                    >
+                      <option value="">{t.contact.form.subjectPlaceholder}</option>
+                      <option value="orcamento">{t.contact.form.optQuote}</option>
+                      <option value="informacao">{t.contact.form.optInfo}</option>
+                      <option value="recrutamento">{t.contact.form.optRecruitment}</option>
+                      <option value="parceria">{t.contact.form.optPartnership}</option>
+                      <option value="outros">{t.contact.form.optOther}</option>
+                    </select>
+                  </div>
+                </div>
 
-                    {/* File Upload for Budget */}
-                    <div>
+                {/* Conditional Field: Area of Interest (for 'orcamento') */}
+                <AnimatePresence>
+                  {formData.subject === 'orcamento' && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="mb-6 overflow-hidden"
+                    >
                       <label className="block text-sm font-bold text-gray-700 mb-3">
-                         Anexar Projeto/Planta (PDF)
+                        {t.contact.form.interest} <span className="text-gray-400 font-normal text-xs ml-1">{t.contact.form.interestHint}</span>
                       </label>
                       
-                      {!formData.cvFile ? (
-                        <div className="relative border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg p-6 text-center group cursor-pointer">
-                           <input 
-                             type="file" 
-                             accept="application/pdf"
-                             onChange={handleFileChange}
-                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                           />
-                           <div className="flex flex-col items-center justify-center pointer-events-none">
-                              <Upload className="text-gray-400 group-hover:text-accent mb-2 transition-colors" size={24} />
-                              <span className="text-sm font-semibold text-gray-600 group-hover:text-corporate transition-colors">
-                                {t.contact.form.uploadFile}
-                              </span>
-                              <span className="text-xs text-gray-400 mt-1">PDF (Max. 5MB)</span>
-                           </div>
-                        </div>
-                      ) : (
-                        <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
-                           <div className="flex items-center gap-3 overflow-hidden">
-                              <div className="bg-red-100 p-2 rounded text-red-500 shrink-0">
-                                 <FileText size={20} />
-                              </div>
-                              <span className="text-sm font-medium text-gray-700 truncate max-w-[150px] sm:max-w-xs">
-                                {formData.cvFile.name}
-                              </span>
-                           </div>
-                           <button 
-                             type="button" 
-                             onClick={removeFile}
-                             className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors"
-                           >
-                             <X size={18} />
-                           </button>
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Conditional Fields: Recruitment (Job Selection & File Upload) */}
-              <AnimatePresence>
-                {formData.subject === 'recrutamento' && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="mb-6 overflow-hidden space-y-6"
-                  >
-                    {/* Job Selection */}
-                    <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-3">
-                        {t.contact.form.jobPosition}
-                      </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1">
-                        {t.careers.jobs.map((job: any) => {
-                          const isSelected = formData.selectedJobs.includes(job.title);
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1 mb-6">
+                        {Object.entries(t.contact.form.optsInterest).map(([key, label]) => {
+                          const isSelected = formData.interest.includes(key);
                           return (
                             <div 
-                                key={job.id} 
-                                onClick={() => handleJobToggle(job.title)}
+                                key={key} 
+                                onClick={() => !isSubmitting && handleInterestToggle(key)}
                                 className={`
                                   cursor-pointer rounded border p-3 flex items-center gap-3 transition-all duration-200 select-none
                                   ${isSelected 
                                     ? 'bg-brand-light/20 border-accent text-corporate shadow-sm' 
                                     : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'}
+                                  ${isSubmitting ? 'opacity-50 pointer-events-none' : ''}
                                 `}
                             >
                               <div className={`
@@ -372,82 +475,299 @@ const Contact: React.FC = () => {
                               `}>
                                 {isSelected && <Check size={14} className="text-white" />}
                               </div>
-                              <div className="flex flex-col">
-                                <span className="text-sm font-medium leading-tight">{job.title}</span>
-                                <span className="text-xs text-gray-400 mt-0.5">{job.location}</span>
-                              </div>
+                              <span className="text-sm font-medium">{label as string}</span>
                             </div>
                           );
                         })}
                       </div>
-                    </div>
 
-                    {/* CV Upload */}
-                    <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-3">
-                         {t.contact.form.cv}
-                      </label>
+                      {/* File Upload for Budget */}
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          {t.contact.form.fileLabel}
+                        </label>
+                        
+                        {!formData.cvFile ? (
+                          <div className={`relative border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg p-6 text-center group cursor-pointer ${isSubmitting ? 'opacity-50 pointer-events-none' : ''}`}>
+                            <input 
+                              type="file" 
+                              accept="application/pdf"
+                              disabled={isSubmitting}
+                              onChange={handleFileChange}
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                            />
+                            <div className="flex flex-col items-center justify-center pointer-events-none">
+                                <Upload className="text-gray-400 group-hover:text-accent mb-2 transition-colors" size={24} />
+                                <span className="text-sm font-semibold text-gray-600 group-hover:text-corporate transition-colors">
+                                  {t.contact.form.uploadFile}
+                                </span>
+                                <span className="text-xs text-gray-400 mt-1">{t.contact.form.fileHint}</span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
+                            <div className="flex items-center gap-3 overflow-hidden">
+                                <div className="bg-red-100 p-2 rounded text-red-500 shrink-0">
+                                  <FileText size={20} />
+                                </div>
+                                <span className="text-sm font-medium text-gray-700 truncate max-w-[150px] sm:max-w-xs">
+                                  {formData.cvFile.name}
+                                </span>
+                            </div>
+                            <button 
+                              type="button" 
+                              onClick={removeFile}
+                              disabled={isSubmitting}
+                              className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+                            >
+                              <X size={18} />
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Conditional Fields: Partnership */}
+                <AnimatePresence>
+                  {formData.subject === 'parceria' && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="mb-6 overflow-hidden space-y-6"
+                    >
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="companyName" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.companyName}</label>
+                          <input
+                            type="text"
+                            id="companyName"
+                            name="companyName"
+                            disabled={isSubmitting}
+                            value={formData.companyName}
+                            onChange={handleChange}
+                            className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="companyType" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.companyType}</label>
+                          <input
+                            type="text"
+                            id="companyType"
+                            name="companyType"
+                            disabled={isSubmitting}
+                            value={formData.companyType}
+                            onChange={handleChange}
+                            className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                          />
+                        </div>
+                      </div>
                       
-                      {!formData.cvFile ? (
-                        <div className="relative border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg p-6 text-center group cursor-pointer">
-                           <input 
-                             type="file" 
-                             accept="application/pdf"
-                             onChange={handleFileChange}
-                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                           />
-                           <div className="flex flex-col items-center justify-center pointer-events-none">
-                              <Upload className="text-gray-400 group-hover:text-accent mb-2 transition-colors" size={24} />
-                              <span className="text-sm font-semibold text-gray-600 group-hover:text-corporate transition-colors">
-                                {t.contact.form.uploadFile}
-                              </span>
-                              <span className="text-xs text-gray-400 mt-1">PDF (Max. 5MB)</span>
-                           </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="companyContact" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.companyContact}</label>
+                          <input
+                            type="text"
+                            id="companyContact"
+                            name="companyContact"
+                            disabled={isSubmitting}
+                            value={formData.companyContact}
+                            onChange={handleChange}
+                            className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                          />
                         </div>
-                      ) : (
-                        <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
-                           <div className="flex items-center gap-3 overflow-hidden">
-                              <div className="bg-red-100 p-2 rounded text-red-500 shrink-0">
-                                 <FileText size={20} />
+                        <div>
+                          <label htmlFor="companyAddress" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.companyAddress}</label>
+                          <input
+                            type="text"
+                            id="companyAddress"
+                            name="companyAddress"
+                            disabled={isSubmitting}
+                            value={formData.companyAddress}
+                            onChange={handleChange}
+                            className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Presentation Upload */}
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          {t.contact.form.presentation}
+                        </label>
+                        
+                        {!formData.cvFile ? (
+                          <div className={`relative border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg p-6 text-center group cursor-pointer ${isSubmitting ? 'opacity-50 pointer-events-none' : ''}`}>
+                            <input 
+                              type="file" 
+                              accept="application/pdf"
+                              disabled={isSubmitting}
+                              onChange={handleFileChange}
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                            />
+                            <div className="flex flex-col items-center justify-center pointer-events-none">
+                                <Upload className="text-gray-400 group-hover:text-accent mb-2 transition-colors" size={24} />
+                                <span className="text-sm font-semibold text-gray-600 group-hover:text-corporate transition-colors">
+                                  {t.contact.form.uploadFile}
+                                </span>
+                                <span className="text-xs text-gray-400 mt-1">{t.contact.form.fileHint}</span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
+                            <div className="flex items-center gap-3 overflow-hidden">
+                                <div className="bg-red-100 p-2 rounded text-red-500 shrink-0">
+                                  <FileText size={20} />
+                                </div>
+                                <span className="text-sm font-medium text-gray-700 truncate max-w-[150px] sm:max-w-xs">
+                                  {formData.cvFile.name}
+                                </span>
+                            </div>
+                            <button 
+                              type="button" 
+                              onClick={removeFile}
+                              disabled={isSubmitting}
+                              className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+                            >
+                              <X size={18} />
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Conditional Fields: Recruitment */}
+                <AnimatePresence>
+                  {formData.subject === 'recrutamento' && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="mb-6 overflow-hidden space-y-6"
+                    >
+                      {/* Job Selection */}
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          {t.contact.form.jobPosition}
+                        </label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1">
+                          {t.careers.jobs.map((job: any) => {
+                            const isSelected = formData.selectedJobs.includes(job.title);
+                            return (
+                              <div 
+                                  key={job.id} 
+                                  onClick={() => !isSubmitting && handleJobToggle(job.title)}
+                                  className={`
+                                    cursor-pointer rounded border p-3 flex items-center gap-3 transition-all duration-200 select-none
+                                    ${isSelected 
+                                      ? 'bg-brand-light/20 border-accent text-corporate shadow-sm' 
+                                      : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'}
+                                    ${isSubmitting ? 'opacity-50 pointer-events-none' : ''}
+                                  `}
+                              >
+                                <div className={`
+                                  w-5 h-5 rounded border flex items-center justify-center transition-colors shrink-0
+                                  ${isSelected ? 'bg-accent border-accent' : 'bg-white border-gray-300'}
+                                `}>
+                                  {isSelected && <Check size={14} className="text-white" />}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="text-sm font-medium leading-tight">{job.title}</span>
+                                  <span className="text-xs text-gray-400 mt-0.5">{job.location}</span>
+                                </div>
                               </div>
-                              <span className="text-sm font-medium text-gray-700 truncate max-w-[150px] sm:max-w-xs">
-                                {formData.cvFile.name}
-                              </span>
-                           </div>
-                           <button 
-                             type="button" 
-                             onClick={removeFile}
-                             className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors"
-                           >
-                             <X size={18} />
-                           </button>
+                            );
+                          })}
                         </div>
-                      )}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                      </div>
 
-              <div className="mb-8">
-                <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.message}</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
-                ></textarea>
-              </div>
+                      {/* CV Upload */}
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          {t.contact.form.cv}
+                        </label>
+                        
+                        {!formData.cvFile ? (
+                          <div className={`relative border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg p-6 text-center group cursor-pointer ${isSubmitting ? 'opacity-50 pointer-events-none' : ''}`}>
+                            <input 
+                              type="file" 
+                              accept="application/pdf"
+                              disabled={isSubmitting}
+                              onChange={handleFileChange}
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                            />
+                            <div className="flex flex-col items-center justify-center pointer-events-none">
+                                <Upload className="text-gray-400 group-hover:text-accent mb-2 transition-colors" size={24} />
+                                <span className="text-sm font-semibold text-gray-600 group-hover:text-corporate transition-colors">
+                                  {t.contact.form.uploadFile}
+                                </span>
+                                <span className="text-xs text-gray-400 mt-1">{t.contact.form.fileHint}</span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
+                            <div className="flex items-center gap-3 overflow-hidden">
+                                <div className="bg-red-100 p-2 rounded text-red-500 shrink-0">
+                                  <FileText size={20} />
+                                </div>
+                                <span className="text-sm font-medium text-gray-700 truncate max-w-[150px] sm:max-w-xs">
+                                  {formData.cvFile.name}
+                                </span>
+                            </div>
+                            <button 
+                              type="button" 
+                              onClick={removeFile}
+                              disabled={isSubmitting}
+                              className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+                            >
+                              <X size={18} />
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
-              <button
-                type="submit"
-                className="w-full md:w-auto bg-accent hover:bg-[#2A3345] text-white font-bold py-3 px-8 rounded shadow-lg uppercase tracking-widest text-sm transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                {t.contact.form.submit} <Send size={16} />
-              </button>
-            </form>
+                <div className="mb-8">
+                  <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2">
+                    {formData.subject === 'parceria' ? t.contact.form.proposalMessage : t.contact.form.message}
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    disabled={isSubmitting}
+                    value={formData.message}
+                    onChange={handleChange}
+                    onInvalid={handleInvalid}
+                    onInput={handleInputValidation}
+                    className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none disabled:opacity-50"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full md:w-auto bg-accent hover:bg-[#2A3345] text-white font-bold py-3 px-8 rounded shadow-lg uppercase tracking-widest text-sm transition-all duration-300 flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 size={16} className="animate-spin" /> A enviar...
+                    </>
+                  ) : (
+                    <>
+                      {t.contact.form.submit} <Send size={16} />
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 

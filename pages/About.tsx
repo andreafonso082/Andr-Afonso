@@ -14,12 +14,20 @@ const About: React.FC = () => {
   const [width, setWidth] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
+  // Safe access for dependency array
+  const timeline = t?.about?.timeline;
+
   useEffect(() => {
     if (carouselRef.current) {
       // Calculate the scrollable width: Total content width - Visible container width
       setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
     }
-  }, [t.about.timeline]); // Recalculate if timeline data changes
+  }, [timeline]); // Recalculate if timeline data changes
+
+  // Defensive guard
+  if (!t || !t.about) {
+    return null;
+  }
 
   const getIcon = (index: number) => {
     switch(index) {

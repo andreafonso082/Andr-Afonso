@@ -8,6 +8,11 @@ import { useLanguage } from '../context/LanguageContext';
 const Services: React.FC = () => {
   const { t } = useLanguage();
 
+  // Defensive check: Ensure translations are loaded
+  if (!t || !t.services) {
+    return null;
+  }
+
   // Mapping icons to category IDs for rendering
   const getIcon = (id: string) => {
      switch(id) {

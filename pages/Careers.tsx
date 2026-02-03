@@ -1,12 +1,15 @@
 import React from 'react';
-import { Briefcase, MapPin, Clock, ArrowRight, Mail, CheckCircle } from 'lucide-react';
+import { Briefcase, ArrowRight, Mail, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
 const Careers: React.FC = () => {
   const { t } = useLanguage();
+
+  if (!t || !t.careers) return null;
 
   return (
     <div className="pt-24 pb-12 bg-white">
@@ -15,14 +18,17 @@ const Careers: React.FC = () => {
         description={t.seo.careers.description} 
       />
 
-      {/* Header */}
-      <div className="bg-corporate py-16 mb-16 text-center text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-accent opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <h1 className="text-4xl font-normal font-heading mb-4">{t.careers.heroTitle}</h1>
-          <p className="text-gray-300 max-w-2xl mx-auto font-light">
+      {/* Header / Hero (Standardized) */}
+      <div className="bg-corporate py-16 mb-16 text-center text-white relative">
+        <div className="container mx-auto px-4 md:px-12 relative z-10">
+          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.careers.heroTitle}</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
             {t.careers.heroDesc}
           </p>
+        </div>
+        {/* Background Element */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+           <div className="absolute -right-20 -top-20 w-96 h-96 bg-brand-light rounded-full blur-3xl"></div>
         </div>
       </div>
 
@@ -59,7 +65,7 @@ const Careers: React.FC = () => {
             {t.careers.openingsTitle}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {t.careers.jobs.map((job: any, index: number) => (
               <motion.div 
                 key={job.id}
@@ -76,13 +82,11 @@ const Careers: React.FC = () => {
                   <Briefcase size={20} className="text-brand-light" />
                 </div>
                 
-                <h3 className="text-xl font-normal text-corporate mb-2 group-hover:text-accent transition-colors">
+                <h3 className="text-xl font-normal text-corporate mb-6 group-hover:text-accent transition-colors">
                   {job.title}
                 </h3>
                 
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                  <span className="flex items-center gap-1"><MapPin size={14} /> {job.location}</span>
-                </div>
+                {/* Location removed as requested */}
 
                 <p className="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
                   {job.description}
@@ -101,12 +105,12 @@ const Careers: React.FC = () => {
                   </ul>
                 </div>
 
-                <a 
-                  href={`mailto:recrutamento@joaquimefernandes.pt?subject=${encodeURIComponent(job.emailSubject)}`}
+                <Link 
+                  to={`/contact?subject=recrutamento&job=${encodeURIComponent(job.title)}`}
                   className="mt-auto w-full flex items-center justify-center gap-2 bg-white border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-4 rounded transition-colors uppercase text-xs tracking-widest"
                 >
                   {t.careers.applyBtn} <ArrowRight size={14} />
-                </a>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -123,7 +127,7 @@ const Careers: React.FC = () => {
             </p>
             
             <a 
-              href="mailto:recrutamento@joaquimefernandes.pt?subject=Candidatura%20Espont%C3%A2nea"
+              href="mailto:mail@joaquimfernandes.pt?subject=Candidatura%20Espont%C3%A2nea"
               className="inline-flex items-center gap-3 bg-accent hover:bg-[#2A3345] text-white font-bold py-4 px-10 rounded shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 uppercase tracking-widest text-sm"
             >
               <Mail size={18} />

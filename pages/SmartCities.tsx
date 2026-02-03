@@ -47,17 +47,18 @@ const SmartCities: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/10 border border-brand-light/30 text-brand-light text-sm font-mono mb-6 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/10 border border-brand-light/30 text-brand-light text-xs md:text-sm font-mono mb-6 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-light opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-light"></span>
               </span>
               SMART CITIES & IOT
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal font-heading text-white mb-6 tracking-tight leading-none">
+            {/* Optimized h1 for mobile (text-4xl) up to desktop (text-7xl) */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal font-heading text-white mb-6 tracking-tight leading-none">
               {t.smartCities.heroTitle}
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
               {t.smartCities.heroDesc}
             </p>
           </motion.div>
@@ -65,8 +66,8 @@ const SmartCities: React.FC = () => {
       </div>
 
       {/* 2. INTRO & VISION */}
-      <section className="py-24 bg-white relative">
-        <div className="container mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-16">
+      <section className="py-16 md:py-24 bg-white relative">
+        <div className="container mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="lg:w-1/2">
              <motion.div
                initial={{ opacity: 0, x: -50 }}
@@ -74,21 +75,21 @@ const SmartCities: React.FC = () => {
                viewport={{ once: true }}
                transition={{ duration: 0.6 }}
              >
-               <h2 className="text-4xl font-normal text-corporate mb-8 leading-tight">
+               <h2 className="text-3xl md:text-4xl font-normal text-corporate mb-8 leading-tight">
                  {t.smartCities.introTitle}
                </h2>
                <div className="w-24 h-1 bg-accent mb-8"></div>
-               <p className="text-lg text-gray-600 leading-relaxed font-body">
+               <p className="text-base md:text-lg text-gray-600 leading-relaxed font-body">
                  {t.smartCities.introDesc}
                </p>
                <div className="mt-8 flex gap-4">
                  <div className="flex flex-col">
-                    <span className="text-4xl font-bold text-accent">30%</span>
+                    <span className="text-3xl md:text-4xl font-bold text-accent">30%</span>
                     <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.smartCities.stat1}</span>
                  </div>
                  <div className="w-px bg-gray-200 mx-4"></div>
                  <div className="flex flex-col">
-                    <span className="text-4xl font-bold text-brand-light">-45%</span>
+                    <span className="text-3xl md:text-4xl font-bold text-brand-light">-45%</span>
                     <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.smartCities.stat2}</span>
                  </div>
                </div>
@@ -99,14 +100,14 @@ const SmartCities: React.FC = () => {
              <img 
                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=2069&auto=format&fit=crop" 
                alt="Smart Control Center" 
-               className="relative rounded-lg shadow-2xl z-10"
+               className="relative rounded-lg shadow-2xl z-10 w-full h-auto"
              />
           </div>
         </div>
       </section>
 
       {/* 3. INNOVATION GRID */}
-      <section className="py-24 bg-detail relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-detail relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-light/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
@@ -137,7 +138,7 @@ const SmartCities: React.FC = () => {
       </section>
 
       {/* 4. INNOVATION HIGHLIGHT (Dark Mode Section) */}
-      <section className="py-24 bg-corporate text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-corporate text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
          
          <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -146,7 +147,7 @@ const SmartCities: React.FC = () => {
                   <div className="inline-block bg-accent px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
                     R&D + Tech
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-normal font-heading mb-6">
+                  <h2 className="text-3xl md:text-5xl font-normal font-heading mb-6">
                     {t.smartCities.innovationTitle}
                   </h2>
                   <p className="text-gray-400 text-lg mb-8 font-light">
@@ -192,16 +193,16 @@ const SmartCities: React.FC = () => {
       </section>
 
       {/* 5. CTA */}
-      <section className="py-20 bg-white text-center">
+      <section className="py-16 md:py-20 bg-white text-center">
         <div className="container mx-auto px-6">
           <motion.div
              initial={{ opacity: 0, scale: 0.95 }}
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
-             className="bg-gradient-to-br from-detail to-white border border-gray-100 p-12 rounded-2xl shadow-xl max-w-4xl mx-auto"
+             className="bg-gradient-to-br from-detail to-white border border-gray-100 p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-normal text-corporate mb-4">{t.smartCities.ctaTitle}</h2>
-            <p className="text-gray-600 mb-8 text-lg">{t.smartCities.ctaDesc}</p>
+            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.smartCities.ctaTitle}</h2>
+            <p className="text-gray-600 mb-8 text-base md:text-lg">{t.smartCities.ctaDesc}</p>
             <CTAButton to="/contact" text={t.smartCities.ctaButton} variant="primary" />
           </motion.div>
         </div>
