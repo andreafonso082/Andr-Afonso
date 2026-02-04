@@ -41,7 +41,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-12 bg-white overflow-hidden">
+    <div className="pt-24 pb-0 bg-white overflow-hidden">
       <SEO 
         title={t.seo.about.title} 
         description={t.seo.about.description} 
@@ -257,22 +257,31 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* 5. CLOSING / CTA Section - Centered with Blue Background */}
-      <div className="w-full py-16 bg-[#3B455B] md:bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center">
-        <div className="container mx-auto px-4 md:px-12">
-           <h2 className="text-2xl md:text-3xl font-normal text-white mb-2 font-heading uppercase tracking-wide">
-             {t.about.closingTitle}
-           </h2>
-           <p className="text-gray-300 max-w-xl mx-auto mb-8 text-lg">
-             {t.about.closingDesc}
-           </p>
-           <CTAButton 
-             to="/recrutamento" 
-             text={t.about.closingCta} 
-             variant="outline"
-             className="text-white border-white hover:bg-white hover:text-[#3B455B]"
-           />
-        </div>
+      {/* 5. CLOSING / CTA Section - Full Width, Diagonal Gradient */}
+      <div className="w-full py-16 md:py-24 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10">
+         {/* Abstract Decoration */}
+         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
+
+         <div className="container mx-auto px-4 md:px-12 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+               <h2 className="text-2xl md:text-3xl font-normal text-white mb-2 font-heading uppercase tracking-wide">
+                 {t.about.closingTitle}
+               </h2>
+               <p className="text-gray-300 max-w-xl mx-auto mb-8 text-lg">
+                 {t.about.closingDesc}
+               </p>
+               <CTAButton 
+                 to="/recrutamento" 
+                 text={t.about.closingCta} 
+                 variant="outline"
+                 className="text-white border-white hover:bg-white hover:text-[#3B455B]"
+               />
+            </motion.div>
+         </div>
       </div>
 
     </div>

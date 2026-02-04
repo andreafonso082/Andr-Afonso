@@ -43,7 +43,7 @@ const Services: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-12">
+    <div className="pt-24 pb-0 bg-white overflow-hidden">
       <SEO 
         title={t.seo.services.title} 
         description={t.seo.services.description} 
@@ -57,7 +57,7 @@ const Services: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-12 flex flex-col gap-16 md:gap-24">
+      <div className="container mx-auto px-4 md:px-12 flex flex-col gap-16 md:gap-24 mb-24">
         {t.services.categories.map((service: any, index: number) => (
           <motion.div 
             key={service.id}
@@ -100,20 +100,29 @@ const Services: React.FC = () => {
         ))}
       </div>
       
-      {/* Bottom CTA Section - Centered with Blue Background */}
-      <div className="mt-16 md:mt-24 w-full py-16 bg-[#3B455B] md:bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center">
-        <div className="container mx-auto px-4 md:px-12">
-           <h3 className="text-xl md:text-3xl font-normal text-white mb-2 font-heading uppercase tracking-wide">
-             {t.services.notFoundTitle}
-           </h3>
-           <p className="text-gray-300 text-lg mb-8">{t.services.notFoundDesc}</p>
-           <CTAButton 
-             to="/contact" 
-             text={t.services.notFoundCta} 
-             variant="outline" 
-             className="text-white border-white hover:bg-white hover:text-[#3B455B]" 
-           />
-        </div>
+      {/* Bottom CTA Section - Full Width, No Card, Diagonal Gradient */}
+      <div className="w-full py-16 md:py-24 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10">
+         {/* Abstract Decoration */}
+         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
+         
+         <div className="container mx-auto px-4 md:px-12 relative z-10">
+           <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+           >
+             <h2 className="text-2xl md:text-3xl font-normal text-white mb-4 font-heading uppercase tracking-wide">
+               {t.services.notFoundTitle}
+             </h2>
+             <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">{t.services.notFoundDesc}</p>
+             <CTAButton 
+               to="/contact" 
+               text={t.services.notFoundCta} 
+               variant="outline" 
+               className="text-white border-white hover:bg-white hover:text-[#3B455B]" 
+             />
+           </motion.div>
+         </div>
       </div>
     </div>
   );

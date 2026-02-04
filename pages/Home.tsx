@@ -413,7 +413,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className="mt-8 lg:mt-12 text-center">
-            <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-6 md:px-8 rounded-sm transition-colors uppercase tracking-widest text-xs md:text-sm">
+            <a href="https://www.google.com/maps/place/Joaquim+%26+Fernandes-electricidade+E+Telecomunica%C3%A7%C3%B5es+Lda/@37.0499496,-7.7845862,17z/data=!4m8!3m7!1s0xd100015fa93cb27:0x9f2e8973008bd28a!8m2!3d37.0499453!4d-7.7820113!9m1!1b1!16s%2Fg%2F1ts3gwcy?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white border-2 border-accent text-accent hover:bg-accent hover:text-white font-bold py-3 px-6 md:px-8 rounded-sm transition-colors uppercase tracking-widest text-xs md:text-sm">
               {t.home.leaveReview} <Pen size={16} />
             </a>
           </div>

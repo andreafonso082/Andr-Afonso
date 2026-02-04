@@ -19,6 +19,7 @@ const Contact: React.FC = () => {
     name: '',
     email: '',
     phone: '',
+    address: '', // Novo campo de morada
     subject: '',
     interest: [] as string[], 
     selectedJobs: [] as string[],
@@ -133,7 +134,7 @@ const Contact: React.FC = () => {
     if (submitStatus === 'success') {
       // Reset form only on success closing
       setFormData({ 
-        name: '', email: '', phone: '', subject: '', 
+        name: '', email: '', phone: '', address: '', subject: '', 
         interest: [], selectedJobs: [], message: '', cvFile: null,
         companyName: '', companyAddress: '', companyType: '', companyContact: ''
       });
@@ -163,6 +164,7 @@ const Contact: React.FC = () => {
 
     // Conditionally append specific fields based on subject
     if (formData.subject === 'orcamento') {
+        data.append('morada_obra', formData.address); // Append Address
         data.append('areas_interesse', formData.interest.join(', '));
     }
     if (formData.subject === 'recrutamento') {
@@ -450,6 +452,22 @@ const Contact: React.FC = () => {
                       exit={{ opacity: 0, height: 0 }}
                       className="mb-6 overflow-hidden"
                     >
+                      {/* Address Field */}
+                      <div className="mb-6">
+                        <label htmlFor="address" className="block text-sm font-bold text-gray-700 mb-2">
+                          {t.contact.labels.address}
+                        </label>
+                        <input
+                          type="text"
+                          id="address"
+                          name="address"
+                          disabled={isSubmitting}
+                          value={formData.address}
+                          onChange={handleChange}
+                          className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                        />
+                      </div>
+
                       <label className="block text-sm font-bold text-gray-700 mb-3">
                         {t.contact.form.interest} <span className="text-gray-400 font-normal text-xs ml-1">{t.contact.form.interestHint}</span>
                       </label>

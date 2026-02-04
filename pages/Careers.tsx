@@ -18,6 +18,17 @@ const Careers: React.FC = () => {
         description={t.seo.careers.description} 
       />
 
+      {/* Internal style to hide scrollbar for the carousel */}
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+      `}</style>
+
       {/* Header / Hero (Standardized) */}
       <div className="bg-corporate py-16 mb-16 text-center text-white relative">
         <div className="container mx-auto px-4 md:px-12 relative z-10">
@@ -59,13 +70,16 @@ const Careers: React.FC = () => {
           </div>
         </div>
 
-        {/* Job Listings (Blog Style) */}
+        {/* Job Listings (Mobile Carousel / Desktop Grid) */}
         <div className="mb-24">
           <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
             {t.careers.openingsTitle}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="
+            flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 scrollbar-hide
+            md:grid md:grid-cols-2 md:gap-8 md:pb-0 md:mx-auto md:px-0 md:max-w-5xl
+          ">
             {t.careers.jobs.map((job: any, index: number) => (
               <motion.div 
                 key={job.id}
@@ -73,7 +87,10 @@ const Careers: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group h-full"
+                className="
+                  min-w-[85vw] sm:min-w-[400px] snap-center md:min-w-0 md:w-auto
+                  bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group h-full
+                "
               >
                 <div className="flex justify-between items-start mb-4">
                   <span className="bg-detail text-corporate text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">

@@ -1,17 +1,55 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Lightbulb, Zap, PartyPopper, Building, Activity, Star, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Lightbulb, Zap, CheckCircle, Camera, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
 
+// Images for the Festive Gallery
+const festiveGalleryImages = [
+  "https://images.unsplash.com/photo-1576692139045-c583f66c3c6f?q=80&w=2070&auto=format&fit=crop", // Main
+  "https://images.unsplash.com/photo-1512389142860-9c449ded37fd?q=80&w=2070&auto=format&fit=crop", // Street
+  "https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=2070&auto=format&fit=crop", // Decor
+  "https://images.unsplash.com/photo-1607024103632-62327c527786?q=80&w=2070&auto=format&fit=crop", // Mall
+  "https://images.unsplash.com/photo-1482517967863-00e15c9b4499?q=80&w=2070&auto=format&fit=crop", // Sparkle
+];
+
 const Lighting: React.FC = () => {
   const { t } = useLanguage();
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Defensive guard against undefined translations
   if (!t || !t.lighting) {
     return null;
   }
+
+  // Prevent scrolling when gallery is open
+  useEffect(() => {
+    if (isGalleryOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isGalleryOpen]);
+
+  // Gallery Navigation Handlers
+  const openGallery = () => {
+    setCurrentImageIndex(0);
+    setIsGalleryOpen(true);
+  };
+
+  const closeGallery = () => setIsGalleryOpen(false);
+
+  const nextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % festiveGalleryImages.length);
+  };
+
+  const prevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setCurrentImageIndex((prev) => (prev - 1 + festiveGalleryImages.length) % festiveGalleryImages.length);
+  };
 
   // Helper to assign a specific image to each index
   const getImage = (index: number) => {
@@ -109,8 +147,17 @@ const Lighting: React.FC = () => {
                     <img 
                       src={getImage(index)} 
                       alt={type.title} 
-                      className="relative z-10 w-full h-[300px] md:h-[450px] object-cover rounded-lg shadow-xl"
+                      className="relative z-10 w-full h-[300px] md:h-[450px] object-cover rounded-lg shadow-xl cursor-pointer"
+                      onClick={() => index === 0 && openGallery()} // Click image to open gallery too if index 0
                     />
+                     {index === 0 && (
+                      <div 
+                        onClick={openGallery}
+                        className="absolute bottom-4 right-4 z-20 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full cursor-pointer transition-colors backdrop-blur-sm"
+                      >
+                         <Camera size={20} />
+                      </div>
+                    )}
                   </div>
                 </motion.div>
 
@@ -130,7 +177,7 @@ const Lighting: React.FC = () => {
                   </p>
                   
                   {type.applications && (
-                    <div className="bg-white border border-gray-100 p-6 rounded-lg shadow-sm">
+                    <div className="bg-white border border-gray-100 p-6 rounded-lg shadow-sm mb-8">
                       <h4 className="font-bold text-corporate mb-4 uppercase text-xs tracking-widest flex items-center gap-2">
                         {type.applicationsTitle || "Onde aplicamos"}
                       </h4>
@@ -144,61 +191,23 @@ const Lighting: React.FC = () => {
                       </div>
                     </div>
                   )}
+
+                  {/* GALLERY BUTTON - Only for Festive Lighting (index 0) */}
+                  {index === 0 && (
+                    <button
+                      onClick={openGallery}
+                      className="inline-flex items-center gap-2 bg-accent hover:bg-[#2A3345] text-white font-bold py-3 px-8 rounded-sm uppercase tracking-widest text-sm transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                    >
+                       <Camera size={18} />
+                       {t.common?.seeMore || "Ver Galeria"}
+                    </button>
+                  )}
                 </motion.div>
 
               </div>
             </div>
           </div>
         ))}
-      </section>
-
-      {/* 4. INNOVATION HIGHLIGHT */}
-      <section className="py-20 md:py-28 bg-corporate text-white relative overflow-hidden">
-         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-         
-         <div className="container mx-auto px-4 md:px-12 relative z-10">
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-               <div className="w-full lg:w-1/2">
-                  <div className="inline-block bg-accent px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
-                    Engineering + Art
-                  </div>
-                  <h2 className="text-3xl md:text-5xl font-normal font-heading mb-6">
-                    {t.lighting.innovationTitle}
-                  </h2>
-                  <p className="text-gray-400 text-lg mb-8 font-light">
-                    {t.lighting.innovationDesc}
-                  </p>
-                  
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                       <Lightbulb className="text-brand-light mt-1 shrink-0" />
-                       <div>
-                         <h4 className="font-normal text-white text-lg font-heading">LEDs de Alta Eficiência</h4>
-                         <p className="text-gray-500 text-sm">Tecnologia que garante menor consumo e maior durabilidade.</p>
-                       </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                       <Zap className="text-brand-light mt-1 shrink-0" />
-                       <div>
-                         <h4 className="font-normal text-white text-lg font-heading">Sistemas de Telegestão</h4>
-                         <p className="text-gray-500 text-sm">Controlo remoto de luminárias públicas para gestão inteligente.</p>
-                       </div>
-                    </div>
-                  </div>
-               </div>
-               
-               <div className="w-full lg:w-1/2">
-                  <div className="relative bg-gray-800 rounded-xl p-2 border border-gray-700 shadow-2xl">
-                     <div className="absolute -top-10 -right-10 w-32 h-32 bg-accent rounded-full blur-3xl opacity-20"></div>
-                     <img 
-                       src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" 
-                       alt="Architectural Lighting" 
-                       className="rounded-lg w-full h-auto opacity-90"
-                     />
-                  </div>
-               </div>
-            </div>
-         </div>
       </section>
 
       {/* 5. CTA */}
@@ -216,6 +225,68 @@ const Lighting: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* FULL SCREEN GALLERY MODAL */}
+      <AnimatePresence>
+        {isGalleryOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+            onClick={closeGallery}
+          >
+            {/* Close Button */}
+            <button 
+              onClick={closeGallery} 
+              className="absolute top-4 right-4 text-white/70 hover:text-white p-2 z-50 transition-colors"
+            >
+              <X size={32} />
+            </button>
+
+            {/* Navigation Buttons */}
+            <button 
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white p-2 z-50 transition-colors hidden md:block"
+            >
+              <ChevronLeft size={48} />
+            </button>
+
+            <button 
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white p-2 z-50 transition-colors hidden md:block"
+            >
+              <ChevronRight size={48} />
+            </button>
+
+            {/* Main Image */}
+            <div className="relative w-full max-w-6xl h-full flex flex-col items-center justify-center pointer-events-none">
+              <motion.img 
+                key={currentImageIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                src={festiveGalleryImages[currentImageIndex]} 
+                alt="Galeria Iluminação Festiva"
+                className="max-h-[85vh] max-w-full object-contain shadow-2xl rounded-sm pointer-events-auto"
+                onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing
+              />
+              
+              {/* Counter / Caption */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm font-light tracking-widest bg-black/50 px-4 py-2 rounded-full backdrop-blur-md">
+                 {currentImageIndex + 1} / {festiveGalleryImages.length}
+              </div>
+            </div>
+
+            {/* Mobile Touch Area (Simple nav) */}
+            <div className="md:hidden absolute inset-x-0 bottom-12 flex justify-center gap-8 pointer-events-none">
+                <button onClick={prevImage} className="pointer-events-auto p-4 bg-white/10 rounded-full text-white backdrop-blur"><ChevronLeft /></button>
+                <button onClick={nextImage} className="pointer-events-auto p-4 bg-white/10 rounded-full text-white backdrop-blur"><ChevronRight /></button>
+            </div>
+
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

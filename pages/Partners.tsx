@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Zap, Building2, HardHat, Star, Award, CheckCircle } from 'lucide-react';
+import { ShieldCheck, Zap, Building2, HardHat, Star, Award, CheckCircle, Landmark } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -114,8 +114,8 @@ const Partners: React.FC = () => {
            <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-light rounded-full mix-blend-overlay filter blur-3xl opacity-10 transform -translate-x-1/2 translate-y-1/2"></div>
            
            <div className="relative z-10">
-             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-gray-700 pb-8">
-               <div className="max-w-2xl">
+             <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 border-b border-gray-700 pb-8">
+               <div className="max-w-2xl text-center md:text-left">
                  <h2 className="text-2xl md:text-3xl font-normal font-heading mb-4 text-white">
                    {t.partners.exclusiveTitle}
                  </h2>
@@ -137,13 +137,13 @@ const Partners: React.FC = () => {
                {t.partners.exclusivePartners.map((partner: any, index: number) => (
                  <div key={index} className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors group">
                     <div className="mb-6 inline-flex p-3 bg-accent/30 rounded-lg text-brand-light group-hover:text-white transition-colors">
+                      {(partner.type === 'Autarquia' || partner.type === 'Municipality') && <Landmark size={28} />}
+                      {(partner.type === 'Setor Público' || partner.type === 'Public Sector') && <Building2 size={28} />}
+                      
+                      {/* Fallbacks */}
                       {partner.type === 'Construção Civil' && <HardHat size={28} />}
                       {partner.type === 'Hotelaria' && <Building2 size={28} />}
                       {partner.type === 'Gestão de Imóveis' && <ShieldCheck size={28} />}
-                      {/* Fallback icons */}
-                      {partner.type === 'Civil Construction' && <HardHat size={28} />}
-                      {partner.type === 'Hospitality' && <Building2 size={28} />}
-                      {partner.type === 'Property Management' && <ShieldCheck size={28} />}
                     </div>
                     
                     <span className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">{partner.type}</span>
