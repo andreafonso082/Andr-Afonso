@@ -15,7 +15,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-corporate text-white pt-16 pb-8 border-t-4 border-brand-light">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-12">
+        {/* Adjusted gap for mobile (gap-4) to accommodate wider email text */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-10 mb-12">
           
           {/* Company Info - Full width on mobile/tablet, 1 col on desktop */}
           <div className="col-span-2 lg:col-span-1">
@@ -46,7 +47,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="col-span-1">
-            <h4 className="text-lg font-normal font-heading mb-6 border-b-2 border-brand-light inline-block pb-1">{t.footer.navTitle}</h4>
+            <h4 className="text-lg font-bold font-heading mb-6 border-b-2 border-brand-light inline-block pb-1">{t.footer.navTitle}</h4>
             <ul className="space-y-3 font-body text-sm">
               <li><Link to="/" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.home}</Link></li>
               <li><Link to="/about" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.about}</Link></li>
@@ -60,7 +61,7 @@ const Footer: React.FC = () => {
 
           {/* Contacts & Support - Right aligned on mobile/tablet (icon right), Left on desktop (icon left) */}
           <div className="col-span-1 text-right lg:text-left">
-            <h4 className="text-lg font-normal font-heading mb-6 border-b-2 border-brand-light inline-block pb-1">{t.footer.contactTitle}</h4>
+            <h4 className="text-lg font-bold font-heading mb-6 border-b-2 border-brand-light inline-block pb-1">{t.footer.contactTitle}</h4>
             <ul className="space-y-4 font-body text-sm mb-8">
               <li className="flex items-start gap-3 flex-row-reverse lg:flex-row">
                 <MapPin size={18} className="text-brand-light shrink-0 mt-1" />
@@ -72,7 +73,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 flex-row-reverse lg:flex-row">
                 <Mail size={18} className="text-brand-light shrink-0" />
-                <a href="mailto:mail@joaquimfernandes.pt" className="text-gray-400 hover:text-white transition-colors whitespace-nowrap text-xs sm:text-sm">mail@joaquimfernandes.pt</a>
+                <a href="mailto:mail@joaquimfernandes.pt" className="text-gray-400 hover:text-white transition-colors whitespace-nowrap text-sm">mail@joaquimfernandes.pt</a>
               </li>
             </ul>
 
@@ -98,17 +99,27 @@ const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-body">
-          <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-center md:text-left">
-             <span>&copy; {new Date().getFullYear()} Joaquim & Fernandes, Lda. {t.footer.rights}</span>
-             <span className="hidden md:inline text-gray-700">|</span>
-             <span>
-               {t.footer.designedBy} <a href="https://agencia-vela.com" target="_blank" rel="noopener noreferrer" className="text-brand-light hover:text-white transition-colors font-medium">Agência Vela</a>
-             </span>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
-            <Link to="/quality-policy" className="hover:text-white transition-colors">{t.footer.quality}</Link>
-            <Link to="/privacy" className="hover:text-white transition-colors">{t.footer.privacy}</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">{t.footer.terms}</Link>
+          <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4 text-center md:text-left w-full justify-between">
+             <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2">
+               <span>&copy; {new Date().getFullYear()} Joaquim & Fernandes, Lda. {t.footer.rights}</span>
+               <span className="hidden md:inline text-gray-700">|</span>
+               <span>
+                 {t.footer.designedBy} <a href="https://agencia-vela.com" target="_blank" rel="noopener noreferrer" className="text-brand-light hover:text-white transition-colors font-medium">Agência Vela</a>
+               </span>
+             </div>
+             <div className="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
+               <Link to="/quality-policy" className="hover:text-white transition-colors">{t.footer.quality}</Link>
+               <Link to="/privacy" className="hover:text-white transition-colors">{t.footer.privacy}</Link>
+               <Link to="/terms" className="hover:text-white transition-colors">{t.footer.terms}</Link>
+               <a 
+                 href="https://www.livroreclamacoes.pt/Inicio/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 className="hover:text-white transition-colors"
+               >
+                 {t.footer.complaintsBook}
+               </a>
+             </div>
           </div>
         </div>
       </div>

@@ -74,7 +74,7 @@ const ServiceDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-normal font-heading text-white mb-4 md:mb-6 leading-tight max-w-4xl mx-auto px-2">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight max-w-4xl mx-auto px-2">
               {serviceData.seoTitle}
             </h1>
             <p className="text-sm md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed hidden sm:block">
@@ -100,7 +100,7 @@ const ServiceDetail: React.FC = () => {
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
             >
-              <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-6 md:mb-8 border-l-4 border-brand-light pl-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-corporate mb-6 md:mb-8 border-l-4 border-brand-light pl-4">
                 {serviceData.title}
               </h2>
               <div className="prose prose-lg text-gray-600 font-body leading-relaxed mb-12 text-sm md:text-base text-justify">
@@ -108,7 +108,7 @@ const ServiceDetail: React.FC = () => {
               </div>
 
               {/* FEATURES LIST */}
-              <h3 className="text-lg md:text-xl font-normal text-corporate mb-4 md:mb-6 uppercase tracking-wider">
+              <h3 className="text-lg md:text-xl font-bold text-corporate mb-4 md:mb-6 uppercase tracking-wider">
                  O que incluímos
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
@@ -123,7 +123,7 @@ const ServiceDetail: React.FC = () => {
               {/* BENEFITS SECTION - NEW */}
               {serviceData.benefits && (
                 <div className="mb-16">
-                   <h3 className="text-lg md:text-xl font-normal text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
+                   <h3 className="text-lg md:text-xl font-bold text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
                       <ShieldCheck className="text-brand-light" /> Porquê a J&F?
                    </h3>
                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -139,7 +139,7 @@ const ServiceDetail: React.FC = () => {
 
               {/* GALLERY SECTION - NEW */}
               <div className="mb-12">
-                 <h3 className="text-lg md:text-xl font-normal text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
+                 <h3 className="text-lg md:text-xl font-bold text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
                     <ImageIcon className="text-brand-light" /> Galeria
                  </h3>
                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -164,7 +164,7 @@ const ServiceDetail: React.FC = () => {
             <div className="sticky top-32">
               {/* Call to Action Box */}
               <div className="bg-corporate text-white p-6 md:p-8 rounded-lg shadow-xl mb-8">
-                <h3 className="text-xl md:text-2xl font-normal font-heading mb-4">Pronto para avançar?</h3>
+                <h3 className="text-xl md:text-2xl font-bold font-heading mb-4">Pronto para avançar?</h3>
                 <p className="text-gray-400 mb-8 text-sm">
                   Fale com a nossa equipa técnica especializada para obter um orçamento personalizado para o seu projeto.
                 </p>
@@ -178,7 +178,7 @@ const ServiceDetail: React.FC = () => {
 
               {/* SEO Keyword Cloud (Visible) */}
               <div className="bg-white border border-gray-200 p-6 rounded-lg mb-8">
-                <h4 className="flex items-center gap-2 font-normal text-corporate mb-4 text-sm uppercase tracking-wider">
+                <h4 className="flex items-center gap-2 font-bold text-corporate mb-4 text-sm uppercase tracking-wider">
                   <Tag size={16} className="text-brand-light" /> Áreas de Foco
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -199,7 +199,7 @@ const ServiceDetail: React.FC = () => {
       {/* Footer Navigation Area - Centered Content with Blue Background */}
       <div className="w-full py-16 bg-[#3B455B] md:bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center">
         <div className="container mx-auto px-4 md:px-6">
-           <h3 className="text-xl md:text-2xl font-normal text-white mb-6 uppercase tracking-wide">
+           <h3 className="text-xl md:text-2xl font-bold text-white mb-6 uppercase tracking-wide">
              Explore outros serviços
            </h3>
            <CTAButton 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Lightbulb, Zap, CheckCircle, Camera, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Camera, X, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -63,7 +63,7 @@ const Lighting: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-12 bg-white overflow-hidden">
+    <div className="pt-24 pb-0 bg-white overflow-x-hidden">
       <SEO 
         title={t.seo.lighting?.title || "Iluminação Profissional | J&F"} 
         description={t.seo.lighting?.description || "Soluções de Iluminação Festiva, Pública e Arquitetural."} 
@@ -72,7 +72,7 @@ const Lighting: React.FC = () => {
       {/* 1. HEADER / HERO (Standardized) */}
       <div className="bg-corporate py-16 mb-16 text-center text-white relative">
         <div className="container mx-auto px-4 md:px-12 relative z-10">
-          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.lighting.heroTitle}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold uppercase font-heading mb-4">{t.lighting.heroTitle}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
             {t.lighting.heroDesc}
           </p>
@@ -93,7 +93,7 @@ const Lighting: React.FC = () => {
                viewport={{ once: true }}
                transition={{ duration: 0.6 }}
              >
-               <h2 className="text-3xl md:text-4xl font-normal text-corporate mb-8 leading-tight">
+               <h2 className="text-3xl md:text-4xl font-bold uppercase text-corporate mb-8 leading-tight">
                  {t.lighting.introTitle}
                </h2>
                <div className="w-24 h-1 bg-accent mb-8"></div>
@@ -126,7 +126,7 @@ const Lighting: React.FC = () => {
 
       {/* 3. LIGHTING TYPES SECTIONS (Alternating) */}
       <section className="bg-white">
-        {t.lighting.types.map((type: any, index: number) => (
+        {t.lighting.types?.map((type: any, index: number) => (
           <div 
             key={index} 
             className={`py-20 md:py-28 overflow-hidden ${index % 2 === 0 ? 'bg-detail' : 'bg-white'}`}
@@ -169,7 +169,7 @@ const Lighting: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="w-full lg:w-1/2"
                 >
-                  <h3 className="text-3xl md:text-4xl font-normal text-corporate mb-6 font-heading">
+                  <h3 className="text-3xl md:text-4xl font-bold uppercase text-corporate mb-6 font-heading">
                     {type.title}
                   </h3>
                   <p className="text-gray-600 text-lg leading-relaxed mb-8 text-justify">
@@ -182,7 +182,7 @@ const Lighting: React.FC = () => {
                         {type.applicationsTitle || "Onde aplicamos"}
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {type.applications.map((app: string, i: number) => (
+                        {type.applications?.map((app: string, i: number) => (
                           <div key={i} className="flex items-center gap-3">
                             <CheckCircle size={18} className="text-accent shrink-0" />
                             <span className="text-sm text-gray-700">{app}</span>
@@ -211,20 +211,29 @@ const Lighting: React.FC = () => {
       </section>
 
       {/* 5. CTA */}
-      <section className="py-20 md:py-28 bg-white text-center">
-        <div className="container mx-auto px-4 md:px-6">
-          <motion.div
-             initial={{ opacity: 0, scale: 0.95 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
-             className="bg-gradient-to-br from-detail to-white border border-gray-100 p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto"
-          >
-            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.lighting.ctaTitle}</h2>
-            <p className="text-gray-600 mb-8 text-lg">{t.lighting.ctaDesc}</p>
-            <CTAButton to="/contact?subject=orcamento&interest=lighting" text={t.lighting.ctaButton} variant="primary" />
-          </motion.div>
-        </div>
-      </section>
+      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light">
+         {/* Abstract Decoration */}
+         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
+         
+         <div className="container mx-auto px-4 md:px-12 relative z-10">
+           <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+           >
+             <h2 className="text-2xl md:text-3xl font-bold uppercase text-white mb-2 font-heading tracking-wide">
+               {t.lighting.ctaTitle}
+             </h2>
+             <p className="text-gray-300 text-lg mb-6 max-w-xl mx-auto">{t.lighting.ctaDesc}</p>
+             <CTAButton 
+               to="/contact?subject=orcamento&interest=lighting" 
+               text={t.lighting.ctaButton} 
+               variant="outline" 
+               className="text-white border-white hover:bg-white hover:text-[#3B455B] rounded-sm" 
+             />
+           </motion.div>
+         </div>
+      </div>
 
       {/* FULL SCREEN GALLERY MODAL */}
       <AnimatePresence>

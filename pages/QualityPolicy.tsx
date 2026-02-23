@@ -14,7 +14,7 @@ const QualityPolicy: React.FC = () => {
       <div className="bg-corporate py-16 mb-16 text-center text-white relative">
          <div className="absolute inset-0 bg-accent/10 pattern-grid-lg opacity-20"></div>
          <div className="container mx-auto px-6 md:px-12 relative z-10">
-            <h1 className="text-4xl font-normal font-heading mb-4">{content.title}</h1>
+            <h1 className="text-4xl font-bold mb-4 uppercase">{content.title}</h1>
             <div className="w-24 h-1 bg-brand-light mx-auto"></div>
          </div>
       </div>
@@ -31,7 +31,7 @@ const QualityPolicy: React.FC = () => {
            >
               <div className="flex items-center gap-3 mb-4">
                  <Eye className="text-accent" size={32} />
-                 <h2 className="text-2xl font-normal text-corporate">{content.visionTitle}</h2>
+                 <h2 className="text-2xl font-bold text-corporate">{content.visionTitle}</h2>
               </div>
               <p className="text-gray-600 font-body leading-relaxed">
                  {content.visionDesc}
@@ -46,7 +46,7 @@ const QualityPolicy: React.FC = () => {
            >
               <div className="flex items-center gap-3 mb-4">
                  <Target className="text-accent" size={32} />
-                 <h2 className="text-2xl font-normal text-corporate">{content.missionTitle}</h2>
+                 <h2 className="text-2xl font-bold text-corporate">{content.missionTitle}</h2>
               </div>
               <p className="text-gray-600 font-body leading-relaxed">
                  {content.missionDesc}
@@ -58,7 +58,7 @@ const QualityPolicy: React.FC = () => {
         <div className="mb-20">
            <div className="flex items-center gap-3 mb-8 justify-center">
               <Diamond className="text-brand-light" size={32} />
-              <h2 className="text-3xl font-normal text-corporate text-center">{content.valuesTitle}</h2>
+              <h2 className="text-3xl font-bold text-corporate text-center">{content.valuesTitle}</h2>
            </div>
            
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -71,7 +71,7 @@ const QualityPolicy: React.FC = () => {
                    viewport={{ once: true }}
                    className="bg-white border border-gray-100 p-6 rounded shadow-sm hover:shadow-lg transition-shadow"
                  >
-                    <h3 className="font-normal text-corporate mb-3 text-lg border-b border-gray-100 pb-2">{val.title}</h3>
+                    <h3 className="font-bold text-corporate mb-3 text-lg border-b border-gray-100 pb-2">{val.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
                        {val.desc}
                     </p>
@@ -89,7 +89,7 @@ const QualityPolicy: React.FC = () => {
         >
            <div className="flex items-center gap-3 mb-8">
               <Compass className="text-accent" size={32} />
-              <h2 className="text-2xl md:text-3xl font-normal text-corporate">{content.strategyTitle}</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-corporate">{content.strategyTitle}</h2>
            </div>
            
            <ul className="space-y-6">
@@ -135,7 +135,7 @@ const QualityPolicy: React.FC = () => {
                <p className="mb-4 italic text-gray-700">{content.legalInfo.intro}</p>
                
                <div className="pl-4 border-l-2 border-brand-light space-y-1 mb-6">
-                   <p className="font-bold text-corporate">{content.legalInfo.entityName}</p>
+                   <p className="font-normal text-corporate">{content.legalInfo.entityName}</p>
                    <p>{content.legalInfo.address}</p>
                    <p>{content.legalInfo.phone}</p>
                    <p>{content.legalInfo.email}</p>

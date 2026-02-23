@@ -1,13 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Award, Briefcase, Users, HardHat, GraduationCap, GripHorizontal } from 'lucide-react';
+import { Calendar, Award, Briefcase, Users, HardHat, GraduationCap, GripHorizontal, FileText, ShieldCheck, CheckCircle, Zap, Star } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
-
-// Helper icons
-const ZapIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>;
-const StarIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>;
 
 const About: React.FC = () => {
   const { t } = useLanguage();
@@ -29,14 +25,23 @@ const About: React.FC = () => {
     return null;
   }
 
-  const getIcon = (index: number) => {
+  // Define static data for the 3 requested cards (PME Líder/Excelência)
+  const pmeBadges = [
+    { type: 'lider', year: '2024', label: 'PME Líder' },
+    { type: 'excelencia', year: '2023', label: 'PME Excelência' },
+    { type: 'lider', year: '2022', label: 'PME Líder' },
+  ];
+
+  const technicalCerts = t.about.awards.list.slice(2);
+
+  const getTimelineIcon = (index: number) => {
     switch(index) {
         case 0: return <Calendar size={20} className="text-white" />;
         case 1: return <Briefcase size={20} className="text-white" />;
         case 2: return <Users size={20} className="text-white" />;
         case 3: return <Award size={20} className="text-white" />;
-        case 4: return <ZapIcon />;
-        default: return <StarIcon />;
+        case 4: return <Zap size={20} className="text-white" />;
+        default: return <Star size={20} className="text-white" />;
     }
   };
 
@@ -50,7 +55,7 @@ const About: React.FC = () => {
       {/* 1. HEADER / HERO */}
       <div className="bg-corporate py-16 mb-0 text-center text-white relative">
         <div className="container mx-auto px-4 md:px-12 relative z-10">
-          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.about.heroTitle}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold uppercase font-heading mb-4">{t.about.heroTitle}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
             {t.about.heroDesc}
           </p>
@@ -61,50 +66,60 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. AWARDS & CERTIFICATIONS (High Relevance/Trust) */}
-      <section className="bg-white py-12 md:py-16 mb-0 border-b border-gray-100">
+      {/* 2. AWARDS & CERTIFICATIONS (Refactored for Hierarchy) */}
+      <section className="bg-white py-16 md:py-24 mb-0 border-b border-gray-100">
          <div className="container mx-auto px-4 md:px-12">
-            <div className="text-center mb-10 md:mb-12">
-               <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4 font-heading">{t.about.awards.title}</h2>
-               <p className="text-gray-500 max-w-2xl mx-auto">{t.about.awards.subtitle}</p>
+            <div className="text-center mb-20">
+               <h2 className="text-3xl font-bold uppercase text-corporate mb-4">{t.about.awards.title}</h2>
+               <div className="w-16 h-1 bg-brand-light mx-auto"></div>
             </div>
             
-            <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-24">
-               {/* PME Líder Mockup/Placeholder */}
-               <motion.div 
-                 initial={{ opacity: 0, scale: 0.8 }}
-                 whileInView={{ opacity: 1, scale: 1 }}
-                 transition={{ delay: 0.1 }}
-                 className="flex flex-col items-center"
-               >
-                  <img 
-                    src="https://placehold.co/200x200/0056b3/white?text=PME+Lider" 
-                    alt="PME Líder" 
-                    className="h-24 md:h-32 w-auto mb-4 hover:scale-105 transition-transform duration-300 object-contain"
-                  />
-                  <h3 className="font-bold text-corporate text-lg">PME Líder</h3>
-                  <p className="text-xs text-gray-400 text-center max-w-[200px]">
-                    {t.about.awards.list[0].desc}
-                  </p>
-               </motion.div>
+            {/* FEATURED: 3 PME CARDS (Year Only, Bottom Interrupted Line) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto mb-24">
+                {pmeBadges.map((badge, index) => (
+                    <motion.div 
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.2 }}
+                        viewport={{ once: true }}
+                        className="relative bg-white border border-gray-300 rounded-sm hover:border-brand-light transition-colors duration-300 group min-h-[160px] flex items-center justify-center"
+                    >
+                        {/* Subtle decorative icon in background (optional, keeps card from looking empty) */}
+                        <div className="opacity-5 group-hover:opacity-10 transition-opacity duration-300 text-corporate">
+                           {badge.type === 'lider' ? <Award size={64} /> : <Star size={64} />}
+                        </div>
 
-               {/* PME Excelência Mockup/Placeholder */}
-               <motion.div 
-                 initial={{ opacity: 0, scale: 0.8 }}
-                 whileInView={{ opacity: 1, scale: 1 }}
-                 transition={{ delay: 0.3 }}
-                 className="flex flex-col items-center"
-               >
-                  <img 
-                    src="https://placehold.co/200x200/FFC107/black?text=PME+Excelencia" 
-                    alt="PME Excelência" 
-                    className="h-24 md:h-32 w-auto mb-4 hover:scale-105 transition-transform duration-300 object-contain"
-                  />
-                  <h3 className="font-bold text-corporate text-lg">PME Excelência</h3>
-                  <p className="text-xs text-gray-400 text-center max-w-[200px]">
-                    {t.about.awards.list[1].desc}
-                  </p>
-               </motion.div>
+                        {/* Year placed at the bottom, interrupting the border */}
+                        <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white px-6 transition-transform duration-300 group-hover:scale-110">
+                           <span className="text-4xl md:text-5xl font-bold text-corporate tracking-tighter group-hover:text-brand-light transition-colors">
+                             {badge.year}
+                           </span>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+
+            {/* SECONDARY: TECHNICAL CERTIFICATIONS (Clean Grid) */}
+            <div className="border-t border-gray-100 pt-16">
+                <h3 className="text-center text-xs font-bold uppercase tracking-widest text-gray-400 mb-10">Certificações Técnicas & Qualidade</h3>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
+                    {technicalCerts.map((cert: any, index: number) => (
+                        <motion.div 
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="flex flex-col items-center text-center p-6 bg-detail rounded-sm hover:bg-white hover:shadow-md transition-all duration-300 border border-transparent hover:border-gray-200 w-full"
+                        >
+                            <h4 className="font-bold text-corporate text-sm md:text-base mb-2 leading-tight">{cert.name}</h4>
+                            <p className="text-xs text-gray-500 hidden md:block max-w-[200px]">
+                                {cert.desc}
+                            </p>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
          </div>
       </section>
@@ -122,16 +137,16 @@ const About: React.FC = () => {
                  transition={{ duration: 0.6 }}
                  className="w-full lg:w-1/2 relative"
                >
-                  <div className="absolute top-4 left-4 w-full h-full border-2 border-corporate rounded-lg z-0"></div>
+                  <div className="absolute top-4 left-4 w-full h-full border-2 border-corporate rounded-sm z-0"></div>
                   <img 
                     src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2064&auto=format&fit=crop" 
                     alt="Equipa Joaquim & Fernandes" 
-                    className="relative z-10 rounded-lg shadow-xl w-full object-cover h-[300px] md:h-[400px]"
+                    className="relative z-10 rounded-sm shadow-xl w-full object-cover h-[300px] md:h-[400px]"
                   />
                   {/* Floating Badge */}
-                  <div className="absolute -bottom-6 -right-6 bg-accent text-white p-4 md:p-6 rounded shadow-lg z-20 hidden md:block">
-                     <span className="block text-3xl md:text-4xl font-normal font-heading">40</span>
-                     <span className="text-xs uppercase tracking-widest">Anos de Experiência</span>
+                  <div className="absolute -bottom-6 -right-6 bg-accent text-white p-4 md:p-6 rounded-sm shadow-lg z-20 hidden md:block">
+                     <span className="block text-3xl md:text-4xl font-bold font-heading">35+</span>
+                     <span className="text-xs uppercase tracking-widest font-semibold">Anos de Experiência</span>
                   </div>
                </motion.div>
 
@@ -143,42 +158,45 @@ const About: React.FC = () => {
                      viewport={{ once: true }}
                      transition={{ duration: 0.6 }}
                   >
-                     <h4 className="text-brand-light font-normal uppercase tracking-widest text-xs md:text-sm mb-2">{t.about.teamSection.title}</h4>
-                     <h2 className="text-2xl md:text-4xl font-normal text-corporate mb-6 font-heading leading-tight">
+                     <h4 className="text-brand-light font-bold uppercase tracking-widest text-xs md:text-sm mb-2">{t.about.teamSection.title}</h4>
+                     <h2 className="text-2xl md:text-4xl font-bold uppercase text-corporate mb-6 leading-tight">
                         {t.about.teamSection.subtitle}
                      </h2>
-                     <p className="text-gray-600 mb-8 leading-relaxed font-body">
+                     <p className="text-gray-600 mb-8 leading-relaxed font-body text-justify">
                         {t.about.teamSection.description}
                      </p>
                      
                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8">
-                        <div className="flex items-start gap-3">
+                        {/* REMOVED justify-center to align left */}
+                        <div className="flex items-center gap-3">
                            <div className="bg-white p-2 rounded shadow-sm text-accent">
                               <Users size={20} />
                            </div>
                            <div>
-                              <h5 className="font-normal text-corporate text-sm">{t.about.teamSection.stat1}</h5>
+                              <h5 className="font-bold text-corporate text-sm">{t.about.teamSection.stat1}</h5>
                            </div>
                         </div>
-                        <div className="flex items-start gap-3">
+                        {/* REMOVED justify-center to align left */}
+                        <div className="flex items-center gap-3">
                            <div className="bg-white p-2 rounded shadow-sm text-accent">
                               <HardHat size={20} />
                            </div>
                            <div>
-                              <h5 className="font-normal text-corporate text-sm">{t.about.teamSection.stat2}</h5>
+                              <h5 className="font-bold text-corporate text-sm">{t.about.teamSection.stat2}</h5>
                            </div>
                         </div>
-                        <div className="flex items-start gap-3">
+                        {/* REMOVED justify-center to align left */}
+                        <div className="flex items-center gap-3">
                            <div className="bg-white p-2 rounded shadow-sm text-accent">
                               <GraduationCap size={20} />
                            </div>
                            <div>
-                              <h5 className="font-normal text-corporate text-sm">{t.about.teamSection.stat3}</h5>
+                              <h5 className="font-bold text-corporate text-sm">{t.about.teamSection.stat3}</h5>
                            </div>
                         </div>
                      </div>
 
-                     <div className="p-6 bg-white rounded border-l-4 border-brand-light shadow-sm">
+                     <div className="p-6 bg-white rounded-sm border-l-4 border-brand-light shadow-sm">
                         <p className="text-sm italic text-gray-500">"{t.about.teamSection.highlight}"</p>
                      </div>
                   </motion.div>
@@ -191,13 +209,13 @@ const About: React.FC = () => {
       <div className="mb-24 w-full">
         
         <div className="container mx-auto px-4 md:px-12 text-center mb-8">
-            <h2 className="text-2xl font-normal text-corporate font-heading">O Nosso Percurso</h2>
+            <h2 className="text-2xl font-bold uppercase text-corporate">O Nosso Percurso</h2>
         </div>
 
         {/* Draggable Hint */}
         <div className="flex items-center justify-center gap-2 text-gray-400 mb-8 animate-pulse">
             <GripHorizontal size={20} />
-            <span className="text-xs uppercase tracking-widest">Arraste para explorar</span>
+            <span className="text-xs uppercase tracking-widest font-semibold">Arraste para explorar</span>
         </div>
 
         {/* Horizontal Timeline Container */}
@@ -218,7 +236,7 @@ const About: React.FC = () => {
                   
                   {/* The Dot / Node */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-accent rounded-full border-4 border-white shadow-lg transition-transform duration-300 group-hover:scale-110">
-                    {getIcon(index)}
+                    {getTimelineIcon(index)}
                   </div>
 
                   {/* Content Card - Alternating Top/Bottom */}
@@ -227,7 +245,7 @@ const About: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     className={`
-                      relative w-[90%] bg-white p-6 rounded shadow-sm border border-gray-100 hover:shadow-xl hover:border-brand-light transition-all duration-300 z-20
+                      relative w-[90%] bg-white p-6 rounded-sm shadow-sm border border-gray-100 hover:shadow-xl hover:border-brand-light transition-all duration-300 z-20
                       ${isEven ? 'mb-24 md:mb-32' : 'mt-24 md:mt-32'}
                     `}
                   >
@@ -237,10 +255,10 @@ const About: React.FC = () => {
                        ${isEven ? '-bottom-8 md:-bottom-12' : '-top-8 md:-top-12'}
                      `}></div>
 
-                    <span className="inline-block px-3 py-1 bg-brand-light/20 text-accent font-bold rounded text-sm mb-3">
+                    <span className="inline-block px-3 py-1 bg-brand-light/20 text-accent font-bold rounded-sm text-sm mb-3">
                       {event.year}
                     </span>
-                    <h3 className="text-xl font-normal text-corporate mb-2 font-heading">
+                    <h3 className="text-xl font-bold text-corporate mb-2">
                       {event.title}
                     </h3>
                     <p className="text-gray-600 font-body text-sm leading-relaxed">
@@ -258,7 +276,7 @@ const About: React.FC = () => {
       </div>
 
       {/* 5. CLOSING / CTA Section - Full Width, Diagonal Gradient */}
-      <div className="w-full py-16 md:py-24 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10">
+      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light">
          {/* Abstract Decoration */}
          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
 
@@ -268,17 +286,17 @@ const About: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-               <h2 className="text-2xl md:text-3xl font-normal text-white mb-2 font-heading uppercase tracking-wide">
+               <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 font-heading uppercase tracking-wide">
                  {t.about.closingTitle}
                </h2>
-               <p className="text-gray-300 max-w-xl mx-auto mb-8 text-lg">
+               <p className="text-gray-300 max-w-xl mx-auto mb-6 text-lg">
                  {t.about.closingDesc}
                </p>
                <CTAButton 
                  to="/recrutamento" 
                  text={t.about.closingCta} 
                  variant="outline"
-                 className="text-white border-white hover:bg-white hover:text-[#3B455B]"
+                 className="text-white border-white hover:bg-white hover:text-[#3B455B] rounded-sm"
                />
             </motion.div>
          </div>

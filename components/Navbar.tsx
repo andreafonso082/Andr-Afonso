@@ -67,22 +67,27 @@ const Navbar: React.FC = () => {
         showSolidNav ? 'bg-white shadow-md py-3' : 'bg-transparent py-4 md:py-5'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-12 flex justify-between items-center">
-        {/* Logo Area */}
-        <Link to="/" className="flex items-center gap-2 group relative z-50" aria-label="Joaquim & Fernandes">
-          <div className="hover:scale-105 transition-transform duration-300">
-            {/* Adjusted logo size for mobile vs desktop */}
-            <Logo className="h-12 w-12 md:h-20 md:w-20" />
-          </div>
-        </Link>
+      {/* Logo Container - Aligned with Site Content (Container) */}
+      <div className="absolute inset-0 flex items-center pointer-events-none">
+        <div className="container mx-auto px-4 md:px-12">
+          <Link to="/" className="inline-flex items-center gap-2 group relative z-50 pointer-events-auto" aria-label="Joaquim & Fernandes">
+            <div className="hover:scale-105 transition-transform duration-300">
+              {/* Adjusted logo size for mobile vs desktop */}
+              <Logo className="h-12 w-12 md:h-20 md:w-20" />
+            </div>
+          </Link>
+        </div>
+      </div>
 
+      {/* Navigation Container - Min height ensures navbar size is maintained */}
+      <div className="w-full px-4 md:px-8 flex justify-end items-center relative z-10 pointer-events-none min-h-[3rem] md:min-h-[5rem]">
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8 whitespace-nowrap pointer-events-auto">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`font-semibold text-xs xl:text-sm uppercase tracking-wide transition-colors hover:text-brand-light ${
+              className={`font-semibold text-xs xl:text-sm uppercase tracking-wide transition-colors hover:text-brand-light whitespace-nowrap ${
                 location.pathname === link.path 
                   ? 'text-brand-light' 
                   : (showSolidNav ? 'text-corporate' : 'text-white drop-shadow-md')
@@ -95,7 +100,7 @@ const Navbar: React.FC = () => {
           {/* Language Switcher */}
           <button 
             onClick={toggleLanguage}
-            className={`flex items-center gap-1 font-bold text-xs uppercase py-1 px-3 border rounded transition-all ${
+            className={`flex items-center gap-1 font-bold text-xs uppercase py-1 px-3 border rounded transition-all whitespace-nowrap ${
                showSolidNav 
                 ? 'border-corporate text-corporate hover:bg-corporate hover:text-white' 
                 : 'border-white text-white hover:bg-white hover:text-corporate drop-shadow-md'
@@ -107,14 +112,14 @@ const Navbar: React.FC = () => {
 
           <Link
             to="/contact"
-            className="bg-accent hover:bg-[#2A3345] text-white font-bold py-2 px-6 rounded-sm transition-colors uppercase text-xs tracking-widest shadow-lg border-b-2 border-transparent hover:border-brand-light"
+            className="bg-accent hover:bg-[#2A3345] text-white font-bold py-2 px-6 rounded-sm transition-colors uppercase text-xs tracking-widest shadow-lg border-b-2 border-transparent hover:border-brand-light whitespace-nowrap"
           >
             {t.nav.quote}
           </Link>
         </div>
 
         {/* Mobile Menu Button - Z-Index 50 to stay above menu overlay */}
-        <div className="lg:hidden flex items-center gap-2 sm:gap-3 relative z-50">
+        <div className="lg:hidden flex items-center gap-2 sm:gap-3 relative z-50 pointer-events-auto">
           <button 
             onClick={toggleLanguage}
             className={`flex items-center gap-1 font-bold text-xs uppercase py-1.5 px-2.5 border rounded backdrop-blur-sm ${

@@ -30,7 +30,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
           {icon}
         </div>
       </div>
-      <h3 className="text-xl font-normal mb-3 font-heading text-corporate">{title}</h3>
+      <h3 className="text-xl font-bold mb-3 font-heading text-corporate">{title}</h3>
       <p className="text-gray-600 mb-6 font-body text-sm leading-relaxed flex-grow">
         {description}
       </p>

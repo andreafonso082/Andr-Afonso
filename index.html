@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joaquim & Fernandes - Soluções de Eletricidade e Construção</title>
     
-    <!-- Fonts: Anton for Headings, Montserrat for Body -->
+    <!-- Fonts: Oswald (Headings) & Montserrat (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +26,7 @@
             },
             fontFamily: {
               sans: ['Montserrat', 'sans-serif'],
-              heading: ['Anton', 'sans-serif'], 
+              heading: ['Oswald', 'sans-serif'],
               body: ['Montserrat', 'sans-serif'],
             }
           }
@@ -38,11 +38,10 @@
         font-family: 'Montserrat', sans-serif;
         color: #333333;
       }
-      /* STRICTLY enforce non-bold for Anton to maintain clean aesthetics */
       h1, h2, h3, h4, h5, h6, .font-heading {
-        font-family: 'Anton', sans-serif;
-        font-weight: 400 !important; 
-        letter-spacing: 0.05em; 
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 0.05em; /* Oswald benefits from slight spacing */
+        font-weight: 700;
       }
       .scroll-smooth {
         scroll-behavior: smooth;

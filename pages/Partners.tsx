@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Zap, Building2, HardHat, Star, Award, CheckCircle, Landmark } from 'lucide-react';
+import { ShieldCheck, Zap, Award, Check } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,173 +8,177 @@ import { useLanguage } from '../context/LanguageContext';
 const Partners: React.FC = () => {
   const { t } = useLanguage();
 
-  // Defensive check: Ensure translations are loaded
   if (!t || !t.partners) {
     return null;
   }
 
+  // Define 6 slots as requested with placeholder types
+  const partnerSlots = [
+    { type: "Energia & Automação" },
+    { type: "Infraestruturas" },
+    { type: "Mobilidade Elétrica" },
+    { type: "Material Elétrico" },
+    { type: "Distribuição" },
+    { type: "Iluminação" }
+  ];
+
   return (
-    <div className="pt-24 pb-12 bg-white overflow-hidden">
+    <div className="pt-24 pb-0 bg-white overflow-x-hidden">
       <SEO 
         title={t.seo.partners.title} 
         description={t.seo.partners.description} 
       />
 
-      {/* 1. Hero Section */}
-      <div className="bg-corporate py-16 mb-12 text-center text-white relative">
+      {/* 1. Hero Section - Mais Sóbrio */}
+      <div className="bg-corporate py-20 text-center text-white relative">
         <div className="container mx-auto px-4 md:px-12 relative z-10">
-          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.partners.heroTitle}</h1>
-          <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
+          <h1 className="text-3xl md:text-4xl font-bold uppercase font-heading mb-6 tracking-tight">{t.partners.heroTitle}</h1>
+          <p className="text-gray-400 max-w-2xl mx-auto font-light text-lg leading-relaxed border-l-2 border-brand-light pl-6 text-left md:text-center md:border-l-0 md:pl-0">
             {t.partners.heroDesc}
           </p>
         </div>
-        {/* Background Element */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-           <div className="absolute -right-20 -top-20 w-96 h-96 bg-brand-light rounded-full blur-3xl"></div>
-        </div>
+        {/* Background subtil */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-30"></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-6 md:px-12 py-16 md:py-24">
         
-        {/* 2. FEATURED SECTION: E-REDES (The Highlight) */}
-        <section className="mb-20">
+        {/* 2. E-REDES: Layout Corporativo (Lado a Lado) */}
+        <section className="mb-24">
            <motion.div 
-             initial={{ y: 20, opacity: 0 }}
-             whileInView={{ y: 0, opacity: 1 }}
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="relative bg-gradient-to-r from-yellow-50 to-white border border-yellow-200 rounded-xl p-8 md:p-12 shadow-sm overflow-hidden"
+             className="flex flex-col md:flex-row gap-6 items-center"
            >
-              {/* Decorative Background Icon */}
-              <Zap className="absolute -right-10 -bottom-10 w-64 h-64 text-yellow-100 opacity-50 rotate-12 pointer-events-none" />
-              
-              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8">
-                 <div className="bg-white p-6 rounded-full shadow-md border-2 border-yellow-400 shrink-0">
-                    <Zap size={48} className="text-yellow-500 fill-yellow-500" />
+              {/* Lado Esquerdo: Identidade Visual / Badge */}
+              <div className="md:w-auto md:min-w-[280px] flex flex-col items-center md:items-start shrink-0">
+                 <div className="w-24 h-24 bg-yellow-400 text-corporate flex items-center justify-center rounded-sm mb-6">
+                    <Zap size={48} strokeWidth={1.5} />
+                 </div>
+                 <h2 className="text-3xl font-bold uppercase text-corporate font-heading leading-none mb-2">
+                    E-REDES
+                 </h2>
+                 <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Parceiro Certificado</span>
+              </div>
+
+              {/* Lado Direito: Conteúdo Técnico */}
+              <div className="md:flex-1 border-t md:border-t-0 md:border-l border-gray-200 pt-8 md:pt-0 md:pl-8">
+                 <div className="mb-6">
+                    <h3 className="text-xl font-bold text-corporate mb-4">
+                       {t.partners.eredesHighlight.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      {t.partners.eredesHighlight.desc}
+                    </p>
                  </div>
                  
-                 <div className="flex-grow">
-                    <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
-                       <ShieldCheck size={14} />
-                       {t.partners.eredesHighlight.badge}
-                    </div>
-                    <h2 className="text-3xl font-normal text-corporate mb-2 font-heading">
-                      Parceiro Certificado E-Redes
-                    </h2>
-                    <h3 className="text-lg text-gray-500 mb-4 font-medium">
-                      {t.partners.eredesHighlight.title}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed max-w-3xl">
-                      {t.partners.eredesHighlight.desc}
+                 <div className="bg-gray-50 p-6 border-l-4 border-yellow-400">
+                    <p className="text-sm text-gray-700 font-medium">
+                       <span className="font-bold text-corporate">Nota Técnica:</span> Cumprimento integral das normas DMA-C62-805/N (Baixadas) e DMA-C62-810/N (Postos de Transformação).
                     </p>
                  </div>
               </div>
            </motion.div>
         </section>
 
-        {/* 3. SUPPLIERS & BRANDS (Clean Grid) */}
+        {/* 3. FORNECEDORES: 6 Cartões Brancos (Layout Grid) */}
         <section className="mb-24">
-          <div className="text-center mb-12">
-             <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">
-               {t.partners.suppliersTitle}
-             </h2>
-             <p className="text-gray-500 max-w-2xl mx-auto mb-6">
-               {t.partners.suppliersDesc}
-             </p>
-             <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-sm font-semibold text-corporate">
-                <span className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
-                  <CheckCircle size={16} className="text-green-500" /> Certificação ISO
-                </span>
-                <span className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full border border-gray-100">
-                  <Award size={16} className="text-brand-light" /> Materiais Homologados
-                </span>
+          <div className="mb-12 border-b border-gray-200 pb-4 flex flex-col md:flex-row justify-between items-end">
+             <div>
+                <h2 className="text-2xl font-bold text-corporate font-heading uppercase tracking-wide">
+                  {t.partners.suppliersTitle}
+                </h2>
+                <p className="text-gray-500 text-sm mt-2 max-w-xl">
+                  {t.partners.suppliersDesc}
+                </p>
+             </div>
+             <div className="hidden md:flex gap-6 text-xs font-bold text-gray-400 uppercase tracking-widest">
+                <span className="flex items-center gap-1"><Award size={14} className="text-accent" /> Materiais Homologados</span>
+                <span className="flex items-center gap-1"><Check size={14} className="text-accent" /> ISO 9001</span>
              </div>
           </div>
 
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-             {t.partners.brandsList.map((brand: any, index: number) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+             {partnerSlots.map((slot, index) => (
                <motion.div
                  key={index}
-                 whileHover={{ y: -5 }}
-                 className="group bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-lg hover:border-brand-light transition-all duration-300 flex flex-col h-full"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ delay: index * 0.1 }}
+                 viewport={{ once: true }}
+                 className="group bg-white border border-gray-200 rounded-sm hover:shadow-xl hover:border-brand-light/30 transition-all duration-300 flex flex-col h-48 md:h-56"
                >
-                 <div className="mb-4">
-                    <Star className="text-gray-300 group-hover:text-accent group-hover:fill-accent transition-colors" size={24} />
+                 {/* Main Area: Empty White Space for future Logo */}
+                 <div className="flex-grow flex items-center justify-center p-6 relative">
+                    {/* Placeholder for vertical centering - can be removed when logos are added */}
                  </div>
-                 <h4 className="text-lg font-normal text-corporate mb-2 font-heading">{brand.name}</h4>
-                 <p className="text-sm text-gray-500 leading-snug">{brand.desc}</p>
+
+                 {/* Bottom Label Area */}
+                 <div className="bg-detail py-3 px-2 text-center border-t border-gray-100 group-hover:bg-brand-light transition-colors duration-300">
+                    <span className="text-[10px] md:text-xs font-bold text-gray-500 group-hover:text-white uppercase tracking-widest transition-colors block truncate">
+                       {slot.type}
+                    </span>
+                 </div>
                </motion.div>
              ))}
-           </div>
+          </div>
         </section>
 
-        {/* 4. EXCLUSIVE PARTNERS (Professional Dark Section) */}
-        <section className="bg-corporate text-white rounded-2xl p-8 md:p-16 relative overflow-hidden mb-20">
-           {/* Abstract shapes instead of noisy texture for a cleaner look */}
-           <div className="absolute top-0 right-0 w-64 h-64 bg-accent rounded-full mix-blend-overlay filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-           <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-light rounded-full mix-blend-overlay filter blur-3xl opacity-10 transform -translate-x-1/2 translate-y-1/2"></div>
-           
-           <div className="relative z-10">
-             <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 border-b border-gray-700 pb-8">
-               <div className="max-w-2xl text-center md:text-left">
-                 <h2 className="text-2xl md:text-3xl font-normal font-heading mb-4 text-white">
-                   {t.partners.exclusiveTitle}
-                 </h2>
-                 <p className="text-gray-400 text-lg">
-                   {t.partners.exclusiveDesc}
-                 </p>
-               </div>
-               <div className="shrink-0">
-                  <CTAButton 
-                    to="/contact" 
-                    text={t.partners.ctaButton} 
-                    variant="primary"
-                    className="bg-brand-light text-corporate hover:bg-white hover:text-corporate border-none"
-                  />
-               </div>
-             </div>
+      </div>
 
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-               {t.partners.exclusivePartners.map((partner: any, index: number) => (
-                 <div key={index} className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors group">
-                    <div className="mb-6 inline-flex p-3 bg-accent/30 rounded-lg text-brand-light group-hover:text-white transition-colors">
-                      {(partner.type === 'Autarquia' || partner.type === 'Municipality') && <Landmark size={28} />}
-                      {(partner.type === 'Setor Público' || partner.type === 'Public Sector') && <Building2 size={28} />}
-                      
-                      {/* Fallbacks */}
-                      {partner.type === 'Construção Civil' && <HardHat size={28} />}
-                      {partner.type === 'Hotelaria' && <Building2 size={28} />}
-                      {partner.type === 'Gestão de Imóveis' && <ShieldCheck size={28} />}
-                    </div>
-                    
-                    <span className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">{partner.type}</span>
-                    <h3 className="text-xl font-normal mb-3 text-white">{partner.name}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+      {/* 4. PARCEIROS PÚBLICOS: Colunas Sólidas */}
+      <section className="bg-corporate text-white py-20 md:py-28">
+         <div className="container mx-auto px-6 md:px-12">
+            <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
+               <div className="max-w-xl">
+                  <h2 className="text-3xl font-bold uppercase font-heading mb-4 text-white">
+                    {t.partners.exclusiveTitle}
+                  </h2>
+                  <div className="h-1 w-20 bg-brand-light mb-6"></div>
+                  <p className="text-gray-400 font-light text-lg">
+                    {t.partners.exclusiveDesc}
+                  </p>
+               </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 border-t border-b border-white/10">
+               {t.partners.exclusivePartners?.map((partner: any, index: number) => (
+                 <div key={index} className="py-12 md:py-16 md:px-12 first:pl-0 last:pr-0">
+                    <span className="block text-xs font-bold text-brand-light uppercase tracking-widest mb-4">
+                       {partner.type}
+                    </span>
+                    <h3 className="text-2xl font-bold mb-6 text-white font-heading">
+                       {partner.name}
+                    </h3>
+                    <p className="text-gray-400 text-base leading-relaxed">
                       {partner.desc}
                     </p>
                  </div>
                ))}
-             </div>
-           </div>
-        </section>
-
-      </div>
-      
-      {/* 5. Bottom CTA Area */}
-      <section className="w-full py-16 bg-gray-50 text-center border-t border-gray-100">
-         <div className="container mx-auto px-6 md:px-12">
-            <h2 className="text-2xl font-normal text-corporate mb-4 font-heading">
-              {t.partners.ctaTitle}
-            </h2>
-            <p className="text-gray-600 mb-8">
-              {t.partners.ctaDesc}
-            </p>
-            <CTAButton 
-              to="/contact?subject=parceria" 
-              text={t.common.seeMore || "Contactar Agora"} 
-              variant="secondary"
-            />
+            </div>
          </div>
       </section>
+      
+      {/* 5. Minimal CTA */}
+      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light">
+         {/* Abstract Decoration */}
+         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
+
+         <div className="container mx-auto px-6 md:px-12 relative z-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 font-heading uppercase tracking-wide">
+              {t.partners.ctaTitle}
+            </h2>
+            <div className="flex justify-center">
+               <CTAButton 
+                  to="/contact?subject=parceria" 
+                  text={t.partners.ctaButton} 
+                  variant="outline"
+                  className="text-white border-white hover:bg-white hover:text-[#3B455B] rounded-sm"
+               />
+            </div>
+         </div>
+      </div>
 
     </div>
   );

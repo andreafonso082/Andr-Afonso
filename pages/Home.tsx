@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Zap, CheckCircle, Quote, Star, Activity, Wrench, Wifi, FileText, Layers, Pen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Zap, CheckCircle, Star, Activity, Wrench, Wifi, FileText, Layers, Pen, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
 import CTAButton from '../components/CTAButton';
 import ServiceCard from '../components/ServiceCard';
@@ -209,9 +209,9 @@ const Home: React.FC = () => {
               </div>
 
               {/* RESTORED: Larger text size for Tablet (md:text-4xl) */}
-              <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-normal font-heading text-white mb-6 leading-tight">
-                {t.home.hero.title && t.home.hero.title.split(',').map((part: string, i: number) => (
-                  <span key={i} className="block">{part}{i < 2 ? ',' : ''}</span>
+              <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold uppercase font-heading text-white mb-6 flex flex-col gap-y-1 md:gap-y-2 leading-snug">
+                {t.home.hero.title && t.home.hero.title.split('|').map((part: string, i: number) => (
+                  <span key={i} className="block">{part.trim()}</span>
                 ))}
               </h1>
               
@@ -220,10 +220,16 @@ const Home: React.FC = () => {
                 {t.home.hero.subtitle}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center">
                 {/* RESTORED: Standard button sizing */}
                 <CTAButton to="/contact" text={t.home.hero.ctaPrimary} variant="primary" className="w-full sm:w-auto text-center" />
-                <CTAButton to="/contact" text={t.home.hero.ctaSecondary} variant="outline" className="w-full sm:w-auto text-center" />
+                {/* SMALLER SECONDARY BUTTON LINKING TO SERVICES */}
+                <CTAButton 
+                  to="/services" 
+                  text={t.home.hero.ctaSecondary} 
+                  variant="outline" 
+                  className="w-full sm:w-auto text-center !py-2 !px-6 !text-xs" 
+                />
               </div>
             </motion.div>
             <div className="hidden lg:block w-full lg:w-1/4"></div>
@@ -235,7 +241,7 @@ const Home: React.FC = () => {
       <section className="py-12 md:py-20 bg-white relative z-20">
         <div className="container mx-auto px-4 md:px-12">
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.home.servicesTitle}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold uppercase text-corporate mb-4">{t.home.servicesTitle}</h2>
             <div className="w-16 md:w-20 h-1 bg-brand-light mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
@@ -256,7 +262,7 @@ const Home: React.FC = () => {
             <img src="https://picsum.photos/seed/engineer/800/600" alt="Engenheiro" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
           </div>
           <div className="w-full lg:w-1/2">
-            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-6">{t.home.whyUsTitle}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold uppercase text-corporate mb-6">{t.home.whyUsTitle}</h2>
             <p className="text-gray-600 mb-8 font-body leading-relaxed">{t.home.whyUsDesc}</p>
             {/* UPDATED GRID: Forced 2 columns on all screens including mobile (removed grid-cols-1, added grid-cols-2) */}
             <div className="grid grid-cols-2 gap-3 md:gap-6">
@@ -316,7 +322,7 @@ const Home: React.FC = () => {
              transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div className="relative inline-block max-w-full">
-               <h2 className={`text-2xl sm:text-3xl md:text-5xl font-normal mb-6 text-white drop-shadow-lg ${animStep === 3 ? 'text-shadow-glow' : ''}`}>
+               <h2 className={`text-2xl sm:text-3xl md:text-5xl font-bold uppercase mb-6 text-white drop-shadow-lg ${animStep === 3 ? 'text-shadow-glow' : ''}`}>
                  {t.home.lightUp.title}
                </h2>
             </div>
@@ -339,7 +345,7 @@ const Home: React.FC = () => {
       <section className="py-12 md:py-20 bg-white relative z-20">
         <div className="container mx-auto px-4 md:px-12">
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.home.testimonialsTitle}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold uppercase text-corporate mb-4">{t.home.testimonialsTitle}</h2>
             <div className="w-16 md:w-20 h-1 bg-brand-light mx-auto"></div>
           </div>
           
@@ -381,7 +387,6 @@ const Home: React.FC = () => {
                     className="bg-detail p-6 md:p-8 rounded-lg relative flex flex-col justify-between h-full"
                   >
                     <div>
-                       <Quote className="text-accent/40 absolute top-4 right-4" size={40} />
                        <div className="flex gap-1 text-brand-light mb-4">
                          {[1,2,3,4,5].map(star => <Star key={star} size={16} fill="currentColor" />)}
                        </div>
@@ -423,7 +428,7 @@ const Home: React.FC = () => {
       {/* 6. PARTNERS */}
       <section className="py-12 md:py-16 bg-gray-50 border-t border-gray-200 overflow-hidden relative z-20">
         <div className="container mx-auto px-4 md:px-12 mb-10 md:mb-16 text-center">
-             <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{t.home.partnersTitle}</h2>
+             <h2 className="text-2xl md:text-3xl font-bold uppercase text-corporate mb-4">{t.home.partnersTitle}</h2>
              <div className="w-16 md:w-20 h-1 bg-brand-light mx-auto"></div>
         </div>
         <div className="w-full relative overflow-hidden">
@@ -435,7 +440,7 @@ const Home: React.FC = () => {
           >
             {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (
                <div key={index} className="flex-shrink-0 mx-6 md:mx-12">
-                 <span className="text-xl md:text-3xl font-normal text-gray-400 font-heading opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default whitespace-nowrap">{partner}</span>
+                 <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default whitespace-nowrap">{partner}</span>
                </div>
             ))}
           </motion.div>

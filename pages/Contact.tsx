@@ -284,7 +284,7 @@ const Contact: React.FC = () => {
       {/* Header */}
       <div className="bg-corporate py-16 mb-16 text-center text-white">
         <div className="container mx-auto px-4 md:px-12">
-          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.contact.heroTitle}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold uppercase font-heading mb-4">{t.contact.heroTitle}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
             {t.contact.heroDesc}
           </p>
@@ -296,7 +296,7 @@ const Contact: React.FC = () => {
           
           {/* Contact Info Side */}
           <div className="w-full lg:w-1/3">
-            <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
+            <h2 className="text-2xl font-bold uppercase text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
               {t.contact.infoTitle}
             </h2>
             
@@ -306,7 +306,7 @@ const Contact: React.FC = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="font-normal text-corporate mb-1">{t.contact.labels.address}</h3>
+                  <h3 className="font-bold text-corporate mb-1">{t.contact.labels.address}</h3>
                   <p className="text-gray-600 text-sm">
                     {t.common.address}<br />
                     {t.common.city}<br />
@@ -320,7 +320,7 @@ const Contact: React.FC = () => {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h3 className="font-normal text-corporate mb-1">{t.contact.labels.phone}</h3>
+                  <h3 className="font-bold text-corporate mb-1">{t.contact.labels.phone}</h3>
                   <p className="text-gray-600 text-sm mb-1">+351 289 790 500</p>
                   <p className="text-gray-500 text-xs">{t.contact.labels.callCost}</p>
                 </div>
@@ -331,7 +331,7 @@ const Contact: React.FC = () => {
                   <Mail size={24} />
                 </div>
                 <div className="overflow-hidden">
-                  <h3 className="font-normal text-corporate mb-1">{t.contact.labels.email}</h3>
+                  <h3 className="font-bold text-corporate mb-1">{t.contact.labels.email}</h3>
                   <p className="text-gray-600 text-sm break-words">mail@joaquimfernandes.pt</p>
                 </div>
               </div>
@@ -341,7 +341,7 @@ const Contact: React.FC = () => {
                   <Clock size={24} />
                 </div>
                 <div>
-                  <h3 className="font-normal text-corporate mb-1">{t.contact.labels.schedule}</h3>
+                  <h3 className="font-bold text-corporate mb-1">{t.contact.labels.schedule}</h3>
                   <p className="text-gray-600 text-sm">{t.contact.labels.weekdays}</p>
                   <p className="text-gray-600 text-sm">{t.contact.labels.weekend}</p>
                 </div>
@@ -349,7 +349,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="mt-10 p-6 bg-[#25D366]/10 rounded border border-[#25D366]/30">
-               <h4 className="font-normal text-corporate mb-4 text-lg">{t.contact.labels.whatsappBox.title}</h4>
+               <h4 className="font-bold uppercase text-corporate mb-4 text-lg">{t.contact.labels.whatsappBox.title}</h4>
                <a 
                  href="https://wa.me/351937700906" 
                  target="_blank" 
@@ -364,7 +364,7 @@ const Contact: React.FC = () => {
 
           {/* Form Side */}
           <div className="w-full lg:w-2/3" ref={formRef}>
-            <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
+            <h2 className="text-2xl font-bold uppercase text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
               {t.contact.formTitle}
             </h2>
             
@@ -791,7 +791,7 @@ const Contact: React.FC = () => {
 
         {/* Map Section */}
         <div className="mt-16 md:mt-20">
-          <h2 className="text-2xl font-normal text-corporate mb-8">{t.contact.locationTitle}</h2>
+          <h2 className="text-2xl font-bold uppercase text-corporate mb-8">{t.contact.locationTitle}</h2>
           <div className="w-full h-80 md:h-96 bg-gray-200 rounded-lg overflow-hidden relative shadow-inner">
              {/* Iframe for Google Maps visualization (Pointing to Moncarapacho/Olhão) */}
              <iframe 

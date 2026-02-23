@@ -1,5 +1,5 @@
-import React from 'react';
-import { Briefcase, ArrowRight, Mail, CheckCircle } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { ArrowRight, Mail, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import CTAButton from '../components/CTAButton';
@@ -8,11 +8,35 @@ import { useLanguage } from '../context/LanguageContext';
 
 const Careers: React.FC = () => {
   const { t } = useLanguage();
+  const [activeJobIndex, setActiveJobIndex] = useState(0);
+  const jobsContainerRef = useRef<HTMLDivElement>(null);
 
   if (!t || !t.careers) return null;
 
+  const handleScroll = () => {
+    if (jobsContainerRef.current) {
+      const { scrollLeft, scrollWidth } = jobsContainerRef.current;
+      const numberOfItems = t.careers.jobs.length;
+      // Calculate approximate width of one item including gap
+      const itemWidth = scrollWidth / numberOfItems;
+      const newIndex = Math.round(scrollLeft / itemWidth);
+      setActiveJobIndex(newIndex);
+    }
+  };
+
+  const scrollToJob = (index: number) => {
+    if (jobsContainerRef.current) {
+        const scrollWidth = jobsContainerRef.current.scrollWidth;
+        const itemWidth = scrollWidth / t.careers.jobs.length;
+        jobsContainerRef.current.scrollTo({
+            left: itemWidth * index,
+            behavior: 'smooth'
+        });
+    }
+  };
+
   return (
-    <div className="pt-24 pb-12 bg-white">
+    <div className="pt-24 pb-0 bg-white">
       <SEO 
         title={t.seo.careers.title} 
         description={t.seo.careers.description} 
@@ -32,7 +56,7 @@ const Careers: React.FC = () => {
       {/* Header / Hero (Standardized) */}
       <div className="bg-corporate py-16 mb-16 text-center text-white relative">
         <div className="container mx-auto px-4 md:px-12 relative z-10">
-          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.careers.heroTitle}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold uppercase font-heading mb-4">{t.careers.heroTitle}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
             {t.careers.heroDesc}
           </p>
@@ -48,7 +72,7 @@ const Careers: React.FC = () => {
         {/* Intro Section */}
         <div className="flex flex-col md:flex-row gap-12 items-center mb-20">
           <div className="md:w-1/2">
-            <h2 className="text-3xl font-normal text-corporate mb-6">{t.careers.introTitle}</h2>
+            <h2 className="text-3xl font-bold uppercase text-corporate mb-6">{t.careers.introTitle}</h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
               {t.careers.introDesc}
             </p>
@@ -72,14 +96,18 @@ const Careers: React.FC = () => {
 
         {/* Job Listings (Mobile Carousel / Desktop Grid) */}
         <div className="mb-24">
-          <h2 className="text-2xl font-normal text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
+          <h2 className="text-2xl font-bold uppercase text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
             {t.careers.openingsTitle}
           </h2>
 
-          <div className="
-            flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 scrollbar-hide
-            md:grid md:grid-cols-2 md:gap-8 md:pb-0 md:mx-auto md:px-0 md:max-w-5xl
-          ">
+          <div 
+            ref={jobsContainerRef}
+            onScroll={handleScroll}
+            className="
+              flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 scrollbar-hide
+              md:grid md:grid-cols-2 md:gap-8 md:pb-0 md:mx-auto md:px-0 md:max-w-5xl
+            "
+          >
             {t.careers.jobs.map((job: any, index: number) => (
               <motion.div 
                 key={job.id}
@@ -96,10 +124,9 @@ const Careers: React.FC = () => {
                   <span className="bg-detail text-corporate text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">
                     {job.type}
                   </span>
-                  <Briefcase size={20} className="text-brand-light" />
                 </div>
                 
-                <h3 className="text-xl font-normal text-corporate mb-6 group-hover:text-accent transition-colors">
+                <h3 className="text-xl font-bold text-corporate mb-6">
                   {job.title}
                 </h3>
                 
@@ -131,33 +158,51 @@ const Careers: React.FC = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-
-        {/* General Application CTA */}
-        <div className="bg-detail rounded-xl p-8 md:p-12 text-center relative overflow-hidden">
-          {/* Decorative icons */}
-          <Mail className="absolute top-10 left-10 text-gray-200 w-24 h-24 -rotate-12" />
-          <div className="relative z-10">
-            <h2 className="text-3xl font-normal text-corporate mb-4">{t.careers.spontaneousTitle}</h2>
-            <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-              {t.careers.spontaneousDesc}
-            </p>
-            
-            <a 
-              href="mailto:mail@joaquimfernandes.pt?subject=Candidatura%20Espont%C3%A2nea"
-              className="inline-flex items-center gap-3 bg-accent hover:bg-[#2A3345] text-white font-bold py-4 px-10 rounded shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 uppercase tracking-widest text-sm"
-            >
-              <Mail size={18} />
-              {t.careers.spontaneousBtn}
-            </a>
-            
-            <p className="mt-4 text-xs text-gray-400">
-              {t.careers.spontaneousDisclaimer}
-            </p>
+          
+          {/* Navigation Dots (Mobile Only) */}
+          <div className="flex justify-center gap-2 mt-2 md:hidden">
+            {t.careers.jobs.map((_: any, index: number) => (
+                <button
+                    key={index}
+                    onClick={() => scrollToJob(index)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                        activeJobIndex === index ? 'w-8 bg-corporate' : 'w-2 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to job ${index + 1}`}
+                />
+            ))}
           </div>
-        </div>
-
       </div>
+      </div>
+
+      {/* General Application CTA - Full Width */}
+      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light">
+         {/* Abstract Decoration */}
+         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
+         <Mail className="absolute top-10 left-10 text-white/5 w-24 h-24 -rotate-12 pointer-events-none" />
+
+         <div className="container mx-auto px-6 md:px-12 relative z-10">
+           <h2 className="text-2xl md:text-3xl font-bold uppercase text-white mb-4 font-heading tracking-wide">
+             {t.careers.spontaneousTitle}
+           </h2>
+           <p className="text-gray-300 mb-8 max-w-xl mx-auto text-lg">
+             {t.careers.spontaneousDesc}
+           </p>
+           
+           <a 
+             href="mailto:mail@joaquimfernandes.pt?subject=Candidatura%20Espont%C3%A2nea"
+             className="inline-flex items-center gap-3 border-2 border-white text-white hover:bg-white hover:text-[#3B455B] font-bold py-3 px-8 rounded-sm transition-all uppercase tracking-widest text-sm"
+           >
+             <Mail size={18} />
+             {t.careers.spontaneousBtn}
+           </a>
+           
+           <p className="mt-6 text-xs text-gray-400">
+             {t.careers.spontaneousDisclaimer}
+           </p>
+         </div>
+      </div>
+
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import CTAButton from '../components/CTAButton';
 import { useLanguage } from '../context/LanguageContext';
 
 const FAQ: React.FC = () => {
@@ -53,7 +54,7 @@ const FAQ: React.FC = () => {
       {/* 1. HERO SECTION (Standardized) */}
       <div className="bg-corporate py-16 mb-16 text-center text-white relative">
         <div className="container mx-auto px-4 md:px-12 relative z-10">
-          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.faqs.heroTitle}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t.faqs.heroTitle}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
             {t.faqs.heroDesc}
           </p>
@@ -70,12 +71,12 @@ const FAQ: React.FC = () => {
          <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
                <div className="h-0.5 w-12 bg-brand-light"></div>
-               <span className="text-2xl font-normal text-corporate font-heading tracking-widest">
+               <span className="text-2xl font-bold text-corporate font-heading tracking-widest">
                   FAQS
                </span>
                <div className="h-0.5 w-12 bg-brand-light"></div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-normal text-corporate font-heading uppercase">
+            <h2 className="text-3xl md:text-4xl font-bold text-corporate font-heading uppercase">
                {t.faqs.sectionTitle}
             </h2>
          </div>
@@ -117,6 +118,21 @@ const FAQ: React.FC = () => {
                   </AnimatePresence>
                </div>
             ))}
+         </div>
+
+         {/* 3. STILL HAVE QUESTIONS CTA */}
+         <div className="mt-16 text-center bg-gray-50 p-8 md:p-12 rounded-lg border border-gray-100">
+            <h3 className="text-2xl md:text-3xl font-bold text-corporate font-heading uppercase mb-4">
+               Ainda tem dúvidas?
+            </h3>
+            <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+               Não encontrou a resposta que procurava? Entre em contacto com a nossa equipa.
+            </p>
+            <CTAButton 
+               to="/contact" 
+               text="Contacte-nos" 
+               variant="primary" 
+            />
          </div>
 
       </div>

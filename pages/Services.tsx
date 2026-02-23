@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Car, Lightbulb, HardHat, Check, FileText, Activity, Wrench, BatteryCharging, Layers, Router } from 'lucide-react';
+import { Zap, Check, FileText, Activity, Wrench, BatteryCharging, Layers, Router } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
@@ -43,14 +43,14 @@ const Services: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-0 bg-white overflow-hidden">
+    <div className="pt-24 pb-0 bg-white overflow-x-hidden">
       <SEO 
         title={t.seo.services.title} 
         description={t.seo.services.description} 
       />
       <div className="bg-corporate py-16 mb-16 text-center text-white">
         <div className="container mx-auto px-4 md:px-12">
-          <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{t.services.heroTitle}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold uppercase font-heading mb-4">{t.services.heroTitle}</h1>
           <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
             {t.services.heroDesc}
           </p>
@@ -58,9 +58,9 @@ const Services: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 md:px-12 flex flex-col gap-16 md:gap-24 mb-24">
-        {t.services.categories.map((service: any, index: number) => (
+        {t.services.categories?.map((service: any, index: number) => (
           <motion.div 
-            key={service.id}
+            key={service.id || index}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -80,13 +80,13 @@ const Services: React.FC = () => {
             {/* Content Side */}
             <div className="w-full lg:w-1/2">
               <div className="mb-4 md:mb-6">{getIcon(service.id)}</div>
-              <h2 className="text-2xl md:text-3xl font-normal text-corporate mb-4">{service.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-bold uppercase text-corporate mb-4">{service.title}</h2>
               <p className="text-gray-600 mb-6 md:mb-8 leading-relaxed font-body">
                 {service.description}
               </p>
               
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-8">
-                {service.details.map((detail: string, idx: number) => (
+                {service.details?.map((detail: string, idx: number) => (
                   <li key={idx} className="flex items-center gap-2 text-sm font-semibold text-gray-700">
                     <span className="bg-detail p-1 rounded-full shrink-0"><Check size={12} className="text-accent" /></span>
                     {detail}
@@ -101,7 +101,7 @@ const Services: React.FC = () => {
       </div>
       
       {/* Bottom CTA Section - Full Width, No Card, Diagonal Gradient */}
-      <div className="w-full py-16 md:py-24 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10">
+      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light">
          {/* Abstract Decoration */}
          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
          
@@ -111,15 +111,15 @@ const Services: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
            >
-             <h2 className="text-2xl md:text-3xl font-normal text-white mb-4 font-heading uppercase tracking-wide">
+             <h2 className="text-2xl md:text-3xl font-bold uppercase text-white mb-2 font-heading tracking-wide">
                {t.services.notFoundTitle}
              </h2>
-             <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">{t.services.notFoundDesc}</p>
+             <p className="text-gray-300 text-lg mb-6 max-w-xl mx-auto">{t.services.notFoundDesc}</p>
              <CTAButton 
                to="/contact" 
                text={t.services.notFoundCta} 
                variant="outline" 
-               className="text-white border-white hover:bg-white hover:text-[#3B455B]" 
+               className="text-white border-white hover:bg-white hover:text-[#3B455B] rounded-sm" 
              />
            </motion.div>
          </div>

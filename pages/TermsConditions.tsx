@@ -13,10 +13,7 @@ const TermsConditions: React.FC = () => {
       <div className="bg-corporate py-16 mb-12 text-center text-white relative">
          <div className="absolute inset-0 bg-accent/20 pattern-grid-lg opacity-30"></div>
          <div className="container mx-auto px-6 md:px-12 relative z-10">
-            <div className="inline-flex items-center justify-center p-3 bg-white/10 rounded-full mb-4">
-               <FileText size={32} className="text-brand-light" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-normal font-heading mb-4">{content.title}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 uppercase">{content.title}</h1>
          </div>
       </div>
 
@@ -30,7 +27,7 @@ const TermsConditions: React.FC = () => {
             <div className="space-y-8">
                {content.sections.map((section: any, index: number) => (
                   <div key={index} className="pb-6 border-b border-gray-100 last:border-0 last:pb-0">
-                     <h2 className="text-xl font-normal text-corporate font-heading mb-3 flex items-center gap-2">
+                     <h2 className="text-xl font-bold text-corporate font-heading mb-3 flex items-center gap-2">
                         <Scale size={18} className="text-accent" />
                         {section.title}
                      </h2>
