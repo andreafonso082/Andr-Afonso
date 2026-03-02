@@ -8,7 +8,11 @@ import { useLanguage } from '../context/LanguageContext';
 
 // Partners list
 const partners = [
-  "Schneider Electric", "Siemens", "EFACEC", "Bosch", "Legrand", "Hager"
+  { name: "Iluminação técnica e decorativa", image: "https://drive.google.com/thumbnail?id=1YWtgccMsUVmbhQwtq7R-9sPZs8fAcQ1j&sz=w1000" },
+  { name: "Iluminação de Consumo", image: "https://drive.google.com/thumbnail?id=1nA3TaycESag22H2i6yHZWwiXZdQrocRu&sz=w1000" },
+  { name: "Iluminação Exterior e Inteligente", image: "https://drive.google.com/thumbnail?id=1biPaxNPG6UvOAi_mRwCSRWCHDVT7ROD6&sz=w1000" },
+  { name: "Distribuição Especializada de Iluminação", image: "https://drive.google.com/thumbnail?id=11UxCCFrwhbG3HLlCELz9N2bZAl1EGh7t&sz=w1000" },
+  { name: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000" }
 ];
 
 // Custom Lightning Bolt Component (Icon style for floating)
@@ -185,7 +189,7 @@ const Home: React.FC = () => {
       <section className="relative min-h-[90vh] md:min-h-0 md:h-[60vh] lg:h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://picsum.photos/seed/construction/1920/1080" 
+            src="https://drive.google.com/thumbnail?id=1QtfFPufgjaQ7e1yrA1kUqal4L9jmXthI&sz=w1000" 
             alt="Obra de construção e eletricidade" 
             className="w-full h-full object-cover object-center"
           />
@@ -259,7 +263,7 @@ const Home: React.FC = () => {
       <section className="py-12 md:py-20 bg-detail relative z-20">
         <div className="container mx-auto px-4 md:px-12 flex flex-col lg:flex-row items-center gap-12">
           <div className="w-full lg:w-1/2">
-            <img src="https://picsum.photos/seed/engineer/800/600" alt="Engenheiro" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
+            <img src="https://drive.google.com/thumbnail?id=16SefoRSV3dPLvfVbIJHTmXMmKMi9JSNg&sz=w1000" alt="Engenheiro" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
           </div>
           <div className="w-full lg:w-1/2">
             <h2 className="text-2xl md:text-3xl font-bold uppercase text-corporate mb-6">{t.home.whyUsTitle}</h2>
@@ -440,7 +444,15 @@ const Home: React.FC = () => {
           >
             {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (
                <div key={index} className="flex-shrink-0 mx-6 md:mx-12">
-                 <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default whitespace-nowrap">{partner}</span>
+                 {partner.image ? (
+                   <img 
+                     src={partner.image} 
+                     alt={partner.name} 
+                     className="h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                   />
+                 ) : (
+                   <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default whitespace-nowrap">{partner.name}</span>
+                 )}
                </div>
             ))}
           </motion.div>

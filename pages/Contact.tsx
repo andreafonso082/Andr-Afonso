@@ -29,6 +29,7 @@ const Contact: React.FC = () => {
     companyAddress: '',
     companyType: '',
     companyContact: '',
+    projectImages: null as FileList | null,
   });
 
   // Handle URL Query Params for Pre-filling
@@ -130,6 +131,27 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, cvFile: null }));
   };
 
+  const handleProjectImagesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      // Check total size or individual size if needed
+      let totalSize = 0;
+      for (let i = 0; i < files.length; i++) {
+        totalSize += files[i].size;
+      }
+      
+      if (totalSize > 10 * 1024 * 1024) { // 10MB Limit for images
+          alert("O tamanho total das imagens é demasiado grande (Máx 10MB).");
+          return;
+      }
+      setFormData(prev => ({ ...prev, projectImages: files }));
+    }
+  };
+
+  const removeProjectImages = () => {
+    setFormData(prev => ({ ...prev, projectImages: null }));
+  };
+
   const closePopup = () => {
     if (submitStatus === 'success') {
       // Reset form only on success closing
@@ -180,6 +202,13 @@ const Contact: React.FC = () => {
     // Append File if exists
     if (formData.cvFile) {
         data.append('attachment', formData.cvFile);
+    }
+
+    // Append Project Images if exists
+    if (formData.projectImages) {
+        for (let i = 0; i < formData.projectImages.length; i++) {
+            data.append('images[]', formData.projectImages[i]);
+        }
     }
 
     try {
@@ -356,7 +385,9 @@ const Contact: React.FC = () => {
                  rel="noopener noreferrer"
                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 px-6 rounded transition-colors uppercase tracking-widest text-sm w-full justify-center md:w-auto"
                >
-                 <MessageCircle size={18} />
+                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" className="fill-current">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                 </svg>
                  {t.contact.labels.whatsappBox.button}
                </a>
             </div>
@@ -502,7 +533,7 @@ const Contact: React.FC = () => {
                       {/* File Upload for Budget */}
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-3">
-                          {t.contact.form.fileLabel}
+                          Anexar projeto/croqui/documentação E-Redes
                         </label>
                         
                         {!formData.cvFile ? (
@@ -535,6 +566,52 @@ const Contact: React.FC = () => {
                             <button 
                               type="button" 
                               onClick={removeFile}
+                              disabled={isSubmitting}
+                              className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+                            >
+                              <X size={18} />
+                            </button>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Image Upload for Budget */}
+                      <div className="mt-6">
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          Anexar Imagens
+                        </label>
+                        
+                        {!formData.projectImages ? (
+                          <div className={`relative border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 transition-colors rounded-lg p-6 text-center group cursor-pointer ${isSubmitting ? 'opacity-50 pointer-events-none' : ''}`}>
+                            <input 
+                              type="file" 
+                              accept="image/*"
+                              multiple
+                              disabled={isSubmitting}
+                              onChange={handleProjectImagesChange}
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                            />
+                            <div className="flex flex-col items-center justify-center pointer-events-none">
+                                <Upload className="text-gray-400 group-hover:text-accent mb-2 transition-colors" size={24} />
+                                <span className="text-sm font-semibold text-gray-600 group-hover:text-corporate transition-colors">
+                                  Carregar Imagens
+                                </span>
+                                <span className="text-xs text-gray-400 mt-1">Máx 10MB (Total)</span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between bg-brand-light/10 border border-brand-light/50 rounded p-3">
+                            <div className="flex items-center gap-3 overflow-hidden">
+                                <div className="bg-blue-100 p-2 rounded text-blue-500 shrink-0">
+                                  <FileText size={20} />
+                                </div>
+                                <span className="text-sm font-medium text-gray-700 truncate max-w-[150px] sm:max-w-xs">
+                                  {formData.projectImages.length} imagem(ns) selecionada(s)
+                                </span>
+                            </div>
+                            <button 
+                              type="button" 
+                              onClick={removeProjectImages}
                               disabled={isSubmitting}
                               className="p-1 hover:bg-red-100 rounded-full text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
                             >
@@ -759,12 +836,9 @@ const Contact: React.FC = () => {
                     id="message"
                     name="message"
                     rows={5}
-                    required
                     disabled={isSubmitting}
                     value={formData.message}
                     onChange={handleChange}
-                    onInvalid={handleInvalid}
-                    onInput={handleInputValidation}
                     className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none disabled:opacity-50"
                   ></textarea>
                 </div>

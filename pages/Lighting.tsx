@@ -7,7 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 // Images for the Festive Gallery
 const festiveGalleryImages = [
-  "https://images.unsplash.com/photo-1576692139045-c583f66c3c6f?q=80&w=2070&auto=format&fit=crop", // Main
+  "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000", // Main
   "https://images.unsplash.com/photo-1512389142860-9c449ded37fd?q=80&w=2070&auto=format&fit=crop", // Street
   "https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=2070&auto=format&fit=crop", // Decor
   "https://images.unsplash.com/photo-1607024103632-62327c527786?q=80&w=2070&auto=format&fit=crop", // Mall
@@ -54,10 +54,10 @@ const Lighting: React.FC = () => {
   // Helper to assign a specific image to each index
   const getImage = (index: number) => {
     switch(index) {
-        case 0: return "https://images.unsplash.com/photo-1576692139045-c583f66c3c6f?q=80&w=2070&auto=format&fit=crop"; // Festive/Christmas
-        case 1: return "https://images.unsplash.com/photo-1495539406979-bf61750d38ad?q=80&w=2070&auto=format&fit=crop"; // Public/Street
-        case 2: return "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"; // Architectural
-        case 3: return "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"; // Sports
+        case 0: return "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000"; // Festive/Christmas
+        case 1: return "https://drive.google.com/thumbnail?id=1KOWLU95F6pomAZjmTO0WUY_UbxGsrw-s&sz=w1000"; // Public/Street
+        case 2: return "https://drive.google.com/thumbnail?id=1lwzRh0LtxEQH2ypr8C1FBzYpO-PW82Yr&sz=w1000"; // Architectural
+        case 3: return "https://drive.google.com/thumbnail?id=15ZTaJZVipA-lCRWq5r5I0oelf5cJDUTF&sz=w1000"; // Sports
         default: return "https://picsum.photos/seed/lighting/800/600";
     }
   };
@@ -116,9 +116,9 @@ const Lighting: React.FC = () => {
           <div className="w-full lg:w-1/2 relative">
              <div className="absolute -inset-4 bg-brand-light/20 rounded-lg blur-xl transform -rotate-2"></div>
              <img 
-               src="https://images.unsplash.com/photo-1562916172-23c2a6132711?q=80&w=2070&auto=format&fit=crop" 
+               src="https://drive.google.com/thumbnail?id=11YB9ObbxVNgO-HNxOjUMwN8KJW-ZtAiD&sz=w1000" 
                alt="Festive Lighting" 
-               className="relative rounded-lg shadow-2xl z-10 w-full h-auto"
+               className="relative rounded-lg shadow-2xl z-10 w-full h-[400px] object-cover object-center"
              />
           </div>
         </div>

@@ -15,13 +15,13 @@ const ServiceDetail: React.FC = () => {
   // Helper to map images (reused logic for consistency)
   const getImage = (serviceId: string) => {
     switch(serviceId) {
-        case 'projects': return "https://picsum.photos/seed/blueprints/1920/1080";
-        case 'plrs': return "https://picsum.photos/seed/electric_grid/1920/1080";
-        case 'installations': return "https://picsum.photos/seed/electrician_work/1920/1080";
-        case 'substations': return "https://picsum.photos/seed/transformer/1920/1080";
+        case 'projects': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
+        case 'plrs': return "https://drive.google.com/thumbnail?id=1GP2lWlLsIz2XAnARo8ri6FGVaoc4y6rM&sz=w1000";
+        case 'installations': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
+        case 'substations': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
         case 'ev_charging': return "https://picsum.photos/seed/evcharging/1920/1080";
         case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
-        case 'others': return "https://picsum.photos/seed/consulting/1920/1080";
+        case 'others': return "https://drive.google.com/thumbnail?id=1Wit3urScrjL04cIozwOQVFapW5vf8XQ9&sz=w1000";
         default: return "https://picsum.photos/seed/electricity/1920/1080";
     }
   };

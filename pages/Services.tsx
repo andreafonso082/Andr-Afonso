@@ -31,12 +31,12 @@ const Services: React.FC = () => {
   // Mapping images (could be in translation file or static, keeping static here but mapped by ID)
   const getImage = (id: string) => {
     switch(id) {
-        case 'plrs': return "https://picsum.photos/seed/electric_grid/800/600";
-        case 'installations': return "https://picsum.photos/seed/electrician_work/800/600";
+        case 'plrs': return "https://drive.google.com/thumbnail?id=1GP2lWlLsIz2XAnARo8ri6FGVaoc4y6rM&sz=w1000";
+        case 'installations': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
         case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
-        case 'substations': return "https://picsum.photos/seed/transformer/800/600";
-        case 'projects': return "https://picsum.photos/seed/blueprints/800/600";
-        case 'others': return "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop";
+        case 'substations': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
+        case 'projects': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
+        case 'others': return "https://drive.google.com/thumbnail?id=1Wit3urScrjL04cIozwOQVFapW5vf8XQ9&sz=w1000";
         case 'ev_charging': return "https://picsum.photos/seed/evcharging/800/600";
         default: return "https://picsum.photos/seed/electricity/800/600";
     }
@@ -73,7 +73,7 @@ const Services: React.FC = () => {
               <img 
                 src={getImage(service.id)} 
                 alt={service.title} 
-                className="relative z-10 w-full rounded-sm shadow-lg grayscale group-hover:grayscale-0 transition-all duration-500 object-cover h-[250px] md:h-auto"
+                className="relative z-10 w-full rounded-sm shadow-lg grayscale group-hover:grayscale-0 transition-all duration-500 object-cover h-[250px] md:h-[400px]"
               />
             </div>
 

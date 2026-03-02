@@ -27,9 +27,9 @@ const About: React.FC = () => {
 
   // Define static data for the 3 requested cards (PME Líder/Excelência)
   const pmeBadges = [
-    { type: 'lider', year: '2024', label: 'PME Líder' },
-    { type: 'excelencia', year: '2023', label: 'PME Excelência' },
-    { type: 'lider', year: '2022', label: 'PME Líder' },
+    { type: 'lider', year: '2025', label: 'PME Líder' },
+    { type: 'excelencia', year: '2024', label: 'PME Excelência' },
+    { type: 'lider', year: '2023', label: 'PME Líder' },
   ];
 
   const technicalCerts = t.about.awards.list.slice(2);
@@ -85,9 +85,13 @@ const About: React.FC = () => {
                         viewport={{ once: true }}
                         className="relative bg-white border border-gray-300 rounded-sm hover:border-brand-light transition-colors duration-300 group min-h-[160px] flex items-center justify-center"
                     >
-                        {/* Subtle decorative icon in background (optional, keeps card from looking empty) */}
-                        <div className="opacity-5 group-hover:opacity-10 transition-opacity duration-300 text-corporate">
-                           {badge.type === 'lider' ? <Award size={64} /> : <Star size={64} />}
+                        {/* Award Image */}
+                        <div className="flex items-center justify-center p-4 pb-8">
+                           <img 
+                             src="https://drive.google.com/thumbnail?id=1qD8Or_lSCFWQCETFNj8Fpb5lQn08_FhE&sz=w1000" 
+                             alt={badge.label}
+                             className="h-24 md:h-32 w-auto object-contain transition-all duration-300"
+                           />
                         </div>
 
                         {/* Year placed at the bottom, interrupting the border */}
@@ -139,7 +143,7 @@ const About: React.FC = () => {
                >
                   <div className="absolute top-4 left-4 w-full h-full border-2 border-corporate rounded-sm z-0"></div>
                   <img 
-                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2064&auto=format&fit=crop" 
+                    src="https://drive.google.com/thumbnail?id=1g2FamKcgGLjgcyCIeuRb-hLdjLnmxWtH&sz=w1000" 
                     alt="Equipa Joaquim & Fernandes" 
                     className="relative z-10 rounded-sm shadow-xl w-full object-cover h-[300px] md:h-[400px]"
                   />

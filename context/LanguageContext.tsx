@@ -271,7 +271,7 @@ const translations = {
         },
         {
           title: "Iluminação Inteligente",
-          desc: "Mais do que iluminar estradas, criamos smart cities. A nossa abordagem à Iluminação Pública foca-se na eficiência energética e segurança. Substituímos luminárias convencionais por tecnologia LED de alto rendimento, integrada com sistemas de telegestão que permitem o controlo remoto da intensidade da luz, deteção de avarias em tempo real e redução da fatura energética municipal até 60%.",
+          desc: "Mais do que iluminar estradas, criamos smart cities. A nossa abordagem à Iluminação Pública foca-se na eficiência energética e segurança. Substituímos luminárias convencionais por tecnologia LED de alto rendimento, integrada com sistemas de telegestão que permitem o controlo remoto da intensidade da luz, deteção de avarias em tempo real e redução da fatura energética municipal até 60%. Destacamos a instalação de passadeiras inteligentes em Portimão, que aumentam a segurança dos peões através de sinalização luminosa ativa.",
           applicationsTitle: "Onde aplicamos:",
           applications: ["Vias Públicas e Estradas", "Parques Urbanos e Ciclovias", "Zonas Residenciais", "Parques de Estacionamento"]
         },
@@ -331,8 +331,8 @@ const translations = {
         callCostMobile: "(Chamada para a rede móvel nacional)",
         email: "Email",
         schedule: "Horário",
-        weekdays: "Segunda a Sexta: 09:00 - 18:00",
-        weekend: "Sábado e Domingo: Encerrado",
+        weekdays: "Segunda a Sexta: 09:00 - 12:30 | 14:00 - 18:00",
+        weekend: "Sábado, Domingo e Feriados: Encerrado",
         whatsappBox: {
            title: "Peça orçamento via WhatsApp",
            button: "Enviar Mensagem"
@@ -579,8 +579,8 @@ const translations = {
         title: "Reconhecimento, Certificações e Prémios",
         subtitle: "A distinção pública da nossa robustez financeira e competência técnica no setor.",
         list: [
-          { name: "PME Líder", desc: "Estatuto de referência que distingue o mérito e o perfil de risco das PME nacionais. Distinguida 3 vezes (last in 2024)." },
-          { name: "PME Excelência", desc: "Selo de reputação que premeia os melhores desempenhos económico-financeiros. Distinguida 3 vezes (last in 2024)." },
+          { name: "PME Líder", desc: "Estatuto de referência que distingue o mérito e o perfil de risco das PME nacionais. Distinguida 3 vezes (last in 2025)." },
+          { name: "PME Excelência", desc: "Selo de reputação que premeia os melhores desempenhos económico-financeiros. Distinguida 3 vezes (last in 2025)." },
           { name: "Empreiteiro Qualificado EDP", desc: "Reconhecimento técnico pela distribuidora para execução de obras na rede elétrica." },
           { name: "Alvará de Construção Nº 8887", desc: "Habilitação oficial IMPIC para execução de obras públicas e privadas de classe elevada." },
           { name: "Certificado conformidade, norma ISO 9001:2015", desc: "Sistema de Gestão da Qualidade certificado, garantindo rigor em todos os processos." },
@@ -739,8 +739,8 @@ const translations = {
         callCostMobile: "(Call to national mobile network)",
         email: "Email",
         schedule: "Schedule",
-        weekdays: "Monday to Friday: 09:00 - 18:00",
-        weekend: "Saturday and Sunday: Closed",
+        weekdays: "Monday to Friday: 09:00 - 12:30 | 14:00 - 18:00",
+        weekend: "Saturday, Sunday and Holidays: Closed",
         whatsappBox: {
            title: "Request quote via WhatsApp",
            button: "Send Message"
@@ -926,8 +926,8 @@ const translations = {
         title: "Recognition, Certifications and Awards",
         subtitle: "Public distinction of our financial robustness and technical competence in the sector.",
         list: [
-          { name: "PME Leader", desc: "Reference status distinguishing the merit and risk profile of national SMEs. Distinguished 3 times (last in 2024)." },
-          { name: "PME Excellence", desc: "Reputation seal awarding best economic-financial performances. Distinguished 3 times (last in 2024)." },
+          { name: "PME Leader", desc: "Reference status distinguishing the merit and risk profile of national SMEs. Distinguished 3 times (last in 2025)." },
+          { name: "PME Excellence", desc: "Reputation seal awarding best economic-financial performances. Distinguished 3 times (last in 2025)." },
           { name: "EDP Qualified Contractor", desc: "Technical recognition by the distributor for execution of works on the electrical grid." },
           { name: "Construction Permit No. 8887", desc: "Official IMPIC license for execution of high-class public and private works." },
           { name: "ISO 9001:2015 Compliance Certificate", desc: "Certified Quality Management System, ensuring rigor in all processes." },
@@ -1024,7 +1024,7 @@ const translations = {
         },
         {
           title: "Smart Lighting",
-          desc: "More than lighting roads, we create smart cities. Our approach to Public Lighting focuses on energy efficiency and safety. We replace conventional luminaires with high-performance LED technology, integrated with telemanagement systems that allow remote control of light intensity, real-time fault detection, and reduction of municipal energy bills by up to 60%.",
+          desc: "More than lighting roads, we create smart cities. Our approach to Public Lighting focuses on energy efficiency and safety. We replace conventional luminaires with high-performance LED technology, integrated with telemanagement systems that allow remote control of light intensity, real-time fault detection, and reduction of municipal energy bills by up to 60%. We highlight the installation of smart crosswalks in Portimão, which increase pedestrian safety through active light signaling.",
           applicationsTitle: "Where applied:",
           applications: ["Public Roads and Highways", "Urban Parks and Cycle Paths", "Residential Zones", "Parking Lots"]
         },

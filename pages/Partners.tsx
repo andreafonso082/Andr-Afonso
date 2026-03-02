@@ -12,14 +12,17 @@ const Partners: React.FC = () => {
     return null;
   }
 
-  // Define 6 slots as requested with placeholder types
+  // Define 9 slots as requested with placeholder types
   const partnerSlots = [
-    { type: "Energia & Automação" },
-    { type: "Infraestruturas" },
-    { type: "Mobilidade Elétrica" },
-    { type: "Material Elétrico" },
-    { type: "Distribuição" },
-    { type: "Iluminação" }
+    { type: "Iluminação técnica e decorativa", image: "https://drive.google.com/thumbnail?id=1YWtgccMsUVmbhQwtq7R-9sPZs8fAcQ1j&sz=w1000", url: "https://svelux.pt/" },
+    { type: "Iluminação de Consumo", image: "https://drive.google.com/thumbnail?id=1nA3TaycESag22H2i6yHZWwiXZdQrocRu&sz=w1000", url: "https://www.signify.com/pt-pt" },
+    { type: "Iluminação Exterior e Inteligente", image: "https://drive.google.com/thumbnail?id=1biPaxNPG6UvOAi_mRwCSRWCHDVT7ROD6&sz=w1000", url: "https://pt.schreder.com/pt" },
+    { type: "Distribuição Especializada de Iluminação", image: "https://drive.google.com/thumbnail?id=11UxCCFrwhbG3HLlCELz9N2bZAl1EGh7t&sz=w1000", url: "https://ltx.pt/" },
+    { type: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000", url: "" },
+    { type: "Iluminação", image: "", url: "" },
+    { type: "Domótica", image: "", url: "" },
+    { type: "Segurança", image: "", url: "" },
+    { type: "Climatização", image: "", url: "" }
   ];
 
   return (
@@ -100,28 +103,59 @@ const Partners: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-             {partnerSlots.map((slot, index) => (
-               <motion.div
-                 key={index}
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 transition={{ delay: index * 0.1 }}
-                 viewport={{ once: true }}
-                 className="group bg-white border border-gray-200 rounded-sm hover:shadow-xl hover:border-brand-light/30 transition-all duration-300 flex flex-col h-48 md:h-56"
-               >
-                 {/* Main Area: Empty White Space for future Logo */}
-                 <div className="flex-grow flex items-center justify-center p-6 relative">
-                    {/* Placeholder for vertical centering - can be removed when logos are added */}
-                 </div>
+             {partnerSlots.map((slot, index) => {
+               const CardContent = (
+                 <>
+                   {/* Main Area: Logo */}
+                   <div className="flex-grow flex items-center justify-center p-6 relative min-h-0">
+                      {slot.image ? (
+                          <img 
+                              src={slot.image} 
+                              alt={slot.type} 
+                              className="h-24 md:h-32 w-auto max-w-[200px] md:max-w-[240px] object-contain grayscale hover:grayscale-0 transition-all duration-300" 
+                          />
+                      ) : (
+                          <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-300">
+                              <ShieldCheck size={24} />
+                          </div>
+                      )}
+                   </div>
 
-                 {/* Bottom Label Area */}
-                 <div className="bg-detail py-3 px-2 text-center border-t border-gray-100 group-hover:bg-brand-light transition-colors duration-300">
-                    <span className="text-[10px] md:text-xs font-bold text-gray-500 group-hover:text-white uppercase tracking-widest transition-colors block truncate">
-                       {slot.type}
-                    </span>
-                 </div>
-               </motion.div>
-             ))}
+                   {/* Bottom Label Area */}
+                   <div className="bg-detail py-3 px-2 text-center border-t border-gray-100 group-hover:bg-brand-light transition-colors duration-300">
+                      <span className="text-[10px] md:text-xs font-bold text-gray-500 group-hover:text-white uppercase tracking-widest transition-colors block truncate">
+                         {slot.type}
+                      </span>
+                   </div>
+                 </>
+               );
+
+               return (
+                 <motion.div
+                   key={index}
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   transition={{ delay: index * 0.1 }}
+                   viewport={{ once: true }}
+                   className="h-48 md:h-56"
+                 >
+                   {slot.url ? (
+                     <a 
+                       href={slot.url} 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       className="group bg-white border border-gray-200 rounded-sm hover:shadow-xl hover:border-brand-light/30 transition-all duration-300 flex flex-col h-full overflow-hidden cursor-pointer"
+                     >
+                       {CardContent}
+                     </a>
+                   ) : (
+                     <div className="group bg-white border border-gray-200 rounded-sm hover:shadow-xl hover:border-brand-light/30 transition-all duration-300 flex flex-col h-full overflow-hidden">
+                       {CardContent}
+                     </div>
+                   )}
+                 </motion.div>
+               );
+             })}
           </div>
         </section>
 
