@@ -112,7 +112,7 @@ const Partners: React.FC = () => {
                           <img 
                               src={slot.image} 
                               alt={slot.type} 
-                              className="h-24 md:h-32 w-auto max-w-[200px] md:max-w-[240px] object-contain grayscale hover:grayscale-0 transition-all duration-300" 
+                              className="h-24 md:h-32 w-auto max-w-[200px] md:max-w-[240px] object-contain transition-all duration-300" 
                           />
                       ) : (
                           <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-300">

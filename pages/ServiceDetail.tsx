@@ -28,6 +28,20 @@ const ServiceDetail: React.FC = () => {
 
   // Helper to get Gallery Images (Mock data based on ID seed)
   const getGalleryImages = (serviceId: string) => {
+     if (serviceId === 'installations') {
+        return [
+           "https://drive.google.com/thumbnail?id=14AObSASEEP5cPNFrgoRvvOUc4gdsU3q4&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1EYw_1oYMkBtyyiYfV03_3wy3r5l3CG6-&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1CNmb8SetEpJwpcoiHqTBR8H0Gp0HKQgc&sz=w1000",
+        ];
+     }
+     if (serviceId === 'others') {
+        return [
+           "https://drive.google.com/thumbnail?id=1uPRfbqyXmDv7lH31jgfDEi587Ct7AJZ6&sz=w1000",
+           "https://drive.google.com/thumbnail?id=16EZQLSNq5Mu1vrMN4bX7AzQGVm2Q5Nq5&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1xOHxVp3Z28-JTkdHWdqh9QKFYghF6OXl&sz=w1000",
+        ];
+     }
      return [
         `https://picsum.photos/seed/${serviceId}1/600/400`,
         `https://picsum.photos/seed/${serviceId}2/600/400`,
@@ -144,7 +158,7 @@ const ServiceDetail: React.FC = () => {
                  </h3>
                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {getGalleryImages(id || 'default').map((img, index) => (
-                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 ? 'md:col-span-2 md:h-full' : ''}`}>
+                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 && id !== 'others' && id !== 'installations' ? 'md:col-span-2 md:h-full' : ''}`}>
                           <img 
                              src={img} 
                              alt="Exemplo de Obra" 

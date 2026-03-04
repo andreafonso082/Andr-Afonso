@@ -199,32 +199,65 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 md:px-12 relative z-10 pt-24 md:pt-20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0,
+                    delayChildren: 0.5
+                  }
+                }
+              }}
               className="w-full lg:w-3/4 max-w-4xl"
             >
-              <div className="flex items-center gap-3 mb-4 md:mb-6">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }
+                }}
+                className="flex items-center gap-3 mb-4 md:mb-6"
+              >
                 <span className="h-0.5 w-8 md:w-12 bg-brand-light"></span>
                 <span className="text-brand-light font-bold uppercase tracking-[0.2em] text-xs md:text-base font-body shadow-black drop-shadow-md">
                   Eletricidade é Connosco!
                 </span>
                 <span className="h-0.5 w-8 md:w-12 bg-brand-light"></span>
-              </div>
+              </motion.div>
 
               {/* RESTORED: Larger text size for Tablet (md:text-4xl) */}
-              <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold uppercase font-heading text-white mb-6 flex flex-col gap-y-1 md:gap-y-2 leading-snug">
+              <motion.h1 
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }
+                }}
+                className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold uppercase font-heading text-white mb-6 flex flex-col gap-y-1 md:gap-y-2 leading-snug"
+              >
                 {t.home.hero.title && t.home.hero.title.split('|').map((part: string, i: number) => (
                   <span key={i} className="block">{part.trim()}</span>
                 ))}
-              </h1>
+              </motion.h1>
               
               {/* RESTORED: Larger subtitle for Tablet (md:text-lg) */}
-              <p className="text-base md:text-lg lg:text-xl text-gray-200 mb-8 md:mb-10 font-light border-l-4 border-brand-light pl-4 leading-relaxed max-w-2xl">
+              <motion.p 
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }
+                }}
+                className="text-base md:text-lg lg:text-xl text-gray-200 mb-8 md:mb-10 font-light border-l-4 border-brand-light pl-4 leading-relaxed max-w-2xl"
+              >
                 {t.home.hero.subtitle}
-              </p>
+              </motion.p>
               
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center">
+              <motion.div 
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }
+                }}
+                className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center"
+              >
                 {/* RESTORED: Standard button sizing */}
                 <CTAButton to="/contact" text={t.home.hero.ctaPrimary} variant="primary" className="w-full sm:w-auto text-center" />
                 {/* SMALLER SECONDARY BUTTON LINKING TO SERVICES */}
@@ -234,7 +267,7 @@ const Home: React.FC = () => {
                   variant="outline" 
                   className="w-full sm:w-auto text-center !py-2 !px-6 !text-xs" 
                 />
-              </div>
+              </motion.div>
             </motion.div>
             <div className="hidden lg:block w-full lg:w-1/4"></div>
           </div>
@@ -448,10 +481,10 @@ const Home: React.FC = () => {
                    <img 
                      src={partner.image} 
                      alt={partner.name} 
-                     className="h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                     className="h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain transition-all duration-300"
                    />
                  ) : (
-                   <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default whitespace-nowrap">{partner.name}</span>
+                   <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading transition-all duration-300 cursor-default whitespace-nowrap">{partner.name}</span>
                  )}
                </div>
             ))}
