@@ -20,6 +20,7 @@ const Lighting: React.FC = () => {
         case 1: return "https://drive.google.com/thumbnail?id=1KOWLU95F6pomAZjmTO0WUY_UbxGsrw-s&sz=w1000"; // Public/Street
         case 2: return "https://drive.google.com/thumbnail?id=1lwzRh0LtxEQH2ypr8C1FBzYpO-PW82Yr&sz=w1000"; // Architectural
         case 3: return "https://drive.google.com/thumbnail?id=15ZTaJZVipA-lCRWq5r5I0oelf5cJDUTF&sz=w1000"; // Sports
+        case 4: return "https://drive.google.com/thumbnail?id=1MFt1qWei6hz80tPGkX91j-g86uHVA7vi&sz=w1000"; // Public Lighting
         default: return "https://picsum.photos/seed/lighting/800/600";
     }
   };

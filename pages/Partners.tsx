@@ -12,17 +12,25 @@ const Partners: React.FC = () => {
     return null;
   }
 
-  // Define 9 slots as requested with placeholder types
+  // Define slots including new partners
   const partnerSlots = [
     { type: "Iluminação técnica e decorativa", image: "https://drive.google.com/thumbnail?id=1YWtgccMsUVmbhQwtq7R-9sPZs8fAcQ1j&sz=w1000", url: "https://svelux.pt/" },
     { type: "Iluminação de Consumo", image: "https://drive.google.com/thumbnail?id=1nA3TaycESag22H2i6yHZWwiXZdQrocRu&sz=w1000", url: "https://www.signify.com/pt-pt" },
     { type: "Iluminação Exterior e Inteligente", image: "https://drive.google.com/thumbnail?id=1biPaxNPG6UvOAi_mRwCSRWCHDVT7ROD6&sz=w1000", url: "https://pt.schreder.com/pt" },
     { type: "Distribuição Especializada de Iluminação", image: "https://drive.google.com/thumbnail?id=11UxCCFrwhbG3HLlCELz9N2bZAl1EGh7t&sz=w1000", url: "https://ltx.pt/" },
     { type: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000", url: "" },
-    { type: "Iluminação", image: "", url: "" },
-    { type: "Domótica", image: "", url: "" },
-    { type: "Segurança", image: "", url: "" },
-    { type: "Climatização", image: "", url: "" }
+    { type: "Produtos de Iluminação", image: "https://drive.google.com/thumbnail?id=1Dqpjjc_nzbyKAINwRPvIvxCUCZ4o4fAD&sz=w1000", url: "https://www.philips.pt/" },
+    { type: "Gestão de Energia e Automação Elétrica", image: "https://drive.google.com/thumbnail?id=1dbgZWvOZCDqKhheNhfOiBHlOqwP0DxHe&sz=w1000", url: "https://www.se.com/pt/pt/" },
+    { type: "Soluções para Instalações Elétricas", image: "https://drive.google.com/thumbnail?id=1XdM8m5-kAKe-RE74bY-fclHSKD4Yql7k&sz=w1000", url: "https://www.obo.pt/" },
+    { type: "Cabos Elétricos e de Telecomunicações", image: "https://drive.google.com/thumbnail?id=1-CeBT03xZhaDgN2QhjQK8BoDXPY-NBU9&sz=w1000", url: "https://www.cabelte.pt/" },
+    { type: "Tecnologias e Equipamentos Elétricos", image: "https://drive.google.com/thumbnail?id=1MB83AcEQTQKM7_AtND5pn8xp4YHWi1H7&sz=w1000", url: "https://www.bosch.pt/" },
+    { type: "Material Elétrico de Baixa Tensão", image: "https://drive.google.com/thumbnail?id=1K44hESgxmLh_hfqtGnI4bbOehA0MSW1m&sz=w1000", url: "https://www.efapel.pt/" },
+    { type: "Conectores e Ligações Elétricas", image: "https://drive.google.com/thumbnail?id=1K0RQav-UmOsOKr6PaBBm265rdUbIbyYm&sz=w1000", url: "https://www.wago.com/global/" },
+    { type: "Equipamentos, Automações e Sistemas Energéticos", image: "https://drive.google.com/thumbnail?id=1h_qFikyA8Grx19TsBGjpakyW5R0ygyAp&sz=w1000", url: "https://www.siemens.com/pt-pt/" },
+    { type: "Material Elétrico", image: "https://drive.google.com/thumbnail?id=1KWoodbR8w7L36rG1G7lC6ztq7LMkdONg&sz=w1000", url: "https://www.al.pt/pt-pt/" },
+    { type: "Material e Infraestruturas Elétricas", image: "https://drive.google.com/thumbnail?id=1LyLgXFcClPV_ZmR2RIoS_tgDCsmC4_P8&sz=w1000", url: "https://www.legrand.pt/" },
+
+
   ];
 
   return (
@@ -56,13 +64,17 @@ const Partners: React.FC = () => {
            >
               {/* Lado Esquerdo: Identidade Visual / Badge */}
               <div className="md:w-auto md:min-w-[280px] flex flex-col items-center md:items-start shrink-0">
-                 <div className="w-24 h-24 bg-yellow-400 text-corporate flex items-center justify-center rounded-sm mb-6">
-                    <Zap size={48} strokeWidth={1.5} />
+                 <div className="w-52 flex flex-col">
+                     <img 
+                        src="https://drive.google.com/thumbnail?id=1UTAnm_KyFRSMMJbhwzrlkhB9kGsphfO6&sz=w1000" 
+                        alt="E-REDES" 
+                        className="w-full h-auto object-contain mb-2" 
+                     />
+                     <div className="flex justify-between w-full text-xs font-bold uppercase tracking-widest text-gray-400">
+                        <span>Empreiteiro</span>
+                        <span>Qualificado</span>
+                     </div>
                  </div>
-                 <h2 className="text-3xl font-bold uppercase text-corporate font-heading leading-none mb-2">
-                    E-REDES
-                 </h2>
-                 <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Parceiro Certificado</span>
               </div>
 
               {/* Lado Direito: Conteúdo Técnico */}

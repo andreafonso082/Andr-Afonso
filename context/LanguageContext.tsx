@@ -286,6 +286,12 @@ const translations = {
           desc: "No desporto, a luz é fundamental para o desempenho dos atletas e experiência dos espectadores. Projetamos e instalamos sistemas de iluminação que cumprem rigorosamente os níveis de lux exigidos pelas federações e normas de transmissão televisiva. Garantimos uniformidade no campo, controlo de encadeamento e sistemas de acendimento instantâneo para pavilhões e estádios.",
           applicationsTitle: "Onde aplicamos:",
           applications: ["Campos de Futebol e Estádios", "Pavilhões Desportivos", "Campos de Ténis e Padel", "Piscinas Municipais"]
+        },
+        {
+          title: "Iluminação Pública",
+          desc: "Garantimos a segurança e o bem-estar das populações através de redes de iluminação pública eficientes e fiáveis. Realizamos a instalação e manutenção de armaduras viárias, projetores e colunas, assegurando a correta luminosidade em estradas, ruas e espaços públicos, sempre com foco na redução da pegada ecológica e custos energéticos.",
+          applicationsTitle: "Onde aplicamos:",
+          applications: ["Estradas Nacionais e Municipais", "Arruamentos Urbanos", "Parques e Jardins", "Zonas Ribeirinhas"]
         }
       ],
       ctaTitle: "Vamos iluminar o seu projeto?",
@@ -1040,6 +1046,12 @@ const translations = {
           applicationsTitle: "Where applied:",
           applications: ["Football Fields and Stadiums", "Sports Pavilions", "Tennis and Padel Courts", "Municipal Pools"]
         },
+        {
+          title: "Public Lighting",
+          desc: "We ensure the safety and well-being of populations through efficient and reliable public lighting networks. We install and maintain street luminaires, floodlights, and columns, ensuring correct luminosity on roads, streets, and public spaces, always focusing on reducing the ecological footprint and energy costs.",
+          applicationsTitle: "Where applied:",
+          applications: ["National and Municipal Roads", "Urban Streets", "Parks and Gardens", "Riverside Areas"]
+        }
       ],
       ctaTitle: "Let's light up your project?",
       ctaDesc: "Whether decorating your city for Christmas or renewing public lighting.",

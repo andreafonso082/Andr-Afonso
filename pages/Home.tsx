@@ -12,7 +12,19 @@ const partners = [
   { name: "Iluminação de Consumo", image: "https://drive.google.com/thumbnail?id=1nA3TaycESag22H2i6yHZWwiXZdQrocRu&sz=w1000" },
   { name: "Iluminação Exterior e Inteligente", image: "https://drive.google.com/thumbnail?id=1biPaxNPG6UvOAi_mRwCSRWCHDVT7ROD6&sz=w1000" },
   { name: "Distribuição Especializada de Iluminação", image: "https://drive.google.com/thumbnail?id=11UxCCFrwhbG3HLlCELz9N2bZAl1EGh7t&sz=w1000" },
-  { name: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000" }
+  { name: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000" },
+  { name: "Produtos de Iluminação", image: "https://drive.google.com/thumbnail?id=1Dqpjjc_nzbyKAINwRPvIvxCUCZ4o4fAD&sz=w1000", url: "https://www.philips.pt/" },
+  { name: "Gestão de Energia e Automação Elétrica", image: "https://drive.google.com/thumbnail?id=1dbgZWvOZCDqKhheNhfOiBHlOqwP0DxHe&sz=w1000", url: "https://www.se.com/pt/pt/" },
+  { name: "Soluções para Instalações Elétricas", image: "https://drive.google.com/thumbnail?id=1XdM8m5-kAKe-RE74bY-fclHSKD4Yql7k&sz=w1000", url: "https://www.obo.pt/" },
+  { name: "Cabos Elétricos e de Telecomunicações", image: "https://drive.google.com/thumbnail?id=1-CeBT03xZhaDgN2QhjQK8BoDXPY-NBU9&sz=w1000", url: "https://www.cabelte.pt/" },
+  { name: "Tecnologias e Equipamentos Elétricos", image: "https://drive.google.com/thumbnail?id=1MB83AcEQTQKM7_AtND5pn8xp4YHWi1H7&sz=w1000", url: "https://www.bosch.pt/" },
+  { name: "Material Elétrico de Baixa Tensão", image: "https://drive.google.com/thumbnail?id=1K44hESgxmLh_hfqtGnI4bbOehA0MSW1m&sz=w1000", url: "https://www.efapel.pt/" },
+  { name: "Conectores e Ligações Elétricas", image: "https://drive.google.com/thumbnail?id=1K0RQav-UmOsOKr6PaBBm265rdUbIbyYm&sz=w1000", url: "https://www.wago.com/global/" },
+  { name: "Equipamentos, Automações e Sistemas Energéticos", image: "https://drive.google.com/thumbnail?id=1h_qFikyA8Grx19TsBGjpakyW5R0ygyAp&sz=w1000", url: "https://www.siemens.com/pt-pt/" },
+  { name: "Material Elétrico", image: "https://drive.google.com/thumbnail?id=1KWoodbR8w7L36rG1G7lC6ztq7LMkdONg&sz=w1000", url: "https://www.al.pt/pt-pt/" },
+  { name: "Material e Infraestruturas Elétricas", image: "https://drive.google.com/thumbnail?id=1LyLgXFcClPV_ZmR2RIoS_tgDCsmC4_P8&sz=w1000", url: "https://www.legrand.pt/" },
+
+
 ];
 
 // Custom Lightning Bolt Component (Icon style for floating)
@@ -89,6 +101,11 @@ const ComplexLightningBolt = ({ isMainStrike }: { isMainStrike: boolean }) => (
   </svg>
 );
 
+const heroImages = [
+  "https://drive.google.com/thumbnail?id=1mxFbGSVK8APyt_TgubTnif3HcvJh0__O&sz=w1920",
+  "https://drive.google.com/thumbnail?id=1INKw9knKkyBuUU8qxa-r-_F8UWrPttAy&sz=w1920"
+];
+
 const Home: React.FC = () => {
   const { t } = useLanguage();
   
@@ -108,6 +125,16 @@ const Home: React.FC = () => {
   
   // Animation States: 0=Idle, 1=Leader(Start), 2=Flash(Impact), 3=Done(Lit)
   const [animStep, setAnimStep] = useState(0);
+
+  // Hero Carousel State
+  const [currentHeroImage, setCurrentHeroImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
+    }, 4000); // 4 seconds interval
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     if (isCtaInView && animStep === 0) {
@@ -188,12 +215,19 @@ const Home: React.FC = () => {
       */}
       <section className="relative min-h-[90vh] md:min-h-0 md:h-[60vh] lg:h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://drive.google.com/thumbnail?id=1QtfFPufgjaQ7e1yrA1kUqal4L9jmXthI&sz=w1000" 
-            alt="Obra de construção e eletricidade" 
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30"></div>
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.img 
+              key={currentHeroImage}
+              src={heroImages[currentHeroImage]} 
+              alt="Hero Background" 
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            />
+          </AnimatePresence>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30 z-10"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-12 relative z-10 pt-24 md:pt-20">
@@ -207,31 +241,88 @@ const Home: React.FC = () => {
                   opacity: 1,
                   transition: {
                     staggerChildren: 0,
-                    delayChildren: 0.5
+                    delayChildren: 0 // Start immediately
                   }
                 }
               }}
               className="w-full lg:w-3/4 max-w-4xl"
             >
               <motion.div 
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }
-                }}
-                className="flex items-center gap-3 mb-4 md:mb-6"
+                className="flex items-center gap-3 mb-4 md:mb-6 overflow-hidden"
+                initial="hidden"
+                animate="visible"
               >
-                <span className="h-0.5 w-8 md:w-12 bg-brand-light"></span>
-                <span className="text-brand-light font-bold uppercase tracking-[0.2em] text-xs md:text-base font-body shadow-black drop-shadow-md">
-                  Eletricidade é Connosco!
-                </span>
-                <span className="h-0.5 w-8 md:w-12 bg-brand-light"></span>
+                {/* Left Line */}
+                <motion.span 
+                  className="h-0.5 bg-brand-light block"
+                  style={{ width: "2rem", transformOrigin: "left" }} 
+                  variants={{
+                    hidden: { scaleX: 0 },
+                    visible: { 
+                      scaleX: 1, 
+                      transition: { duration: 0.5, ease: "easeOut" } 
+                    }
+                  }}
+                ></motion.span>
+                
+                {/* Text with Typing Effect */}
+                <motion.span 
+                  className="text-brand-light font-bold uppercase tracking-[0.2em] text-xs md:text-base font-body shadow-black drop-shadow-md whitespace-nowrap overflow-hidden block"
+                  variants={{
+                    hidden: { opacity: 1 },
+                    visible: { opacity: 1 }
+                  }}
+                >
+                  {"Eletricidade é Connosco!".split('').map((char, index) => (
+                    <motion.span
+                      key={index}
+                      variants={{
+                        hidden: { opacity: 0 },
+                        visible: { 
+                          opacity: 1,
+                          transition: { 
+                            delay: 0.5 + (index * 0.06), // Start after left line (0.5s)
+                            duration: 0 
+                          } 
+                        }
+                      }}
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </motion.span>
+
+                {/* Right Line */}
+                <motion.span 
+                  className="h-0.5 bg-brand-light block"
+                  style={{ width: "2rem", transformOrigin: "left" }}
+                  variants={{
+                    hidden: { scaleX: 0 },
+                    visible: { 
+                      scaleX: 1, 
+                      transition: { 
+                        delay: 2.0, // Wait for left line + text
+                        duration: 0.5, 
+                        ease: "easeOut" 
+                      } 
+                    }
+                  }}
+                ></motion.span>
               </motion.div>
 
               {/* RESTORED: Larger text size for Tablet (md:text-4xl) */}
               <motion.h1 
                 variants={{
                   hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    transition: { 
+                      delay: 2.5, // Wait for the entire top animation (0.5 + 1.5 + 0.5)
+                      duration: 1.5, 
+                      ease: "easeOut" 
+                    } 
+                  }
                 }}
                 className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold uppercase font-heading text-white mb-6 flex flex-col gap-y-1 md:gap-y-2 leading-snug"
               >
@@ -244,7 +335,15 @@ const Home: React.FC = () => {
               <motion.p 
                 variants={{
                   hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    transition: { 
+                      delay: 2.7, // Staggered slightly after title
+                      duration: 1.5, 
+                      ease: "easeOut" 
+                    } 
+                  }
                 }}
                 className="text-base md:text-lg lg:text-xl text-gray-200 mb-8 md:mb-10 font-light border-l-4 border-brand-light pl-4 leading-relaxed max-w-2xl"
               >
@@ -254,7 +353,15 @@ const Home: React.FC = () => {
               <motion.div 
                 variants={{
                   hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }
+                  visible: { 
+                    opacity: 1, 
+                    y: 0, 
+                    transition: { 
+                      delay: 2.9, // Staggered slightly after subtitle
+                      duration: 1.5, 
+                      ease: "easeOut" 
+                    } 
+                  }
                 }}
                 className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center"
               >
@@ -472,19 +579,33 @@ const Home: React.FC = () => {
           <motion.div 
             className="flex items-center"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 60 }}
             style={{ width: "fit-content" }}
           >
             {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (
                <div key={index} className="flex-shrink-0 mx-6 md:mx-12">
-                 {partner.image ? (
-                   <img 
-                     src={partner.image} 
-                     alt={partner.name} 
-                     className="h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain transition-all duration-300"
-                   />
+                 {partner.url ? (
+                   <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
+                     {partner.image ? (
+                       <img 
+                         src={partner.image} 
+                         alt={partner.name} 
+                         className="h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain transition-all duration-300 hover:scale-105"
+                       />
+                     ) : (
+                       <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading transition-all duration-300 cursor-pointer whitespace-nowrap hover:text-corporate">{partner.name}</span>
+                     )}
+                   </a>
                  ) : (
-                   <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading transition-all duration-300 cursor-default whitespace-nowrap">{partner.name}</span>
+                   partner.image ? (
+                     <img 
+                       src={partner.image} 
+                       alt={partner.name} 
+                       className="h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain transition-all duration-300"
+                     />
+                   ) : (
+                     <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading transition-all duration-300 cursor-default whitespace-nowrap">{partner.name}</span>
+                   )
                  )}
                </div>
             ))}

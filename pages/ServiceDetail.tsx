@@ -42,6 +42,13 @@ const ServiceDetail: React.FC = () => {
            "https://drive.google.com/thumbnail?id=1xOHxVp3Z28-JTkdHWdqh9QKFYghF6OXl&sz=w1000",
         ];
      }
+     if (serviceId === 'plrs') {
+        return [
+           "https://drive.google.com/thumbnail?id=1AsquK-o0e0BBmy0BsL8eIQAumFiqiuEA&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1EMlMEZ-aM4fYmZ9lkBSp5E0A1_33Q7bn&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1igWkarPX2TRq6brqLxDueFWWFfX2W2gE&sz=w1000",
+        ];
+     }
      return [
         `https://picsum.photos/seed/${serviceId}1/600/400`,
         `https://picsum.photos/seed/${serviceId}2/600/400`,
@@ -158,7 +165,7 @@ const ServiceDetail: React.FC = () => {
                  </h3>
                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {getGalleryImages(id || 'default').map((img, index) => (
-                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 && id !== 'others' && id !== 'installations' ? 'md:col-span-2 md:h-full' : ''}`}>
+                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 && id !== 'others' && id !== 'installations' && id !== 'plrs' ? 'md:col-span-2 md:h-full' : ''}`}>
                           <img 
                              src={img} 
                              alt="Exemplo de Obra" 
