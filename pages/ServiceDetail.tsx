@@ -49,6 +49,26 @@ const ServiceDetail: React.FC = () => {
            "https://drive.google.com/thumbnail?id=1igWkarPX2TRq6brqLxDueFWWFfX2W2gE&sz=w1000",
         ];
      }
+     if (serviceId === 'telecommunications') {
+        return [
+           "https://drive.google.com/thumbnail?id=1rEEVbgbvpruwpq_C--flPkId4qEadBEm&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1u_sx4sP_pSiS9F4lyn27zK9Y6kR0HXIj&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1obKSLR7N2Q3ZFnBGX9tHVeL337Sv93Rh&sz=w1000",
+        ];
+     }
+     if (serviceId === 'substations') {
+        return [
+           "https://drive.google.com/thumbnail?id=1kgeaUZc389LWYR_zGlPRgMmmkA3V2cHV&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1bEf5P4e4us8apOto_Zs3Bc1MN3Ab1j2_&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1ZC8dznQClrQhHKVNYRxl_JHxBN2Tsfdw&sz=w1000",
+        ];
+     }
+     if (serviceId === 'projects') {
+        return [
+           "https://drive.google.com/thumbnail?id=1X776w5_ysMLgR-Uur0VR7c5YCCCWzopO&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1Pk1M5dRC0NlcICICcoHEFM2tAhiQ0x6G&sz=w1000",
+        ];
+     }
      return [
         `https://picsum.photos/seed/${serviceId}1/600/400`,
         `https://picsum.photos/seed/${serviceId}2/600/400`,
@@ -163,9 +183,9 @@ const ServiceDetail: React.FC = () => {
                  <h3 className="text-lg md:text-xl font-bold text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
                     <ImageIcon className="text-brand-light" /> Galeria
                  </h3>
-                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                 <div className={`grid grid-cols-1 ${id === 'projects' ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-4`}>
                     {getGalleryImages(id || 'default').map((img, index) => (
-                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 && id !== 'others' && id !== 'installations' && id !== 'plrs' ? 'md:col-span-2 md:h-full' : ''}`}>
+                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 && id !== 'others' && id !== 'installations' && id !== 'plrs' && id !== 'projects' ? 'md:col-span-2 md:h-full' : ''}`}>
                           <img 
                              src={img} 
                              alt="Exemplo de Obra" 

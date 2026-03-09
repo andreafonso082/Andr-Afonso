@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Navigation Container - Min height ensures navbar size is maintained */}
-      <div className="w-full px-4 md:px-8 flex justify-end items-center relative z-10 pointer-events-none min-h-[3rem] md:min-h-[5rem]">
+      <div className="w-full px-4 md:px-8 flex justify-end items-center relative z-50 pointer-events-none min-h-[3rem] md:min-h-[5rem]">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-6 xl:gap-8 whitespace-nowrap pointer-events-auto">
           {navLinks.map((link) => (

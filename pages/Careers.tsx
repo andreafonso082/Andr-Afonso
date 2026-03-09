@@ -105,7 +105,7 @@ const Careers: React.FC = () => {
             onScroll={handleScroll}
             className="
               flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 scrollbar-hide
-              md:grid md:grid-cols-2 md:gap-8 md:pb-0 md:mx-auto md:px-0 md:max-w-5xl
+              md:gap-8 md:mx-auto md:px-0 md:max-w-6xl
             "
           >
             {t.careers.jobs.map((job: any, index: number) => (
@@ -116,7 +116,7 @@ const Careers: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="
-                  min-w-[85vw] sm:min-w-[400px] snap-center md:min-w-0 md:w-auto
+                  min-w-[85vw] sm:min-w-[400px] md:min-w-[450px] snap-center
                   bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group h-full
                 "
               >
@@ -159,8 +159,8 @@ const Careers: React.FC = () => {
             ))}
           </div>
           
-          {/* Navigation Dots (Mobile Only) */}
-          <div className="flex justify-center gap-2 mt-2 md:hidden">
+          {/* Navigation Dots */}
+          <div className="flex justify-center gap-2 mt-2">
             {t.careers.jobs.map((_: any, index: number) => (
                 <button
                     key={index}
@@ -176,7 +176,7 @@ const Careers: React.FC = () => {
       </div>
 
       {/* General Application CTA - Full Width */}
-      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light">
+      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light overflow-hidden">
          {/* Abstract Decoration */}
          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
          <Mail className="absolute top-10 left-10 text-white/5 w-24 h-24 -rotate-12 pointer-events-none" />

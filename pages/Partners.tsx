@@ -60,25 +60,34 @@ const Partners: React.FC = () => {
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="flex flex-col md:flex-row gap-6 items-center"
+             className="flex flex-col md:flex-row gap-6 items-start"
            >
               {/* Lado Esquerdo: Identidade Visual / Badge */}
-              <div className="md:w-auto md:min-w-[280px] flex flex-col items-center md:items-start shrink-0">
-                 <div className="w-52 flex flex-col">
+              <div className="w-full md:w-auto md:min-w-[280px] flex flex-row md:flex-col items-center md:items-start justify-start gap-4 md:gap-0 shrink-0 border-b md:border-b-0 md:border-r border-gray-200 pb-6 md:pb-0 md:pr-8">
+                 <div className="w-32 md:w-52">
                      <img 
                         src="https://drive.google.com/thumbnail?id=1UTAnm_KyFRSMMJbhwzrlkhB9kGsphfO6&sz=w1000" 
                         alt="E-REDES" 
-                        className="w-full h-auto object-contain mb-2" 
+                        className="w-full h-auto object-contain" 
                      />
-                     <div className="flex justify-between w-full text-xs font-bold uppercase tracking-widest text-gray-400">
-                        <span>Empreiteiro</span>
-                        <span>Qualificado</span>
+                 </div>
+                 
+                 {/* Mobile Text (Right side of logo) */}
+                 <div className="md:hidden text-left">
+                     <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400 leading-tight">
+                         Empreiteiro<br/>Qualificado
                      </div>
+                 </div>
+
+                 {/* Desktop Text (Below logo) */}
+                 <div className="hidden md:flex justify-between w-52 text-xs font-bold uppercase tracking-widest text-gray-400 mt-2">
+                    <span>Empreiteiro</span>
+                    <span>Qualificado</span>
                  </div>
               </div>
 
               {/* Lado Direito: Conteúdo Técnico */}
-              <div className="md:flex-1 border-t md:border-t-0 md:border-l border-gray-200 pt-8 md:pt-0 md:pl-8">
+              <div className="md:flex-1 pt-2 md:pt-0 md:pl-8">
                  <div className="mb-6">
                     <h3 className="text-xl font-bold text-corporate mb-4">
                        {t.partners.eredesHighlight.title}
@@ -124,7 +133,7 @@ const Partners: React.FC = () => {
                           <img 
                               src={slot.image} 
                               alt={slot.type} 
-                              className="h-24 md:h-32 w-auto max-w-[200px] md:max-w-[240px] object-contain transition-all duration-300" 
+                              className="h-24 md:h-32 w-auto max-w-[min(100%,200px)] md:max-w-[240px] object-contain transition-all duration-300" 
                           />
                       ) : (
                           <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-300">
@@ -207,7 +216,7 @@ const Partners: React.FC = () => {
       </section>
       
       {/* 5. Minimal CTA */}
-      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light">
+      <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light overflow-hidden">
          {/* Abstract Decoration */}
          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none"></div>
 

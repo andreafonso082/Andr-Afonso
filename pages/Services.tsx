@@ -57,23 +57,29 @@ const Services: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-12 flex flex-col gap-16 md:gap-24 mb-24">
+      <div className="container mx-auto px-4 md:px-12 flex flex-col gap-12 md:gap-24 mb-24">
         {t.services.categories?.map((service: any, index: number) => (
           <motion.div 
             key={service.id || index}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
-            className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 md:gap-12 items-center`}
+            transition={{ duration: 0.5 }}
+            className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 md:gap-12 items-center`}
           >
             {/* Image Side */}
             <div className="w-full lg:w-1/2 relative group">
+              {/* Desktop Hover Border */}
               <div className="absolute top-4 left-4 w-full h-full border-2 border-brand-light rounded-sm z-0 transform translate-x-2 translate-y-2 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300 hidden md:block"></div>
-              <img 
+              
+              {/* Mobile/Desktop Image */}
+              <motion.img 
                 src={getImage(service.id)} 
                 alt={service.title} 
-                className="relative z-10 w-full rounded-sm shadow-lg grayscale group-hover:grayscale-0 transition-all duration-500 object-cover h-[250px] md:h-[400px]"
+                whileInView={{ scale: [0.95, 1] }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="relative z-10 w-full rounded-sm shadow-lg md:grayscale md:group-hover:grayscale-0 transition-all duration-500 object-cover h-[220px] md:h-[400px]"
               />
             </div>
 

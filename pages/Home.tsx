@@ -388,7 +388,25 @@ const Home: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-bold uppercase text-corporate mb-4">{t.home.servicesTitle}</h2>
             <div className="w-16 md:w-20 h-1 bg-brand-light mx-auto"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
+          
+          {/* MOBILE: Horizontal Scroll Carousel */}
+          <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 scrollbar-hide">
+            {[
+              { title: t.home.serviceCards.plrs.title, desc: t.home.serviceCards.plrs.desc, icon: <Activity size={32} />, link: "/services/plrs" },
+              { title: t.home.serviceCards.installations.title, desc: t.home.serviceCards.installations.desc, icon: <Wrench size={32} />, link: "/services/installations" },
+              { title: t.home.serviceCards.telecommunications.title, desc: t.home.serviceCards.telecommunications.desc, icon: <Wifi size={32} />, link: "/services/telecommunications" },
+              { title: t.home.serviceCards.substations.title, desc: t.home.serviceCards.substations.desc, icon: <Zap size={32} />, link: "/services/substations" },
+              { title: t.home.serviceCards.projects.title, desc: t.home.serviceCards.projects.desc, icon: <FileText size={32} />, link: "/services/projects" },
+              { title: t.home.serviceCards.others.title, desc: t.home.serviceCards.others.desc, icon: <Layers size={32} />, link: "/services/others" }
+            ].map((service, index) => (
+              <div key={index} className="min-w-[85vw] snap-center">
+                <ServiceCard {...service} delay={0} />
+              </div>
+            ))}
+          </div>
+
+          {/* DESKTOP: Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
             <ServiceCard title={t.home.serviceCards.plrs.title} description={t.home.serviceCards.plrs.desc} icon={<Activity size={32} />} delay={0.1} link="/services/plrs" />
             <ServiceCard title={t.home.serviceCards.installations.title} description={t.home.serviceCards.installations.desc} icon={<Wrench size={32} />} delay={0.2} link="/services/installations" />
             <ServiceCard title={t.home.serviceCards.telecommunications.title} description={t.home.serviceCards.telecommunications.desc} icon={<Wifi size={32} />} delay={0.3} link="/services/telecommunications" />
@@ -410,11 +428,18 @@ const Home: React.FC = () => {
             <p className="text-gray-600 mb-8 font-body leading-relaxed">{t.home.whyUsDesc}</p>
             {/* UPDATED GRID: Forced 2 columns on all screens including mobile (removed grid-cols-1, added grid-cols-2) */}
             <div className="grid grid-cols-2 gap-3 md:gap-6">
-              {t.home.benefits && t.home.benefits.map((benefit: any) => (
-                <div key={benefit.id} className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 bg-white p-3 sm:p-4 rounded shadow-sm border-l-4 border-brand-light">
+              {t.home.benefits && t.home.benefits.map((benefit: any, index: number) => (
+                <motion.div 
+                  key={benefit.id} 
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 bg-white p-3 sm:p-4 rounded shadow-sm border-l-4 border-brand-light"
+                >
                   <CheckCircle className="text-accent shrink-0" size={20} />
                   <span className="font-semibold text-corporate font-body text-xs sm:text-sm md:text-base leading-tight">{benefit.text}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
             <div className="mt-10">

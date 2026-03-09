@@ -471,6 +471,15 @@ const translations = {
           description: "Responsável pela receção, conferência e organização de materiais elétricos e de construção no estaleiro, garantindo a eficiência do stock.",
           requirements: ["Experiência em armazém (preferencial)", "Conhecimentos de informática", "Carta de Condução", "Capacidade de organização"],
           emailSubject: "Candidatura: Operador de Armazém"
+        },
+        {
+          id: 3,
+          title: "Motorista de Pesados com Grua",
+          location: "Olhão",
+          type: "Tempo Inteiro",
+          description: "Principais funções: Condução de camião com grua, transporte de materiais, levantamento de postes e movimentação de bobinas e cargas suspensas. Oferecemos: Salário atrativo e compatível com a experiência, prémios anuais e formação contínua.",
+          requirements: ["Carta categoria C (obrigatório)", "Experiência em camião com grua", "Perfil responsável e polivalente", "Experiência com máquinas (valorizado)", "CAM de Pesados de mercadorias (valorizado)", "Preferência por pessoas da região com bom conhecimento da zona"],
+          emailSubject: "Candidatura: Motorista de Pesados com Grua"
         }
       ],
       spontaneousTitle: "Não encontrou a vaga ideal?",
@@ -879,6 +888,15 @@ const translations = {
           description: "Responsible for receiving, checking, and organizing electrical and construction materials in the yard, ensuring stock efficiency.",
           requirements: ["Warehouse experience (preferred)", "Computer skills", "Driving License", "Organizational skills"],
           emailSubject: "Application: Warehouse Operator"
+        },
+        {
+          id: 3,
+          title: "Heavy Vehicle Driver with Crane",
+          location: "Olhão",
+          type: "Full-time",
+          description: "Main functions: Driving a truck with a crane, transporting materials, lifting poles, and handling coils and suspended loads. We offer: Attractive salary compatible with experience, annual bonuses, and continuous training.",
+          requirements: ["Category C License (mandatory)", "Experience with crane trucks", "Responsible and versatile profile", "Experience with machinery (valued)", "Goods Heavy Vehicle CAM (valued)", "Preference for locals with good knowledge of the area"],
+          emailSubject: "Application: Heavy Vehicle Driver with Crane"
         }
       ],
       spontaneousTitle: "Didn't find the ideal vacancy?",

@@ -403,76 +403,96 @@ const Contact: React.FC = () => {
               
               {/* FORM START */}
               <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.name}</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      disabled={isSubmitting}
-                      value={formData.name}
-                      onChange={handleChange}
-                      onInvalid={handleInvalid}
-                      onInput={handleInputValidation}
-                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.email}</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      disabled={isSubmitting}
-                      value={formData.email}
-                      onChange={handleChange}
-                      onInvalid={handleInvalid}
-                      onInput={handleInputValidation}
-                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
-                    />
-                  </div>
-                </div>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-50px" }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.1
+                      }
+                    }
+                  }}
+                >
+                  <motion.div 
+                    variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
+                  >
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.name}</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        disabled={isSubmitting}
+                        value={formData.name}
+                        onChange={handleChange}
+                        onInvalid={handleInvalid}
+                        onInput={handleInputValidation}
+                        className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.email}</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        disabled={isSubmitting}
+                        value={formData.email}
+                        onChange={handleChange}
+                        onInvalid={handleInvalid}
+                        onInput={handleInputValidation}
+                        className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                      />
+                    </div>
+                  </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.phone}</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      disabled={isSubmitting}
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-bold text-gray-700 mb-2">
-                      {t.contact.form.subject} <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      required
-                      disabled={isSubmitting}
-                      value={formData.subject}
-                      onChange={handleChange}
-                      onInvalid={handleInvalid}
-                      onInput={handleInputValidation}
-                      className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50 appearance-none"
-                    >
-                      <option value="">{t.contact.form.subjectPlaceholder}</option>
-                      <option value="orcamento">{t.contact.form.optQuote}</option>
-                      <option value="informacao">{t.contact.form.optInfo}</option>
-                      <option value="recrutamento">{t.contact.form.optRecruitment}</option>
-                      <option value="parceria">{t.contact.form.optPartnership}</option>
-                      <option value="outros">{t.contact.form.optOther}</option>
-                    </select>
-                  </div>
-                </div>
+                  <motion.div 
+                    variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
+                  >
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-2">{t.contact.form.phone}</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        disabled={isSubmitting}
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-bold text-gray-700 mb-2">
+                        {t.contact.form.subject} <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="subject"
+                        name="subject"
+                        required
+                        disabled={isSubmitting}
+                        value={formData.subject}
+                        onChange={handleChange}
+                        onInvalid={handleInvalid}
+                        onInput={handleInputValidation}
+                        className="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors disabled:opacity-50 appearance-none"
+                      >
+                        <option value="">{t.contact.form.subjectPlaceholder}</option>
+                        <option value="orcamento">{t.contact.form.optQuote}</option>
+                        <option value="informacao">{t.contact.form.optInfo}</option>
+                        <option value="recrutamento">{t.contact.form.optRecruitment}</option>
+                        <option value="parceria">{t.contact.form.optPartnership}</option>
+                        <option value="outros">{t.contact.form.optOther}</option>
+                      </select>
+                    </div>
+                  </motion.div>
 
                 {/* Conditional Field: Area of Interest (for 'orcamento') */}
                 <AnimatePresence>
@@ -858,6 +878,7 @@ const Contact: React.FC = () => {
                     </>
                   )}
                 </button>
+                </motion.div>
               </form>
             </div>
           </div>
