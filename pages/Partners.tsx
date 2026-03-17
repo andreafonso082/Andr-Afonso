@@ -14,23 +14,22 @@ const Partners: React.FC = () => {
 
   // Define slots including new partners
   const partnerSlots = [
-    { type: "Iluminação técnica e decorativa", image: "https://drive.google.com/thumbnail?id=1YWtgccMsUVmbhQwtq7R-9sPZs8fAcQ1j&sz=w1000", url: "https://svelux.pt/" },
-    { type: "Iluminação de Consumo", image: "https://drive.google.com/thumbnail?id=1nA3TaycESag22H2i6yHZWwiXZdQrocRu&sz=w1000", url: "https://www.signify.com/pt-pt" },
-    { type: "Iluminação Exterior e Inteligente", image: "https://drive.google.com/thumbnail?id=1biPaxNPG6UvOAi_mRwCSRWCHDVT7ROD6&sz=w1000", url: "https://pt.schreder.com/pt" },
-    { type: "Distribuição Especializada de Iluminação", image: "https://drive.google.com/thumbnail?id=11UxCCFrwhbG3HLlCELz9N2bZAl1EGh7t&sz=w1000", url: "https://ltx.pt/" },
-    { type: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000", url: "" },
+    { type: "Iluminação técnica e decorativa", image: "https://drive.google.com/thumbnail?id=1YWtgccMsUVmbhQwtq7R-9sPZs8fAcQ1j&sz=w1000", url: "https://svelux.pt/", scaleClass: "scale-75" },
+    { type: "Iluminação de Consumo", image: "https://drive.google.com/thumbnail?id=1nA3TaycESag22H2i6yHZWwiXZdQrocRu&sz=w1000", url: "https://www.signify.com/pt-pt", scaleClass: "scale-75" },
+    { type: "Iluminação Exterior e Inteligente", image: "https://drive.google.com/thumbnail?id=1biPaxNPG6UvOAi_mRwCSRWCHDVT7ROD6&sz=w1000", url: "https://pt.schreder.com/pt", scaleClass: "scale-125" },
+    { type: "Distribuição Especializada de Iluminação", image: "https://drive.google.com/thumbnail?id=11UxCCFrwhbG3HLlCELz9N2bZAl1EGh7t&sz=w1000", url: "https://ltx.pt/", scaleClass: "scale-125" },
+    { type: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000", url: "", scaleClass: "scale-125" },
     { type: "Produtos de Iluminação", image: "https://drive.google.com/thumbnail?id=1Dqpjjc_nzbyKAINwRPvIvxCUCZ4o4fAD&sz=w1000", url: "https://www.philips.pt/" },
-    { type: "Gestão de Energia e Automação Elétrica", image: "https://drive.google.com/thumbnail?id=1dbgZWvOZCDqKhheNhfOiBHlOqwP0DxHe&sz=w1000", url: "https://www.se.com/pt/pt/" },
-    { type: "Soluções para Instalações Elétricas", image: "https://drive.google.com/thumbnail?id=1XdM8m5-kAKe-RE74bY-fclHSKD4Yql7k&sz=w1000", url: "https://www.obo.pt/" },
-    { type: "Cabos Elétricos e de Telecomunicações", image: "https://drive.google.com/thumbnail?id=1-CeBT03xZhaDgN2QhjQK8BoDXPY-NBU9&sz=w1000", url: "https://www.cabelte.pt/" },
-    { type: "Tecnologias e Equipamentos Elétricos", image: "https://drive.google.com/thumbnail?id=1MB83AcEQTQKM7_AtND5pn8xp4YHWi1H7&sz=w1000", url: "https://www.bosch.pt/" },
-    { type: "Material Elétrico de Baixa Tensão", image: "https://drive.google.com/thumbnail?id=1K44hESgxmLh_hfqtGnI4bbOehA0MSW1m&sz=w1000", url: "https://www.efapel.pt/" },
-    { type: "Conectores e Ligações Elétricas", image: "https://drive.google.com/thumbnail?id=1K0RQav-UmOsOKr6PaBBm265rdUbIbyYm&sz=w1000", url: "https://www.wago.com/global/" },
-    { type: "Equipamentos, Automações e Sistemas Energéticos", image: "https://drive.google.com/thumbnail?id=1h_qFikyA8Grx19TsBGjpakyW5R0ygyAp&sz=w1000", url: "https://www.siemens.com/pt-pt/" },
-    { type: "Material Elétrico", image: "https://drive.google.com/thumbnail?id=1KWoodbR8w7L36rG1G7lC6ztq7LMkdONg&sz=w1000", url: "https://www.al.pt/pt-pt/" },
-    { type: "Material e Infraestruturas Elétricas", image: "https://drive.google.com/thumbnail?id=1LyLgXFcClPV_ZmR2RIoS_tgDCsmC4_P8&sz=w1000", url: "https://www.legrand.pt/" },
-
-
+    { type: "Gestão de Energia e Automação Elétrica", image: "https://drive.google.com/thumbnail?id=1dbgZWvOZCDqKhheNhfOiBHlOqwP0DxHe&sz=w1000", url: "https://www.se.com/pt/pt/", scaleClass: "scale-75" },
+    { type: "Soluções para Instalações Elétricas", image: "https://drive.google.com/thumbnail?id=1XdM8m5-kAKe-RE74bY-fclHSKD4Yql7k&sz=w1000", url: "https://www.obo.pt/", scaleClass: "scale-125" },
+    { type: "Cabos Elétricos e de Telecomunicações", image: "https://drive.google.com/thumbnail?id=1-CeBT03xZhaDgN2QhjQK8BoDXPY-NBU9&sz=w1000", url: "https://www.cabelte.pt/", scaleClass: "scale-75" },
+    { type: "Tecnologias e Equipamentos Elétricos", image: "https://drive.google.com/thumbnail?id=1MB83AcEQTQKM7_AtND5pn8xp4YHWi1H7&sz=w1000", url: "https://www.bosch.pt/", scaleClass: "scale-75" },
+    { type: "Material Elétrico de Baixa Tensão", image: "https://drive.google.com/thumbnail?id=1K44hESgxmLh_hfqtGnI4bbOehA0MSW1m&sz=w1000", url: "https://www.efapel.pt/", scaleClass: "scale-125" },
+    { type: "Conectores e Ligações Elétricas", image: "https://drive.google.com/thumbnail?id=1K0RQav-UmOsOKr6PaBBm265rdUbIbyYm&sz=w1000", url: "https://www.wago.com/global/", scaleClass: "scale-75" },
+    { type: "Equipamentos, Automações e Sistemas Energéticos", image: "https://drive.google.com/thumbnail?id=1h_qFikyA8Grx19TsBGjpakyW5R0ygyAp&sz=w1000", url: "https://www.siemens.com/pt-pt/", scaleClass: "scale-75" },
+    { type: "Material Elétrico", image: "https://drive.google.com/thumbnail?id=1KWoodbR8w7L36rG1G7lC6ztq7LMkdONg&sz=w1000", url: "https://www.al.pt/pt-pt/", scaleClass: "scale-75" },
+    { type: "Material e Infraestruturas Elétricas", image: "https://drive.google.com/thumbnail?id=1LyLgXFcClPV_ZmR2RIoS_tgDCsmC4_P8&sz=w1000", url: "https://www.legrand.pt/", scaleClass: "scale-125" },
+    { type: "Armários e Quadros Elétricos", image: "https://drive.google.com/thumbnail?id=1y1vF_oKBLqz5SB0ocWyZJhYg3tutmgJA&sz=w1000", url: "https://www.hager.pt/", scaleClass: "scale-75" },
   ];
 
   return (
@@ -128,12 +127,12 @@ const Partners: React.FC = () => {
                const CardContent = (
                  <>
                    {/* Main Area: Logo */}
-                   <div className="flex-grow flex items-center justify-center p-6 relative min-h-0">
+                   <div className="flex-grow flex items-center justify-center p-4 md:p-6 relative min-h-[120px] md:min-h-0">
                       {slot.image ? (
                           <img 
                               src={slot.image} 
                               alt={slot.type} 
-                              className="h-24 md:h-32 w-auto max-w-[min(100%,200px)] md:max-w-[240px] object-contain transition-all duration-300" 
+                              className={`w-full h-full max-h-[60px] md:max-h-[100px] object-contain transition-all duration-300 ${slot.scaleClass || ''}`} 
                           />
                       ) : (
                           <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-300">

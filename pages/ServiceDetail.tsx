@@ -185,7 +185,7 @@ const ServiceDetail: React.FC = () => {
                  </h3>
                  <div className={`grid grid-cols-1 ${id === 'projects' ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-4`}>
                     {getGalleryImages(id || 'default').map((img, index) => (
-                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 && id !== 'others' && id !== 'installations' && id !== 'plrs' && id !== 'projects' ? 'md:col-span-2 md:h-full' : ''}`}>
+                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 && !['others', 'installations', 'plrs', 'projects', 'substations', 'telecommunications'].includes(id || '') ? 'md:col-span-2 md:h-full' : ''}`}>
                           <img 
                              src={img} 
                              alt="Exemplo de Obra" 

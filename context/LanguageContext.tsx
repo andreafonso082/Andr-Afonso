@@ -318,9 +318,9 @@ const translations = {
       exclusiveTitle: "Entidades Públicas Parceiras",
       exclusiveDesc: "Municípios e organizações estatais que confiam na Joaquim & Fernandes para iluminação pública e infraestruturas críticas.",
       exclusivePartners: [
-        { name: "Câmara Municipal de Faro", type: "Autarquia", desc: "Manutenção de Iluminação Pública e edifícios municipais no concelho." },
-        { name: "Câmara Municipal de Olhão", type: "Autarquia", desc: "Execução de infraestruturas elétricas em novos loteamentos e zonas industriais." },
-        { name: "Docapesca", type: "Setor Público", desc: "Manutenção de postos de transformação e redes de distribuição portuárias." }
+        { name: "Município de Olhão", type: "Autarquia", desc: "Execução de infraestruturas elétricas em novos loteamentos e zonas industriais." },
+        { name: "Município de Faro", type: "Autarquia", desc: "Manutenção de Iluminação Pública e edifícios municipais no concelho." },
+        { name: "Município de Loulé", type: "Autarquia", desc: "Desenvolvimento e manutenção de redes elétricas e iluminação pública." }
       ],
       ctaTitle: "Torne-se um Parceiro",
       ctaDesc: "Procuramos constantemente expandir a nossa rede com empresas que partilhem os nossos valores de rigor e qualidade.",
@@ -474,7 +474,7 @@ const translations = {
         },
         {
           id: 3,
-          title: "Motorista de Pesados com Grua",
+          title: "Motorista de Pesados com Grua (M/F)",
           location: "Olhão",
           type: "Tempo Inteiro",
           description: "Principais funções: Condução de camião com grua, transporte de materiais, levantamento de postes e movimentação de bobinas e cargas suspensas. Oferecemos: Salário atrativo e compatível com a experiência, prémios anuais e formação contínua.",
@@ -891,7 +891,7 @@ const translations = {
         },
         {
           id: 3,
-          title: "Heavy Vehicle Driver with Crane",
+          title: "Heavy Vehicle Driver with Crane (M/F)",
           location: "Olhão",
           type: "Full-time",
           description: "Main functions: Driving a truck with a crane, transporting materials, lifting poles, and handling coils and suspended loads. We offer: Attractive salary compatible with experience, annual bonuses, and continuous training.",
@@ -1095,9 +1095,9 @@ const translations = {
       exclusiveTitle: "Partner Public Entities",
       exclusiveDesc: "Municipalities and state organizations that trust Joaquim & Fernandes for public lighting and critical infrastructures.",
       exclusivePartners: [
-        { name: "Faro City Council", type: "Municipality", desc: "Maintenance of Public Lighting and municipal buildings in the municipality." },
-        { name: "Olhão City Council", type: "Municipality", desc: "Execution of electrical infrastructures in new allotments and industrial zones." },
-        { name: "Docapesca", type: "Public Sector", desc: "Maintenance of transformer substations and port distribution networks." }
+        { name: "Olhão Municipality", type: "Municipality", desc: "Execution of electrical infrastructures in new allotments and industrial zones." },
+        { name: "Faro Municipality", type: "Municipality", desc: "Maintenance of Public Lighting and municipal buildings in the municipality." },
+        { name: "Loulé Municipality", type: "Municipality", desc: "Development and maintenance of electrical networks and public lighting." }
       ],
       ctaTitle: "Become a Partner",
       ctaDesc: "We are constantly looking to expand our network with companies that share our values of rigor and quality.",

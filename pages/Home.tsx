@@ -8,23 +8,22 @@ import { useLanguage } from '../context/LanguageContext';
 
 // Partners list
 const partners = [
-  { name: "Iluminação técnica e decorativa", image: "https://drive.google.com/thumbnail?id=1YWtgccMsUVmbhQwtq7R-9sPZs8fAcQ1j&sz=w1000" },
-  { name: "Iluminação de Consumo", image: "https://drive.google.com/thumbnail?id=1nA3TaycESag22H2i6yHZWwiXZdQrocRu&sz=w1000" },
-  { name: "Iluminação Exterior e Inteligente", image: "https://drive.google.com/thumbnail?id=1biPaxNPG6UvOAi_mRwCSRWCHDVT7ROD6&sz=w1000" },
-  { name: "Distribuição Especializada de Iluminação", image: "https://drive.google.com/thumbnail?id=11UxCCFrwhbG3HLlCELz9N2bZAl1EGh7t&sz=w1000" },
-  { name: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000" },
+  { name: "Iluminação técnica e decorativa", image: "https://drive.google.com/thumbnail?id=1YWtgccMsUVmbhQwtq7R-9sPZs8fAcQ1j&sz=w1000", scaleClass: "scale-75" },
+  { name: "Iluminação de Consumo", image: "https://drive.google.com/thumbnail?id=1nA3TaycESag22H2i6yHZWwiXZdQrocRu&sz=w1000", scaleClass: "scale-75" },
+  { name: "Iluminação Exterior e Inteligente", image: "https://drive.google.com/thumbnail?id=1biPaxNPG6UvOAi_mRwCSRWCHDVT7ROD6&sz=w1000", scaleClass: "scale-125" },
+  { name: "Distribuição Especializada de Iluminação", image: "https://drive.google.com/thumbnail?id=11UxCCFrwhbG3HLlCELz9N2bZAl1EGh7t&sz=w1000", scaleClass: "scale-125" },
+  { name: "Fornecimento de Soluções de Iluminação", image: "https://drive.google.com/thumbnail?id=1S7vI_w9u3nisrikfI1S6MGMEKOPRwArf&sz=w1000", scaleClass: "scale-125" },
   { name: "Produtos de Iluminação", image: "https://drive.google.com/thumbnail?id=1Dqpjjc_nzbyKAINwRPvIvxCUCZ4o4fAD&sz=w1000", url: "https://www.philips.pt/" },
-  { name: "Gestão de Energia e Automação Elétrica", image: "https://drive.google.com/thumbnail?id=1dbgZWvOZCDqKhheNhfOiBHlOqwP0DxHe&sz=w1000", url: "https://www.se.com/pt/pt/" },
-  { name: "Soluções para Instalações Elétricas", image: "https://drive.google.com/thumbnail?id=1XdM8m5-kAKe-RE74bY-fclHSKD4Yql7k&sz=w1000", url: "https://www.obo.pt/" },
-  { name: "Cabos Elétricos e de Telecomunicações", image: "https://drive.google.com/thumbnail?id=1-CeBT03xZhaDgN2QhjQK8BoDXPY-NBU9&sz=w1000", url: "https://www.cabelte.pt/" },
-  { name: "Tecnologias e Equipamentos Elétricos", image: "https://drive.google.com/thumbnail?id=1MB83AcEQTQKM7_AtND5pn8xp4YHWi1H7&sz=w1000", url: "https://www.bosch.pt/" },
-  { name: "Material Elétrico de Baixa Tensão", image: "https://drive.google.com/thumbnail?id=1K44hESgxmLh_hfqtGnI4bbOehA0MSW1m&sz=w1000", url: "https://www.efapel.pt/" },
-  { name: "Conectores e Ligações Elétricas", image: "https://drive.google.com/thumbnail?id=1K0RQav-UmOsOKr6PaBBm265rdUbIbyYm&sz=w1000", url: "https://www.wago.com/global/" },
-  { name: "Equipamentos, Automações e Sistemas Energéticos", image: "https://drive.google.com/thumbnail?id=1h_qFikyA8Grx19TsBGjpakyW5R0ygyAp&sz=w1000", url: "https://www.siemens.com/pt-pt/" },
-  { name: "Material Elétrico", image: "https://drive.google.com/thumbnail?id=1KWoodbR8w7L36rG1G7lC6ztq7LMkdONg&sz=w1000", url: "https://www.al.pt/pt-pt/" },
-  { name: "Material e Infraestruturas Elétricas", image: "https://drive.google.com/thumbnail?id=1LyLgXFcClPV_ZmR2RIoS_tgDCsmC4_P8&sz=w1000", url: "https://www.legrand.pt/" },
-
-
+  { name: "Gestão de Energia e Automação Elétrica", image: "https://drive.google.com/thumbnail?id=1dbgZWvOZCDqKhheNhfOiBHlOqwP0DxHe&sz=w1000", url: "https://www.se.com/pt/pt/", scaleClass: "scale-75" },
+  { name: "Soluções para Instalações Elétricas", image: "https://drive.google.com/thumbnail?id=1XdM8m5-kAKe-RE74bY-fclHSKD4Yql7k&sz=w1000", url: "https://www.obo.pt/", scaleClass: "scale-125" },
+  { name: "Cabos Elétricos e de Telecomunicações", image: "https://drive.google.com/thumbnail?id=1-CeBT03xZhaDgN2QhjQK8BoDXPY-NBU9&sz=w1000", url: "https://www.cabelte.pt/", scaleClass: "scale-75" },
+  { name: "Tecnologias e Equipamentos Elétricos", image: "https://drive.google.com/thumbnail?id=1MB83AcEQTQKM7_AtND5pn8xp4YHWi1H7&sz=w1000", url: "https://www.bosch.pt/", scaleClass: "scale-75" },
+  { name: "Material Elétrico de Baixa Tensão", image: "https://drive.google.com/thumbnail?id=1K44hESgxmLh_hfqtGnI4bbOehA0MSW1m&sz=w1000", url: "https://www.efapel.pt/", scaleClass: "scale-125" },
+  { name: "Conectores e Ligações Elétricas", image: "https://drive.google.com/thumbnail?id=1K0RQav-UmOsOKr6PaBBm265rdUbIbyYm&sz=w1000", url: "https://www.wago.com/global/", scaleClass: "scale-75" },
+  { name: "Equipamentos, Automações e Sistemas Energéticos", image: "https://drive.google.com/thumbnail?id=1h_qFikyA8Grx19TsBGjpakyW5R0ygyAp&sz=w1000", url: "https://www.siemens.com/pt-pt/", scaleClass: "scale-75" },
+  { name: "Material Elétrico", image: "https://drive.google.com/thumbnail?id=1KWoodbR8w7L36rG1G7lC6ztq7LMkdONg&sz=w1000", url: "https://www.al.pt/pt-pt/", scaleClass: "scale-75" },
+  { name: "Material e Infraestruturas Elétricas", image: "https://drive.google.com/thumbnail?id=1LyLgXFcClPV_ZmR2RIoS_tgDCsmC4_P8&sz=w1000", url: "https://www.legrand.pt/", scaleClass: "scale-125" },
+  { name: "Armários e Quadros Elétricos", image: "https://drive.google.com/thumbnail?id=1y1vF_oKBLqz5SB0ocWyZJhYg3tutmgJA&sz=w1000", url: "https://www.hager.pt/", scaleClass: "scale-75" },
 ];
 
 // Custom Lightning Bolt Component (Icon style for floating)
@@ -610,12 +609,12 @@ const Home: React.FC = () => {
             {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (
                <div key={index} className="flex-shrink-0 mx-6 md:mx-12">
                  {partner.url ? (
-                   <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
+                   <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block transition-transform duration-300 hover:scale-105">
                      {partner.image ? (
                        <img 
                          src={partner.image} 
                          alt={partner.name} 
-                         className="h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain transition-all duration-300 hover:scale-105"
+                         className={`h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain ${partner.scaleClass || ''}`}
                        />
                      ) : (
                        <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading transition-all duration-300 cursor-pointer whitespace-nowrap hover:text-corporate">{partner.name}</span>
@@ -626,7 +625,7 @@ const Home: React.FC = () => {
                      <img 
                        src={partner.image} 
                        alt={partner.name} 
-                       className="h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain transition-all duration-300"
+                       className={`h-16 md:h-20 w-auto max-w-[150px] md:max-w-[180px] object-contain ${partner.scaleClass || ''}`}
                      />
                    ) : (
                      <span className="text-xl md:text-3xl font-bold text-gray-400 font-heading transition-all duration-300 cursor-default whitespace-nowrap">{partner.name}</span>
