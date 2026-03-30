@@ -49,6 +49,7 @@ const FAQ: React.FC = () => {
       <SEO 
         title={t.seo.faqs.title} 
         description={t.seo.faqs.description} 
+        url="/faqs"
       />
 
       {/* 1. HERO SECTION (Standardized) */}

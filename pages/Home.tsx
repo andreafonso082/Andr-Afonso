@@ -127,6 +127,9 @@ const Home: React.FC = () => {
 
   // Hero Carousel State
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
+  
+  // Track if slogan has animated
+  const [hasAnimatedSlogan, setHasAnimatedSlogan] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -181,7 +184,7 @@ const Home: React.FC = () => {
 
   return (
     <div ref={containerRef} className="flex flex-col w-full relative">
-      <SEO title={t.seo.home.title} description={t.seo.home.description} />
+      <SEO title={t.seo.home.title} description={t.seo.home.description} url="/" />
       
       {/* === FLOATING BOLT === */}
       <AnimatePresence>
@@ -272,23 +275,32 @@ const Home: React.FC = () => {
                     visible: { opacity: 1 }
                   }}
                 >
-                  {"Eletricidade é Connosco!".split('').map((char, index) => (
-                    <motion.span
-                      key={index}
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: { 
-                          opacity: 1,
-                          transition: { 
-                            delay: 0.5 + (index * 0.06), // Start after left line (0.5s)
-                            duration: 0 
-                          } 
-                        }
-                      }}
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
+                  {hasAnimatedSlogan ? (
+                    <span>{t.home.slogan}</span>
+                  ) : (
+                    t.home.slogan.split('').map((char, index) => (
+                      <motion.span
+                        key={index}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          visible: { 
+                            opacity: 1,
+                            transition: { 
+                              delay: 0.5 + (index * 0.06), // Start after left line (0.5s)
+                              duration: 0 
+                            } 
+                          }
+                        }}
+                        onAnimationComplete={() => {
+                          if (index === t.home.slogan.length - 1) {
+                            setHasAnimatedSlogan(true);
+                          }
+                        }}
+                      >
+                        {char}
+                      </motion.span>
+                    ))
+                  )}
                 </motion.span>
 
                 {/* Right Line */}
@@ -391,12 +403,12 @@ const Home: React.FC = () => {
           {/* MOBILE: Horizontal Scroll Carousel */}
           <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 scrollbar-hide">
             {[
-              { title: t.home.serviceCards.plrs.title, desc: t.home.serviceCards.plrs.desc, icon: <Activity size={32} />, link: "/services/plrs" },
-              { title: t.home.serviceCards.installations.title, desc: t.home.serviceCards.installations.desc, icon: <Wrench size={32} />, link: "/services/installations" },
-              { title: t.home.serviceCards.telecommunications.title, desc: t.home.serviceCards.telecommunications.desc, icon: <Wifi size={32} />, link: "/services/telecommunications" },
-              { title: t.home.serviceCards.substations.title, desc: t.home.serviceCards.substations.desc, icon: <Zap size={32} />, link: "/services/substations" },
-              { title: t.home.serviceCards.projects.title, desc: t.home.serviceCards.projects.desc, icon: <FileText size={32} />, link: "/services/projects" },
-              { title: t.home.serviceCards.others.title, desc: t.home.serviceCards.others.desc, icon: <Layers size={32} />, link: "/services/others" }
+              { title: t.home.serviceCards.plrs.title, desc: t.home.serviceCards.plrs.desc, icon: <Activity size={32} />, link: "/plrs" },
+              { title: t.home.serviceCards.installations.title, desc: t.home.serviceCards.installations.desc, icon: <Wrench size={32} />, link: "/installations" },
+              { title: t.home.serviceCards.telecommunications.title, desc: t.home.serviceCards.telecommunications.desc, icon: <Wifi size={32} />, link: "/telecommunications" },
+              { title: t.home.serviceCards.substations.title, desc: t.home.serviceCards.substations.desc, icon: <Zap size={32} />, link: "/substations" },
+              { title: t.home.serviceCards.projects.title, desc: t.home.serviceCards.projects.desc, icon: <FileText size={32} />, link: "/projects" },
+              { title: t.home.serviceCards.others.title, desc: t.home.serviceCards.others.desc, icon: <Layers size={32} />, link: "/others" }
             ].map((service, index) => (
               <div key={index} className="min-w-[85vw] snap-center">
                 <ServiceCard {...service} delay={0} />
@@ -406,12 +418,12 @@ const Home: React.FC = () => {
 
           {/* DESKTOP: Grid */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
-            <ServiceCard title={t.home.serviceCards.plrs.title} description={t.home.serviceCards.plrs.desc} icon={<Activity size={32} />} delay={0.1} link="/services/plrs" />
-            <ServiceCard title={t.home.serviceCards.installations.title} description={t.home.serviceCards.installations.desc} icon={<Wrench size={32} />} delay={0.2} link="/services/installations" />
-            <ServiceCard title={t.home.serviceCards.telecommunications.title} description={t.home.serviceCards.telecommunications.desc} icon={<Wifi size={32} />} delay={0.3} link="/services/telecommunications" />
-            <ServiceCard title={t.home.serviceCards.substations.title} description={t.home.serviceCards.substations.desc} icon={<Zap size={32} />} delay={0.4} link="/services/substations" />
-            <ServiceCard title={t.home.serviceCards.projects.title} description={t.home.serviceCards.projects.desc} icon={<FileText size={32} />} delay={0.5} link="/services/projects" />
-            <ServiceCard title={t.home.serviceCards.others.title} description={t.home.serviceCards.others.desc} icon={<Layers size={32} />} delay={0.6} link="/services/others" />
+            <ServiceCard title={t.home.serviceCards.plrs.title} description={t.home.serviceCards.plrs.desc} icon={<Activity size={32} />} delay={0.1} link="/plrs" />
+            <ServiceCard title={t.home.serviceCards.installations.title} description={t.home.serviceCards.installations.desc} icon={<Wrench size={32} />} delay={0.2} link="/installations" />
+            <ServiceCard title={t.home.serviceCards.telecommunications.title} description={t.home.serviceCards.telecommunications.desc} icon={<Wifi size={32} />} delay={0.3} link="/telecommunications" />
+            <ServiceCard title={t.home.serviceCards.substations.title} description={t.home.serviceCards.substations.desc} icon={<Zap size={32} />} delay={0.4} link="/substations" />
+            <ServiceCard title={t.home.serviceCards.projects.title} description={t.home.serviceCards.projects.desc} icon={<FileText size={32} />} delay={0.5} link="/projects" />
+            <ServiceCard title={t.home.serviceCards.others.title} description={t.home.serviceCards.others.desc} icon={<Layers size={32} />} delay={0.6} link="/others" />
           </div>
         </div>
       </section>

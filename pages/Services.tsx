@@ -31,7 +31,7 @@ const Services: React.FC = () => {
   // Mapping images (could be in translation file or static, keeping static here but mapped by ID)
   const getImage = (id: string) => {
     switch(id) {
-        case 'plrs': return "https://drive.google.com/thumbnail?id=1GP2lWlLsIz2XAnARo8ri6FGVaoc4y6rM&sz=w1000";
+        case 'plrs': return "https://drive.google.com/thumbnail?id=1giTPtE1cSEh-pJxVsDCHGYa5zrPoDTG_&sz=w1000-h800-c";
         case 'installations': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
         case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
         case 'substations': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
@@ -47,6 +47,7 @@ const Services: React.FC = () => {
       <SEO 
         title={t.seo.services.title} 
         description={t.seo.services.description} 
+        url="/services"
       />
       <div className="bg-corporate py-16 mb-16 text-center text-white">
         <div className="container mx-auto px-4 md:px-12">
@@ -100,7 +101,7 @@ const Services: React.FC = () => {
                 ))}
               </ul>
 
-              <CTAButton to={`/services/${service.id}`} text={t.common.seeMore} variant="primary" />
+              <CTAButton to={`/${service.id}`} text={t.common.seeMore} variant="primary" />
             </div>
           </motion.div>
         ))}

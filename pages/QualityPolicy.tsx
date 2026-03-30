@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Target, Diamond, Compass, CheckCircle, Scale, Mail } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 const QualityPolicy: React.FC = () => {
   const { t } = useLanguage();
@@ -9,6 +10,11 @@ const QualityPolicy: React.FC = () => {
 
   return (
     <div className="pt-24 pb-12 bg-white">
+      <SEO 
+        title={t.seo['quality-policy'].title} 
+        description={t.seo['quality-policy'].description} 
+        url="/quality-policy"
+      />
       
       {/* Header */}
       <div className="bg-corporate py-16 mb-16 text-center text-white relative">

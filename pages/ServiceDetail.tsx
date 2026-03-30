@@ -16,7 +16,7 @@ const ServiceDetail: React.FC = () => {
   const getImage = (serviceId: string) => {
     switch(serviceId) {
         case 'projects': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
-        case 'plrs': return "https://drive.google.com/thumbnail?id=1GP2lWlLsIz2XAnARo8ri6FGVaoc4y6rM&sz=w1000";
+        case 'plrs': return "https://drive.google.com/thumbnail?id=1giTPtE1cSEh-pJxVsDCHGYa5zrPoDTG_&sz=w1000-h800-c";
         case 'installations': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
         case 'substations': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
         case 'ev_charging': return "https://picsum.photos/seed/evcharging/1920/1080";
@@ -95,6 +95,7 @@ const ServiceDetail: React.FC = () => {
       <SEO 
         title={`${serviceData.seoTitle} | Joaquim & Fernandes`} 
         description={serviceData.seoDescription || serviceData.description} 
+        url={`/${id}`}
       />
 
       {/* 1. SEO HERO SECTION */}

@@ -248,6 +248,7 @@ const Contact: React.FC = () => {
       <SEO 
         title={t.seo.contact.title} 
         description={t.seo.contact.description} 
+        url="/contact"
       />
 
       {/* MODAL POPUP (Success/Error) */}

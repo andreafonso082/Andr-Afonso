@@ -30,6 +30,7 @@ const Lighting: React.FC = () => {
       <SEO 
         title={t.seo.lighting?.title || "Iluminação Profissional | J&F"} 
         description={t.seo.lighting?.description || "Soluções de Iluminação Festiva, Pública e Arquitetural."} 
+        url="/lighting"
       />
 
       {/* 1. HEADER / HERO (Standardized) */}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileText, Scale } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 const TermsConditions: React.FC = () => {
   const { t } = useLanguage();
@@ -8,6 +9,11 @@ const TermsConditions: React.FC = () => {
 
   return (
     <div className="pt-24 pb-12 bg-white min-h-screen">
+      <SEO 
+        title={t.seo.terms.title} 
+        description={t.seo.terms.description} 
+        url="/terms"
+      />
       
       {/* Header */}
       <div className="bg-corporate py-16 mb-12 text-center text-white relative">

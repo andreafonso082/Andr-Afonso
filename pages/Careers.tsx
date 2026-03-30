@@ -40,6 +40,7 @@ const Careers: React.FC = () => {
       <SEO 
         title={t.seo.careers.title} 
         description={t.seo.careers.description} 
+        url="/recrutamento"
       />
 
       {/* Internal style to hide scrollbar for the carousel */}

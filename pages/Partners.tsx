@@ -37,6 +37,7 @@ const Partners: React.FC = () => {
       <SEO 
         title={t.seo.partners.title} 
         description={t.seo.partners.description} 
+        url="/partners"
       />
 
       {/* 1. Hero Section - Mais Sóbrio */}

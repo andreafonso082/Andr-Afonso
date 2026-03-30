@@ -1,14 +1,94 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, Phone } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage, Language } from '../context/LanguageContext';
+
+const LanguageSwitcher = ({ 
+  isMobile = false, 
+  showSolidNav, 
+  isOpen 
+}: { 
+  isMobile?: boolean; 
+  showSolidNav: boolean; 
+  isOpen?: boolean;
+}) => {
+  const { language, setLanguage } = useLanguage();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  const languages: { code: Language; label: string; name: string }[] = [
+    { code: 'pt', label: 'PT', name: 'Português' },
+    { code: 'en', label: 'EN', name: 'English' },
+    { code: 'es', label: 'ES', name: 'Español' },
+    { code: 'fr', label: 'FR', name: 'Français' },
+  ];
+
+  const currentLang = languages.find(l => l.code === language) || languages[0];
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const isDarkText = showSolidNav || (isMobile && isOpen);
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        className={`flex items-center gap-1.5 font-bold text-xs uppercase py-1.5 px-3 border rounded transition-all whitespace-nowrap ${
+          isDarkText
+            ? 'border-gray-200 text-corporate hover:border-brand-light hover:text-brand-light bg-white/80 backdrop-blur-sm' 
+            : 'border-white/50 text-white hover:bg-white hover:text-corporate drop-shadow-md bg-black/20 backdrop-blur-sm'
+        }`}
+        aria-label="Select Language"
+      >
+        <Globe size={14} className={isDarkText ? 'text-brand-light' : 'text-white'} />
+        <span>{currentLang.label}</span>
+        <ChevronDown size={12} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {/* Dropdown Menu */}
+      <div 
+        className={`absolute top-full right-0 mt-2 w-36 bg-white rounded shadow-xl border border-gray-100 overflow-hidden z-50 transition-all duration-200 origin-top-right ${
+          isDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
+        }`}
+      >
+        <div className="py-1">
+          {languages.map((lang) => (
+            <button
+              key={lang.code}
+              onClick={() => {
+                setLanguage(lang.code);
+                setIsDropdownOpen(false);
+              }}
+              className={`w-full text-left px-4 py-2.5 text-xs font-bold transition-colors flex items-center justify-between ${
+                language === lang.code 
+                  ? 'bg-brand-light/10 text-brand-light' 
+                  : 'text-corporate hover:bg-gray-50'
+              }`}
+            >
+              <span>{lang.name}</span>
+              <span className="text-[10px] opacity-60">{lang.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const { t, language, setLanguage } = useLanguage();
+  const { t } = useLanguage();
 
   const isHome = location.pathname === '/';
   // Force solid navbar style if scrolled OR if we are NOT on the home page
@@ -46,10 +126,6 @@ const Navbar: React.FC = () => {
   if (!t || !t.nav) {
     return null;
   }
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'pt' ? 'en' : 'pt');
-  };
 
   const navLinks = [
     { name: t.nav.home, path: '/' },
@@ -98,17 +174,7 @@ const Navbar: React.FC = () => {
           ))}
           
           {/* Language Switcher */}
-          <button 
-            onClick={toggleLanguage}
-            className={`flex items-center gap-1 font-bold text-xs uppercase py-1 px-3 border rounded transition-all whitespace-nowrap ${
-               showSolidNav 
-                ? 'border-corporate text-corporate hover:bg-corporate hover:text-white' 
-                : 'border-white text-white hover:bg-white hover:text-corporate drop-shadow-md'
-            }`}
-          >
-            <Globe size={14} />
-            {language === 'pt' ? 'EN' : 'PT'}
-          </button>
+          <LanguageSwitcher showSolidNav={showSolidNav} />
 
           <Link
             to="/contact"
@@ -120,16 +186,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu Button - Z-Index 50 to stay above menu overlay */}
         <div className="lg:hidden flex items-center gap-2 sm:gap-3 relative z-50 pointer-events-auto">
-          <button 
-            onClick={toggleLanguage}
-            className={`flex items-center gap-1 font-bold text-xs uppercase py-1.5 px-2.5 border rounded backdrop-blur-sm ${
-              showSolidNav || isOpen
-                ? 'border-corporate text-corporate' 
-                : 'border-white/50 text-white bg-black/20'
-            }`}
-          >
-             {language === 'pt' ? 'EN' : 'PT'}
-          </button>
+          <LanguageSwitcher isMobile showSolidNav={showSolidNav} isOpen={isOpen} />
 
           <button
             className={`p-2 rounded shadow-sm transition-colors ${

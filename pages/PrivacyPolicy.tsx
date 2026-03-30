@@ -1,6 +1,7 @@
 import React from 'react';
 import { Shield, Lock } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 const PrivacyPolicy: React.FC = () => {
   const { t } = useLanguage();
@@ -8,6 +9,11 @@ const PrivacyPolicy: React.FC = () => {
 
   return (
     <div className="pt-24 pb-12 bg-white min-h-screen">
+      <SEO 
+        title={t.seo.privacy.title} 
+        description={t.seo.privacy.description} 
+        url="/privacy"
+      />
       
       {/* Header */}
       <div className="bg-corporate py-16 mb-12 text-center text-white relative">
