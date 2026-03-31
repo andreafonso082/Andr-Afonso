@@ -14,10 +14,38 @@ const About: React.FC = () => {
   const timeline = t?.about?.timeline;
 
   useEffect(() => {
+    const updateWidth = () => {
+      if (carouselRef.current) {
+        // Calculate the scrollable width: Total content width - Visible container width
+        const scrollWidth = carouselRef.current.scrollWidth;
+        const offsetWidth = carouselRef.current.offsetWidth;
+        setWidth(Math.max(0, scrollWidth - offsetWidth));
+      }
+    };
+
+    // Initial calculation
+    updateWidth();
+
+    // Set up ResizeObserver to catch container size changes (e.g., window resize, orientation change)
+    const observer = new ResizeObserver(() => {
+      updateWidth();
+    });
+
     if (carouselRef.current) {
-      // Calculate the scrollable width: Total content width - Visible container width
-      setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+      observer.observe(carouselRef.current);
+      // Observe the inner motion.div as well to catch content expansions
+      if (carouselRef.current.firstElementChild) {
+        observer.observe(carouselRef.current.firstElementChild);
+      }
     }
+
+    // Fallback window resize listener
+    window.addEventListener('resize', updateWidth);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', updateWidth);
+    };
   }, [timeline]); // Recalculate if timeline data changes
 
   // Defensive guard

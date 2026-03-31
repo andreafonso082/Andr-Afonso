@@ -1397,7 +1397,7 @@ const translations = {
     "notFoundCta": "Equipo de contacto",
     "categories": [
       {
-        "id": "por favor",
+        "id": "plrs",
         "title": "Solicitudes de conexión de red (PLR)",
         "description": "Gestión completa de los procesos de conexión a red eléctrica con E-Redes. Realizamos descargas, ampliaciones y ampliaciones de potencia llave en mano.",
         "details": [
@@ -1408,7 +1408,7 @@ const translations = {
         ]
       },
       {
-        "id": "instalaciones",
+        "id": "installations",
         "title": "Instalaciones Eléctricas",
         "description": "Instalaciones eléctricas de baja tensión para vivienda, comercio e industria. Garantizamos seguridad, eficiencia y cumplimiento de las normas técnicas.",
         "details": [
@@ -1419,7 +1419,7 @@ const translations = {
         ]
       },
       {
-        "id": "telecomunicaciones",
+        "id": "telecommunications",
         "title": "Telecomunicaciones (ITED/ITUR)",
         "description": "Infraestructuras de telecomunicaciones en edificios y urbanizaciones. Instalación de redes certificadas de fibra óptica, cobre y coaxial.",
         "details": [
@@ -1430,7 +1430,7 @@ const translations = {
         ]
       },
       {
-        "id": "subestaciones",
+        "id": "substations",
         "title": "Estaciones de Transformación",
         "description": "Instalación, mantenimiento y operación de Estaciones Transformadoras (PTs) públicas y privadas. Soluciones de Media Tensión.",
         "details": [
@@ -1441,7 +1441,7 @@ const translations = {
         ]
       },
       {
-        "id": "proyectos",
+        "id": "projects",
         "title": "Proyectos de Ingeniería",
         "description": "Elaboración de proyectos eléctricos, fichas electrotécnicas y asesoría energética para licenciamiento y ejecución de obra.",
         "details": [
@@ -1452,7 +1452,7 @@ const translations = {
         ]
       },
       {
-        "id": "otras",
+        "id": "others",
         "title": "Otros servicios",
         "description": "Servicios complementarios de construcción civil, movilidad eléctrica e infraestructura urbana.",
         "details": [
@@ -2302,7 +2302,7 @@ const translations = {
     "notFoundCta": "Contacter l'équipe",
     "categories": [
       {
-        "id": "svp",
+        "id": "plrs",
         "title": "Demandes de connexion réseau (PLR)",
         "description": "Gestion complète des processus de connexion au réseau électrique avec E-Redes. Nous réalisons clé en main téléchargements, extensions et montées en puissance.",
         "details": [
@@ -2313,7 +2313,7 @@ const translations = {
         ]
       },
       {
-        "id": "installation",
+        "id": "installations",
         "title": "Installations électriques",
         "description": "Installations électriques basse tension pour l'habitat, le commerce et l'industrie. Nous garantissons la sécurité, l’efficacité et le respect des normes techniques.",
         "details": [
@@ -2324,7 +2324,7 @@ const translations = {
         ]
       },
       {
-        "id": "télécommunications",
+        "id": "telecommunications",
         "title": "Télécommunications (ITED/ITUR)",
         "description": "Infrastructures de télécommunications dans les immeubles et lotissements. Installation de réseaux certifiés fibre optique, cuivre et coaxiaux.",
         "details": [
@@ -2335,7 +2335,7 @@ const translations = {
         ]
       },
       {
-        "id": "sous-stations",
+        "id": "substations",
         "title": "Postes de transformation",
         "description": "Installation, maintenance et exploitation de postes de transformation (PT) privés et publics. Solutions moyenne tension.",
         "details": [
@@ -2346,7 +2346,7 @@ const translations = {
         ]
       },
       {
-        "id": "projets",
+        "id": "projects",
         "title": "Projets d'ingénierie",
         "description": "Préparation de projets électriques, fiches électrotechniques et conseil en énergie pour l'autorisation et l'exécution des travaux.",
         "details": [
@@ -2357,7 +2357,7 @@ const translations = {
         ]
       },
       {
-        "id": "autres",
+        "id": "others",
         "title": "Autres services",
         "description": "Services complémentaires de construction civile, de mobilité électrique et d’infrastructures urbaines.",
         "details": [
