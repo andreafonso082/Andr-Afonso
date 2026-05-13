@@ -24,6 +24,21 @@ const partners = [
   { name: "Material Elétrico", image: "https://drive.google.com/thumbnail?id=1KWoodbR8w7L36rG1G7lC6ztq7LMkdONg&sz=w1000", url: "https://www.al.pt/pt-pt/", scaleClass: "scale-75" },
   { name: "Material e Infraestruturas Elétricas", image: "https://drive.google.com/thumbnail?id=1LyLgXFcClPV_ZmR2RIoS_tgDCsmC4_P8&sz=w1000", url: "https://www.legrand.pt/", scaleClass: "scale-125" },
   { name: "Armários e Quadros Elétricos", image: "https://drive.google.com/thumbnail?id=1y1vF_oKBLqz5SB0ocWyZJhYg3tutmgJA&sz=w1000", url: "https://www.hager.pt/", scaleClass: "scale-75" },
+  { name: "Soluções de Engenharia e Equipamentos", image: "https://drive.google.com/thumbnail?id=1BhUoqK2Fo09IMiF4Kkd5_JNoNmXF36TW&sz=w1000", url: "https://www.profor.pt/", scaleClass: "scale-[2.25]" },
+  { name: "Transformadores e Energia", image: "https://drive.google.com/thumbnail?id=1vQR3zIybcQ9W9nxDdAFeSfNt72mO9oeu&sz=w1000", url: "https://transfopor.pt/", scaleClass: "scale-[2.25]" },
+  { name: "Aparelhagem de Média Tensão", image: "https://drive.google.com/thumbnail?id=1L9IVWS1eLHFYdXRDkSAQ9FSYZvBZ7dwI&sz=w1000", url: "https://www.ormazabal.com/pt-pt/", scaleClass: "scale-75" },
+  { name: "Consultoria e Sustentabilidade", image: "", url: "https://www.greenlab.pt/", scaleClass: "scale-75" },
+  { name: "Distribuição de Material Elétrico", image: "https://drive.google.com/thumbnail?id=1qxKuRhXLlWgKShq2uZO72AJQSJLn2D-t&sz=w1000", url: "https://www.sonepar.pt/", scaleClass: "scale-75" },
+  { name: "Ferramentas e Fixação", image: "https://drive.google.com/thumbnail?id=1Tz6jc7fKDdGmD3Jvk2Wv8Hp2jt6e1xBg&sz=w1000", url: "https://eshop.wurth.pt/pt/PT/EUR/", scaleClass: "scale-[2.25]" },
+  { name: "Proteção e Ligas Elétricas", image: "https://drive.google.com/thumbnail?id=119FF0aBhjvbInRS9O3W_yp8f9xEJVVVN&sz=w1000", url: "https://jobasi-sa.com/", scaleClass: "scale-150" },
+  { name: "Materiais para Redes Elétricas", image: "https://drive.google.com/thumbnail?id=1Sqx9Rpe_Qvv1n7qMUn-Hbj1vI2CX5DXK&sz=w1000", url: "https://sicame-group.com/en", scaleClass: "scale-150" },
+  { name: "Segurança Elétrica", image: "https://drive.google.com/thumbnail?id=1sbxYv2nu_vFuA9-PHpUx_E4ZknxqBHzX&sz=w1000", url: "https://sofamel.com/pt/", scaleClass: "scale-150" },
+  { name: "Iluminação Profissional", image: "https://drive.google.com/thumbnail?id=1lV9r7mXrBVgUWEmb18nI9_u67DLhxam0&sz=w1000", url: "https://www.ledvance.com/pt-pt", scaleClass: "scale-75" },
+  { name: "Quadros e Envolvências", image: "https://drive.google.com/thumbnail?id=1R9UHdoPUDlf9IE2tzgrzzEsAaHqfpOwB&sz=w1000", url: "https://quiterios.pt/pt/inicio", scaleClass: "scale-75" },
+  { name: "Fabrico de Cabos Elétricos", image: "https://drive.google.com/thumbnail?id=17MpsrXWxMTnHRH0P9EU9detWsqEsQhSc&sz=w1000", url: "https://www.miguelez.com/pt", scaleClass: "scale-[2.25]" },
+  { name: "Eficiência Energética", image: "https://drive.google.com/thumbnail?id=18cwmEaBjEXKvGWvQApxWFkJF1nr8DWsk&sz=w1000", url: "https://circutor.com/pt/", scaleClass: "scale-75" },
+  { name: "Gestão de Energia", image: "https://drive.google.com/thumbnail?id=1T5J8NNzPwoZNYw9Av19o2buGsNTTZM__&sz=w1000", url: "https://www.eaton.com/pt/pt-pt.html", scaleClass: "scale-75" },
+  { name: "Material de Instalação", image: "https://drive.google.com/thumbnail?id=1JMw3WQBSWaBGzsQXZGyYtxX3FB8cmYye&sz=w1000", url: "https://jsl-online.com/", scaleClass: "scale-150" },
 ];
 
 // Custom Lightning Bolt Component (Icon style for floating)
@@ -401,17 +416,18 @@ const Home: React.FC = () => {
           </div>
           
           {/* MOBILE: Horizontal Scroll Carousel */}
-          <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 scrollbar-hide">
+          <div className="md:hidden flex items-stretch overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 scrollbar-hide">
             {[
               { title: t.home.serviceCards.plrs.title, desc: t.home.serviceCards.plrs.desc, icon: <Activity size={32} />, link: "/plrs" },
-              { title: t.home.serviceCards.installations.title, desc: t.home.serviceCards.installations.desc, icon: <Wrench size={32} />, link: "/installations" },
+              { title: t.home.serviceCards.infraestruturas.title, desc: t.home.serviceCards.infraestruturas.desc, icon: <Zap size={32} />, link: "/infraestruturas" },
               { title: t.home.serviceCards.telecommunications.title, desc: t.home.serviceCards.telecommunications.desc, icon: <Wifi size={32} />, link: "/telecommunications" },
               { title: t.home.serviceCards.substations.title, desc: t.home.serviceCards.substations.desc, icon: <Zap size={32} />, link: "/substations" },
+              { title: t.home.serviceCards.installations.title, desc: t.home.serviceCards.installations.desc, icon: <Wrench size={32} />, link: "/installations" },
               { title: t.home.serviceCards.projects.title, desc: t.home.serviceCards.projects.desc, icon: <FileText size={32} />, link: "/projects" },
               { title: t.home.serviceCards.others.title, desc: t.home.serviceCards.others.desc, icon: <Layers size={32} />, link: "/others" }
             ].map((service, index) => (
-              <div key={index} className="min-w-[85vw] snap-center">
-                <ServiceCard {...service} delay={0} />
+              <div key={index} className="min-w-[85vw] snap-center flex flex-col">
+                <ServiceCard {...service} delay={0} className="flex-1" />
               </div>
             ))}
           </div>
@@ -419,11 +435,12 @@ const Home: React.FC = () => {
           {/* DESKTOP: Grid */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
             <ServiceCard title={t.home.serviceCards.plrs.title} description={t.home.serviceCards.plrs.desc} icon={<Activity size={32} />} delay={0.1} link="/plrs" />
-            <ServiceCard title={t.home.serviceCards.installations.title} description={t.home.serviceCards.installations.desc} icon={<Wrench size={32} />} delay={0.2} link="/installations" />
+            <ServiceCard title={t.home.serviceCards.infraestruturas.title} description={t.home.serviceCards.infraestruturas.desc} icon={<Zap size={32} />} delay={0.2} link="/infraestruturas" />
             <ServiceCard title={t.home.serviceCards.telecommunications.title} description={t.home.serviceCards.telecommunications.desc} icon={<Wifi size={32} />} delay={0.3} link="/telecommunications" />
             <ServiceCard title={t.home.serviceCards.substations.title} description={t.home.serviceCards.substations.desc} icon={<Zap size={32} />} delay={0.4} link="/substations" />
-            <ServiceCard title={t.home.serviceCards.projects.title} description={t.home.serviceCards.projects.desc} icon={<FileText size={32} />} delay={0.5} link="/projects" />
-            <ServiceCard title={t.home.serviceCards.others.title} description={t.home.serviceCards.others.desc} icon={<Layers size={32} />} delay={0.6} link="/others" />
+            <ServiceCard title={t.home.serviceCards.installations.title} description={t.home.serviceCards.installations.desc} icon={<Wrench size={32} />} delay={0.5} link="/installations" />
+            <ServiceCard title={t.home.serviceCards.projects.title} description={t.home.serviceCards.projects.desc} icon={<FileText size={32} />} delay={0.6} link="/projects" />
+            <ServiceCard title={t.home.serviceCards.others.title} description={t.home.serviceCards.others.desc} icon={<Layers size={32} />} delay={0.7} link="/others" />
           </div>
         </div>
       </section>
@@ -445,7 +462,7 @@ const Home: React.FC = () => {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.2, duration: 0.8 }}
                   className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 bg-white p-3 sm:p-4 rounded shadow-sm border-l-4 border-brand-light"
                 >
                   <CheckCircle className="text-accent shrink-0" size={20} />
@@ -615,7 +632,7 @@ const Home: React.FC = () => {
           <motion.div 
             className="flex items-center"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 60 }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 180 }}
             style={{ width: "fit-content" }}
           >
             {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (

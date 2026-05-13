@@ -11,8 +11,8 @@ const QualityPolicy: React.FC = () => {
   return (
     <div className="pt-24 pb-12 bg-white">
       <SEO 
-        title={t.seo['quality-policy'].title} 
-        description={t.seo['quality-policy'].description} 
+        title={`${content.title} | Joaquim & Fernandes`} 
+        description={content.visionDesc} 
         url="/quality-policy"
       />
       

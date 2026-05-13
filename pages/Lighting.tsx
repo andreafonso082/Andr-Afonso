@@ -13,18 +13,6 @@ const Lighting: React.FC = () => {
     return null;
   }
 
-  // Helper to assign a specific image to each index
-  const getImage = (index: number) => {
-    switch(index) {
-        case 0: return "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000"; // Festive/Christmas
-        case 1: return "https://drive.google.com/thumbnail?id=1KOWLU95F6pomAZjmTO0WUY_UbxGsrw-s&sz=w1000"; // Public/Street
-        case 2: return "https://drive.google.com/thumbnail?id=1lwzRh0LtxEQH2ypr8C1FBzYpO-PW82Yr&sz=w1000"; // Architectural
-        case 3: return "https://drive.google.com/thumbnail?id=15ZTaJZVipA-lCRWq5r5I0oelf5cJDUTF&sz=w1000"; // Sports
-        case 4: return "https://drive.google.com/thumbnail?id=1MFt1qWei6hz80tPGkX91j-g86uHVA7vi&sz=w1000"; // Public Lighting
-        default: return "https://picsum.photos/seed/lighting/800/600";
-    }
-  };
-
   return (
     <div className="pt-24 pb-0 bg-white overflow-x-hidden">
       <SEO 
@@ -109,7 +97,7 @@ const Lighting: React.FC = () => {
                   <div className="relative group">
                     <div className={`absolute top-4 ${index % 2 === 0 ? 'left-4' : 'right-4'} w-full h-full border-2 border-accent rounded-lg z-0 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2`}></div>
                     <img 
-                      src={getImage(index)} 
+                      src={type.image} 
                       alt={type.title} 
                       className="relative z-10 w-full h-[300px] md:h-[450px] object-cover rounded-lg shadow-xl"
                     />

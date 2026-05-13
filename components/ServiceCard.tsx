@@ -10,9 +10,10 @@ interface ServiceCardProps {
   icon: React.ReactNode;
   delay?: number;
   link?: string;
+  className?: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, delay = 0, link }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, delay = 0, link, className = "" }) => {
   const { t } = useLanguage();
   return (
     <motion.div 
@@ -20,7 +21,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
-      className="bg-white p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow group flex flex-col h-full rounded-sm relative overflow-hidden"
+      className={`bg-white p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow group flex flex-col h-full rounded-sm relative overflow-hidden ${className}`}
     >
       <div className="absolute top-0 left-0 w-1 h-0 bg-brand-light group-hover:h-full transition-all duration-300"></div>
       

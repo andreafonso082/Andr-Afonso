@@ -10,8 +10,8 @@ const TermsConditions: React.FC = () => {
   return (
     <div className="pt-24 pb-12 bg-white min-h-screen">
       <SEO 
-        title={t.seo.terms.title} 
-        description={t.seo.terms.description} 
+        title={`${content.title} | Joaquim & Fernandes`} 
+        description={content.intro} 
         url="/terms"
       />
       

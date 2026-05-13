@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
 import { useLanguage, Language } from '../context/LanguageContext';
 
@@ -49,7 +49,6 @@ const LanguageSwitcher = ({
         }`}
         aria-label="Select Language"
       >
-        <Globe size={14} className={isDarkText ? 'text-brand-light' : 'text-white'} />
         <span>{currentLang.label}</span>
         <ChevronDown size={12} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
       </button>

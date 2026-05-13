@@ -17,13 +17,12 @@ const Services: React.FC = () => {
   const getIcon = (id: string) => {
      switch(id) {
          case 'plrs': return <Activity className="w-12 h-12 text-accent" />;
+         case 'infraestruturas': return <Zap className="w-12 h-12 text-accent" />;
          case 'installations': return <Wrench className="w-12 h-12 text-accent" />;
          case 'telecommunications': return <Router className="w-12 h-12 text-accent" />;
          case 'substations': return <Zap className="w-12 h-12 text-accent" />;
          case 'projects': return <FileText className="w-12 h-12 text-accent" />;
          case 'others': return <Layers className="w-12 h-12 text-accent" />;
-         // Fallback cases just in case
-         case 'ev_charging': return <BatteryCharging className="w-12 h-12 text-accent" />;
          default: return <Zap className="w-12 h-12 text-accent" />;
      }
   };
@@ -32,12 +31,12 @@ const Services: React.FC = () => {
   const getImage = (id: string) => {
     switch(id) {
         case 'plrs': return "https://drive.google.com/thumbnail?id=1giTPtE1cSEh-pJxVsDCHGYa5zrPoDTG_&sz=w1000-h800-c";
-        case 'installations': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
+        case 'infraestruturas': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
         case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
         case 'substations': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
+        case 'installations': return "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop";
         case 'projects': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
         case 'others': return "https://drive.google.com/thumbnail?id=1Wit3urScrjL04cIozwOQVFapW5vf8XQ9&sz=w1000";
-        case 'ev_charging': return "https://picsum.photos/seed/evcharging/800/600";
         default: return "https://picsum.photos/seed/electricity/800/600";
     }
   };

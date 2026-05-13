@@ -127,14 +127,13 @@ const translations = {
       leaveReview: "Deixe a sua avaliação",
       partnersTitle: "Parceiros e Marcas de Confiança",
       serviceCards: {
-         projects: { title: "Projetos de Eletricidade", desc: "Projetos de engenharia elétrica de Baixa e Média Tensão, licenciamentos, medidas de autoproteção e consultoria energética." },
-         plrs: { title: "Pedidos de Ligação à Rede", desc: "Execução de Pedidos de Ligação à Rede (PLR), baixadas subterrâneas ou aéreas e construção de ramais de distribuição de energia." },
-         installations: { title: "Infraestruturas Elétricas", desc: "Instalações elétricas industriais e habitacionais, remodelações, aumentos de potência, certificação e manutenção técnica." },
-         substations: { title: "Postos de Transformação", desc: "Montagem de Postos de Transformação (PTs), instalação de celas de média tensão, transformadores e manutenção preventiva." },
-         ev_charging: { title: "Postos de Carregamento", desc: "Soluções chave-na-mão para carregamento de veículos elétricos (PCVE) em espaços públicos e privados." },
-         lighting: { title: "Iluminação Profissional", desc: "Iluminação Festiva, Iluminação Inteligente e Soluções Técnicas." },
-         telecommunications: { title: "Telecomunicações", desc: "Projetos e instalação ITED/ITUR, fusão de fibra ótica, redes estruturadas de dados e certificação de infraestruturas." },
-         others: { title: "Outros Serviços", desc: "Soluções de mobilidade elétrica (carregadores), construção civil complementar, fiscalização de obra e auditorias energéticas." }
+         plrs: { title: "PLR", desc: "Execução de ramais, desvios de rede e gestão de processos junto da E-Redes." },
+         infraestruturas: { title: "Infraestruturas Elétricas", desc: "Redes de Baixa e Média Tensão e Postos de Transformação." },
+         telecommunications: { title: "Telecomunicações", desc: "Projetos ITED/ITUR, infraestruturas de fibra ótica e CCTV." },
+         substations: { title: "PT’s", desc: "Fornecimento, limpeza, manutenção e assistência a postos de transformação." },
+         installations: { title: "Instalações Elétricas", desc: "Quadros elétricos, iluminação interior e serviços de manutenção preventiva." },
+         projects: { title: "Projetos e Certificações", desc: "Engenharia elétrica especializada, projetos BT/MT e licenciamentos." },
+         others: { title: "Outros Serviços", desc: "Mobilidade elétrica, construção civil, aluguer de equipamentos e apoio a eventos." }
       }
     },
     services: {
@@ -146,113 +145,149 @@ const translations = {
       categories: [
         {
           id: 'plrs',
-          title: "Pedidos de Ligação à Rede (PLR)",
-          description: "Gestão completa de processos de ligação à rede elétrica junto da E-Redes. Executamos baixadas, ramais e aumentos de potência com chave-na-mão.",
-          details: ["Baixadas Aéreas e Subterrâneas", "Instalação de Contadores de Obras", "Gestão Processual E-Redes", "Execução de Ramais"]
+          title: "PLR",
+          description: "Gestão completa de processos de ligação à rede elétrica junto da E-Redes.",
+          details: ["Execução de Ramais", "Desvios de rede", "Projetos e certificações"]
+        },
+        {
+          id: 'infraestruturas',
+          title: "Infraestruturas elétricas",
+          description: "Execução e manutenção de redes elétricas de Baixa e Média Tensão.",
+          details: ["Baixa Tensão", "Média Tensão", "Postos de Transformação"]
+        },
+        {
+          id: 'telecommunications',
+          title: "Telecomunicações",
+          description: "Infraestruturas de comunicação e segurança eletrónica.",
+          details: ["Projetos ITED/ITUR", "Instalações de fibra e CCTV"]
+        },
+        {
+          id: 'substations',
+          title: "PT’s",
+          description: "Montagem, manutenção e assistência a Postos de Transformação.",
+          details: ["Fornecimentos de PTs", "Limpeza e manutenção de PTs", "Assistência a avarias"]
         },
         {
           id: 'installations',
           title: "Instalações Elétricas",
-          description: "Instalações elétricas de baixa tensão para habitação, comércio e indústria. Garantimos segurança, eficiência e conformidade com as normas técnicas.",
-          details: ["Quadros Elétricos", "Remodelações", "Iluminação LED", "Manutenção Preventiva"]
-        },
-        {
-          id: 'telecommunications',
-          title: "Telecomunicações (ITED/ITUR)",
-          description: "Infraestruturas de telecomunicações em edifícios e loteamentos. Instalação de redes de fibra ótica, cobre e coaxial certificadas.",
-          details: ["Projetos ITED/ITUR", "Fusão de Fibra Ótica", "Redes Estruturadas", "Certificação"]
-        },
-        {
-          id: 'substations',
-          title: "Postos de Transformação",
-          description: "Instalação, manutenção e exploração de Postos de Transformação (PTs) privados e públicos. Soluções de Média Tensão.",
-          details: ["Montagem de PTs", "Celas de Média Tensão", "Transformadores", "Limpeza e Manutenção"]
+          description: "Soluções elétricas completas para edifícios habitacionais e comerciais.",
+          details: ["Quadros elétricos", "Manutenção preventiva", "Iluminação interior"]
         },
         {
           id: 'projects',
-          title: "Projetos de Engenharia",
-          description: "Elaboração de projetos elétricos, fichas eletrotécnicas e consultoria energética para licenciamento e execução de obra.",
-          details: ["Projetos Elétricos", "Medidas de Autoproteção", "Licenciamentos", "Consultoria"]
+          title: "Projetos e Certificações",
+          description: "Engenharia elétrica especializada e licenciamentos.",
+          details: ["Projetos BT e MT", "Projetos elétricos", "Projetos iluminotecnicos"]
         },
         {
           id: 'others',
           title: "Outros Serviços",
-          description: "Serviços complementares de construção civil, mobilidade elétrica e infraestruturas urbanas.",
-          details: ["Carregadores Veículos Elétricos", "Abertura de Valas", "Reconstrução de Pavimentos", "Fiscalização de Obra"]
+          description: "Serviços complementares para apoio integral ao seu projeto.",
+          details: ["Construção civil", "Mobilidade elétrica", "Aluguer de equipamentos", "Apoio a Eventos"]
         }
       ]
     },
     serviceDetails: {
       plrs: {
-        seoTitle: "Pedidos de Ligação à Rede (PLR)",
-        title: "Execução de PLR e Baixadas",
-        description: "Tratamos do seu pedido de ligação à rede elétrica do início ao fim.",
-        fullText: "A Joaquim & Fernandes é especialista na execução de Pedidos de Ligação à Rede (PLR) em todo o Algarve e Alentejo. Tratamos de todo o processo burocrático junto da E-Redes e executamos a obra física necessária (baixadas aéreas ou subterrâneas, muretes técnicos, portinholas) para que tenha eletricidade no seu imóvel o mais rapidamente possível.",
-        features: ["Levantamento técnico no local", "Abertura do processo na E-Redes", "Execução de valas e infraestruturas", "Instalação de portinholas e quadros", "Certificação final"],
-        keywords: ["PLR", "Baixadas", "E-Redes", "Ramais", "Eletricidade"],
+        seoTitle: "PLR - Pedidos de Ligação à Rede",
+        title: "PLR",
+        description: "Gestão completa de processos de ligação à rede elétrica junto da E-Redes.",
+        fullText: "A Joaquim & Fernandes é especialista na execução de Pedidos de Ligação à Rede (PLR) em todo o Algarve e Alentejo. Assumimos todo o processo burocrático junto da E-Redes e executamos as obras físicas necessárias (ramais, desvios de rede) para que tenha eletricidade na sua propriedade com a maior brevidade possível.",
+        features: ["Execução de Ramais", "Desvios de rede", "Projetos e certificações", "Levantamento técnico no local", "Abertura de processos na E-Redes"],
+        keywords: ["PLR", "E-Redes", "Ramais", "Baixadas", "Eletricidade"],
         benefits: [
           { title: "Chave-na-mão", desc: "Tratamos da burocracia e da obra." },
           { title: "Rapidez", desc: "Conhecemos os procedimentos para acelerar o processo." }
         ]
       },
-      installations: {
-        seoTitle: "Instalações Elétricas",
-        title: "Instalações Habitacionais e Industriais",
-        description: "Soluções elétricas seguras e certificadas para qualquer tipo de edifício.",
-        fullText: "Realizamos todo o tipo de instalações elétricas de baixa tensão. Desde pequenas remodelações domésticas a grandes instalações industriais, a nossa equipa de eletricistas certificados garante o cumprimento rigoroso das normas de segurança e eficiência energética.",
-        features: ["Quadros elétricos", "Cablagem estruturada", "Iluminação interior e exterior", "Domótica", "Sistemas de segurança"],
-        keywords: ["Eletricista", "Instalação", "Manutenção", "Certificação", "Segurança"],
+      infraestruturas: {
+        seoTitle: "Infraestruturas Elétricas BT e MT",
+        title: "Infraestruturas elétricas",
+        description: "Execução e manutenção de redes elétricas de Baixa e Média Tensão.",
+        fullText: "Executamos e mantemos infraestruturas elétricas de Baixa e Média Tensão, garantindo a distribuição de energia com máxima fiabilidade. Desde redes urbanas a postos de transformação, a nossa equipa assegura a continuidade de serviço.",
+        features: ["Baixa Tensão", "Média Tensão", "Postos de Transformação", "Manutenção de Redes", "Ensaios Técnicos"],
+        keywords: ["BT", "MT", "Infraestruturas", "Redes Elétricas"],
         benefits: [
-          { title: "Segurança", desc: "Materiais homologados e técnicos certificados." },
-          { title: "Eficiência", desc: "Soluções que reduzem o consumo energético." }
+          { title: "Fiabilidade", desc: "Infraestruturas desenhadas para durar." },
+          { title: "Segurança", desc: "Cumprimento rigoroso das normas técnicas." }
         ]
       },
       telecommunications: {
         seoTitle: "Telecomunicações ITED e ITUR",
-        title: "Redes de Fibra Ótica e Telecomunicações",
-        description: "Infraestruturas de comunicação certificadas para edifícios e loteamentos.",
-        fullText: "Vivemos numa era digital onde a conetividade é fundamental. A Joaquim & Fernandes projeta e instala infraestruturas de telecomunicações (ITED para edifícios e ITUR para loteamentos) preparadas para o futuro. Desde a fusão de fibra ótica à instalação de bastidores e redes estruturadas, garantimos que o seu empreendimento cumpre todas as normas da ANACOM e oferece a melhor velocidade aos utilizadores finais.",
-        features: ["Projetos ITED/ITUR", "Fusão de Fibra Ótica", "Redes Coaxiais e Par de Cobre", "Instalação de Racks e Bastidores", "Ensaios e Certificação"],
-        keywords: ["ITED", "ITUR", "Fibra Ótica", "Redes", "Telecomunicações"],
+        title: "Telecomunicações",
+        description: "Infraestruturas de comunicação e segurança eletrónica.",
+        fullText: "Vivemos na era digital onde a conectividade é fundamental. A Joaquim & Fernandes projeta e instala infraestruturas de telecomunicações (ITED e ITUR) preparadas para o futuro. Desde a fusão de fibra ótica à instalação de CCTV, garantimos que o seu imóvel está sempre ligado.",
+        features: ["Projetos ITED/ITUR", "Instalações de fibra ótica", "CCTV e Segurança eletrónica", "Certificação de redes", "Manutenção de sistemas"],
+        keywords: ["ITED", "ITUR", "Fibra Ótica", "CCTV", "Telecom"],
         benefits: [
-          { title: "Certificação ANACOM", desc: "Garantia de conformidade legal." },
-          { title: "Alta Velocidade", desc: "Infraestruturas preparadas para Gigabit." }
+          { title: "Conectividade", desc: "Redes de alta velocidade e fiabilidade." },
+          { title: "Certificação", desc: "Garantia de conformidade ANACOM." }
         ]
       },
       substations: {
-        seoTitle: "Postos de Transformação e Média Tensão",
-        title: "Instalação e Manutenção de PTs",
-        description: "Soluções de energia de Média Tensão para indústrias e grandes edifícios.",
-        fullText: "Para indústrias, hotéis ou grandes superfícies comerciais, a ligação em Baixa Tensão pode não ser suficiente. A J&F especializa-se na montagem de Postos de Transformação (PTs) privados, assegurando a transição segura da Média para a Baixa Tensão. Oferecemos contratos de manutenção preventiva obrigatórios por lei, garantindo a longevidade dos equipamentos e a segurança das instalações.",
-        features: ["Montagem de Celas de Média Tensão", "Instalação de Transformadores", "Quadros Gerais de Baixa Tensão (QGBT)", "Manutenção Preventiva e Corretiva", "Análise de Óleo Dielétrico"],
-        keywords: ["Posto de Transformação", "Média Tensão", "Transformador", "Indústria", "Energia"],
+        seoTitle: "PT's - Postos de Transformação",
+        title: "PT’s",
+        description: "Montagem, manutenção e assistência a Postos de Transformação.",
+        fullText: "Especialistas em Postos de Transformação (PT), oferecemos serviços de fornecimento, limpeza, manutenção e assistência a avarias. Garantimos que a sua instalação de média tensão opera sem interrupções.",
+        features: ["Fornecimentos de PTs", "Limpeza e manutenção de PTs", "Assistência a avarias", "Análise de óleos", "Celas de MT"],
+        keywords: ["PT", "Média Tensão", "Transformadores", "Manutenção"],
         benefits: [
-          { title: "Fiabilidade", desc: "Equipamentos de marcas líderes como Efacec e Siemens." },
-          { title: "Conformidade", desc: "Manutenção de acordo com a legislação em vigor." }
+          { title: "Continuidade", desc: "Minimizamos tempos de paragem em caso de avaria." },
+          { title: "Longevidade", desc: "Manutenção preventiva que aumenta a vida útil." }
+        ]
+      },
+      installations: {
+        seoTitle: "Instalações Elétricas e Manutenção",
+        title: "Instalações Elétricas",
+        description: "Soluções elétricas completas para edifícios e manutenção preventiva.",
+        fullText: "Realizamos todos os tipos de instalações elétricas em baixa tensão. De quadros elétricos complexos a sistemas de iluminação interior, a nossa equipa de eletricistas certificados assegura o rigor em cada detalhe.",
+        features: ["Quadros elétricos", "Manutenção preventiva", "Iluminação interior", "Instalações comerciais", "Domótica básica"],
+        keywords: ["Instalações", "Quadros Elétricos", "Iluminação", "Manutenção"],
+        benefits: [
+          { title: "Eficiência", desc: "Soluções que otimizam o consumo de energia." },
+          { title: "Disponibilidade", desc: "Apoio técnico e manutenção periódica." }
         ]
       },
       projects: {
-        seoTitle: "Projetos de Engenharia Elétrica",
-        title: "Consultoria e Projetos de Especialidade",
-        description: "Engenharia de detalhe para licenciamento e execução de obra.",
-        fullText: "Qualquer grande obra começa com um bom projeto. O nosso departamento de engenharia elabora projetos elétricos detalhados, garantindo o equilíbrio entre custo, eficiência e segurança. Tratamos de todo o licenciamento junto das entidades competentes (DGEG, E-Redes, Câmaras Municipais) e desenvolvemos Medidas de Autoproteção para a segurança contra incêndios.",
-        features: ["Projetos de Execução Elétrica", "Fichas Eletrotécnicas", "Medidas de Autoproteção (SCIE)", "Consultoria Energética", "Dimensionamento de Redes"],
-        keywords: ["Projeto Elétrico", "Engenharia", "Licenciamento", "DGEG", "SCIE"],
+        seoTitle: "Projetos de Engenharia e Certificações",
+        title: "Projetos e Certificações",
+        description: "Engenharia elétrica especializada e licenciamentos.",
+        fullText: "Todo o projeto de excelência começa com um bom planeamento. O nosso departamento de engenharia elabora projetos elétricos detalhados, garantindo o equilíbrio entre custo, eficiência e segurança junto das entidades oficiais.",
+        features: ["Projetos BT e MT", "Projetos elétricos", "Projetos iluminotecnicos", "Licenciamento DGEG", "Medidas de Autoproteção"],
+        keywords: ["Projetos", "Certificações", "Engenharia", "DGEG"],
         benefits: [
-          { title: "Otimização", desc: "Soluções técnicas que reduzem custos de obra." },
-          { title: "Aprovação", desc: "Elevada taxa de aprovação nas entidades oficiais." }
+          { title: "Aprovação", desc: "Elevada taxa de sucesso em licenciamentos." },
+          { title: "Otimização", desc: "Projetos pensados para reduzir custos de obra." }
         ]
       },
       others: {
-        seoTitle: "Serviços Complementares de Construção",
-        title: "Construção Civil e Mobilidade",
-        description: "Soluções integradas de construção e mobilidade elétrica.",
-        fullText: "Para oferecer um serviço chave-na-mão, integramos competências de construção civil necessárias à execução das infraestruturas elétricas. Abrimos e fechamos valas, repomos pavimentos e construímos maciços para equipamentos. Além disso, estamos na vanguarda da mobilidade elétrica, instalando postos de carregamento para frotas e particulares.",
-        features: ["Abertura e Fecho de Valas", "Reposição de Calçada e Betuminoso", "Maciços para Iluminação/PTs", "Carregadores de Veículos Elétricos", "Fiscalização de Obra"],
-        keywords: ["Construção Civil", "Valas", "Mobilidade Elétrica", "Carregadores", "Obra"],
+        seoTitle: "Outros Serviços Especializados",
+        title: "Outros Serviços",
+        description: "Serviços complementares para apoio integral ao seu projeto.",
+        fullText: "Integramos uma gama de serviços complementares para oferecer uma solução global. Da construção civil necessária para infraestruturas à mobilidade elétrica e aluguer de equipamentos, somos o parceiro único que o seu projeto precisa.",
+        features: [
+          {
+            title: "Construção Civil",
+            description: "Para oferecer um serviço chave-na-mão, integramos competências de construção civil necessárias à execução das infraestruturas elétricas."
+          },
+          {
+            title: "Mobilidade elétrica",
+            description: "A JF é especialista na instalação de carregadores elétricos para veículos em casas, condomínios, empresas e espaços comerciais. Garantimos soluções eficientes e seguras para a mobilidade elétrica."
+          },
+          {
+            title: "Aluguer de equipamentos",
+            description: "Alugamos equipamentos necessários para obras, geradores, barquinhas, camião grua e máquinas retroescavadoras, se necessário com manobrador, para facilitar o serviço."
+          },
+          {
+            title: "Eventos",
+            description: "A multiplicidade de eventos em que colaboramos vai de feiras, exposições, festivais, concertos, eventos desportivos, etc.",
+            bullets: ["Equipas de assistência permanente", "Identificação de pontos de alimentação"]
+          }
+        ],
+        keywords: ["Mobilidade", "Construção", "Eventos", "Equipamentos"],
         benefits: [
-          { title: "Integrado", desc: "Um único interlocutor para toda a obra." },
-          { title: "Sustentável", desc: "Apoio à transição para a mobilidade elétrica." }
+          { title: "Polivalência", desc: "Várias competências num único parceiro." },
+          { title: "Sustentabilidade", desc: "Soluções de carregamento para o futuro." }
         ]
       }
     },
@@ -265,34 +300,39 @@ const translations = {
       stat2: "Pontos de Luz LED",
       types: [
         {
-          title: "Iluminação Festiva",
-          desc: "A Iluminação Festiva é a arte de criar emoções através da luz. Desenvolvemos projetos chave-na-mão para ocasiões especiais, transformando o ambiente urbano e comercial. Desde o design criativo dos motivos (2D e 3D) até à instalação e desmontagem segura, garantimos um espetáculo visual que atrai visitantes, dinamiza o comércio local e celebra a tradição com tecnologia LED de baixo consumo.",
+          title: "Iluminação Pública",
+          image: "https://drive.google.com/thumbnail?id=1MFt1qWei6hz80tPGkX91j-g86uHVA7vi&sz=w1000",
+          desc: "Garantimos a segurança e o bem-estar das populações através de redes de iluminação pública eficientes e fiáveis. Realizamos a instalação e manutenção de armaduras viárias, projetores e colunas, assegurando a correta luminosidade em estradas, ruas e espaços públicos, sempre com foco na redução da pegada ecológica e custos energéticos.",
           applicationsTitle: "Onde aplicamos:",
-          applications: ["Centros Históricos e Cidades", "Centros Comerciais", "Praças e Jardins Públicos", "Fachadas de Edifícios"]
-        },
-        {
-          title: "Iluminação Inteligente",
-          desc: "Mais do que iluminar estradas, criamos smart cities. A nossa abordagem à Iluminação Pública foca-se na eficiência energética e segurança. Substituímos luminárias convencionais por tecnologia LED de alto rendimento, integrada com sistemas de telegestão que permitem o controlo remoto da intensidade da luz, deteção de avarias em tempo real e redução da fatura energética municipal até 60%. Destacamos a instalação de passadeiras inteligentes em Portimão, que aumentam a segurança dos peões através de sinalização luminosa ativa.",
-          applicationsTitle: "Onde aplicamos:",
-          applications: ["Vias Públicas e Estradas", "Parques Urbanos e Ciclovias", "Zonas Residenciais", "Parques de Estacionamento"]
-        },
-        {
-          title: "Iluminação Técnica",
-          desc: "A Iluminação Técnica visa valorizar o património edificado à noite, respeitando a sua história e traça original. Utilizamos projetores de precisão, fitas LED e sistemas RGBW para criar cenários dinâmicos ou estáticos que realçam texturas e volumes. É a solução ideal para dar nova vida a edifícios icónicos, hotéis ou monumentos, reforçando a identidade visual do local.",
-          applicationsTitle: "Onde aplicamos:",
-          applications: ["Monumentos e Igrejas", "Hotéis e Resorts", "Edifícios Corporativos", "Pontes e Estruturas"]
+          applications: ["Zonas Viárias", "Zonas pedonais", "Urbanizações/ Loteamentos", "Parques de Estacionamento", "Zonas Portuárias"]
         },
         {
           title: "Iluminação Desportiva",
+          image: "https://drive.google.com/thumbnail?id=15ZTaJZVipA-lCRWq5r5I0oelf5cJDUTF&sz=w1000",
           desc: "No desporto, a luz é fundamental para o desempenho dos atletas e experiência dos espectadores. Projetamos e instalamos sistemas de iluminação que cumprem rigorosamente os níveis de lux exigidos pelas federações e normas de transmissão televisiva. Garantimos uniformidade no campo, controlo de encadeamento e sistemas de acendimento instantâneo para pavilhões e estádios.",
           applicationsTitle: "Onde aplicamos:",
           applications: ["Campos de Futebol e Estádios", "Pavilhões Desportivos", "Campos de Ténis e Padel", "Piscinas Municipais"]
         },
         {
-          title: "Iluminação Pública",
-          desc: "Garantimos a segurança e o bem-estar das populações através de redes de iluminação pública eficientes e fiáveis. Realizamos a instalação e manutenção de armaduras viárias, projetores e colunas, assegurando a correta luminosidade em estradas, ruas e espaços públicos, sempre com foco na redução da pegada ecológica e custos energéticos.",
+          title: "Iluminação Inteligente",
+          image: "https://drive.google.com/thumbnail?id=1KOWLU95F6pomAZjmTO0WUY_UbxGsrw-s&sz=w1000",
+          desc: "Mais do que iluminar estradas, criamos smart cities. A nossa abordagem à Iluminação Pública foca-se na eficiência energética e segurança. Substituímos luminárias convencionais por tecnologia LED de alto rendimento, integrada com sistemas de telegestão que permitem o controlo remoto da intensidade da luz, deteção de avarias em tempo real e redução da fatura energética municipal até 60%. Destacamos a instalação de passadeiras inteligentes em Portimão, que aumentam a segurança dos peões através de sinalização luminosa ativa.",
           applicationsTitle: "Onde aplicamos:",
-          applications: ["Estradas Nacionais e Municipais", "Arruamentos Urbanos", "Parques e Jardins", "Zonas Ribeirinhas"]
+          applications: ["Zonas Viárias", "Zonas pedonais", "Parques de Estacionamento", "Zonas Portuárias"]
+        },
+        {
+          title: "Iluminação Técnica",
+          image: "https://drive.google.com/thumbnail?id=1lwzRh0LtxEQH2ypr8C1FBzYpO-PW82Yr&sz=w1000",
+          desc: "A Iluminação Técnica visa valorizar o património edificado à noite, respeitando a sua história e traça original. Utilizamos projetores de precisão, fitas LED e sistemas RGBW para criar cenários dinâmicos ou estáticos que realçam texturas e volumes. É a solução ideal para dar nova vida a edifícios icónicos, hotéis ou monumentos, reforçando a identidade visual do local.",
+          applicationsTitle: "Onde aplicamos:",
+          applications: ["Monumentos e Igrejas", "Hotéis e Resorts", "Edifícios Corporativos", "Pontes e Estruturas"]
+        },
+        {
+          title: "Iluminação Festiva",
+          image: "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000",
+          desc: "A Iluminação Festiva é a arte de criar emoções através da luz. Desenvolvemos projetos chave-na-mão para ocasiões especiais, transformando o ambiente urbano e comercial. Desde o design criativo dos motivos (2D e 3D) até à instalação e desmontagem segura, garantimos um espetáculo visual que atrai visitantes, dinamiza o comércio local e celebra a tradição com tecnologia LED de baixo consumo.",
+          applicationsTitle: "Onde aplicamos:",
+          applications: ["Centros Históricos e Cidades", "Centros Comerciais", "Praças e Jardins Públicos", "Fachadas de Edifícios"]
         }
       ],
       ctaTitle: "Vamos iluminar o seu projeto?",
@@ -375,11 +415,12 @@ const translations = {
         successMsg: "Obrigado pelo seu contacto! Entraremos em contacto brevemente.",
         fileError: "Por favor, selecione apenas ficheiros PDF.",
         optsInterest: {
-          plrs: "Pedidos de Ligação à Rede (PLR)",
-          installations: "Infraestruturas Elétricas",
+          plrs: "PLR",
+          infraestruturas: "Infraestruturas Elétricas",
           telecommunications: "Telecomunicações",
-          substations: "Postos de Transformação",
-          projects: "Projetos de Eletricidade",
+          substations: "PT’s",
+          installations: "Instalações Elétricas",
+          projects: "Projetos e Certificações",
           lighting: "Iluminação",
           others: "Outros Serviços"
         },
@@ -793,11 +834,12 @@ const translations = {
         successMsg: "Thank you for contacting us! We will get back to you shortly.",
         fileError: "Please select only PDF files.",
         optsInterest: {
-          plrs: "Grid Connection Requests (PLR)",
-          installations: "Electrical Infrastructures",
+          plrs: "PLR",
+          infraestruturas: "Electrical Infrastructure",
           telecommunications: "Telecommunications",
-          substations: "Transformer Substations",
-          projects: "Electricity Projects",
+          substations: "Substations",
+          installations: "Electrical Installations",
+          projects: "Projects and Certifications",
           lighting: "Lighting",
           others: "Other Services"
         },
@@ -1043,34 +1085,39 @@ const translations = {
       stat2: "LED Light Points",
       types: [
         {
-          title: "Festive Lighting",
-          desc: "Festive Lighting is the art of creating emotions through light. We develop turnkey projects for special occasions, transforming the urban and commercial environment. From creative design of motifs (2D and 3D) to safe installation and dismantling, we guarantee a visual spectacle that attracts visitors, boosts local commerce, and celebrates tradition with low-consumption LED technology.",
+          title: "Public Lighting",
+          image: "https://drive.google.com/thumbnail?id=1MFt1qWei6hz80tPGkX91j-g86uHVA7vi&sz=w1000",
+          desc: "We ensure the safety and well-being of populations through efficient and reliable public lighting networks. We install and maintain street luminaires, floodlights, and columns, ensuring correct luminosity on roads, streets, and public spaces, always focusing on reducing the ecological footprint and energy costs.",
           applicationsTitle: "Where applied:",
-          applications: ["Historic Centers and Cities", "Shopping Centers", "Squares and Public Gardens", "Building Facades"]
-        },
-        {
-          title: "Smart Lighting",
-          desc: "More than lighting roads, we create smart cities. Our approach to Public Lighting focuses on energy efficiency and safety. We replace conventional luminaires with high-performance LED technology, integrated with telemanagement systems that allow remote control of light intensity, real-time fault detection, and reduction of municipal energy bills by up to 60%. We highlight the installation of smart crosswalks in Portimão, which increase pedestrian safety through active light signaling.",
-          applicationsTitle: "Where applied:",
-          applications: ["Public Roads and Highways", "Urban Parks and Cycle Paths", "Residential Zones", "Parking Lots"]
-        },
-        {
-          title: "Technical Lighting",
-          desc: "Technical Lighting aims to value built heritage at night, respecting its history and original trace. We use precision projectors, LED strips, and RGBW systems to create dynamic or static scenarios that highlight textures and volumes. It is the ideal solution to give new life to iconic buildings, hotels, or monuments, reinforcing the location's visual identity.",
-          applicationsTitle: "Where applied:",
-          applications: ["Monuments and Churches", "Hotels and Resorts", "Corporate Buildings", "Bridges and Structures"]
+          applications: ["Road Zones", "Pedestrian Zones", "Urbanizations/ Allotments", "Parking Lots", "Port Areas"]
         },
         {
           title: "Sports Lighting",
+          image: "https://drive.google.com/thumbnail?id=15ZTaJZVipA-lCRWq5r5I0oelf5cJDUTF&sz=w1000",
           desc: "In sports, light is fundamental for athlete performance and spectator experience. We design and install lighting systems that strictly comply with lux levels required by federations and TV transmission standards. We guarantee uniformity on the field, glare control, and instant strike systems for pavilions and stadiums.",
           applicationsTitle: "Where applied:",
           applications: ["Football Fields and Stadiums", "Sports Pavilions", "Tennis and Padel Courts", "Municipal Pools"]
         },
         {
-          title: "Public Lighting",
-          desc: "We ensure the safety and well-being of populations through efficient and reliable public lighting networks. We install and maintain street luminaires, floodlights, and columns, ensuring correct luminosity on roads, streets, and public spaces, always focusing on reducing the ecological footprint and energy costs.",
+          title: "Smart Lighting",
+          image: "https://drive.google.com/thumbnail?id=1KOWLU95F6pomAZjmTO0WUY_UbxGsrw-s&sz=w1000",
+          desc: "More than lighting roads, we create smart cities. Our approach to Public Lighting focuses on energy efficiency and safety. We replace conventional luminaires with high-performance LED technology, integrated with telemanagement systems that allow remote control of light intensity, real-time fault detection, and reduction of municipal energy bills by up to 60%. We highlight the installation of smart crosswalks in Portimão, which increase pedestrian safety through active light signaling.",
           applicationsTitle: "Where applied:",
-          applications: ["National and Municipal Roads", "Urban Streets", "Parks and Gardens", "Riverside Areas"]
+          applications: ["Road Zones", "Pedestrian Zones", "Parking Lots", "Port Areas"]
+        },
+        {
+          title: "Technical Lighting",
+          image: "https://drive.google.com/thumbnail?id=1lwzRh0LtxEQH2ypr8C1FBzYpO-PW82Yr&sz=w1000",
+          desc: "Technical Lighting aims to value built heritage at night, respecting its history and original trace. We use precision projectors, LED strips, and RGBW systems to create dynamic or static scenarios that highlight textures and volumes. It is the ideal solution to give new life to iconic buildings, hotels, or monuments, reinforcing the location's visual identity.",
+          applicationsTitle: "Where applied:",
+          applications: ["Monuments and Churches", "Hotels and Resorts", "Corporate Buildings", "Bridges and Structures"]
+        },
+        {
+          title: "Festive Lighting",
+          image: "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000",
+          desc: "Festive Lighting is the art of creating emotions through light. We develop turnkey projects for special occasions, transforming the urban and commercial environment. From creative design of motifs (2D and 3D) to safe installation and dismantling, we guarantee a visual spectacle that attracts visitors, boosts local commerce, and celebrates tradition with low-consumption LED technology.",
+          applicationsTitle: "Where applied:",
+          applications: ["Historic Centers and Cities", "Shopping Centers", "Squares and Public Gardens", "Building Facades"]
         }
       ],
       ctaTitle: "Let's light up your project?",
@@ -1126,101 +1173,137 @@ const translations = {
         },
         {
           id: 'telecommunications',
-          title: "Telecommunications (ITED/ITUR)",
-          description: "Telecommunications infrastructures in buildings and allotments. Installation of certified fiber optic, copper, and coaxial networks.",
-          details: ["ITED/ITUR Projects", "Fiber Optic Splicing", "Structured Networks", "Certification"]
+          title: "Telecommunications",
+          description: "Communication infrastructure and electronic security.",
+          details: ["ITED/ITUR Projects", "Fiber and CCTV Installations"]
         },
         {
           id: 'substations',
-          title: "Transformer Substations",
-          description: "Installation, maintenance, and exploration of private and public Transformer Substations (PTs). Medium Voltage Solutions.",
-          details: ["PT Assembly", "Medium Voltage Cells", "Transformers", "Cleaning and Maintenance"]
+          title: "Substations",
+          description: "Assembly, maintenance and assistance for Transformer Substations.",
+          details: ["Substation Supply", "Cleaning and Maintenance", "Breakdown Assistance"]
+        },
+        {
+          id: 'installations',
+          title: "Electrical Installations",
+          description: "Complete electrical solutions for buildings and preventive maintenance.",
+          details: ["Electrical Panels", "Preventive Maintenance", "Indoor Lighting"]
         },
         {
           id: 'projects',
-          title: "Engineering Projects",
-          description: "Elaboration of electrical projects, technical data sheets, and energy consulting for licensing and work execution.",
-          details: ["Electrical Projects", "Self-Protection Measures", "Licensing", "Consulting"]
+          title: "Projects and Certifications",
+          description: "Specialized electrical engineering and licensing.",
+          details: ["LV and MV Projects", "Electrical Projects", "Lighting Projects"]
         },
         {
           id: 'others',
           title: "Other Services",
-          description: "Complementary services of civil construction, electric mobility, and urban infrastructures.",
-          details: ["EV Chargers", "Trench Opening", "Pavement Reconstruction", "Works Supervision"]
+          description: "Complementary services for comprehensive project support.",
+          details: ["Civil Construction", "Electric Mobility", "Equipment Rental", "Event Support"]
         }
       ]
     },
     serviceDetails: {
       plrs: {
-        seoTitle: "Grid Connection Requests (PLR)",
-        title: "PLR Execution and Drops",
-        description: "We handle your electrical grid connection request from start to finish.",
-        fullText: "Joaquim & Fernandes specializes in executing Grid Connection Requests (PLR) throughout Algarve and Alentejo. We handle the entire bureaucratic process with E-Redes and execute the necessary physical work (aerial or underground drops, technical walls, cabinets) so you have electricity in your property as quickly as possible.",
-        features: ["Technical survey on site", "Opening process at E-Redes", "Execution of trenches and infrastructures", "Installation of cabinets and boards", "Final certification"],
-        keywords: ["PLR", "Drops", "E-Redes", "Branches", "Electricity"],
+        seoTitle: "PLR - Grid Connection Requests",
+        title: "PLR",
+        description: "Complete management of grid connection processes with E-Redes.",
+        fullText: "Joaquim & Fernandes specializes in executing Grid Connection Requests (PLR) throughout Algarve and Alentejo. We handle the entire bureaucratic process with E-Redes and execute the necessary physical work (drop-offs, network diversions) so you have electricity in your property as quickly as possible.",
+        features: ["Branch Execution", "Network Diversions", "Projects and Certifications", "On-site Technical Survey", "E-Redes Process Opening"],
+        keywords: ["PLR", "E-Redes", "Branches", "Connections", "Electricity"],
         benefits: [
           { title: "Turnkey", desc: "We handle bureaucracy and work." },
           { title: "Speed", desc: "We know the procedures to speed up the process." }
         ]
       },
-      installations: {
-        seoTitle: "Electrical Installations",
-        title: "Residential and Industrial Installations",
-        description: "Safe and certified electrical solutions for any type of building.",
-        fullText: "We perform all types of low voltage electrical installations. From small domestic refurbishments to large industrial installations, our team of certified electricians guarantees rigorous compliance with safety and energy efficiency standards.",
-        features: ["Electrical boards", "Structured cabling", "Interior and exterior lighting", "Home automation", "Security systems"],
-        keywords: ["Electrician", "Installation", "Maintenance", "Certification", "Safety"],
+      infraestruturas: {
+        seoTitle: "Low and Medium Voltage Electrical Infrastructure",
+        title: "Electrical Infrastructure",
+        description: "Execution and maintenance of Low and Medium Voltage electrical networks.",
+        fullText: "We execute and maintain Low and Medium Voltage electrical infrastructures, ensuring power distribution with maximum reliability. From urban networks to transformer substations, our team ensures service continuity.",
+        features: ["Low Voltage Networks", "Medium Voltage Networks", "Transformer Substations", "Network Maintenance", "Technical Testing"],
+        keywords: ["LV", "MV", "Infrastructure", "Electrical Networks"],
         benefits: [
-          { title: "Safety", desc: "Approved materials and certified technicians." },
-          { title: "Efficiency", desc: "Solutions that reduce energy consumption." }
+          { title: "Reliability", desc: "Infrastructures designed to last." },
+          { title: "Safety", desc: "Strict compliance with technical standards." }
         ]
       },
       telecommunications: {
         seoTitle: "Telecommunications ITED and ITUR",
-        title: "Fiber Optic and Telecommunications Networks",
-        description: "Certified communication infrastructures for buildings and allotments.",
-        fullText: "We live in a digital age where connectivity is fundamental. Joaquim & Fernandes designs and installs future-proof telecommunications infrastructures (ITED for buildings and ITUR for allotments). From fiber optic splicing to the installation of racks and structured networks, we ensure your development complies with all ANACOM standards and offers the best speed to end-users.",
-        features: ["ITED/ITUR Projects", "Fiber Optic Splicing", "Coaxial and Copper Pair Networks", "Rack and Cabinet Installation", "Testing and Certification"],
-        keywords: ["ITED", "ITUR", "Fiber Optic", "Networks", "Telecommunications"],
+        title: "Telecommunications",
+        description: "Communication infrastructure and electronic security.",
+        fullText: "We live in a digital age where connectivity is fundamental. Joaquim & Fernandes designs and installs telecommunications infrastructures (ITED and ITUR) prepared for the future. From fiber optic fusion to CCTV installation, we ensure your property is always connected.",
+        features: ["ITED/ITUR Projects", "Fiber Optic Installations", "CCTV and Electronic Security", "Network Certification", "System Maintenance"],
+        keywords: ["ITED", "ITUR", "Fiber Optic", "CCTV", "Telecom"],
         benefits: [
-          { title: "ANACOM Certification", desc: "Guarantee of legal compliance." },
-          { title: "High Speed", desc: "Gigabit-ready infrastructures." }
+          { title: "Connectivity", desc: "High-speed and reliable networks." },
+          { title: "Certification", desc: "ANACOM compliance guarantee." }
         ]
       },
       substations: {
-        seoTitle: "Transformer Substations and Medium Voltage",
-        title: "Installation and Maintenance of Substations",
-        description: "Medium Voltage energy solutions for industries and large buildings.",
-        fullText: "For industries, hotels, or large commercial surfaces, Low Voltage connection may not be enough. J&F specializes in assembling private Transformer Substations (PTs), ensuring the safe transition from Medium to Low Voltage. We offer preventive maintenance contracts required by law, guaranteeing equipment longevity and installation safety.",
-        features: ["Medium Voltage Cell Assembly", "Transformer Installation", "Low Voltage General Boards (QGBT)", "Preventive and Corrective Maintenance", "Dielectric Oil Analysis"],
-        keywords: ["Transformer Substation", "Medium Voltage", "Transformer", "Industry", "Energy"],
+        seoTitle: "Transformer Substations",
+        title: "Substations",
+        description: "Assembly, maintenance, and assistance for Transformer Substations.",
+        fullText: "Specialists in Transformer Substations (PT), we offer supply, cleaning, maintenance, and breakdown assistance services. We ensure your medium voltage installation operates without interruptions.",
+        features: ["Substation Supply", "Cleaning and Maintenance", "Breakdown Assistance", "Oil Analysis", "MV Cells"],
+        keywords: ["Substation", "Medium Voltage", "Transformers", "Maintenance"],
         benefits: [
-          { title: "Reliability", desc: "Equipment from leading brands like Efacec and Siemens." },
-          { title: "Compliance", desc: "Maintenance in accordance with current legislation." }
+          { title: "Continuity", desc: "We minimize downtime in case of failure." },
+          { title: "Longevity", desc: "Preventive maintenance that increases useful life." }
+        ]
+      },
+      installations: {
+        seoTitle: "Electrical Installations and Maintenance",
+        title: "Electrical Installations",
+        description: "Complete electrical solutions for buildings and preventive maintenance.",
+        fullText: "We perform all types of low voltage electrical installations. From complex electrical panels to indoor lighting systems, our team of certified electricians ensures precision in every detail.",
+        features: ["Electrical Panels", "Preventive Maintenance", "Indoor Lighting", "Commercial Installations", "Basic Home Automation"],
+        keywords: ["Installations", "Electrical Panels", "Lighting", "Maintenance"],
+        benefits: [
+          { title: "Efficiency", desc: "Solutions that optimize energy consumption." },
+          { title: "Availability", desc: "Technical support and periodic maintenance." }
         ]
       },
       projects: {
-        seoTitle: "Electrical Engineering Projects",
-        title: "Consulting and Specialty Projects",
-        description: "Detailed engineering for licensing and work execution.",
-        fullText: "Any great work starts with a good project. Our engineering department develops detailed electrical projects, ensuring the balance between cost, efficiency, and safety. We handle all licensing with competent authorities (DGEG, E-Redes, City Councils) and develop Self-Protection Measures for fire safety.",
-        features: ["Electrical Execution Projects", "Technical Data Sheets", "Self-Protection Measures (SCIE)", "Energy Consulting", "Network Sizing"],
-        keywords: ["Electrical Project", "Engineering", "Licensing", "DGEG", "SCIE"],
+        seoTitle: "Engineering Projects and Certifications",
+        title: "Projects and Certifications",
+        description: "Specialized electrical engineering and licensing.",
+        fullText: "Any great project starts with good planning. Our engineering department develops detailed electrical projects, ensuring the balance between cost, efficiency, and safety with official entities.",
+        features: ["LV and MV Projects", "Electrical Projects", "Lighting Projects", "DGEG Licensing", "Self-Protection Measures"],
+        keywords: ["Projects", "Certifications", "Engineering", "DGEG"],
         benefits: [
-          { title: "Optimization", desc: "Technical solutions that reduce construction costs." },
-          { title: "Approval", desc: "High approval rate with official entities." }
+          { title: "Approval", desc: "High success rate in licensing." },
+          { title: "Optimization", desc: "Projects designed to reduce construction costs." }
         ]
       },
       others: {
-        seoTitle: "Complementary Construction Services",
-        title: "Civil Construction and Mobility",
-        description: "Integrated construction and electric mobility solutions.",
-        fullText: "To offer a turnkey service, we integrate civil construction skills necessary for the execution of electrical infrastructures. We open and close trenches, restore pavements, and build bases for equipment. In addition, we are at the forefront of electric mobility, installing charging stations for fleets and individuals.",
-        features: ["Trench Opening and Closing", "Pavement and Bituminous Restoration", "Bases for Lighting/Substations", "Electric Vehicle Chargers", "Works Supervision"],
-        keywords: ["Civil Construction", "Trenches", "Electric Mobility", "Chargers", "Work"],
+        seoTitle: "Other Specialized Services",
+        title: "Other Services",
+        description: "Complementary services for comprehensive project support.",
+        fullText: "We integrate a range of complementary services to offer a global solution. From civil construction necessary for infrastructures to electric mobility and equipment rental, we are the unique partner your project needs.",
+        features: [
+          {
+            title: "Civil Construction",
+            description: "To offer a turnkey service, we integrate the civil construction skills necessary for the execution of electrical infrastructures."
+          },
+          {
+            title: "Electric mobility",
+            description: "JF is an expert in the installation of electric chargers for vehicles in homes, condominiums, companies, and commercial spaces. We guarantee efficient and safe solutions for electric mobility."
+          },
+          {
+            title: "Equipment rental",
+            description: "We rent equipment necessary for works, generators, aerial platforms, crane trucks, and backhoes, if necessary with an operator, to facilitate the service."
+          },
+          {
+            title: "Events",
+            description: "The multiplicity of events in which we collaborate ranges from fairs, exhibitions, festivals, concerts, sports events, etc.",
+            bullets: ["Permanent assistance teams", "Identification of supply points"]
+          }
+        ],
+        keywords: ["Mobility", "Construction", "Events", "Equipment"],
         benefits: [
-          { title: "Integrated", desc: "A single interlocutor for the entire work." },
-          { title: "Sustainable", desc: "Support for transition to electric mobility." }
+          { title: "Versatility", desc: "Multiple skills in a single partner." },
+          { title: "Sustainability", desc: "Charging solutions for the future." }
         ]
       }
     }
@@ -1617,15 +1700,30 @@ const translations = {
     },
     "others": {
       "seoTitle": "Servicios Complementarios de Construcción",
-      "title": "Construcción Civil y Movilidad",
+      "title": "Otros servicios",
       "description": "Soluciones integradas de construcción y movilidad eléctrica.",
       "fullText": "Para ofrecer un servicio llave en mano, integramos las competencias de construcción civil necesarias para la ejecución de infraestructuras eléctricas. Abrimos y cerramos zanjas, reemplazamos pavimentos y construimos estructuras para equipos. Además, estamos a la vanguardia de la movilidad eléctrica, instalando estaciones de carga para flotas y particulares.",
       "features": [
-        "Apertura y cierre de zanjas",
-        "Reemplazo de Aceras y Bituminosos",
-        "Macizos para iluminación/PT",
-        "Cargadores de vehículos eléctricos",
-        "Supervisión de Construcción"
+        {
+          "title": "Construcción Civil",
+          "description": "Para ofrecer un servicio llave en mano, integramos las habilidades de construcción civil necesarias para la ejecución de infraestructuras eléctricas."
+        },
+        {
+          "title": "Movilidad eléctrica",
+          "description": "JF es experto en la instalación de cargadores eléctricos para vehículos en hogares, condominios, empresas y espacios comerciales. Garantizamos soluciones eficientes y seguras para la movilidad eléctrica."
+        },
+        {
+          "title": "Alquiler de equipos",
+          "description": "Alquilamos equipos necesarios para obras, generadores, plataformas aéreas, camiones grúa y retroexcavadoras, si es necesario con un operador, para facilitar el servicio."
+        },
+        {
+          "title": "Eventos",
+          "description": "La multiplicidad de eventos en los que colaboramos abarca desde ferias, exposiciones, festivales, conciertos, eventos deportivos, etc.",
+          "bullets": [
+            "Equipos de asistencia permanente",
+            "Identificación de puntos de alimentación"
+          ]
+        }
       ],
       "keywords": [
         "Construcción Civil",
@@ -1655,40 +1753,15 @@ const translations = {
     "stat2": "Puntos de luz LED",
     "types": [
       {
-        "title": "Iluminación festiva",
-        "desc": "La Iluminación Festiva es el arte de crear emociones a través de la luz. Desarrollamos proyectos llave en mano para ocasiones especiales, transformando el entorno urbano y comercial. Desde el diseño creativo de los motivos (2D y 3D) hasta la instalación y desmontaje seguro, garantizamos un espectáculo visual que atrae visitantes, impulsa el comercio local y celebra la tradición con tecnología LED de bajo consumo.",
+        "title": "Alumbrado Público",
+        "image": "https://drive.google.com/thumbnail?id=1MFt1qWei6hz80tPGkX91j-g86uHVA7vi&sz=w1000",
+        "desc": "Garantizamos la seguridad y el bienestar de las poblaciones a través de redes de alumbrado público eficientes y confiables. Instalamos y mantenemos refuerzos viarios, proyectores y columnas, asegurando una correcta iluminación en vías, calles y espacios públicos, siempre enfocados en reducir la huella ecológica y los costos energéticos.",
         "applicationsTitle": "Donde aplicamos:",
-        "applications": [
-          "Centros y Ciudades Históricas",
-          "Centros Comerciales",
-          "Plazas Públicas y Jardines",
-          "Fachadas de edificios"
-        ]
-      },
-      {
-        "title": "Iluminación inteligente",
-        "desc": "Más que iluminar carreteras, creamos ciudades inteligentes. Nuestro enfoque en materia de alumbrado público se centra en la eficiencia energética y la seguridad. Sustituimos las luminarias convencionales por tecnología LED de altas prestaciones, integradas con sistemas de gestión remota que permiten el control remoto de la intensidad lumínica, la detección de averías en tiempo real y la reducción de la factura energética municipal hasta en un 60%. Destacamos la instalación de carriles inteligentes en Portimão, que aumentan la seguridad de los peatones a través de la señalización luminosa activa.",
-        "applicationsTitle": "Donde aplicamos:",
-        "applications": [
-          "Vías Públicas y Caminos",
-          "Parques urbanos y carriles bici",
-          "Zonas Residenciales",
-          "Aparcamientos"
-        ]
-      },
-      {
-        "title": "Iluminación Técnica",
-        "desc": "Technical Lighting pretende realzar el patrimonio construido por la noche, respetando su historia y diseño original. Utilizamos proyectores de precisión, tiras LED y sistemas RGBW para crear escenas dinámicas o estáticas que realzan texturas y volúmenes. Es la solución ideal para dar nueva vida a edificios, hoteles o monumentos emblemáticos, reforzando la identidad visual del lugar.",
-        "applicationsTitle": "Donde aplicamos:",
-        "applications": [
-          "Monumentos e Iglesias",
-          "Hoteles y Resorts",
-          "Edificios corporativos",
-          "Puentes y Estructuras"
-        ]
+        "applications": ["Zonas Viarias", "Zonas peatonales", "Urbanizaciones/ Loteamientos", "Aparcamientos", "Zonas Portuarias"]
       },
       {
         "title": "Iluminación deportiva",
+        "image": "https://drive.google.com/thumbnail?id=15ZTaJZVipA-lCRWq5r5I0oelf5cJDUTF&sz=w1000",
         "desc": "En el deporte, la luz es fundamental para el rendimiento de los atletas y la experiencia de los espectadores. Diseñamos e instalamos sistemas de iluminación que cumplen estrictamente con los niveles de lux exigidos por las federaciones y estándares de radiodifusión televisiva. Garantizamos uniformidad en el campo, control de deslumbramiento y sistemas de iluminación instantánea para pabellones y estadios.",
         "applicationsTitle": "Donde aplicamos:",
         "applications": [
@@ -1699,14 +1772,34 @@ const translations = {
         ]
       },
       {
-        "title": "Alumbrado Público",
-        "desc": "Garantizamos la seguridad y el bienestar de las poblaciones a través de redes de alumbrado público eficientes y confiables. Instalamos y mantenemos refuerzos viarios, proyectores y columnas, asegurando una correcta iluminación en vías, calles y espacios públicos, siempre enfocados en reducir la huella ecológica y los costos energéticos.",
+        "title": "Iluminación inteligente",
+        "image": "https://drive.google.com/thumbnail?id=1KOWLU95F6pomAZjmTO0WUY_UbxGsrw-s&sz=w1000",
+        "desc": "Más que iluminar carreteras, creamos ciudades inteligentes. Nuestro enfoque en materia de alumbrado público se centra en la eficiencia energética y la seguridad. Sustituimos las luminarias convencionales por tecnología LED de altas prestaciones, integradas con sistemas de gestión remota que permiten el control remoto de la intensidad lumínica, la detección de averías en tiempo real y la reducción de la factura energética municipal hasta en un 60%. Destacamos la instalación de carriles inteligentes en Portimão, que aumentan la seguridad de los peatones a través de la señalización luminosa activa.",
+        "applicationsTitle": "Donde aplicamos:",
+        "applications": ["Zonas Viarias", "Zonas peatonales", "Aparcamientos", "Zonas Portuarias"]
+      },
+      {
+        "title": "Iluminación Técnica",
+        "image": "https://drive.google.com/thumbnail?id=1lwzRh0LtxEQH2ypr8C1FBzYpO-PW82Yr&sz=w1000",
+        "desc": "Technical Lighting pretende realzar el patrimonio construido por la noche, respetando su historia y diseño original. Utilizamos proyectores de precisión, tiras LED y sistemas RGBW para crear escenas dinámicas o estáticas que realzan texturas y volúmenes. Es la solución ideal para dar nueva vida a edificios, hoteles o monumentos emblemáticos, reforzando la identidad visual del lugar.",
         "applicationsTitle": "Donde aplicamos:",
         "applications": [
-          "Carreteras Nacionales y Municipales",
-          "Calles urbanas",
-          "Parques y Jardines",
-          "Áreas ribereñas"
+          "Monumentos e Iglesias",
+          "Hoteles y Resorts",
+          "Edificios corporativos",
+          "Puentes y Estructuras"
+        ]
+      },
+      {
+        "title": "Iluminación festiva",
+        "image": "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000",
+        "desc": "La Iluminación Festiva es el arte de crear emociones a través de la luz. Desarrollamos proyectos llave en mano para ocasiones especiales, transformando el entorno urbano y comercial. Desde el diseño creativo de los motivos (2D y 3D) hasta la instalación y desmontaje seguro, garantizamos un espectáculo visual que atrae visitantes, impulsa el comercio local y celebra la tradición con tecnología LED de bajo consumo.",
+        "applicationsTitle": "Donde aplicamos:",
+        "applications": [
+          "Centros y Ciudades Históricas",
+          "Centros Comerciales",
+          "Plazas Públicas y Jardines",
+          "Fachadas de edificios"
         ]
       }
     ],
@@ -2202,11 +2295,11 @@ const translations = {
     "learnMore": "En savoir plus",
     "seeMore": "Voir plus",
     "address": "Route nationale 125, Bias Norte, Moncarapacho",
-    "city": "8700-066 Olhao"
+    "city": "8700-066 Olhão"
   },
   "home": {
     "hero": {
-      "title": "Solutions d'électricité, d'éclairage, de téléchargement et de connexion au réseau",
+      "title": "Solutions d'électricité, d'éclairage, de téléchargement et de raccordement au réseau",
       "subtitle": "Votre compagnie d'électricité de référence en Algarve et en Alentejo. Excellence technique dans les Baixadas, les PLR et les infrastructures.",
       "ctaPrimary": "Demander un devis",
       "ctaSecondary": "Découvrez les prestations"
@@ -2444,7 +2537,7 @@ const translations = {
       ],
       "keywords": [
         "ITED",
-        "Il va",
+        "Itur",
         "Fibre Optique",
         "Réseaux",
         "Télécommunications"
@@ -2505,117 +2598,126 @@ const translations = {
       "keywords": [
         "Projet électrique",
         "Ingénierie",
-        "Licence",
+        "Licences",
         "DGEG",
-        "SCIE"
+        "SIERRA"
       ],
       "benefits": [
         {
-          "title": "Optimisation",
+          "title": "Amélioration",
           "desc": "Des solutions techniques qui réduisent les coûts de construction."
         },
         {
           "title": "Approbation",
-          "desc": "Taux d'approbation élevé dans les entités officielles."
+          "desc": "Taux d'approbation élevé auprès des entités officielles."
         }
       ]
     },
     "others": {
-      "seoTitle": "Services de construction complémentaires",
-      "title": "Construction civile et mobilité",
-      "description": "Solutions intégrées de construction et de mobilité électrique.",
-      "fullText": "Pour offrir un service clé en main, nous intégrons les compétences en génie civil nécessaires à la réalisation des infrastructures électriques. Nous ouvrons et fermons des tranchées, remplaçons les trottoirs et construisons des structures pour les équipements. De plus, nous sommes à l’avant-garde de la mobilité électrique, en installant des bornes de recharge pour les flottes et les particuliers.",
+      "seoTitle": "Autres services spécialisés",
+      "title": "Autres services",
+      "description": "Services complémentaires pour un support complet de votre projet.",
+      "fullText": "Nous intégrons une gamme de services complémentaires pour offrir une solution globale. Du génie civil nécessaire aux infrastructures à la mobilité électrique et à la location de matériel, nous sommes le partenaire unique dont votre projet a besoin.",
       "features": [
-        "Ouverture et fermeture des tranchées",
-        "Remplacement des trottoirs et du bitume",
-        "Massifs pour Éclairage/PT",
-        "Chargeurs de véhicules électriques",
-        "Surveillance des travaux"
+        {
+          "title": "Génie Civil",
+          "description": "Pour offrir un service clé en main, nous intégrons les compétences en génie civil nécessaires à l'exécution des infrastructures électriques."
+        },
+        {
+          "title": "Mobilité électrique",
+          "description": "JF est expert dans l'installation de chargeurs électriques pour véhicules dans les maisons, copropriétés, entreprises et espaces commerciaux. Nous garantissons des solutions efficaces et sûres pour la mobilité électrique."
+        },
+        {
+          "title": "Location de matériel",
+          "description": "Nous louons le matériel nécessaire aux travaux, groupes électrogènes, nacelles, camions grues et tractopelles, si nécessaire avec opérateur, pour faciliter le service."
+        },
+        {
+          "title": "Événements",
+          "description": "La multiplicité des événements auxquels nous collaborons va des foires, expositions, festivals, concerts, événements sportifs, etc.",
+          "bullets": [
+            "Équipes d'assistance permanente",
+            "Identification des points d'alimentation"
+          ]
+        }
       ],
       "keywords": [
-        "Construction civile",
-        "Forex",
-        "Mobilité électrique",
-        "Chargeurs",
-        "Travail"
+        "Mobilité",
+        "Construction",
+        "Événements",
+        "Équipement"
       ],
       "benefits": [
         {
-          "title": "Intégré",
-          "desc": "Un interlocuteur unique pour l'ensemble du projet."
+          "title": "Polyvalence",
+          "desc": "Plusieurs compétences en un seul partenaire."
         },
         {
-          "title": "Durable",
-          "desc": "Accompagner la transition vers la mobilité électrique."
+          "title": "Durabilité",
+          "desc": "Solutions de recharge pour l'avenir."
         }
       ]
     }
   },
   "lighting": {
     "heroTitle": "Un éclairage qui transforme",
-    "heroDesc": "De la magie des illuminations de Noël à l’efficacité de l’éclairage public intelligent. Nous créons des environnements et garantissons la sécurité grâce à la lumière.",
+    "heroDesc": "De la magie des lumières de Noël à l'efficacité de l'éclairage public intelligent. Nous créons des ambiances et garantissons la sécurité par la lumière.",
     "introTitle": "Solutions d'éclairage à 360º",
-    "introDesc": "Chez Joaquim & Fernandes, la lumière est plus que visibilité : c'est expérience, sécurité et identité. Nous proposons une gamme complète allant de l'éclairage décoratif pour les fêtes de fin d'année aux systèmes techniques avancés pour les villes et les industries.",
+    "introDesc": "Chez Joaquim & Fernandes, la lumière est plus que de la visibilité : c'est une expérience, une sécurité et une identité. Nous proposons un portefeuille complet allant de l'éclairage décoratif pour les périodes de fêtes aux systèmes techniques avancés pour les villes et les industries.",
     "stat1": "Projets festifs",
     "stat2": "Points lumineux LED",
     "types": [
       {
-        "title": "Éclairage festif",
-        "desc": "L’éclairage festif est l’art de créer des émotions grâce à la lumière. Nous développons des projets clé en main pour des occasions spéciales, transformant l'environnement urbain et commercial. De la conception créative des motifs (2D et 3D) à l'installation et au démontage en toute sécurité, nous garantissons un spectacle visuel qui attire les visiteurs, dynamise le commerce local et célèbre la tradition avec la technologie LED basse consommation.",
-        "applicationsTitle": "Où nous postulons :",
-        "applications": [
-          "Centres et villes historiques",
-          "Centres commerciaux",
-          "Places et jardins publics",
-          "Façades de bâtiments"
-        ]
-      },
-      {
-        "title": "Éclairage intelligent",
-        "desc": "Plus qu’éclairer les routes, nous créons des villes intelligentes. Notre approche de l’éclairage public se concentre sur l’efficacité énergétique et la sécurité. Nous remplaçons les luminaires conventionnels par une technologie LED haute performance, intégrée à des systèmes de gestion à distance qui permettent le contrôle à distance de l'intensité lumineuse, la détection des défauts en temps réel et une réduction des factures d'énergie municipales jusqu'à 60 %. Nous soulignons l'installation de voies intelligentes à Portimão, qui augmentent la sécurité des piétons grâce à une signalisation lumineuse active.",
-        "applicationsTitle": "Où nous postulons :",
-        "applications": [
-          "Voies et routes publiques",
-          "Parcs urbains et pistes cyclables",
-          "Zones résidentielles",
-          "Parkings"
-        ]
-      },
-      {
-        "title": "Éclairage technique",
-        "desc": "Technical Lighting vise à valoriser le patrimoine bâti la nuit, en respectant son histoire et sa conception originale. Nous utilisons des projecteurs de précision, des bandes LED et des systèmes RGBW pour créer des scènes dynamiques ou statiques qui mettent en valeur les textures et les volumes. C'est la solution idéale pour donner une nouvelle vie à des bâtiments, hôtels ou monuments emblématiques, en renforçant l'identité visuelle du lieu.",
-        "applicationsTitle": "Où nous postulons :",
-        "applications": [
-          "Monuments et églises",
-          "Hôtels et centres de villégiature",
-          "Bâtiments corporatifs",
-          "Ponts et structures"
-        ]
+        "title": "Éclairage public",
+        "image": "https://drive.google.com/thumbnail?id=1MFt1qWei6hz80tPGkX91j-g86uHVA7vi&sz=w1000",
+        "desc": "Nous garantissons la sécurité et le bien-être des populations grâce à des réseaux d'éclairage public efficaces et fiables. Nous installons et entretenons des luminaires de rue, des projecteurs et des colonnes, assurant une luminosité correcte sur les routes, les rues et les espaces publics, en nous concentrant toujours sur la réduction de l'empreinte écologique et des coûts énergétiques.",
+        "applicationsTitle": "Où nous appliquons :",
+        "applications": ["Zones Routières", "Zones piétonnes", "Urbanisations/ Lotissements", "Parkings", "Zones Portuaires"]
       },
       {
         "title": "Éclairage sportif",
-        "desc": "Dans le sport, la lumière est fondamentale pour la performance des athlètes et l'expérience des spectateurs. Nous concevons et installons des systèmes d'éclairage qui respectent strictement les niveaux de lux requis par les fédérations et normes de télédiffusion. Nous garantissons l'uniformité sur le terrain, le contrôle de l'éblouissement et les systèmes d'éclairage instantané pour les pavillons et les stades.",
-        "applicationsTitle": "Où nous postulons :",
+        "image": "https://drive.google.com/thumbnail?id=15ZTaJZVipA-lCRWq5r5I0oelf5cJDUTF&sz=w1000",
+        "desc": "Dans le sport, la lumière est fondamentale pour la performance des athlètes et l'expérience des spectateurs. Nous concevons et installons des systèmes d'éclairage qui respectent strictement les niveaux de lux requis par les fédérations et les normes de transmission TV. Nous garantissons l'uniformité sur le terrain, le contrôle de l'éblouissement et des systèmes d'allumage instantané pour les gymnases et les stades.",
+        "applicationsTitle": "Où nous appliquons :",
         "applications": [
-          "Terrains et stades de football",
-          "Pavillons sportifs",
-          "Terrains de tennis et de padel",
+          "Terrains de football et stades",
+          "Gymnases sportifs",
+          "Courts de tennis et de padel",
           "Piscines municipales"
         ]
       },
       {
-        "title": "Éclairage public",
-        "desc": "Nous garantissons la sécurité et le bien-être des populations grâce à des réseaux d’éclairage public efficaces et fiables. Nous installons et entretenons des renforts routiers, des projecteurs et des colonnes, garantissant un éclairage correct des routes, des rues et des espaces publics, en nous concentrant toujours sur la réduction de l'empreinte écologique et des coûts énergétiques.",
-        "applicationsTitle": "Où nous postulons :",
+        "title": "Éclairage intelligent",
+        "image": "https://drive.google.com/thumbnail?id=1KOWLU95F6pomAZjmTO0WUY_UbxGsrw-s&sz=w1000",
+        "desc": "Bien plus que l'éclairage des routes, nous créons des villes intelligentes. Notre approche de l'éclairage public se concentre sur l'efficacité énergétique et la sécurité. Nous remplaçons les luminaires conventionnels par la technologie LED haute performance, intégrée à des systèmes de télégestion permettant le contrôle à distance de l'intensité lumineuse, la détection des pannes en temps réel et la réduction des factures d'énergie municipales jusqu'à 60 %. Nous soulignons l'installation de passages piétons intelligents à Portimão, qui augmentent la sécurité des piétons grâce à une signalisation lumineuse active.",
+        "applicationsTitle": "Où nous appliquons :",
+        "applications": ["Zones Routières", "Zones piétonnes", "Parkings", "Zones Portuaires"]
+      },
+      {
+        "title": "Éclairage technique",
+        "image": "https://drive.google.com/thumbnail?id=1lwzRh0LtxEQH2ypr8C1FBzYpO-PW82Yr&sz=w1000",
+        "desc": "L'éclairage technique vise à mettre en valeur le patrimoine bâti la nuit, tout en respectant son histoire et son tracé original. Nous utilisons des projecteurs de précision, des rubans LED et des systèmes RGBW pour créer des scénarios dynamiques ou statiques qui soulignent les textures et les volumes. C'est la solution idéale pour redonner vie à des bâtiments emblématiques, des hôtels ou des monuments, renforçant ainsi l'identité visuelle du lieu.",
+        "applicationsTitle": "Où nous appliquons :",
         "applications": [
-          "Routes nationales et municipales",
-          "Rues urbaines",
-          "Parcs et jardins",
-          "Zones riveraines"
+          "Monuments et églises",
+          "Hôtels et centres de villégiature",
+          "Bâtiments d'entreprise",
+          "Ponts et structures"
+        ]
+      },
+      {
+        "title": "Éclairage festif",
+        "image": "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000",
+        "desc": "L'éclairage festif est l'art de créer des émotions par la lumière. Nous développons des projets clé en main pour des occasions spéciales, transformant l'environnement urbain et commercial. De la conception créative des motifs (2D et 3D) à l'installation et au démontage sécurisés, nous garantissons un spectacle visuel qui attire les visiteurs, booste le commerce local et célèbre la tradition avec la technologie LED basse consommation.",
+        "applicationsTitle": "Où nous appliquons :",
+        "applications": [
+          "Centres historiques et villes",
+          "Centres commerciaux",
+          "Places et jardins publics",
+          "Façades de bâtiments"
         ]
       }
     ],
-    "ctaTitle": "Allumons votre projet ?",
+    "ctaTitle": "Éclairons votre projet ?",
     "ctaDesc": "Qu'il s'agisse de décorer votre ville pour Noël ou de renouveler l'éclairage public.",
     "ctaButton": "Demander une proposition d'éclairage"
   },

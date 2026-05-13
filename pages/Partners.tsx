@@ -30,6 +30,21 @@ const Partners: React.FC = () => {
     { type: "Material Elétrico", image: "https://drive.google.com/thumbnail?id=1KWoodbR8w7L36rG1G7lC6ztq7LMkdONg&sz=w1000", url: "https://www.al.pt/pt-pt/", scaleClass: "scale-75" },
     { type: "Material e Infraestruturas Elétricas", image: "https://drive.google.com/thumbnail?id=1LyLgXFcClPV_ZmR2RIoS_tgDCsmC4_P8&sz=w1000", url: "https://www.legrand.pt/", scaleClass: "scale-125" },
     { type: "Armários e Quadros Elétricos", image: "https://drive.google.com/thumbnail?id=1y1vF_oKBLqz5SB0ocWyZJhYg3tutmgJA&sz=w1000", url: "https://www.hager.pt/", scaleClass: "scale-75" },
+    { type: "Soluções de Engenharia e Equipamentos", image: "https://drive.google.com/thumbnail?id=1BhUoqK2Fo09IMiF4Kkd5_JNoNmXF36TW&sz=w1000", url: "https://www.profor.pt/", scaleClass: "scale-[2.25]" },
+    { type: "Transformadores e Energia", image: "https://drive.google.com/thumbnail?id=1vQR3zIybcQ9W9nxDdAFeSfNt72mO9oeu&sz=w1000", url: "https://transfopor.pt/", scaleClass: "scale-[2.25]" },
+    { type: "Aparelhagem de Média Tensão", image: "https://drive.google.com/thumbnail?id=1L9IVWS1eLHFYdXRDkSAQ9FSYZvBZ7dwI&sz=w1000", url: "https://www.ormazabal.com/pt-pt/", scaleClass: "scale-75" },
+    { type: "Consultoria e Sustentabilidade", image: "", url: "https://www.greenlab.pt/", scaleClass: "scale-75" },
+    { type: "Distribuição de Material Elétrico", image: "https://drive.google.com/thumbnail?id=1qxKuRhXLlWgKShq2uZO72AJQSJLn2D-t&sz=w1000", url: "https://www.sonepar.pt/", scaleClass: "scale-75" },
+    { type: "Ferramentas e Fixação", image: "https://drive.google.com/thumbnail?id=1Tz6jc7fKDdGmD3Jvk2Wv8Hp2jt6e1xBg&sz=w1000", url: "https://eshop.wurth.pt/pt/PT/EUR/", scaleClass: "scale-[2.25]" },
+    { type: "Proteção e Ligas Elétricas", image: "https://drive.google.com/thumbnail?id=119FF0aBhjvbInRS9O3W_yp8f9xEJVVVN&sz=w1000", url: "https://jobasi-sa.com/", scaleClass: "scale-150" },
+    { type: "Materiais para Redes Elétricas", image: "https://drive.google.com/thumbnail?id=1Sqx9Rpe_Qvv1n7qMUn-Hbj1vI2CX5DXK&sz=w1000", url: "https://sicame-group.com/en", scaleClass: "scale-150" },
+    { type: "Segurança Elétrica", image: "https://drive.google.com/thumbnail?id=1sbxYv2nu_vFuA9-PHpUx_E4ZknxqBHzX&sz=w1000", url: "https://sofamel.com/pt/", scaleClass: "scale-150" },
+    { type: "Iluminação Profissional", image: "https://drive.google.com/thumbnail?id=1lV9r7mXrBVgUWEmb18nI9_u67DLhxam0&sz=w1000", url: "https://www.ledvance.com/pt-pt", scaleClass: "scale-75" },
+    { type: "Quadros e Envolvências", image: "https://drive.google.com/thumbnail?id=1R9UHdoPUDlf9IE2tzgrzzEsAaHqfpOwB&sz=w1000", url: "https://quiterios.pt/pt/inicio", scaleClass: "scale-75" },
+    { type: "Fabrico de Cabos Elétricos", image: "https://drive.google.com/thumbnail?id=17MpsrXWxMTnHRH0P9EU9detWsqEsQhSc&sz=w1000", url: "https://www.miguelez.com/pt", scaleClass: "scale-[2.25]" },
+    { type: "Eficiência Energética", image: "https://drive.google.com/thumbnail?id=18cwmEaBjEXKvGWvQApxWFkJF1nr8DWsk&sz=w1000", url: "https://circutor.com/pt/", scaleClass: "scale-75" },
+    { type: "Gestão de Energia", image: "https://drive.google.com/thumbnail?id=1T5J8NNzPwoZNYw9Av19o2buGsNTTZM__&sz=w1000", url: "https://www.eaton.com/pt/pt-pt.html", scaleClass: "scale-75" },
+    { type: "Material de Instalação", image: "https://drive.google.com/thumbnail?id=1JMw3WQBSWaBGzsQXZGyYtxX3FB8cmYye&sz=w1000", url: "https://jsl-online.com/", scaleClass: "scale-150" },
   ];
 
   return (
@@ -156,7 +171,7 @@ const Partners: React.FC = () => {
                    key={index}
                    initial={{ opacity: 0, y: 20 }}
                    whileInView={{ opacity: 1, y: 0 }}
-                   transition={{ delay: index * 0.1 }}
+                   transition={{ duration: 0.3 }}
                    viewport={{ once: true }}
                    className="h-48 md:h-56"
                  >
@@ -181,39 +196,6 @@ const Partners: React.FC = () => {
         </section>
 
       </div>
-
-      {/* 4. PARCEIROS PÚBLICOS: Colunas Sólidas */}
-      <section className="bg-corporate text-white py-20 md:py-28">
-         <div className="container mx-auto px-6 md:px-12">
-            <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
-               <div className="max-w-xl">
-                  <h2 className="text-3xl font-bold uppercase font-heading mb-4 text-white">
-                    {t.partners.exclusiveTitle}
-                  </h2>
-                  <div className="h-1 w-20 bg-brand-light mb-6"></div>
-                  <p className="text-gray-400 font-light text-lg">
-                    {t.partners.exclusiveDesc}
-                  </p>
-               </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10 border-t border-b border-white/10">
-               {t.partners.exclusivePartners?.map((partner: any, index: number) => (
-                 <div key={index} className="py-12 md:py-16 md:px-12 first:pl-0 last:pr-0">
-                    <span className="block text-xs font-bold text-brand-light uppercase tracking-widest mb-4">
-                       {partner.type}
-                    </span>
-                    <h3 className="text-2xl font-bold mb-6 text-white font-heading">
-                       {partner.name}
-                    </h3>
-                    <p className="text-gray-400 text-base leading-relaxed">
-                      {partner.desc}
-                    </p>
-                 </div>
-               ))}
-            </div>
-         </div>
-      </section>
       
       {/* 5. Minimal CTA */}
       <div className="w-full py-12 md:py-16 bg-[linear-gradient(105deg,#3B455B_60%,#252B3B_60.1%)] text-center relative z-10 border-t-4 border-brand-light overflow-hidden">

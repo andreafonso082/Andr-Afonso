@@ -153,13 +153,44 @@ const ServiceDetail: React.FC = () => {
               <h3 className="text-lg md:text-xl font-bold text-corporate mb-4 md:mb-6 uppercase tracking-wider">
                  O que incluímos
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
-                {serviceData.features.map((feature: string, index: number) => (
-                  <div key={index} className="flex items-start gap-3 bg-detail p-4 rounded border border-gray-100">
-                    <Check size={20} className="text-accent shrink-0 mt-0.5" />
-                    <span className="text-gray-700 font-medium text-sm">{feature}</span>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                {serviceData.features.map((feature: any, index: number) => {
+                  const isObject = typeof feature === 'object' && feature !== null;
+                  const title = isObject ? feature.title : feature;
+                  const description = isObject ? feature.description : null;
+                  const bullets = isObject ? feature.bullets : null;
+
+                  return (
+                    <div 
+                      key={index} 
+                      className={`flex flex-col gap-2 bg-detail p-5 md:p-6 rounded border border-gray-100 ${isObject ? 'md:col-span-2' : ''}`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="bg-white p-1 rounded-full shadow-sm border border-gray-100 shrink-0">
+                          <Check size={18} className="text-accent" />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-corporate font-bold text-base md:text-lg">{title}</span>
+                          {description && (
+                            <p className="text-gray-600 text-sm md:text-base mt-2 leading-relaxed">
+                              {description}
+                            </p>
+                          )}
+                          {bullets && bullets.length > 0 && (
+                            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {bullets.map((bullet: string, bIdx: number) => (
+                                <div key={bIdx} className="flex items-center gap-2 text-gray-500 text-sm">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
+                                  {bullet}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* BENEFITS SECTION - NEW */}

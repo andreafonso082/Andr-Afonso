@@ -105,7 +105,7 @@ const Careers: React.FC = () => {
             ref={jobsContainerRef}
             onScroll={handleScroll}
             className="
-              flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 scrollbar-hide
+              flex items-stretch overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 scrollbar-hide
               md:gap-8 md:mx-auto md:px-0 md:max-w-6xl
             "
           >
@@ -118,7 +118,7 @@ const Careers: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className="
                   min-w-[85vw] sm:min-w-[400px] md:min-w-[450px] snap-center
-                  bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group h-full
+                  bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group
                 "
               >
                 <div className="flex justify-between items-start mb-4">
