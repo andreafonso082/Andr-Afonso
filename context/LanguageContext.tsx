@@ -12,19 +12,19 @@ const translations = {
   pt: {
     seo: {
       home: {
-        title: "Joaquim & Fernandes | Empresa de Eletricidade Algarve e Alentejo",
+        title: "JF | Empresa de Eletricidade Algarve e Alentejo",
         description: "Eletricistas especializados em Instalações Elétricas, Ligação à Rede, Baixadas e PLR's, Postos de Transformação e Smart Cities. Atuamos em Faro, Portimão, Tavira, Beja e todo o Algarve."
       },
       about: {
-        title: "Sobre Nós | Eletricistas Certificados no Algarve | Joaquim & Fernandes",
-        description: "Conheça a Joaquim & Fernandes, empresa líder em eletricidade e telecomunicações no Sul. Servimos o Algarve (Faro, Albufeira) e Alentejo com rigor."
+        title: "Sobre Nós | Assistência Permanente no Algarve | JF",
+        description: "Conheça a JF, empresa líder em eletricidade e telecomunicações no Sul. Servimos o Algarve (Faro, Albufeira) e Alentejo com rigor."
       },
       services: {
         title: "Instalações Elétricas e Serviços de Engenharia | Algarve e Alentejo",
         description: "Serviços completos no Sul do país: Projetos de Eletricidade, Baixadas e PLR's, Postos de Transformação, Instalações Elétricas Industriais e Carregamento de Veículos Elétricos."
       },
       lighting: {
-        title: "Iluminação Profissional | Festiva, Pública e Decorativa | J&F",
+        title: "Iluminação | Festiva, Pública e Decorativa | JF",
         description: "Soluções completas de iluminação no Algarve. Iluminação de Natal, Iluminação Inteligente (Smart Cities) e Iluminação Técnica."
       },
       partners: {
@@ -37,14 +37,14 @@ const translations = {
       },
       contact: {
         title: "Contactos | Peça Orçamento Eletricista Algarve e Alentejo",
-        description: "Contacte a Joaquim & Fernandes para orçamentos de instalações elétricas, Baixadas e PLR's ou manutenção. Atendemos Faro, Olhão, Tavira, Portimão e Beja."
+        description: "Contacte a JF para orçamentos de instalações elétricas, Baixadas e PLR's ou manutenção. Atendemos Faro, Olhão, Tavira, Portimão e Beja."
       },
       smartCities: {
-        title: "Smart Cities & IoT | Iluminação Pública Inteligente | J&F",
+        title: "Smart Cities & IoT | Iluminação Pública Inteligente | JF",
         description: "Transformamos cidades no Algarve em Smart Cities. Soluções de IoT, telegestão de iluminação pública e eficiência energética."
       },
       faqs: {
-        title: "Perguntas Frequentes | Joaquim & Fernandes",
+        title: "Perguntas Frequentes | JF",
         description: "Respostas às dúvidas mais comuns sobre pedidos de ligação à rede (PLR), baixadas, contadores e instalações elétricas."
       }
     },
@@ -52,7 +52,6 @@ const translations = {
       home: 'Início',
       about: 'Sobre Nós',
       services: 'Serviços',
-      lighting: 'Iluminação',
       partners: 'Parceiros',
       careers: 'Recrutamento',
       contact: 'Contactos',
@@ -80,24 +79,25 @@ const translations = {
     common: {
       learnMore: 'Saber Mais',
       seeMore: 'Ver Mais',
+      requestService: 'Pedir Serviço',
       address: 'Estrada Nacional 125, Bias Norte, Moncarapacho',
       city: '8700-066 Olhão'
     },
     home: {
       hero: {
-        title: "Soluções de Eletricidade,|Iluminação, Baixadas|e Ligações à Rede",
+        title: "Infraestruturas Elétricas,|Iluminação, PT’s|e PLR’s",
         subtitle: "A sua empresa de eletricidade de referência no Algarve e Alentejo. Excelência técnica em Baixadas, PLR's e Infraestruturas.",
         ctaPrimary: "Peça um orçamento",
         ctaSecondary: "Conheça os Serviços"
       },
       slogan: "Eletricidade é Connosco!",
       servicesTitle: "As Nossas Áreas de Atuação",
-      whyUsTitle: "Porquê escolher a Joaquim & Fernandes?",
-      whyUsDesc: "Somos a escolha certa para quem procura eletricistas certificados no Algarve e Alentejo. Combinamos décadas de experiência em Postos de Transformação e Telecomunicações com as tecnologias mais recentes.",
+      whyUsTitle: "Porquê escolher a JF?",
+      whyUsDesc: "Somos a escolha certa para quem procura assistência permanente no Algarve e Alentejo. Combinamos décadas de experiência em Postos de Transformação e Telecomunicações com as tecnologias mais recentes.",
       ctaButton: "Conheça os nossos serviços",
       benefits: [
         { id: 1, text: "Experiência desde 1986" },
-        { id: 2, text: "Eletricistas Certificados" },
+        { id: 2, text: "Assistência Permanente" },
         { id: 3, text: "Soluções Chave-na-mão" },
         { id: 4, text: "Foco no Sul do País" }
       ],
@@ -127,12 +127,13 @@ const translations = {
       leaveReview: "Deixe a sua avaliação",
       partnersTitle: "Parceiros e Marcas de Confiança",
       serviceCards: {
-         plrs: { title: "PLR", desc: "Execução de ramais, desvios de rede e gestão de processos junto da E-Redes." },
+         plrs: { title: "PLR", desc: "Especialistas em Pedidos de Ligação à Rede (PLR) no Algarve e Alentejo." },
          infraestruturas: { title: "Infraestruturas Elétricas", desc: "Redes de Baixa e Média Tensão e Postos de Transformação." },
-         telecommunications: { title: "Telecomunicações", desc: "Projetos ITED/ITUR, infraestruturas de fibra ótica e CCTV." },
          substations: { title: "PT’s", desc: "Fornecimento, limpeza, manutenção e assistência a postos de transformação." },
+         lighting: { title: "Iluminação", desc: "Iluminação festiva, soluções inteligentes e iluminação técnica." },
          installations: { title: "Instalações Elétricas", desc: "Quadros elétricos, iluminação interior e serviços de manutenção preventiva." },
-         projects: { title: "Projetos e Certificações", desc: "Engenharia elétrica especializada, projetos BT/MT e licenciamentos." },
+         projects: { title: "Projetos e Certificações", desc: "Qualquer grande obra começa com um bom projeto. O nosso departamento de engenharia elabora projetos detalhados." },
+         telecommunications: { title: "Telecomunicações", desc: "Infraestruturas de telecomunicações preparadas para o futuro de acordo com todas as normas!" },
          others: { title: "Outros Serviços", desc: "Mobilidade elétrica, construção civil, aluguer de equipamentos e apoio a eventos." }
       }
     },
@@ -145,43 +146,49 @@ const translations = {
       categories: [
         {
           id: 'plrs',
-          title: "PLR",
-          description: "Gestão completa de processos de ligação à rede elétrica junto da E-Redes.",
-          details: ["Execução de Ramais", "Desvios de rede", "Projetos e certificações"]
+          title: "PEDIDOS DE LIGAÇÃO À REDE (PLR)",
+          description: "A JF é especialista em Pedidos de Ligação à Rede (PLR) em todo o Algarve e Alentejo. Tratamos de todo o processo junto da E-Redes e executamos toda a obra.",
+          details: ["Levantamento Técnico no local", "Abertura do processo na E-Redes", "Execução de Ramais", "Certificação Final"]
         },
         {
           id: 'infraestruturas',
-          title: "Infraestruturas elétricas",
-          description: "Execução e manutenção de redes elétricas de Baixa e Média Tensão.",
-          details: ["Baixa Tensão", "Média Tensão", "Postos de Transformação"]
-        },
-        {
-          id: 'telecommunications',
-          title: "Telecomunicações",
-          description: "Infraestruturas de comunicação e segurança eletrónica.",
-          details: ["Projetos ITED/ITUR", "Instalações de fibra e CCTV"]
+          title: "INFRAESTRUTURAS ELÉTRICAS",
+          description: "Execução e manutenção de redes elétricas: Baixa Tensão, Média Tensão e Postos de Transformação.",
+          details: ["Baixa Tensão", "Média Tensão", "Postos de Transformação", "Manutenção de Redes", "Ensaios Técnicos"]
         },
         {
           id: 'substations',
-          title: "PT’s",
+          title: "POSTOS DE TRANSFORMAÇÃO",
           description: "Montagem, manutenção e assistência a Postos de Transformação.",
           details: ["Fornecimentos de PTs", "Limpeza e manutenção de PTs", "Assistência a avarias"]
         },
         {
+          id: 'lighting',
+          title: "ILUMINAÇÃO",
+          description: "Iluminação festiva, soluções inteligentes e iluminação técnica.",
+          details: ["Iluminação Pública", "Iluminação Desportiva", "Iluminação Festiva", "Cidades Inteligentes"]
+        },
+        {
           id: 'installations',
-          title: "Instalações Elétricas",
+          title: "INSTALAÇÕES ELÉTRICAS",
           description: "Soluções elétricas completas para edifícios habitacionais e comerciais.",
           details: ["Quadros elétricos", "Manutenção preventiva", "Iluminação interior"]
         },
         {
           id: 'projects',
-          title: "Projetos e Certificações",
-          description: "Engenharia elétrica especializada e licenciamentos.",
-          details: ["Projetos BT e MT", "Projetos elétricos", "Projetos iluminotecnicos"]
+          title: "PROJETOS E CERTIFICAÇÕES",
+          description: "Qualquer grande obra começa com um bom projeto. O nosso departamento de engenharia elabora projetos detalhados, garantindo o equilíbrio entre custo, eficiência e segurança.",
+          details: ["Projetos de Média Tensão", "Projetos de Baixa Tensão", "Projetos de Instalações Elétricas", "Projetos iluminotécnicos"]
+        },
+        {
+          id: 'telecommunications',
+          title: "TELECOMUNICAÇÕES",
+          description: "Vivemos numa era digital onde a conetividade é fundamental. A JF projeta e instala infraestruturas de telecomunicações preparadas para o futuro.",
+          details: ["Projetos ITED/ITUR", "Instalações de rede", "Instalações de fibra", "Instalações de CCTV"]
         },
         {
           id: 'others',
-          title: "Outros Serviços",
+          title: "OUTROS SERVIÇOS",
           description: "Serviços complementares para apoio integral ao seu projeto.",
           details: ["Construção civil", "Mobilidade elétrica", "Aluguer de equipamentos", "Apoio a Eventos"]
         }
@@ -189,58 +196,56 @@ const translations = {
     },
     serviceDetails: {
       plrs: {
-        seoTitle: "PLR - Pedidos de Ligação à Rede",
+        seoTitle: "PEDIDOS DE LIGAÇÃO À REDE (PLR)",
         title: "PLR",
-        description: "Gestão completa de processos de ligação à rede elétrica junto da E-Redes.",
-        fullText: "A Joaquim & Fernandes é especialista na execução de Pedidos de Ligação à Rede (PLR) em todo o Algarve e Alentejo. Assumimos todo o processo burocrático junto da E-Redes e executamos as obras físicas necessárias (ramais, desvios de rede) para que tenha eletricidade na sua propriedade com a maior brevidade possível.",
-        features: ["Execução de Ramais", "Desvios de rede", "Projetos e certificações", "Levantamento técnico no local", "Abertura de processos na E-Redes"],
+        description: "A JF é especialista em Pedidos de Ligação à Rede (PLR) em todo o Algarve e Alentejo. Tratamos de todo o processo junto da E-Redes e executamos toda a obra.",
+        fullText: "A JF é especialista em Pedidos de Ligação à Rede (PLR) em todo o Algarve e Alentejo. Tratamos de todo o processo junto da E-Redes e executamos toda a obra, para que tenha eletricidade no seu imóvel o mais rapidamente possível.",
+        features: ["Levantamento Técnico no local", "Abertura do processo na E-Redes", "Execução de Ramais", "Certificação Final"],
         keywords: ["PLR", "E-Redes", "Ramais", "Baixadas", "Eletricidade"],
         benefits: [
-          { title: "Chave-na-mão", desc: "Tratamos da burocracia e da obra." },
-          { title: "Rapidez", desc: "Conhecemos os procedimentos para acelerar o processo." }
+          { title: "Chave-na-mão", desc: "Tratamos de todo o processo e de toda a execução de obra." }
         ]
       },
       infraestruturas: {
-        seoTitle: "Infraestruturas Elétricas BT e MT",
-        title: "Infraestruturas elétricas",
-        description: "Execução e manutenção de redes elétricas de Baixa e Média Tensão.",
-        fullText: "Executamos e mantemos infraestruturas elétricas de Baixa e Média Tensão, garantindo a distribuição de energia com máxima fiabilidade. Desde redes urbanas a postos de transformação, a nossa equipa assegura a continuidade de serviço.",
-        features: ["Baixa Tensão", "Média Tensão", "Postos de Transformação", "Manutenção de Redes", "Ensaios Técnicos"],
-        keywords: ["BT", "MT", "Infraestruturas", "Redes Elétricas"],
+        seoTitle: "INFRAESTRUTURAS ELÉTRICAS - BAIXA E MÉDIA TENSÃO",
+        title: "INFRAESTRUTURAS ELÉTRICAS",
+        description: "Execução e manutenção de redes elétricas: Baixa Tensão, Média Tensão e Postos de Transformação.",
+        fullText: "A JF é especialista na execução e manutenção de infraestruturas elétricas de serviço público ou privado. Realizamos todo o tipo de instalações elétricas de Baixa e Média Tensão e Postos de Transformação, garantindo o cumprimento rigoroso de todas as normas técnicas e de segurança.",
+        features: ["Baixa Tensão", "Média Tensão", "Postos de Transformação", "Redes de Iluminação Pública", "Ensaios e Certificações"],
+        keywords: ["Instalações Industriais", "Baixa Tensão", "Quadros Elétricos", "Segurança Elétrica"],
         benefits: [
-          { title: "Fiabilidade", desc: "Infraestruturas desenhadas para durar." },
-          { title: "Segurança", desc: "Cumprimento rigoroso das normas técnicas." }
+          { title: "Segurança", desc: "Cumprimento rigoroso das normas técnicas." },
+          { title: "Experiência profissional", desc: "Conhecimento e competência" }
         ]
       },
       telecommunications: {
-        seoTitle: "Telecomunicações ITED e ITUR",
-        title: "Telecomunicações",
-        description: "Infraestruturas de comunicação e segurança eletrónica.",
-        fullText: "Vivemos na era digital onde a conectividade é fundamental. A Joaquim & Fernandes projeta e instala infraestruturas de telecomunicações (ITED e ITUR) preparadas para o futuro. Desde a fusão de fibra ótica à instalação de CCTV, garantimos que o seu imóvel está sempre ligado.",
-        features: ["Projetos ITED/ITUR", "Instalações de fibra ótica", "CCTV e Segurança eletrónica", "Certificação de redes", "Manutenção de sistemas"],
+        seoTitle: "TELECOMUNICAÇÕES ITED E ITUR",
+        title: "TELECOMUNICAÇÕES",
+        description: "Vivemos numa era digital onde a conetividade é fundamental. A JF projeta e instala infraestruturas de telecomunicações preparadas para o futuro.",
+        fullText: "Vivemos numa era digital onde a conetividade é fundamental. A JF projeta e instala infraestruturas de telecomunicações preparadas para o futuro. Garantimos que o seu empreendimento cumpre todas as normas!",
+        features: ["Projetos ITED/ITUR", "Instalações de rede", "Instalações de fibra", "Instalações de CCTV"],
         keywords: ["ITED", "ITUR", "Fibra Ótica", "CCTV", "Telecom"],
         benefits: [
-          { title: "Conectividade", desc: "Redes de alta velocidade e fiabilidade." },
-          { title: "Certificação", desc: "Garantia de conformidade ANACOM." }
+          { title: "Experiência profissional", desc: "Conhecimento e competência" }
         ]
       },
       substations: {
-        seoTitle: "PT's - Postos de Transformação",
-        title: "PT’s",
-        description: "Montagem, manutenção e assistência a Postos de Transformação.",
-        fullText: "Especialistas em Postos de Transformação (PT), oferecemos serviços de fornecimento, limpeza, manutenção e assistência a avarias. Garantimos que a sua instalação de média tensão opera sem interrupções.",
-        features: ["Fornecimentos de PTs", "Limpeza e manutenção de PTs", "Assistência a avarias", "Análise de óleos", "Celas de MT"],
+        seoTitle: "PT'S - POSTOS DE TRANSFORMAÇÃO",
+        title: "POSTOS DE TRANSFORMAÇÃO",
+        description: "Fornecimento e montagem de Postos de Transformação para indústrias e grandes superfícies.",
+        fullText: "Para indústrias, hotéis, explorações agrícolas ou grandes superfícies comerciais, a ligação em Baixa Tensão pode não ser suficiente. A JF especializa-se na fornecimento e montagem de Postos de Transformação (PTs). Oferecemos manutenção e assistência garantindo uma maior longevidade dos equipamentos e a segurança das instalações.",
+        features: ["Fornecimento e Instalação de PT’s", "Manutenção Preventiva e Corretiva", "Assistência a avarias", "Análise de Óleo Dielétrico"],
         keywords: ["PT", "Média Tensão", "Transformadores", "Manutenção"],
         benefits: [
-          { title: "Continuidade", desc: "Minimizamos tempos de paragem em caso de avaria." },
-          { title: "Longevidade", desc: "Manutenção preventiva que aumenta a vida útil." }
+          { title: "Fiabilidade", desc: "Parceiros dos Principais Fabricantes" },
+          { title: "Conformidade", desc: "Cumprimento rigoroso de todas as normas legais e regulamentos técnicos vigentes." }
         ]
       },
       installations: {
-        seoTitle: "Instalações Elétricas e Manutenção",
-        title: "Instalações Elétricas",
+        seoTitle: "INSTALAÇÕES ELÉTRICAS E MANUTENÇÃO",
+        title: "INSTALAÇÕES ELÉTRICAS",
         description: "Soluções elétricas completas para edifícios e manutenção preventiva.",
-        fullText: "Realizamos todos os tipos de instalações elétricas em baixa tensão. De quadros elétricos complexos a sistemas de iluminação interior, a nossa equipa de eletricistas certificados assegura o rigor em cada detalhe.",
+        fullText: "Realizamos todos os tipos de instalações elétricas em baixa tensão. De quadros elétricos complexos a sistemas de iluminação interior, a nossa equipa de assistência permanente assegura o rigor em cada detalhe.",
         features: ["Quadros elétricos", "Manutenção preventiva", "Iluminação interior", "Instalações comerciais", "Domótica básica"],
         keywords: ["Instalações", "Quadros Elétricos", "Iluminação", "Manutenção"],
         benefits: [
@@ -249,20 +254,20 @@ const translations = {
         ]
       },
       projects: {
-        seoTitle: "Projetos de Engenharia e Certificações",
-        title: "Projetos e Certificações",
-        description: "Engenharia elétrica especializada e licenciamentos.",
-        fullText: "Todo o projeto de excelência começa com um bom planeamento. O nosso departamento de engenharia elabora projetos elétricos detalhados, garantindo o equilíbrio entre custo, eficiência e segurança junto das entidades oficiais.",
-        features: ["Projetos BT e MT", "Projetos elétricos", "Projetos iluminotecnicos", "Licenciamento DGEG", "Medidas de Autoproteção"],
+        seoTitle: "PROJETOS E CERTIFICAÇÕES",
+        title: "PROJETOS E CERTIFICAÇÕES",
+        description: "Qualquer grande obra começa com um bom projeto. O nosso departamento de engenharia elabora projetos detalhados, garantindo o equilíbrio entre custo, eficiência e segurança.",
+        fullText: "Qualquer grande obra começa com um bom projeto. O nosso departamento de engenharia elabora projetos detalhados, garantindo o equilíbrio entre custo, eficiência e segurança.",
+        features: ["Projetos de Média Tensão", "Projetos de Baixa Tensão", "Projetos de Instalações Elétricas", "Projetos iluminotécnicos"],
         keywords: ["Projetos", "Certificações", "Engenharia", "DGEG"],
         benefits: [
-          { title: "Aprovação", desc: "Elevada taxa de sucesso em licenciamentos." },
-          { title: "Otimização", desc: "Projetos pensados para reduzir custos de obra." }
+          { title: "Conformidade Legal", desc: "Garantimos o cumprimento de todas as normas e regulamentos." },
+          { title: "Prazo de Resposta", desc: "Agilidade no desenvolvimento e licenciamento do projeto." }
         ]
       },
       others: {
-        seoTitle: "Outros Serviços Especializados",
-        title: "Outros Serviços",
+        seoTitle: "OUTROS SERVIÇOS ESPECIALIZADOS",
+        title: "OUTROS SERVIÇOS",
         description: "Serviços complementares para apoio integral ao seu projeto.",
         fullText: "Integramos uma gama de serviços complementares para oferecer uma solução global. Da construção civil necessária para infraestruturas à mobilidade elétrica e aluguer de equipamentos, somos o parceiro único que o seu projeto precisa.",
         features: [
@@ -287,7 +292,8 @@ const translations = {
         keywords: ["Mobilidade", "Construção", "Eventos", "Equipamentos"],
         benefits: [
           { title: "Polivalência", desc: "Várias competências num único parceiro." },
-          { title: "Sustentabilidade", desc: "Soluções de carregamento para o futuro." }
+          { title: "Sustentabilidade", desc: "Soluções de carregamento para o futuro." },
+          { title: "Experiência profissional", desc: "Conhecimento e competência" }
         ]
       }
     },
@@ -295,7 +301,7 @@ const translations = {
       heroTitle: "Iluminação que Transforma",
       heroDesc: "Da magia das luzes de Natal à eficiência da iluminação pública inteligente. Criamos ambientes e garantimos segurança através da luz.",
       introTitle: "Soluções de Luz 360º",
-      introDesc: "Na Joaquim & Fernandes, a luz é mais do que visibilidade — é experiência, segurança e identidade. Oferecemos um portfólio completo que vai desde a iluminação decorativa para épocas festivas até sistemas técnicos avançados para cidades e indústrias.",
+      introDesc: "Na JF, a luz é mais do que visibilidade — é experiência, segurança e identidade. Oferecemos um portfólio completo que vai desde a iluminação pública até a iluminação para épocas festivas. Sempre com manutenção e assistência técnica. Efetuamos o estudo iluminotécnico tendo por base a eficiência energética.",
       stat1: "Projetos Festivos",
       stat2: "Pontos de Luz LED",
       types: [
@@ -309,7 +315,7 @@ const translations = {
         {
           title: "Iluminação Desportiva",
           image: "https://drive.google.com/thumbnail?id=15ZTaJZVipA-lCRWq5r5I0oelf5cJDUTF&sz=w1000",
-          desc: "No desporto, a luz é fundamental para o desempenho dos atletas e experiência dos espectadores. Projetamos e instalamos sistemas de iluminação que cumprem rigorosamente os níveis de lux exigidos pelas federações e normas de transmissão televisiva. Garantimos uniformidade no campo, controlo de encadeamento e sistemas de acendimento instantâneo para pavilhões e estádios.",
+          desc: "No desporto, a luz é fundamental para o desempenho dos atletas e experiência dos espectadores. Projetamos e instalamos sistemas de iluminação que cumprem rigorosamente os níveis de lux exigidos pelas federations e normas de transmissão televisiva. Garantimos uniformidade no campo, controlo de encadeamento e sistemas de acendimento instantâneo para pavilhões e estádios.",
           applicationsTitle: "Onde aplicamos:",
           applications: ["Campos de Futebol e Estádios", "Pavilhões Desportivos", "Campos de Ténis e Padel", "Piscinas Municipais"]
         },
@@ -341,13 +347,14 @@ const translations = {
     },
     partners: {
       heroTitle: "Parceiros de Confiança",
-      heroDesc: "A excelência da Joaquim & Fernandes constrói-se com relações sólidas com líderes globais da indústria e parcerias estratégicas exclusivas.",
+      heroDesc: "A excelência da JF constrói-se com relações sólidas com líderes globais da indústria e parcerias estratégicas exclusivas.",
       suppliersTitle: "Fornecedores e Marcas Certificadas",
       suppliersDesc: "Trabalhamos apenas com materiais homologados e equipamentos de topo para garantir a máxima segurança e durabilidade das nossas instalações elétricas.",
       eredesHighlight: {
-        title: "Interligação com a Rede de Distribuição",
+        title: "INTERLIGAÇÃO COM A REDE DE DISTRIBUIÇÃO",
         desc: "Como empresa especializada, garantimos o cumprimento rigoroso de todas as normas técnicas exigidas pela E-Redes (antiga EDP Distribuição) para baixadas, ramais e postos de transformação.",
-        badge: "Normas Técnicas Cumpridas"
+        badge: "Normas Técnicas Cumpridas",
+        licenseLinkText: "Consulte todas as nossas classes aqui"
       },
       brandsList: [
         { name: "Schneider Electric", desc: "Líder global em gestão de energia e automação." },
@@ -356,12 +363,11 @@ const translations = {
         { name: "Legrand", desc: "Especialistas em infraestruturas elétricas e digitais." },
         { name: "Hager", desc: "Sistemas de instalação e distribuição de energia." }
       ],
-      exclusiveTitle: "Entidades Públicas Parceiras",
-      exclusiveDesc: "Municípios e organizações estatais que confiam na Joaquim & Fernandes para iluminação pública e infraestruturas críticas.",
+      exclusiveTitle: "A QUEM NOS ASSOCIAMOS",
+      exclusiveDesc: "Instituições e associações que partilham o nosso compromisso com o rigor e a excelência no setor.",
       exclusivePartners: [
-        { name: "Município de Olhão", type: "Autarquia", desc: "Execução de infraestruturas elétricas em novos loteamentos e zonas industriais." },
-        { name: "Município de Faro", type: "Autarquia", desc: "Manutenção de Iluminação Pública e edifícios municipais no concelho." },
-        { name: "Município de Loulé", type: "Autarquia", desc: "Desenvolvimento e manutenção de redes elétricas e iluminação pública." }
+        { name: "AICCOPN", type: "Associação", desc: "Associação dos Industriais da Construção Civil e Obras Públicas.", logo: "https://drive.google.com/thumbnail?id=1fcRxUxNvCwhcZrv1MisspEy97X3sNpi4&sz=w1000", link: "https://www.aiccopn.pt/" },
+        { name: "NERA", type: "Associação", desc: "Associação Empresarial da Região do Algarve.", logo: "https://drive.google.com/thumbnail?id=1X6U5Eqg1pQCsDUTGVdZFo5EhYKLZ4BWO&sz=w1000", link: "https://nera.pt/" }
       ],
       ctaTitle: "Torne-se um Parceiro",
       ctaDesc: "Procuramos constantemente expandir a nossa rede com empresas que partilhem os nossos valores de rigor e qualidade.",
@@ -484,7 +490,7 @@ const translations = {
       heroTitle: "Recrutamento",
       heroDesc: "Junte-se a uma equipa com quase 40 anos de história. Construímos o futuro no Algarve e Alentejo com rigor e inovação.",
       introTitle: "Porquê trabalhar connosco?",
-      introDesc: "Na Joaquim & Fernandes, acreditamos que as pessoas são a nossa maior energia. Oferecemos estabilidade, formação contínua e a oportunidade de trabalhar em projetos desafiantes de eletricidade, construção e mobilidade sustentável.",
+      introDesc: "Na JF, acreditamos que as pessoas são a nossa maior energia. Oferecemos estabilidade, formação contínua e a oportunidade de trabalhar em projetos desafiantes de eletricidade, construção e mobilidade sustentável.",
       benefits: [
         "Formação Contínua e Certificação",
         "Seguro de Saúde",
@@ -532,7 +538,7 @@ const translations = {
     qualityPage: {
       title: "Política de Qualidade",
       visionTitle: "Visão",
-      visionDesc: "A Joaquim & Fernandes Lda idealiza ser uma empresa de referência e um parceiro estratégico na construção de infraestruturas na região do Algarve, acompanhando a inovação e sendo um exemplo na sua área de negócio.",
+      visionDesc: "A JF idealiza ser uma empresa de referência e um parceiro estratégico na construção de infraestruturas na região do Algarve, acompanhando a inovação e sendo um exemplo na sua área de negócio.",
       missionTitle: "Missão",
       missionDesc: "Prestar serviços eficazes e rápidos na área da construção e manutenção de infraestruturas no Sul de Portugal.",
       valuesTitle: "Valores",
@@ -562,11 +568,11 @@ const translations = {
     },
     privacyPage: {
       title: "Política de Privacidade",
-      intro: "A Joaquim & Fernandes, Lda respeita a sua privacidade e compromete-se a proteger os seus dados pessoais. Esta política descreve como recolhemos, utilizamos e protegemos a sua informação, em conformidade com o Regulamento Geral de Proteção de Dados (RGPD).",
+      intro: "A JF respeita a sua privacidade e compromete-se a proteger os seus dados pessoais. Esta política descreve como recolhemos, utilizamos e protegemos a sua informação, em conformidade com o Regulamento Geral de Proteção de Dados (RGPD).",
       sections: [
         {
           title: "1. Responsável pelo Tratamento",
-          content: "A entidade responsável pelo tratamento dos seus dados pessoais é a Joaquim & Fernandes, Lda, com sede na Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. Para qualquer questão relacionada com a proteção de dados, pode contactar-nos através do email mail@joaquimfernandes.pt."
+          content: "A entidade responsável pelo tratamento dos seus dados pessoais é a JF, com sede na Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. Para qualquer questão relacionada com a proteção de dados, pode contactar-nos através do email mail@joaquimfernandes.pt."
         },
         {
           title: "2. Dados Recolhidos",
@@ -593,11 +599,11 @@ const translations = {
     },
     termsPage: {
       title: "Termos e Condições",
-      intro: "Bem-vindo ao website da Joaquim & Fernandes. Ao aceder e utilizar este site, concorda com os seguintes termos e condições de utilização.",
+      intro: "Bem-vindo ao website da JF. Ao aceder e utilizar este site, concorda com os seguintes termos e condições de utilização.",
       sections: [
         {
           title: "1. Propriedade Intelectual",
-          content: "Todo o conteúdo presente neste site (textos, imagens, logótipos, vídeos) é propriedade exclusiva da Joaquim & Fernandes, Lda ou dos seus parceiros, estando protegido pela legislação de Direitos de Autor e Propriedade Industrial. É proibida a cópia, reprodução ou distribuição sem autorização prévia."
+          content: "Todo o conteúdo presente neste site (textos, imagens, logótipos, vídeos) é propriedade exclusiva da JF ou dos seus parceiros, estando protegido pela legislação de Direitos de Autor e Propriedade Industrial. É proibida a cópia, reprodução ou distribuição sem autorização prévia."
         },
         {
           title: "2. Utilização do Site",
@@ -605,15 +611,15 @@ const translations = {
         },
         {
           title: "3. Limitação de Responsabilidade",
-          content: "A Joaquim & Fernandes esforça-se por manter a informação do site atualizada e precisa. No entanto, não garantimos a ausência de erros ou omissões e não nos responsabilizamos por danos resultantes da utilização da informação aqui contida. As propostas comerciais e orçamentos requerem sempre confirmação oficial por parte da empresa."
+          content: "A JF esforça-se por manter a informação do site atualizada e precisa. No entanto, não garantimos a ausência de erros ou omissões e não nos responsabilizamos por danos resultantes da utilização da informação aqui contida. As propostas comerciais e orçamentos requerem sempre confirmação oficial por parte da empresa."
         },
         {
           title: "4. Ligações Externas",
-          content: "Este site pode conter ligações para sites de terceiros (ex: parceiros, redes sociais). A Joaquim & Fernandes não controla nem é responsável pelo conteúdo ou políticas de privacidade desses sites externos."
+          content: "Este site pode conter ligações para sites de terceiros (ex: parceiros, redes sociais). A JF não controla nem é responsável pelo conteúdo ou políticas de privacidade desses sites externos."
         },
         {
           title: "5. Resolução Alternativa de Litígios (RAL)",
-          content: "Em caso de litígio de consumo, o consumidor pode recorrer a uma Entidade de Resolução Alternativa de Litígios de Consumo competente. A Joaquim & Fernandes é aderente aos centros de arbitragem da região do Algarve. Mais informações no Portal do Consumidor (www.consumidor.pt)."
+          content: "Em caso de litígio de consumo, o consumidor pode recorrer a uma Entidade de Resolução Alternativa de Litígios de Consumo competente. A JF é aderente aos centros de arbitragem da região do Algarve. Mais informações no Portal do Consumidor (www.consumidor.pt)."
         },
         {
           title: "6. Lei Aplicável e Foro",
@@ -625,12 +631,15 @@ const translations = {
       heroTitle: "A Nossa História",
       heroDesc: "Quase quatro décadas de engenharia, construção e inovação. Conheça o percurso que nos trouxe até aqui.",
       timeline: [
-        { year: "1986", title: "A Fundação", description: "Joaquim & Fernandes inicia a sua atividade como uma pequena empresa familiar focada em instalações elétricas residenciais na zona de Faro." },
-        { year: "1998", title: "Expansão para Indústria", description: "Com o crescimento da equipa, a empresa expande os serviços para o setor industrial em todo o Algarve." },
-        { year: "2005", title: "Departamento de Construção", description: "Respondendo às necessidades dos clientes, abrimos o departamento de construção civil para oferecer soluções chave-na-mão." },
-        { year: "2015", title: "Expansão para o Alentejo", description: "Início das operações no Alentejo, focando em projetos agrícolas e industriais." },
-        { year: "2020", title: "Mobilidade Elétrica", description: "Lançamento da divisão dedicada à mobilidade elétrica, instalando postos de carregamento em todo o Sul." },
-        { year: "Hoje", title: "Líderes de Mercado no Sul", description: "Continuamos a inovar, mantendo os valores de confiança que nos definem há quase 40 anos." }
+        { year: "1986", title: "Fundação da Empresa", description: "JF inicia a sua atividade como uma pequena empresa familiar focada em instalações elétricas residenciais na zona de Faro." },
+        { year: "1998", title: "Criamos o 1º Site", description: "Lançamento da nossa primeira presença digital, acompanhando a evolução tecnológica." },
+        { year: "2000", title: "Chefe do Consórcio", description: "Reconhecidos como Chefe do Consórcio no Algarve para a EDP (atual E-REDES)." },
+        { year: "2001", title: "Certificação de Qualidade", description: "Reconhecidos com a Certificação de Qualidade, reforçando o nosso compromisso com o rigor." },
+        { year: "2008", title: "1º PME Líder", description: "Distinção pública da nossa solidez financeira e desempenho económico." },
+        { year: "2011", title: "Nova Gerência", description: "Início de um novo ciclo estratégico com a entrada de uma nova liderança." },
+        { year: "2017", title: "Renovação da Imagem", description: "Modernização da identidade visual da empresa, refletindo a inovação constante." },
+        { year: "2018", title: "1º PME Excelência", description: "Selo de reputação que premeia os melhores desempenhos económico-financeiros." },
+        { year: "2021", title: "Aquisição da Empresa", description: "Aquisição da JF pela gerência atual, consolidando o futuro da empresa." }
       ],
       awards: {
         title: "Reconhecimento, Certificações e Prémios",
@@ -638,10 +647,10 @@ const translations = {
         list: [
           { name: "PME Líder", desc: "Estatuto de referência que distingue o mérito e o perfil de risco das PME nacionais. Distinguida 3 vezes (last in 2025)." },
           { name: "PME Excelência", desc: "Selo de reputação que premeia os melhores desempenhos económico-financeiros. Distinguida 3 vezes (last in 2025)." },
-          { name: "Empreiteiro Qualificado EDP", desc: "Reconhecimento técnico pela distribuidora para execução de obras na rede elétrica." },
+          { name: "Empreiteiro Qualificado E-Redes", desc: "Reconhecimento técnico pela distribuidora para execução de obras na rede elétrica." },
           { name: "Alvará de Construção Nº 8887", desc: "Habilitação oficial IMPIC para execução de obras públicas e privadas de classe elevada." },
           { name: "Certificado conformidade, norma ISO 9001:2015", desc: "Sistema de Gestão da Qualidade certificado, garantindo rigor em todos os processos." },
-          { name: "Certificado REPRO", desc: "Sistema de qualificação de fornecedores para o setor energético e utilities na Península Ibérica." }
+          { name: "Compromisso Pagamento Pontual", desc: "Iniciativa que distingue empresas que cumprem prazos de pagamento a fornecedores e promovem a ética empresarial." }
         ]
       },
       teamSection: {
@@ -661,19 +670,19 @@ const translations = {
   en: {
     seo: {
       home: {
-        title: "Joaquim & Fernandes | Electricity Company Algarve and Alentejo",
+        title: "JF | Electricity Company Algarve and Alentejo",
         description: "Electricians specialized in Electrical Installations, Grid Connections, PLRs, Transformer Substations and Smart Cities. Operating in Faro, Portimão, Tavira, Beja and all Algarve."
       },
       about: {
-        title: "About Us | Certified Electricians in Algarve | Joaquim & Fernandes",
-        description: "Meet Joaquim & Fernandes, a leading company in electricity and telecommunications in the South. Serving Algarve (Faro, Albufeira) and Alentejo with rigor."
+        title: "About Us | Permanent Assistance in Algarve | JF",
+        description: "Meet JF, a leading company in electricity and telecommunications in the South. Serving Algarve (Faro, Albufeira) and Alentejo with rigor."
       },
       services: {
         title: "Electrical Installations and Engineering Services | Algarve and Alentejo",
         description: "Complete services in the South: Electricity Projects, Grid Connections (PLRs), Transformer Substations, Industrial Electrical Installations, and EV Charging."
       },
       lighting: {
-        title: "Professional Lighting | Festive, Public and Decorative | J&F",
+        title: "Lighting | Festive, Public and Decorative | JF",
         description: "Complete lighting solutions in Algarve. Christmas Lighting, Smart Lighting (Smart Cities) and Technical Lighting."
       },
       partners: {
@@ -686,14 +695,14 @@ const translations = {
       },
       contact: {
         title: "Contacts | Request Electrician Quote Algarve and Alentejo",
-        description: "Contact Joaquim & Fernandes for quotes on electrical installations, Grid Connections (PLRs) or maintenance. Serving Faro, Olhão, Tavira, Portimão and Beja."
+        description: "Contact JF for quotes on electrical installations, Grid Connections (PLRs) or maintenance. Serving Faro, Olhão, Tavira, Portimão and Beja."
       },
       smartCities: {
-        title: "Smart Cities & IoT | Smart Public Lighting | J&F",
+        title: "Smart Cities & IoT | Smart Public Lighting | JF",
         description: "Transforming cities in Algarve into Smart Cities. IoT solutions, public lighting telemanagement, and energy efficiency."
       },
       faqs: {
-        title: "Frequently Asked Questions | Joaquim & Fernandes",
+        title: "Frequently Asked Questions | JF",
         description: "Answers to common questions about grid connection requests (PLR), drops, meters, and electrical installations."
       }
     },
@@ -701,7 +710,6 @@ const translations = {
       home: 'Home',
       about: 'About Us',
       services: 'Services',
-      lighting: 'Lighting',
       partners: 'Partners',
       careers: 'Careers',
       contact: 'Contacts',
@@ -729,24 +737,25 @@ const translations = {
     common: {
       learnMore: 'Learn More',
       seeMore: 'See More',
+      requestService: 'Request Service',
       address: 'Estrada Nacional 125, Bias Norte, Moncarapacho',
       city: '8700-066 Olhão, Portugal'
     },
     home: {
       hero: {
-        title: "Electricity Solutions,|Lighting, Connections|and Grid Access",
+        title: "Electrical Infrastructures,|Lighting, PT's|and PLR's",
         subtitle: "Your reference electricity company in Algarve and Alentejo. Technical excellence in Grid Connections, PLRs and Infrastructures.",
         ctaPrimary: "Request a Quote",
         ctaSecondary: "Explore Services"
       },
       slogan: "Electricity is Our Business!",
       servicesTitle: "Our Areas of Expertise",
-      whyUsTitle: "Why choose Joaquim & Fernandes?",
-      whyUsDesc: "We are the right choice for anyone looking for certified electricians in Algarve and Alentejo. We combine decades of experience in Transformer Substations and Telecommunications with the latest technologies.",
+      whyUsTitle: "Why choose JF?",
+      whyUsDesc: "We are the right choice for anyone looking for permanent assistance in Algarve and Alentejo. We combine decades of experience in Transformer Substations and Telecommunications with the latest technologies.",
       ctaButton: "Explore our services",
       benefits: [
         { id: 1, text: "Experience since 1986" },
-        { id: 2, text: "Certified Electricians" },
+        { id: 2, text: "Permanent Assistance" },
         { id: 3, text: "Turnkey Solutions" },
         { id: 4, text: "Focus on the South" }
       ],
@@ -776,14 +785,14 @@ const translations = {
       leaveReview: "Leave your review",
       partnersTitle: "Trusted Partners and Brands",
       serviceCards: {
-         projects: { title: "Electricity Projects", desc: "Low and Medium Voltage electrical engineering projects, licensing, self-protection measures, and energy consulting." },
-         plrs: { title: "Grid Connection Requests", desc: "Execution of Grid Connection Requests (PLR), underground or aerial drops, and construction of energy distribution branches." },
-         installations: { title: "Electrical Infrastructures", desc: "Industrial and residential electrical installations, refurbishments, power increases, certification, and technical maintenance." },
-         substations: { title: "Transformer Substations", desc: "Assembly of Transformer Substations (PTs), installation of medium voltage cells, transformers, and preventive maintenance." },
-         ev_charging: { title: "Charging Stations", desc: "Turnkey solutions for electric vehicle charging (EVCS) in public and private spaces." },
-         lighting: { title: "Professional Lighting", desc: "Festive Lighting, Smart Lighting, and Technical Solutions." },
-         telecommunications: { title: "Telecommunications", desc: "ITED/ITUR projects and installation, fiber optic splicing, structured data networks, and infrastructure certification." },
-         others: { title: "Other Services", desc: "Electric mobility solutions (chargers), complementary civil construction, works supervision, and energy audits." }
+         plrs: { title: "Grid Connection Requests", desc: "Specialists in Grid Connection Requests (PLR) throughout the Algarve and Alentejo." },
+         infraestruturas: { title: "Electrical Infrastructure", desc: "Execution and maintenance of Low and Medium Voltage electrical networks and Transformer Substations." },
+         substations: { title: "Substations", desc: "Assembly, maintenance and assistance for Transformer Substations." },
+         lighting: { title: "Lighting", desc: "Festive lighting, smart solutions and technical lighting." },
+         installations: { title: "Electrical Installations", desc: "Low voltage electrical installations for housing, commerce, and industry." },
+         projects: { title: "Projects and Certifications", desc: "Specialized electrical engineering and licensing." },
+         telecommunications: { title: "Telecommunications", desc: "Future-proof telecommunications infrastructure according to all standards!" },
+         others: { title: "Other Services", desc: "Complementary services for comprehensive project support." }
       }
     },
     contact: {
@@ -903,7 +912,7 @@ const translations = {
       heroTitle: "Recruitment",
       heroDesc: "Join a team with almost 40 years of history. We build the future in Algarve and Alentejo with rigor and innovation.",
       introTitle: "Why work with us?",
-      introDesc: "At Joaquim & Fernandes, we believe that people are our greatest energy. We offer stability, continuous training, and the opportunity to work on challenging electricity, construction, and sustainable mobility projects.",
+      introDesc: "At JF, we believe that people are our greatest energy. We offer stability, continuous training, and the opportunity to work on challenging electricity, construction, and sustainable mobility projects.",
       benefits: [
         "Continuous Training and Certification",
         "Health Insurance",
@@ -951,7 +960,7 @@ const translations = {
     qualityPage: {
       title: "Quality Policy",
       visionTitle: "Vision",
-      visionDesc: "Joaquim & Fernandes Lda envisions being a reference company and a strategic partner in infrastructure construction in the Algarve region, keeping up with innovation and being an example in its business area.",
+      visionDesc: "JF envisions being a reference company and a strategic partner in infrastructure construction in the Algarve region, keeping up with innovation and being an example in its business area.",
       missionTitle: "Mission",
       missionDesc: "Provide effective and fast services in the area of infrastructure construction and maintenance in Southern Portugal.",
       valuesTitle: "Values",
@@ -983,12 +992,15 @@ const translations = {
       heroTitle: "Our History",
       heroDesc: "Almost four decades of engineering, construction, and innovation. Discover the journey that brought us here.",
       timeline: [
-        { year: "1986", title: "The Foundation", description: "Joaquim & Fernandes begins its activity as a small family business focused on residential electrical installations in the Faro area." },
-        { year: "1998", title: "Expansion to Industry", description: "With team growth, the company expands services to the industrial sector throughout the Algarve." },
-        { year: "2005", title: "Construction Department", description: "Responding to customer needs, we opened the civil construction department to offer turnkey solutions." },
-        { year: "2015", title: "Expansion to Alentejo", description: "Start of operations in Alentejo, focusing on agricultural and industrial projects." },
-        { year: "2020", title: "Electric Mobility", description: "Launch of the division dedicated to electric mobility, installing charging stations throughout the South." },
-        { year: "Today", title: "Market Leaders in the South", description: "We continue to innovate, maintaining the values of trust that define us for almost 40 years." }
+        { year: "1986", title: "Company Foundation", description: "JF begins its activity as a small family business focused on residential electrical installations in the Faro area." },
+        { year: "1998", title: "1st Website", description: "Launch of our first digital presence, following technological evolution." },
+        { year: "2000", title: "Consortium Leader", description: "Recognized as Consortium Leader in Algarve for EDP (now E-REDES)." },
+        { year: "2001", title: "Quality Certification", description: "Recognized with Quality Certification, reinforcing our commitment to precision." },
+        { year: "2008", title: "1st PME Leader", description: "Public distinction of our financial soundness and economic performance." },
+        { year: "2011", title: "New Management", description: "Start of a new strategic cycle with the entry of new leadership." },
+        { year: "2017", title: "Brand Renewal", description: "Modernization of the company's visual identity, reflecting constant innovation." },
+        { year: "2018", title: "1st PME Excellence", description: "Reputation seal awarding the best economic-financial performances." },
+        { year: "2021", title: "Company Acquisition", description: "Acquisition of JF by the current management, consolidating the company's future." }
       ],
       awards: {
         title: "Recognition, Certifications and Awards",
@@ -996,10 +1008,10 @@ const translations = {
         list: [
           { name: "PME Leader", desc: "Reference status distinguishing the merit and risk profile of national SMEs. Distinguished 3 times (last in 2025)." },
           { name: "PME Excellence", desc: "Reputation seal awarding best economic-financial performances. Distinguished 3 times (last in 2025)." },
-          { name: "EDP Qualified Contractor", desc: "Technical recognition by the distributor for execution of works on the electrical grid." },
+          { name: "E-Redes Qualified Contractor", desc: "Technical recognition by the distributor for execution of works on the electrical grid." },
           { name: "Construction Permit No. 8887", desc: "Official IMPIC license for execution of high-class public and private works." },
           { name: "ISO 9001:2015 Compliance Certificate", desc: "Certified Quality Management System, ensuring rigor in all processes." },
-          { name: "REPRO Certificate", desc: "Supplier qualification system for the energy and utilities sector in the Iberian Peninsula." }
+          { name: "Commitment to Timely Payment", desc: "Initiative that distinguishes companies that meet payment deadlines to suppliers and promote business ethics." }
         ]
       },
       teamSection: {
@@ -1017,11 +1029,11 @@ const translations = {
     },
     privacyPage: {
       title: "Privacy Policy",
-      intro: "Joaquim & Fernandes, Lda respects your privacy and is committed to protecting your personal data. This policy describes how we collect, use, and protect your information, in compliance with the General Data Protection Regulation (GDPR).",
+      intro: "JF respects your privacy and is committed to protecting your personal data. This policy describes how we collect, use, and protect your information, in compliance with the General Data Protection Regulation (GDPR).",
       sections: [
         {
           title: "1. Data Controller",
-          content: "The entity responsible for processing your personal data is Joaquim & Fernandes, Lda, headquartered at Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. For any questions related to data protection, you can contact us via email mail@joaquimfernandes.pt."
+          content: "The entity responsible for processing your personal data is JF, headquartered at Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. For any questions related to data protection, you can contact us via email mail@joaquimfernandes.pt."
         },
         {
           title: "2. Collected Data",
@@ -1048,11 +1060,11 @@ const translations = {
     },
     termsPage: {
       title: "Terms and Conditions",
-      intro: "Welcome to the Joaquim & Fernandes website. By accessing and using this site, you agree to the following terms and conditions of use.",
+      intro: "Welcome to the JF website. By accessing and using this site, you agree to the following terms and conditions of use.",
       sections: [
         {
           title: "1. Intellectual Property",
-          content: "All content on this site (texts, images, logos, videos) is the exclusive property of Joaquim & Fernandes, Lda or its partners, protected by Copyright and Industrial Property legislation. Copying, reproduction, or distribution without prior authorization is prohibited."
+          content: "All content on this site (texts, images, logos, videos) is the exclusive property of JF or its partners, protected by Copyright and Industrial Property legislation. Copying, reproduction, or distribution without prior authorization is prohibited."
         },
         {
           title: "2. Use of the Site",
@@ -1060,15 +1072,15 @@ const translations = {
         },
         {
           title: "3. Limitation of Liability",
-          content: "Joaquim & Fernandes strives to keep the site information updated and accurate. However, we do not guarantee the absence of errors or omissions and are not responsible for damages resulting from the use of information contained herein. Commercial proposals and quotes always require official confirmation by the company."
+          content: "JF strives to keep the site information updated and accurate. However, we do not guarantee the absence of errors or omissions and are not responsible for damages resulting from the use of information contained herein. Commercial proposals and quotes always require official confirmation by the company."
         },
         {
           title: "4. External Links",
-          content: "This site may contain links to third-party sites (e.g., partners, social networks). Joaquim & Fernandes does not control and is not responsible for the content or privacy policies of these external sites."
+          content: "This site may contain links to third-party sites (e.g., partners, social networks). JF does not control and is not responsible for the content or privacy policies of these external sites."
         },
         {
           title: "5. Alternative Dispute Resolution (ADR)",
-          content: "In case of consumer dispute, the consumer may resort to a competent Alternative Consumer Dispute Resolution Entity. Joaquim & Fernandes adheres to arbitration centers in the Algarve region. More information on the Consumer Portal (www.consumidor.pt)."
+          content: "In case of consumer dispute, the consumer may resort to a competent Alternative Consumer Dispute Resolution Entity. JF adheres to arbitration centers in the Algarve region. More information on the Consumer Portal (www.consumidor.pt)."
         },
         {
           title: "6. Applicable Law and Forum",
@@ -1080,7 +1092,7 @@ const translations = {
       heroTitle: "Lighting that Transforms",
       heroDesc: "From the magic of Christmas lights to the efficiency of smart public lighting. We create atmospheres and ensure safety through light.",
       introTitle: "360º Light Solutions",
-      introDesc: "At Joaquim & Fernandes, light is more than visibility — it's experience, safety, and identity. We offer a complete portfolio ranging from decorative lighting for festive seasons to advanced technical systems for cities and industries.",
+      introDesc: "At JF, light is more than visibility — it's experience, safety, and identity. We offer a complete portfolio ranging from public lighting to festive seasonal lighting. Always with maintenance and technical assistance. We carry out lighting studies based on energy efficiency.",
       stat1: "Festive Projects",
       stat2: "LED Light Points",
       types: [
@@ -1126,13 +1138,14 @@ const translations = {
     },
     partners: {
       heroTitle: "Trusted Partners",
-      heroDesc: "Joaquim & Fernandes excellence is built on solid relationships with global industry leaders and exclusive strategic partnerships.",
+      heroDesc: "JF excellence is built on solid relationships with global industry leaders and exclusive strategic partnerships.",
       suppliersTitle: "Suppliers and Certified Brands",
       suppliersDesc: "We work only with approved materials and top equipment to ensure maximum safety and durability of our electrical installations.",
       eredesHighlight: {
-        title: "Interconnection with Distribution Grid",
+        title: "INTERCONNECTION WITH DISTRIBUTION GRID",
         desc: "As a specialized company, we guarantee strict compliance with all technical standards required by E-Redes (formerly EDP Distribuição) for drops, branches, and transformer substations.",
-        badge: "Technical Standards Complied"
+        badge: "Technical Standards Complied",
+        licenseLinkText: "Consult all our classes here"
       },
       brandsList: [
         { name: "Schneider Electric", desc: "Global leader in energy management and automation." },
@@ -1142,7 +1155,7 @@ const translations = {
         { name: "Hager", desc: "Energy installation and distribution systems." }
       ],
       exclusiveTitle: "Partner Public Entities",
-      exclusiveDesc: "Municipalities and state organizations that trust Joaquim & Fernandes for public lighting and critical infrastructures.",
+      exclusiveDesc: "Municipalities and state organizations that trust JF for public lighting and critical infrastructures.",
       exclusivePartners: [
         { name: "Olhão Municipality", type: "Municipality", desc: "Execution of electrical infrastructures in new allotments and industrial zones." },
         { name: "Faro Municipality", type: "Municipality", desc: "Maintenance of Public Lighting and municipal buildings in the municipality." },
@@ -1162,20 +1175,14 @@ const translations = {
         {
           id: 'plrs',
           title: "Grid Connection Requests (PLR)",
-          description: "Complete management of electrical grid connection processes with E-Redes. We execute drops, branches, and power increases with turnkey solutions.",
-          details: ["Aerial and Underground Drops", "Works Meter Installation", "E-Redes Process Management", "Branch Execution"]
+          description: "JF is a specialist in Grid Connection Requests (PLR) throughout the Algarve and Alentejo regions.",
+          details: ["On-site Technical Survey", "Opening of the process with E-Redes", "Execution of Branches", "Final Certification"]
         },
         {
-          id: 'installations',
-          title: "Electrical Installations",
-          description: "Low voltage electrical installations for housing, commerce, and industry. We guarantee safety, efficiency, and compliance with technical standards.",
-          details: ["Electrical Boards", "Refurbishments", "LED Lighting", "Preventive Maintenance"]
-        },
-        {
-          id: 'telecommunications',
-          title: "Telecommunications",
-          description: "Communication infrastructure and electronic security.",
-          details: ["ITED/ITUR Projects", "Fiber and CCTV Installations"]
+          id: 'infraestruturas',
+          title: "Electrical Infrastructure",
+          description: "Execution and maintenance of Low and Medium Voltage electrical networks.",
+          details: ["Low Voltage Networks", "Medium Voltage Networks", "Transformer Substations", "Network Maintenance", "Technical Testing"]
         },
         {
           id: 'substations',
@@ -1184,16 +1191,28 @@ const translations = {
           details: ["Substation Supply", "Cleaning and Maintenance", "Breakdown Assistance"]
         },
         {
+          id: 'lighting',
+          title: "Lighting",
+          description: "Festive lighting, smart solutions and technical lighting.",
+          details: ["Public Lighting", "Sports Lighting", "Festive Lighting", "Smart Cities"]
+        },
+        {
           id: 'installations',
           title: "Electrical Installations",
-          description: "Complete electrical solutions for buildings and preventive maintenance.",
-          details: ["Electrical Panels", "Preventive Maintenance", "Indoor Lighting"]
+          description: "Low voltage electrical installations for housing, commerce, and industry. We guarantee safety, efficiency, and compliance with technical standards.",
+          details: ["Electrical Boards", "Refurbishments", "LED Lighting", "Preventive Maintenance"]
         },
         {
           id: 'projects',
           title: "Projects and Certifications",
-          description: "Specialized electrical engineering and licensing.",
-          details: ["LV and MV Projects", "Electrical Projects", "Lighting Projects"]
+          description: "Every great project starts with a good design. Our engineering department develops detailed projects, ensuring the balance between cost, efficiency, and safety.",
+          details: ["Medium Voltage Projects", "Low Voltage Projects", "Electrical Installation Projects", "Lighting Projects"]
+        },
+        {
+          id: 'telecommunications',
+          title: "Telecommunications",
+          description: "We live in a digital age where connectivity is fundamental. JF designs and installs telecommunications infrastructures prepared for the future.",
+          details: ["ITED/ITUR Projects", "Network Installations", "Fiber Installations", "CCTV Installations"]
         },
         {
           id: 'others',
@@ -1207,56 +1226,54 @@ const translations = {
       plrs: {
         seoTitle: "PLR - Grid Connection Requests",
         title: "PLR",
-        description: "Complete management of grid connection processes with E-Redes.",
-        fullText: "Joaquim & Fernandes specializes in executing Grid Connection Requests (PLR) throughout Algarve and Alentejo. We handle the entire bureaucratic process with E-Redes and execute the necessary physical work (drop-offs, network diversions) so you have electricity in your property as quickly as possible.",
-        features: ["Branch Execution", "Network Diversions", "Projects and Certifications", "On-site Technical Survey", "E-Redes Process Opening"],
+        description: "JF is a specialist in Grid Connection Requests (PLR) throughout the Algarve and Alentejo regions.",
+        fullText: "JF is specialized in execution of Grid Connection Requests (PLR) throughout the Algarve and Alentejo. We handle the entire process with E-Redes and execute all the work, so you have electricity in your property as quickly as possible.",
+        features: ["On-site Technical Survey", "Opening of the process with E-Redes", "Execution of Branches", "Final Certification"],
         keywords: ["PLR", "E-Redes", "Branches", "Connections", "Electricity"],
         benefits: [
-          { title: "Turnkey", desc: "We handle bureaucracy and work." },
-          { title: "Speed", desc: "We know the procedures to speed up the process." }
+          { title: "Turnkey", desc: "We handle the entire process and execution of the work." }
         ]
       },
       infraestruturas: {
-        seoTitle: "Low and Medium Voltage Electrical Infrastructure",
+        seoTitle: "Electrical Infrastructure - Industrial Installations",
         title: "Electrical Infrastructure",
-        description: "Execution and maintenance of Low and Medium Voltage electrical networks.",
-        fullText: "We execute and maintain Low and Medium Voltage electrical infrastructures, ensuring power distribution with maximum reliability. From urban networks to transformer substations, our team ensures service continuity.",
-        features: ["Low Voltage Networks", "Medium Voltage Networks", "Transformer Substations", "Network Maintenance", "Technical Testing"],
-        keywords: ["LV", "MV", "Infrastructure", "Electrical Networks"],
+        description: "Low voltage electrical installations with a focus on industrial solutions.",
+        fullText: "We perform all types of low voltage electrical installations. With a focus on industrial installations, prepared and designed specifically for your company! Our team guarantees rigorous compliance with safety standards.",
+        features: ["Electrical Panels", "Indoor and Outdoor Lighting", "Security Systems", "Technical Rigor"],
+        keywords: ["Industrial Installations", "Low Voltage", "Electrical Panels", "Electrical Safety"],
         benefits: [
-          { title: "Reliability", desc: "Infrastructures designed to last." },
-          { title: "Safety", desc: "Strict compliance with technical standards." }
+          { title: "Safety", desc: "Strict compliance with technical standards." },
+          { title: "Professional Experience", desc: "Knowledge and competence" }
         ]
       },
       telecommunications: {
         seoTitle: "Telecommunications ITED and ITUR",
         title: "Telecommunications",
-        description: "Communication infrastructure and electronic security.",
-        fullText: "We live in a digital age where connectivity is fundamental. Joaquim & Fernandes designs and installs telecommunications infrastructures (ITED and ITUR) prepared for the future. From fiber optic fusion to CCTV installation, we ensure your property is always connected.",
-        features: ["ITED/ITUR Projects", "Fiber Optic Installations", "CCTV and Electronic Security", "Network Certification", "System Maintenance"],
+        description: "We live in a digital age where connectivity is fundamental. JF designs and installs telecommunications infrastructures prepared for the future.",
+        fullText: "We live in a digital age where connectivity is fundamental. JF designs and installs telecommunications infrastructures prepared for the future. We guarantee that your enterprise complies with all standards!",
+        features: ["ITED/ITUR Projects", "Network Installations", "Fiber Installations", "CCTV Installations"],
         keywords: ["ITED", "ITUR", "Fiber Optic", "CCTV", "Telecom"],
         benefits: [
-          { title: "Connectivity", desc: "High-speed and reliable networks." },
-          { title: "Certification", desc: "ANACOM compliance guarantee." }
+          { title: "Professional Experience", desc: "Knowledge and competence" }
         ]
       },
       substations: {
         seoTitle: "Transformer Substations",
         title: "Substations",
-        description: "Assembly, maintenance, and assistance for Transformer Substations.",
-        fullText: "Specialists in Transformer Substations (PT), we offer supply, cleaning, maintenance, and breakdown assistance services. We ensure your medium voltage installation operates without interruptions.",
-        features: ["Substation Supply", "Cleaning and Maintenance", "Breakdown Assistance", "Oil Analysis", "MV Cells"],
+        description: "Supply and assembly of Transformer Substations for industries and large areas.",
+        fullText: "For industries, hotels, agricultural operations, or large commercial areas, a Low Voltage connection may not be sufficient. JF specializes in the supply and assembly of Transformer Substations (PTs). We offer maintenance and assistance, ensuring greater equipment longevity and facility safety.",
+        features: ["Supply and Installation of PT's", "Preventive and Corrective Maintenance", "Breakdown Assistance", "Dielectric Oil Analysis"],
         keywords: ["Substation", "Medium Voltage", "Transformers", "Maintenance"],
         benefits: [
-          { title: "Continuity", desc: "We minimize downtime in case of failure." },
-          { title: "Longevity", desc: "Preventive maintenance that increases useful life." }
+          { title: "Reliability", desc: "Partners with Leading Manufacturers" },
+          { title: "Compliance", desc: "Strict adherence to all legal standards and current technical regulations." }
         ]
       },
       installations: {
         seoTitle: "Electrical Installations and Maintenance",
         title: "Electrical Installations",
         description: "Complete electrical solutions for buildings and preventive maintenance.",
-        fullText: "We perform all types of low voltage electrical installations. From complex electrical panels to indoor lighting systems, our team of certified electricians ensures precision in every detail.",
+        fullText: "We perform all types of low voltage electrical installations. From complex electrical panels to indoor lighting systems, our team of permanent assistance ensures precision in every detail.",
         features: ["Electrical Panels", "Preventive Maintenance", "Indoor Lighting", "Commercial Installations", "Basic Home Automation"],
         keywords: ["Installations", "Electrical Panels", "Lighting", "Maintenance"],
         benefits: [
@@ -1265,15 +1282,15 @@ const translations = {
         ]
       },
       projects: {
-        seoTitle: "Engineering Projects and Certifications",
+        seoTitle: "Projects and Certifications",
         title: "Projects and Certifications",
-        description: "Specialized electrical engineering and licensing.",
-        fullText: "Any great project starts with good planning. Our engineering department develops detailed electrical projects, ensuring the balance between cost, efficiency, and safety with official entities.",
-        features: ["LV and MV Projects", "Electrical Projects", "Lighting Projects", "DGEG Licensing", "Self-Protection Measures"],
+        description: "Every great project starts with a good design. Our engineering department develops detailed projects, ensuring the balance between cost, efficiency, and safety.",
+        fullText: "Every great project starts with a good design. Our engineering department develops detailed projects, ensuring the balance between cost, efficiency, and safety.",
+        features: ["Medium Voltage Projects", "Low Voltage Projects", "Electrical Installation Projects", "Lighting Projects"],
         keywords: ["Projects", "Certifications", "Engineering", "DGEG"],
         benefits: [
-          { title: "Approval", desc: "High success rate in licensing." },
-          { title: "Optimization", desc: "Projects designed to reduce construction costs." }
+          { title: "Legal Compliance", desc: "We ensure compliance with all standards and regulations." },
+          { title: "Response Time", desc: "Agility in project development and licensing." }
         ]
       },
       others: {
@@ -1303,27 +1320,28 @@ const translations = {
         keywords: ["Mobility", "Construction", "Events", "Equipment"],
         benefits: [
           { title: "Versatility", desc: "Multiple skills in a single partner." },
-          { title: "Sustainability", desc: "Charging solutions for the future." }
+          { title: "Sustainability", desc: "Charging solutions for the future." },
+          { title: "Professional Experience", desc: "Knowledge and competence" }
         ]
       }
     }
   },
   es: {
   "seo": {
-    "home": {
-      "title": "Joaquim y Fernández | Compañía Eléctrica del Algarve y Alentejo",
-      "description": "Electricistas especializados en Instalaciones Eléctricas, Conexión de Red, Descargas y PLR's, Estaciones Transformadoras y Ciudades Inteligentes. Operamos en Faro, Portimão, Tavira, Beja y todo el Algarve."
-    },
-    "about": {
-      "title": "Acerca de nosotros | Electricistas certificados en el Algarve | Joaquim y Fernández",
-      "description": "Descubra Joaquim & Fernandes, empresa líder en electricidad y telecomunicaciones del Sur. Atendemos con rigor el Algarve (Faro, Albufeira) y el Alentejo."
-    },
+      "home": {
+        "title": "JF | Compañía Eléctrica del Algarve y Alentejo",
+        "description": "Electricistas especializados en Instalaciones Eléctricas, Conexión de Red, Descargas y PLR's, Estaciones Transformadoras y Ciudades Inteligentes. Operamos en Faro, Portimão, Tavira, Beja y todo el Algarve."
+      },
+      "about": {
+        "title": "Acerca de nosotros | Asistencia Permanente en el Algarve | JF",
+        "description": "Descubra JF, empresa líder en electricidad y telecomunicaciones del Sur. Atendemos con rigor el Algarve (Faro, Albufeira) y el Alentejo."
+      },
     "services": {
       "title": "Instalaciones Eléctricas y Servicios de Ingeniería | Algarve y Alentejo",
       "description": "Servicios completos en el sur del país: Proyectos Eléctricos, Descargas y PLR's, Estaciones Transformadoras, Instalaciones Eléctricas Industriales y Carga de Vehículos Eléctricos."
     },
     "lighting": {
-      "title": "Iluminación profesional | Festivo, Público y Decorativo | J&F",
+      "title": "Iluminación | Festivo, Público y Decorativo | JF",
       "description": "Soluciones completas de iluminación en el Algarve. Iluminación Navideña, Iluminación Inteligente (Smart Cities) e Iluminación Técnica."
     },
     "partners": {
@@ -1334,24 +1352,23 @@ const translations = {
       "title": "Reclutamiento eléctrico y de ingeniería | Empleo en Algarve",
       "description": "Únase a nuestro equipo. Vacantes para electricistas, ingenieros eléctricos y técnicos de mantenimiento en el Algarve y Alentejo."
     },
-    "contact": {
-      "title": "Contactos | Solicite un presupuesto a un electricista en Algarve y Alentejo",
-      "description": "Contacte con Joaquim & Fernandes para cotizaciones de instalaciones eléctricas, descargas y PLR's o mantenimiento. Servimos a Faro, Olhão, Tavira, Portimão y Beja."
-    },
+      "contact": {
+        "title": "Contactos | Solicite un presupuesto a un electricista en Algarve y Alentejo",
+        "description": "Contacte con JF para cotizaciones de instalaciones eléctricas, descargas y PLR's o mantenimiento. Servimos a Faro, Olhão, Tavira, Portimão y Beja."
+      },
     "smartCities": {
-      "title": "Ciudades inteligentes e IoT | Alumbrado público inteligente | J&F",
+      "title": "Ciudades inteligentes e IoT | Alumbrado público inteligente | JF",
       "description": "Transformamos ciudades del Algarve en Smart Cities. Soluciones IoT, telegestión del alumbrado público y eficiencia energética."
     },
-    "faqs": {
-      "title": "Preguntas frecuentes | Joaquim y Fernández",
-      "description": "Respuestas a las preguntas más habituales sobre solicitudes de conexión a red (PLR), descargas, contadores e instalaciones eléctricas."
-    }
+      "faqs": {
+        "title": "Preguntas frecuentes | JF",
+        "description": "Respuestas a las preguntas más habituales sobre solicitudes de conexión a red (PLR), descargas, contadores e instalaciones eléctricas."
+      }
   },
   "nav": {
     "home": "Comenzar",
     "about": "Sobre nosotros",
     "services": "Servicios",
-    "lighting": "Iluminación",
     "partners": "Fogonadura",
     "careers": "Reclutamiento",
     "contact": "Contactos",
@@ -1379,20 +1396,21 @@ const translations = {
   "common": {
     "learnMore": "Descubra más",
     "seeMore": "Ver más",
+    "requestService": "Solicitar Servicio",
     "address": "Ruta Nacional 125, Bias Norte, Moncarapacho",
     "city": "8700-066 Olhao"
   },
-  "home": {
-    "hero": {
-      "title": "Soluciones de Electricidad,|Iluminación, Descargas|y Conexiones a Red",
-      "subtitle": "Su compañía eléctrica de referencia en el Algarve y Alentejo. Excelencia técnica en Baixadas, PLR's e Infraestructura.",
-      "ctaPrimary": "Solicitar una cotización",
-      "ctaSecondary": "Descubra los servicios"
-    },
-    "slogan": "¡La electricidad está con nosotros!",
-    "servicesTitle": "Nuestras Áreas de Actividad",
-    "whyUsTitle": "¿Por qué elegir Joaquim & Fernandes?",
-    "whyUsDesc": "Somos la elección correcta para cualquiera que busque electricistas certificados en el Algarve y Alentejo. Combinamos décadas de experiencia en Centros Transformadores y Telecomunicaciones con las últimas tecnologías.",
+    "home": {
+      "hero": {
+        "title": "Infraestructuras Eléctricas,|Iluminación, PTs|y PLRs",
+        "subtitle": "Su compañía eléctrica de referencia en el Algarve y Alentejo. Excelencia técnica en Baixadas, PLR's e Infraestructura.",
+        "ctaPrimary": "Solicitar una cotización",
+        "ctaSecondary": "Descubra los servicios"
+      },
+      "slogan": "¡La electricidad está con nosotros!",
+      "servicesTitle": "Nuestras Áreas de Actividad",
+      "whyUsTitle": "¿Por qué elegir JF?",
+      "whyUsDesc": "Somos la elección correcta para cualquiera que busque asistencia permanente en el Algarve y Alentejo. Combinamos décadas de experiencia en Centros Transformadores y Telecomunicaciones con las últimas tecnologías.",
     "ctaButton": "Descubra nuestros servicios",
     "benefits": [
       {
@@ -1401,7 +1419,7 @@ const translations = {
       },
       {
         "id": 2,
-        "text": "Electricistas certificados"
+        "text": "Asistencia Permanente"
       },
       {
         "id": 3,
@@ -1438,33 +1456,33 @@ const translations = {
     "leaveReview": "Deja tu reseña",
     "partnersTitle": "Socios y marcas de confianza",
     "serviceCards": {
-      "projects": {
-        "title": "Proyectos de Electricidad",
-        "desc": "Proyectos de ingeniería eléctrica de Baja y Media Tensión, licencias, medidas de autoprotección y asesoramiento energético."
-      },
       "plrs": {
         "title": "Solicitudes de conexión de red",
-        "desc": "Ejecución de Solicitudes de Conexión a Red (PLR), descargas subterráneas o aéreas y construcción de ramales de distribución de energía."
+        "desc": "Especialistas en Solicitudes de Conexión a la Red (PLR) en todo el Algarve y Alentejo."
       },
-      "installations": {
+      "infraestruturas": {
         "title": "Infraestructuras Eléctricas",
-        "desc": "Instalaciones eléctricas industriales y residenciales, reformas, aumentos de potencia, certificaciones y mantenimientos técnicos."
+        "desc": "Ejecución y mantenimiento de redes eléctricas de Baja y Media Tensión y Centros de Transformación."
       },
       "substations": {
         "title": "Estaciones de Transformación",
         "desc": "Montaje de Estaciones Transformadoras (PT), instalación de celdas de media tensión, transformadores y mantenimiento preventivo."
       },
-      "ev_charging": {
-        "title": "Estaciones de carga",
-        "desc": "Soluciones llave en mano para la carga de vehículos eléctricos (PCVE) en espacios públicos y privados."
-      },
       "lighting": {
-        "title": "Iluminación profesional",
+        "title": "Iluminación",
         "desc": "Iluminación Festiva, Iluminación Inteligente y Soluciones Técnicas."
+      },
+      "installations": {
+        "title": "Instalaciones Eléctricas",
+        "desc": "Instalaciones eléctricas industriales y residenciales, reformas, aumentos de potencia, certificaciones y mantenimientos técnicos."
+      },
+      "projects": {
+        "title": "Proyectos de Ingeniería",
+        "desc": "Elaboración de proyectos eléctricos, fichas electrotécnicas y asesoría energética para licenciamiento y ejecución de obra."
       },
       "telecommunications": {
         "title": "Telecomunicaciones",
-        "desc": "Proyectos e instalación ITED/ITUR, fusión de fibra óptica, redes de datos estructurados y certificación de infraestructura."
+        "desc": "¡Infraestructuras de telecomunicaciones preparadas para el futuro según todos los estándares!"
       },
       "others": {
         "title": "Otros servicios",
@@ -1482,35 +1500,14 @@ const translations = {
       {
         "id": "plrs",
         "title": "Solicitudes de conexión de red (PLR)",
-        "description": "Gestión completa de los procesos de conexión a red eléctrica con E-Redes. Realizamos descargas, ampliaciones y ampliaciones de potencia llave en mano.",
-        "details": [
-          "Descensos aéreos y subterráneos",
-          "Instalación de mostradores de construcción.",
-          "Gestión de Procesos E-Redes",
-          "Ejecución de Sucursales"
-        ]
+        "description": "JF es especialista en Solicitudes de Conexión a la Red (PLR) en todo el Algarve y Alentejo.",
+        "details": ["Estudio técnico in situ", "Apertura del proceso en E-Redes", "Ejecución de Ramales", "Certificación Final"]
       },
       {
-        "id": "installations",
-        "title": "Instalaciones Eléctricas",
-        "description": "Instalaciones eléctricas de baja tensión para vivienda, comercio e industria. Garantizamos seguridad, eficiencia y cumplimiento de las normas técnicas.",
-        "details": [
-          "Paneles Eléctricos",
-          "Renovaciones",
-          "Iluminación LED",
-          "Mantenimiento preventivo"
-        ]
-      },
-      {
-        "id": "telecommunications",
-        "title": "Telecomunicaciones (ITED/ITUR)",
-        "description": "Infraestructuras de telecomunicaciones en edificios y urbanizaciones. Instalación de redes certificadas de fibra óptica, cobre y coaxial.",
-        "details": [
-          "Proyectos ITED/ITUR",
-          "Fusión de Fibra Óptica",
-          "Redes estructuradas",
-          "Proceso de dar un título"
-        ]
+        "id": "infraestruturas",
+        "title": "Infraestructuras Eléctricas",
+        "description": "Ejecución y mantenimiento de redes eléctricas de Baja y Media Tensión y Centros de Transformación.",
+        "details": ["Baja Tensión", "Media Tensión", "Centros de Transformación", "Mantenimiento de Redes", "Pruebas Técnicas"]
       },
       {
         "id": "substations",
@@ -1524,20 +1521,43 @@ const translations = {
         ]
       },
       {
-        "id": "projects",
-        "title": "Proyectos de Ingeniería",
-        "description": "Elaboración de proyectos eléctricos, fichas electrotécnicas y asesoría energética para licenciamiento y ejecución de obra.",
+        "id": "lighting",
+        "title": "Iluminación",
+        "description": "Iluminación festiva, soluciones inteligentes e iluminación técnica.",
+        "details": ["Alumbrado Público", "Iluminación deportiva", "Iluminación festiva", "Ciudades inteligentes"]
+      },
+      {
+        "id": "installations",
+        "title": "Instalaciones Eléctricas",
+        "description": "Instalaciones eléctricas de baja tensión para vivienda, comercio e industria. Garantizamos seguridad, eficiencia y cumplimiento de las normas técnicas.",
         "details": [
-          "Proyectos Eléctricos",
-          "Medidas de autoprotección",
-          "Licencias",
-          "Consultoría"
+          "Paneles Eléctricos",
+          "Renovaciones",
+          "Iluminación LED",
+          "Mantenimiento preventivo"
         ]
+      },
+      {
+        "id": "projects",
+        "title": "Proyectos y Certificaciones",
+        "description": "Cualquier gran obra comienza con un buen proyecto. Nuestro departamento de ingeniería elabora proyectos detallados, garantizando el equilibrio entre coste, eficiencia y seguridad.",
+        "details": [
+          "Proyectos de Media Tensión",
+          "Proyectos de Baja Tensión",
+          "Proyectos de Instalaciones Eléctricas",
+          "Proyectos iluminotécnicos"
+        ]
+      },
+      {
+        "id": "telecommunications",
+        "title": "Telecomunicaciones",
+        "description": "Vivimos en una era digital donde la conectividad es fundamental. JF diseña e instala infraestructuras de telecomunicaciones preparadas para el futuro.",
+        "details": ["Proyectos ITED/ITUR", "Instalaciones de red", "Instalaciones de fibra", "Instalaciones de CCTV"]
       },
       {
         "id": "others",
         "title": "Otros servicios",
-        "description": "Servicios complementarios de construcción civil, movilidad eléctrica e infraestructura urbana.",
+        "description": "Servicios complementares de construcción civil, movilidad eléctrica e infraestructura urbana.",
         "details": [
           "Cargadores de vehículos eléctricos",
           "Apertura de zanja",
@@ -1550,39 +1570,32 @@ const translations = {
   "serviceDetails": {
     "plrs": {
       "seoTitle": "Solicitudes de conexión de red (PLR)",
-      "title": "Ejecución de PLR ​​y Descargas",
-      "description": "Atendemos tu solicitud de conexión a la red eléctrica de principio a fin.",
-      "fullText": "Joaquim & Fernandes se especializa en la ejecución de Solicitudes de Conexión a Red (PLR) en todo el Algarve y Alentejo. Nos encargamos de todo el trámite burocrático con E-Redes y realizamos los trabajos físicos necesarios (bajas aéreas o subterráneas, muros técnicos, portones) para que tengas electricidad en tu inmueble lo más rápido posible.",
-      "features": [
-        "Estudio técnico in situ",
-        "Apertura del proceso en E-Redes",
-        "Ejecución de zanjas e infraestructuras",
-        "Instalación de puertas y marcos.",
-        "Certificación final"
-      ],
-      "keywords": [
-        "PLR",
-        "descargas",
-        "E-Redes",
-        "Extensiones",
-        "Electricidad"
-      ],
+      "title": "PLR",
+      "description": "JF es especialista en Solicitudes de Conexión a la Red (PLR) en todo el Algarve y Alentejo.",
+      "fullText": "JF es especialista en Solicitudes de Conexión a la Red (PLR) en todo el Algarve y Alentejo. Nos encargamos de todo el proceso ante E-Redes y ejecutamos toda la obra, para que tengas electricidad en tu inmueble lo antes posible.",
+      "features": ["Estudio técnico in situ", "Apertura del proceso en E-Redes", "Ejecución de Ramales", "Certificación Final"],
+      "keywords": ["PLR", "E-Redes", "Ramales", "Conexiones", "Electricidad"],
       "benefits": [
-        {
-          "title": "Llavero",
-          "desc": "Nos ocupamos de la burocracia y el trabajo."
-        },
-        {
-          "title": "Rapidez",
-          "desc": "Conocemos los procedimientos para agilizar el proceso."
-        }
+        { "title": "Llave en mano", "desc": "Nos encargamos de todo el proceso y de toda la ejecución de la obra." }
+      ]
+    },
+    "infraestruturas": {
+      "seoTitle": "Infraestructuras Eléctricas - Baja y Media Tensión",
+      "title": "Infraestructuras eléctricas",
+      "description": "Ejecución y mantenimiento de redes eléctricas de Baja y Media Tensión y Centros de Transformación.",
+      "fullText": "JF es especialista en la ejecución y mantenimiento de infraestructuras eléctricas de servicio público o privado. Realizamos todo tipo de instalaciones eléctricas de Baja y Media Tensión y Centros de Transformación, garantizando el estricto cumplimiento de todas las normas técnicas y de seguridad.",
+      "features": ["Baja Tensión", "Media Tensión", "Centros de Transformación", "Redes de Alumbrado Público", "Pruebas y Certificaciones"],
+      "keywords": ["Instalaciones Industriales", "Baja Tensión", "Cuadros Eléctricos", "Seguridad Eléctrica"],
+      "benefits": [
+        { "title": "Seguridad", "desc": "Cumplimiento riguroso de las normas técnicas." },
+        { "title": "Experiencia profesional", "desc": "Conocimiento y competencia" }
       ]
     },
     "installations": {
       "seoTitle": "Instalaciones Eléctricas",
       "title": "Instalaciones habitacionales e industriales",
       "description": "Soluciones eléctricas seguras y certificadas para cualquier tipo de edificación.",
-      "fullText": "Realizamos todo tipo de instalaciones eléctricas de baja tensión. Desde pequeñas reformas en el hogar hasta grandes instalaciones industriales, nuestro equipo de electricistas certificados garantiza el estricto cumplimiento de los estándares de seguridad y eficiencia energética.",
+      "fullText": "Realizamos todo tipo de instalaciones eléctricas de baja tensión. Desde pequeñas reformas en el hogar hasta grandes instalaciones industriales, nuestro equipo de asistencia permanente garantiza el estricto cumplimiento de los estándares de seguridad y eficiencia energética.",
       "features": [
         "Cuadros electricos",
         "Cableado estructurado",
@@ -1610,91 +1623,68 @@ const translations = {
     },
     "telecommunications": {
       "seoTitle": "Telecomunicaciones ITED e ITUR",
-      "title": "Redes de Fibra Óptica y Telecomunicaciones",
-      "description": "Infraestructuras de comunicaciones certificadas para edificios y urbanizaciones.",
-      "fullText": "Vivimos en una era digital donde la conectividad es fundamental. Joaquim & Fernandes diseña e instala infraestructuras de telecomunicaciones (ITED para edificios e ITUR para urbanizaciones) preparadas para el futuro. Desde la fusión de fibra óptica hasta la instalación de racks y redes estructuradas, garantizamos que su empresa cumpla con todos los estándares ANACOM y ofrezca la mejor velocidad a los usuarios finales.",
-      "features": [
-        "Proyectos ITED/ITUR",
-        "Fusión de Fibra Óptica",
-        "Redes Coaxiales y Par de Cobre",
-        "Instalación de Racks y Racks",
-        "Pruebas y Certificación"
-      ],
-      "keywords": [
-        "ITED",
-        "el va",
-        "Fibra Óptica",
-        "Redes",
-        "Telecomunicaciones"
-      ],
+      "title": "Telecomunicaciones",
+      "description": "Vivimos en una era digital donde la conectividad es fundamental. JF diseña e instala infraestructuras de telecomunicaciones preparadas para el futuro.",
+      "fullText": "¡Vivimos en una era digital donde la conectividad es fundamental. JF diseña e instala infraestructuras de telecomunicaciones preparadas para el futuro. Garantizamos que su empresa cumpla con todos los estándares!",
+      "features": ["Proyectos ITED/ITUR", "Instalaciones de red", "Instalaciones de fibra", "Instalaciones de CCTV"],
+      "keywords": ["ITED", "ITUR", "Fibra Óptica", "CCTV", "Telecom"],
       "benefits": [
-        {
-          "title": "Certificación ANACOM",
-          "desc": "Garantía de cumplimiento legal."
-        },
-        {
-          "title": "Alta velocidad",
-          "desc": "Infraestructuras preparadas para Gigabit."
-        }
+        { "title": "Experiencia profesional", "desc": "Conocimiento y competencia" }
       ]
     },
     "substations": {
       "seoTitle": "Estaciones de Transformación y Media Tensión",
-      "title": "Instalación y mantenimiento de PT",
-      "description": "Soluciones eléctricas de Media Tensión para industrias y grandes edificios.",
-      "fullText": "Para industrias, hoteles o grandes superficies comerciales la conexión de Baja Tensión puede no ser suficiente. J&F se especializa en el montaje de Estaciones Transformadoras (PT) privadas, garantizando la transición segura de Media a Baja Tensión. Ofrecemos contratos de mantenimiento preventivo obligatorios por ley, garantizando la longevidad de los equipos y la seguridad de las instalaciones.",
+      "title": "Subestaciones (PT)",
+      "description": "Suministro y montaje de Centros de Transformación para industrias y grandes superficies.",
+      "fullText": "Para industrias, hoteles, explotaciones agrícolas o grandes superficies comerciales, la conexión en Baja Tensión puede no ser suficiente. JF se especializa en el suministro y montaje de Centros de Transformación (PT). Ofrecemos mantenimiento y asistencia, garantizando una mayor longevidad de los equipos y la seguridad de las instalaciones.",
       "features": [
-        "Montaje de Celdas de Media Tensión",
-        "Instalación de transformador",
-        "Cuadros Generales de Baja Tensión (QGBT)",
+        "Suministro e Instalación de PT",
         "Mantenimiento Preventivo y Correctivo",
-        "Análisis de aceite dieléctrico"
+        "Asistencia en averías",
+        "Análisis de Aceite Dieléctrico"
       ],
       "keywords": [
         "Estación de Transformación",
         "Media tensión",
         "Transformador",
-        "Industria",
-        "Energía"
+        "Mantenimiento"
       ],
       "benefits": [
         {
           "title": "Fiabilidad",
-          "desc": "Equipos de primeras marcas como Efacec y Siemens."
+          "desc": "Socios de los Principales Fabricantes"
         },
         {
           "title": "Conformidad",
-          "desc": "Mantenimiento conforme a la legislación vigente."
+          "desc": "Cumplimiento riguroso de todas las normas legales y reglamentos técnicos vigentes."
         }
       ]
     },
     "projects": {
-      "seoTitle": "Proyectos de Ingeniería Eléctrica",
-      "title": "Consultoría y Proyectos Especializados",
-      "description": "Ingeniería de detalle para licenciamiento y ejecución de obra.",
-      "fullText": "Cualquier gran proyecto comienza con un buen proyecto. Nuestro departamento de ingeniería elabora proyectos eléctricos detallados, garantizando el equilibrio entre coste, eficiencia y seguridad. Gestionamos todos los trámites ante las entidades competentes (DGEG, E-Redes, Concejos Municipales) y desarrollamos Medidas de Autoprotección para la seguridad contra incendios.",
+      "seoTitle": "Proyectos y Certificaciones",
+      "title": "Proyectos y Certificaciones",
+      "description": "Cualquier gran obra comienza con un buen proyecto. Nuestro departamento de ingeniería elabora proyectos detallados, garantizando el equilibrio entre coste, eficiencia y seguridad.",
+      "fullText": "Cualquier gran obra comienza con un buen proyecto. Nuestro departamento de ingeniería elabora proyectos detallados, garantizando el equilibrio entre coste, eficiencia y seguridad.",
       "features": [
-        "Proyectos de Ejecución Eléctrica",
-        "Fichas Electrotécnicas",
-        "Medidas de Autoprotección (SCIE)",
-        "Consultoría Energética",
-        "Dimensionamiento de la red"
+        "Proyectos de Media Tensión",
+        "Proyectos de Baja Tensión",
+        "Proyectos de Instalaciones Eléctricas",
+        "Proyectos iluminotécnicos"
       ],
       "keywords": [
-        "Proyecto Eléctrico",
+        "Proyectos",
+        "Certificaciones",
         "Ingeniería",
-        "Licencias",
-        "DGEG",
-        "SIERRA"
+        "Licencias"
       ],
       "benefits": [
         {
-          "title": "Mejoramiento",
-          "desc": "Soluciones técnicas que reducen los costes de construcción."
+          "title": "Cumplimiento Legal",
+          "desc": "Garantizamos el cumplimiento de todas las normas y reglamentos."
         },
         {
-          "title": "Aprobación",
-          "desc": "Alto índice de aprobación en entidades oficiales."
+          "title": "Plazo de Respuesta",
+          "desc": "Agilidad en el desarrollo y licenciamiento del proyecto."
         }
       ]
     },
@@ -1727,10 +1717,10 @@ const translations = {
       ],
       "keywords": [
         "Construcción Civil",
-        "Forex",
+        "Eventos",
         "Movilidad eléctrica",
         "Cargadores",
-        "Trabajar"
+        "Equipos"
       ],
       "benefits": [
         {
@@ -1740,15 +1730,19 @@ const translations = {
         {
           "title": "Sostenible",
           "desc": "Apoyando la transición a la movilidad eléctrica."
+        },
+        {
+          "title": "Experiencia profesional",
+          "desc": "Conocimiento y competencia"
         }
       ]
     }
   },
-  "lighting": {
-    "heroTitle": "Iluminación que transforma",
-    "heroDesc": "De la magia de las luces navideñas a la eficiencia del alumbrado público inteligente. Creamos ambientes y garantizamos seguridad a través de la luz.",
-    "introTitle": "Soluciones de iluminación 360º",
-    "introDesc": "En Joaquim & Fernandes la luz es más que visibilidad: es experiencia, seguridad e identidad. Ofrecemos una cartera completa que va desde iluminación decorativa para temporadas festivas hasta sistemas técnicos avanzados para ciudades e industrias.",
+    "lighting": {
+      "heroTitle": "Iluminación que transforma",
+      "heroDesc": "De la magia de las luces navideñas a la eficiencia del alumbrado público inteligente. Creamos ambientes y garantizamos seguridad a través de la luz.",
+      "introTitle": "Soluciones de iluminación 360º",
+      "introDesc": "En JF la luz es más que visibilidad: es experiencia, seguridad e identidad. Ofrecemos una cartera completa que va desde el alumbrado público hasta la iluminación para temporadas festivas. Siempre con mantenimiento y asistencia técnica. Realizamos el estudio luminotécnico basado en la eficiencia energética.",
     "stat1": "Proyectos festivos",
     "stat2": "Puntos de luz LED",
     "types": [
@@ -1781,7 +1775,7 @@ const translations = {
       {
         "title": "Iluminación Técnica",
         "image": "https://drive.google.com/thumbnail?id=1lwzRh0LtxEQH2ypr8C1FBzYpO-PW82Yr&sz=w1000",
-        "desc": "Technical Lighting pretende realzar el patrimonio construido por la noche, respetando su historia y diseño original. Utilizamos proyectores de precisión, tiras LED y sistemas RGBW para crear escenas dinámicas o estáticas que realzan texturas y volúmenes. Es la solución ideal para dar nueva vida a edificios, hoteles o monumentos emblemáticos, reforzando la identidad visual del lugar.",
+        "desc": "La Iluminación Técnica pretende realzar el patrimonio construido por la noche, respetando su historia y diseño original. Utilizamos proyectores de precisión, tiras LED y sistemas RGBW para crear escenas dinámicas o estáticas que realzan texturas y volúmenes. Es la solución ideal para dar nueva vida a edificios, hoteles o monumentos emblemáticos, reforzando la identidad visual del lugar.",
         "applicationsTitle": "Donde aplicamos:",
         "applications": [
           "Monumentos e Iglesias",
@@ -1807,15 +1801,16 @@ const translations = {
     "ctaDesc": "Ya sea decorando tu ciudad para Navidad o renovando el alumbrado público.",
     "ctaButton": "Solicite una propuesta de iluminación"
   },
-  "partners": {
-    "heroTitle": "Socios de confianza",
-    "heroDesc": "La excelencia de Joaquim & Fernandes se basa en relaciones sólidas con líderes globales de la industria y asociaciones estratégicas exclusivas.",
+    "partners": {
+      "heroTitle": "Socios de confianza",
+      "heroDesc": "La excelencia de JF se basa en relaciones sólidas con líderes globales de la industria y asociaciones estratégicas exclusivas.",
     "suppliersTitle": "Proveedores y marcas certificados",
     "suppliersDesc": "Sólo trabajamos con materiales homologados y equipos de primera línea para garantizar la máxima seguridad y durabilidad de nuestras instalaciones eléctricas.",
     "eredesHighlight": {
-      "title": "Interconexión con la Red de Distribución",
+      "title": "INTERCONEXIÓN CON LA RED DE DISTRIBUCIÓN",
       "desc": "Como empresa especializada, garantizamos el estricto cumplimiento de todos los estándares técnicos exigidos por E-Redes (antes EDP Distribuição) para descargas, ampliaciones y estaciones de transformación.",
-      "badge": "Normas técnicas cumplidas"
+      "badge": "Normas técnicas cumplidas",
+      "licenseLinkText": "Consulte todas nuestras clases aquí"
     },
     "brandsList": [
       {
@@ -1839,8 +1834,8 @@ const translations = {
         "desc": "Sistemas de instalación y distribución de energía."
       }
     ],
-    "exclusiveTitle": "Entidades Públicas Socias",
-    "exclusiveDesc": "Municipios y organismos estatales que confían en Joaquim & Fernandes para alumbrado público e infraestructura crítica.",
+      "exclusiveTitle": "Entidades Públicas Socias",
+      "exclusiveDesc": "Municipios y organismos estatales que confían en JF para alumbrado público e infraestructura crítica.",
     "exclusivePartners": [
       {
         "name": "Municipio de Olhao",
@@ -1974,11 +1969,11 @@ const translations = {
       }
     ]
   },
-  "careers": {
-    "heroTitle": "Reclutamiento",
-    "heroDesc": "Únete a un equipo con casi 40 años de historia. Construimos el futuro en el Algarve y el Alentejo con rigor e innovación.",
-    "introTitle": "¿Por qué trabajar con nosotros?",
-    "introDesc": "En Joaquim & Fernandes creemos que las personas son nuestra mayor energía. Ofrecemos estabilidad, educación continua y la oportunidad de trabajar en proyectos desafiantes de electricidad, construcción y movilidad sostenible.",
+    "careers": {
+      "heroTitle": "Reclutamiento",
+      "heroDesc": "Únete a un equipo con casi 40 años de historia. Construimos el futuro en el Algarve y el Alentejo con rigor e innovación.",
+      "introTitle": "¿Por qué trabajar con nosotros?",
+      "introDesc": "En JF creemos que las personas son nuestra mayor energía. Ofrecemos estabilidad, educación continua y la oportunidad de trabajar en proyectos desafiantes de electricidad, construcción y movilidad sostenible.",
     "benefits": [
       "Formación Continua y Certificación",
       "Seguro médico",
@@ -2040,10 +2035,10 @@ const translations = {
     "spontaneousBtn": "Enviar Candidatura",
     "spontaneousDisclaimer": "Al enviar tu CV aceptas nuestra política de tratamiento de datos con fines de selección."
   },
-  "qualityPage": {
-    "title": "Política de Calidad",
-    "visionTitle": "Visión",
-    "visionDesc": "Joaquim & Fernandes Lda pretende ser una empresa de referencia y un socio estratégico en la construcción de infraestructuras en la región del Algarve, siguiendo la innovación y siendo un ejemplo en su área de negocio.",
+    "qualityPage": {
+      "title": "Política de Calidad",
+      "visionTitle": "Visión",
+      "visionDesc": "JF pretende ser una empresa de referencia y un socio estratégico en la construcción de infraestructuras en la región del Algarve, siguiendo la innovación y siendo un ejemplo en su área de negocio.",
     "missionTitle": "Misión",
     "missionDesc": "Proporcionar servicios eficaces y rápidos en el área de construcción y mantenimiento de infraestructuras en el sur de Portugal.",
     "valuesTitle": "Valores",
@@ -2083,14 +2078,14 @@ const translations = {
       "portal": "Más información en el Portal del Consumidor www.consumidoronline.pt"
     }
   },
-  "privacyPage": {
-    "title": "política de privacidad",
-    "intro": "Joaquim & Fernandes, Lda respeta su privacidad y se compromete a proteger sus datos personales. Esta política describe cómo recopilamos, usamos y protegemos su información de acuerdo con el Reglamento General de Protección de Datos (GDPR).",
-    "sections": [
-      {
-        "title": "1. Responsable del Tratamiento",
-        "content": "La entidad responsable del tratamiento de sus datos personales es Joaquim & Fernandes, Lda, con sede en Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. Para cualquier consulta relacionada con la protección de datos, puede contactarnos por correo electrónico a mail@joaquimfernandes.pt."
-      },
+    "privacyPage": {
+      "title": "política de privacidad",
+      "intro": "JF respeta su privacidad y se compromete a proteger sus datos personales. Esta política describe cómo recopilamos, usamos y protegemos su información de acuerdo con el Reglamento General de Datos (RGPD).",
+      "sections": [
+        {
+          "title": "1. Responsable del Tratamiento",
+          "content": "La entidad responsable del tratamiento de sus datos personales es JF, con sede en Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. Para cualquier consulta relacionada con la protección de datos, puede contactarnos por correo electrónico a mail@joaquimfernandes.pt."
+        },
       {
         "title": "2. Datos recopilados",
         "content": "Recopilamos datos que usted nos proporciona voluntariamente a través de nuestros formularios de contacto, solicitudes de cotización y solicitudes de empleo. Estos podrán incluir: Nombre, Correo Electrónico, Teléfono, Dirección y Curriculum Vitae (en el caso de contratación). También recopilamos datos técnicos de navegación (Cookies) de forma anónima para mejorar el rendimiento del sitio."
@@ -2114,30 +2109,30 @@ const translations = {
     ],
     "lastUpdated": "Última actualización: octubre de 2024"
   },
-  "termsPage": {
-    "title": "Términos y condiciones",
-    "intro": "Bienvenido al sitio web de Joaquim & Fernandes. Al acceder y utilizar este sitio web, usted acepta los siguientes términos y condiciones de uso.",
-    "sections": [
-      {
-        "title": "1. Propiedad intelectual",
-        "content": "Todo el contenido de este sitio web (textos, imágenes, logotipos, vídeos) es propiedad exclusiva de Joaquim & Fernandes, Lda o sus socios, y está protegido por la legislación de Copyright y Propiedad Industrial. Queda prohibida la copia, reproducción o distribución sin autorización previa."
-      },
+    "termsPage": {
+      "title": "Términos y condiciones",
+      "intro": "Bienvenido al sitio web de JF. Al acceder y utilizar este sitio web, usted acepta los siguientes términos y condiciones de uso.",
+      "sections": [
+        {
+          "title": "1. Propiedad intelectual",
+          "content": "Todo el contenido de este sitio web (textos, imágenes, logotipos, vídeos) es propiedad exclusiva de JF o sus socios, y está protegido por la legislación de Copyright y Propiedad Industrial. Queda prohibida la copia, reproducción o distribución sin autorización previa."
+        },
       {
         "title": "2. Uso del Sitio",
         "content": "El usuario se compromete a utilizar el sitio web con fines lícitos y a no realizar actos que puedan dañar, inutilizar o sobrecargar el sitio web, o impedir su normal utilización por otros usuarios."
       },
-      {
-        "title": "3. Limitación de responsabilidad",
-        "content": "Joaquim & Fernandes se esfuerza por mantener la información del sitio web actualizada y precisa. Sin embargo, no garantizamos la ausencia de errores u omisiones y no somos responsables de los daños resultantes del uso de la información aquí contenida. Las propuestas comerciales y presupuestos siempre requieren de la confirmación oficial por parte de la empresa."
-      },
-      {
-        "title": "4. Enlaces externos",
-        "content": "Este sitio web puede contener enlaces a sitios web de terceros (por ejemplo, socios, redes sociales). Joaquim & Fernandes no controla ni es responsable del contenido o las políticas de privacidad de estos sitios web externos."
-      },
-      {
-        "title": "5. Resolución alternativa de disputas (ADR)",
-        "content": "En caso de controversia en materia de consumo, el consumidor podrá recurrir a una Entidad de Resolución Alternativa de Controversias competente. Joaquim & Fernandes es miembro de centros de arbitraje de la región del Algarve. Más información en el Portal del Consumidor (www.consumidor.com.br)."
-      },
+        {
+          "title": "3. Limitación de responsabilidad",
+          "content": "JF se esfuerza por mantener la información del sitio web actualizada y precisa. Sin embargo, no garantizamos la ausencia de errores u omisiones y no somos responsables de los daños resultantes del uso de la información aquí contenida. Las propuestas comerciales y presupuestos siempre requieren de la confirmación oficial por parte de la empresa."
+        },
+        {
+          "title": "4. Enlaces externos",
+          "content": "Este sitio web puede contener enlaces a sitios web de terceros (por ejemplo, socios, redes sociales). JF no controla ni es responsable del contenido o las políticas de privacidad de estos sitios web externos."
+        },
+        {
+          "title": "5. Resolución alternativa de disputas (ADR)",
+          "content": "En caso de controversia en materia de consumo, el consumidor podrá recurrir a una Entidad de Resolución Alternativa de Controversias competente. JF es miembro de centros de arbitraje de la región del Algarve. Más información en el Portal del Consumidor (www.consumidoronline.pt)."
+        },
       {
         "title": "6. Ley aplicable y lugar de celebración",
         "content": "Estos términos se rigen por la ley portuguesa. Para cualquier controversia que surja de la interpretación o aplicación de los presentes términos, será competente el Tribunal de Faro, con renuncia expresa a cualquier otro."
@@ -2150,33 +2145,48 @@ const translations = {
     "timeline": [
       {
         "year": "1986",
-        "title": "La Fundación",
-        "description": "Joaquim & Fernandes inicia su actividad como una pequeña empresa familiar centrada en las instalaciones eléctricas residenciales en la zona de Faro."
+        "title": "Fundación de la Empresa",
+        "description": "JF inicia su actividad como una pequeña empresa familiar centrada en las instalaciones eléctricas residenciales en la zona de Faro."
       },
       {
         "year": "1998",
-        "title": "Expansión a la industria",
-        "description": "A medida que el equipo crece, la empresa amplía sus servicios al sector industrial en todo el Algarve."
+        "title": "Creación de la 1ª Web",
+        "description": "Lanzamiento de nuestra primera presencia digital, siguiendo la evolución tecnológica."
       },
       {
-        "year": "2005",
-        "title": "Departamento de Construcción",
-        "description": "Respondiendo a las necesidades del cliente, abrimos el departamento de construcción civil para ofrecer soluciones llave en mano."
+        "year": "2000",
+        "title": "Jefe de Consorcio",
+        "description": "Reconocidos como Jefe de Consorcio en Algarve para EDP (actual E-REDES)."
       },
       {
-        "year": "2015",
-        "title": "Expansión al Alentejo",
-        "description": "Inicio de operaciones en Alentejo, centrándose en proyectos agrícolas e industriales."
+        "year": "2001",
+        "title": "Certificación de Calidad",
+        "description": "Reconocidos con la Certificación de Calidad, reforzando nuestro compromiso con el rigor."
       },
       {
-        "year": "2020",
-        "title": "Movilidad eléctrica",
-        "description": "Lanzamiento de la división dedicada a la movilidad eléctrica, instalando estaciones de carga en todo el Sur."
+        "year": "2008",
+        "title": "1º PME Líder",
+        "description": "Distinción pública de nuestra solidez financiera y desempeño económico."
       },
       {
-        "year": "Hoy",
-        "title": "Líderes del mercado en el sur",
-        "description": "Seguimos innovando, manteniendo los valores de confianza que nos definen desde hace casi 40 años."
+        "year": "2011",
+        "title": "Nueva Gerencia",
+        "description": "Inicio de un nuevo ciclo estratégico con la entrada de un nuevo liderazgo."
+      },
+      {
+        "year": "2017",
+        "title": "Renovación de Imagen",
+        "description": "Modernización de la identidad visual de la empresa, reflejando la innovación constante."
+      },
+      {
+        "year": "2018",
+        "title": "1º PME Excelencia",
+        "description": "Sello de reputación que premia los mejores desempeños económico-financieros."
+      },
+      {
+        "year": "2021",
+        "title": "Adquisición de la Empresa",
+        "description": "Adquisición de JF por la gerencia actual, consolidando el futuro de la empresa."
       }
     ],
     "awards": {
@@ -2192,7 +2202,7 @@ const translations = {
           "desc": "Sello de reputación que premia el mejor desempeño económico y financiero. Distinguido 3 veces (la última en 2025)."
         },
         {
-          "name": "Contratista calificado EDP",
+          "name": "Contratista calificado E-Redes",
           "desc": "Reconocimiento técnico por parte de la distribuidora por la realización de trabajos en la red eléctrica."
         },
         {
@@ -2204,8 +2214,8 @@ const translations = {
           "desc": "Sistema de Gestión de Calidad Certificado, asegurando el rigor en todos los procesos."
         },
         {
-          "name": "Certificado REPRO",
-          "desc": "Sistema de calificación de proveedores del sector energético y de servicios públicos en la Península Ibérica."
+          "name": "Compromiso de Pago Puntual",
+          "desc": "Iniciativa que distingue a las empresas que cumplen con los plazos de pago a proveedores y promueven la ética empresarial."
         }
       ]
     },
@@ -2225,20 +2235,20 @@ const translations = {
 },
   fr: {
   "seo": {
-    "home": {
-      "title": "Joaquim & Fernandes | Compagnie d'électricité de l'Algarve et de l'Alentejo",
-      "description": "Électriciens spécialisés dans les installations électriques, la connexion réseau, les téléchargements et PLR, les postes de transformation et les villes intelligentes. Nous opérons à Faro, Portimão, Tavira, Beja et dans tout l’Algarve."
-    },
-    "about": {
-      "title": "À propos de nous | Électriciens certifiés en Algarve | Joaquim et Fernandes",
-      "description": "Découvrez Joaquim & Fernandes, entreprise leader de l'électricité et des télécommunications dans le Sud. Nous servons l'Algarve (Faro, Albufeira) et l'Alentejo avec rigueur."
-    },
+      "home": {
+        "title": "JF | Compagnie d'électricité de l'Algarve et de l'Alentejo",
+        "description": "Électriciens spécialisés dans les installations électriques, la connexion réseau, les téléchargements et PLR, les postes de transformation et les villes intelligentes. Nous opérons à Faro, Portimão, Tavira, Beja et dans tout l’Algarve."
+      },
+      "about": {
+        "title": "À propos de nous | Assistance Permanente en Algarve | JF",
+        "description": "Découvrez JF, entreprise leader de l'électricité et des télécommunications dans le Sud. Nous servons l'Algarve (Faro, Albufeira) et l'Alentejo avec rigueur."
+      },
     "services": {
       "title": "Installations électriques et services d'ingénierie | Algarve et Alentejo",
       "description": "Services complets dans le sud du pays : Projets électriques, téléchargements et PLR, postes de transformation, installations électriques industrielles et recharge de véhicules électriques."
     },
     "lighting": {
-      "title": "Éclairage professionnel | Festif, Public et Décoratif | J&F",
+      "title": "Éclairage | Festif, Public et Décoratif | JF",
       "description": "Solutions d'éclairage complètes en Algarve. Éclairage de Noël, éclairage intelligent (Smart Cities) et éclairage technique."
     },
     "partners": {
@@ -2251,22 +2261,21 @@ const translations = {
     },
     "contact": {
       "title": "Contacts | Demander un devis à un électricien en Algarve et Alentejo",
-      "description": "Contactez Joaquim & Fernandes pour des devis d'installations électriques, de téléchargements et de PLR ​​ou de maintenance. Nous servons Faro, Olhão, Tavira, Portimão et Beja."
+      "description": "Contactez JF pour des devis d'installations électriques, de téléchargements et de PLR ​​ou de maintenance. Nous servons Faro, Olhão, Tavira, Portimão et Beja."
     },
     "smartCities": {
-      "title": "Villes intelligentes et IoT | Éclairage public intelligent | J&F",
+      "title": "Villes intelligentes et IoT | Éclairage public intelligent | JF",
       "description": "Nous transformons les villes de l’Algarve en Smart Cities. Solutions IoT, gestion à distance de l’éclairage public et efficacité énergétique."
     },
-    "faqs": {
-      "title": "Foire aux questions | Joaquim et Fernandes",
-      "description": "Réponses aux questions les plus courantes concernant les demandes de connexion réseau (PLR), les téléchargements, les compteurs et les installations électriques."
-    }
+      "faqs": {
+        "title": "Foire aux questions | JF",
+        "description": "Réponses aux questions les plus courantes concernant les demandes de connexion réseau (PLR), les téléchargements, les compteurs et les installations électriques."
+      }
   },
   "nav": {
     "home": "Commencer",
     "about": "À propos de nous",
     "services": "Services",
-    "lighting": "Éclairage",
     "partners": "Partenaires",
     "careers": "Recrutement",
     "contact": "Contacts",
@@ -2294,20 +2303,21 @@ const translations = {
   "common": {
     "learnMore": "En savoir plus",
     "seeMore": "Voir plus",
+    "requestService": "Demander un Service",
     "address": "Route nationale 125, Bias Norte, Moncarapacho",
     "city": "8700-066 Olhão"
   },
   "home": {
     "hero": {
-      "title": "Solutions d'électricité, d'éclairage, de téléchargement et de raccordement au réseau",
+      "title": "Infrastructures Électriques,|Éclairage, PT|et PLR",
       "subtitle": "Votre compagnie d'électricité de référence en Algarve et en Alentejo. Excellence technique dans les Baixadas, les PLR et les infrastructures.",
       "ctaPrimary": "Demander un devis",
       "ctaSecondary": "Découvrez les prestations"
     },
     "slogan": "L'électricité est avec nous !",
     "servicesTitle": "Nos domaines d'activité",
-    "whyUsTitle": "Pourquoi choisir Joaquim & Fernandes ?",
-    "whyUsDesc": "Nous sommes le bon choix pour tous ceux qui recherchent des électriciens certifiés en Algarve et en Alentejo. Nous combinons des décennies d’expérience dans les postes de transformation et les télécommunications avec les dernières technologies.",
+    "whyUsTitle": "Pourquoi choisir JF ?",
+    "whyUsDesc": "Nous sommes le bon choix pour tous ceux qui recherchent une assistance permanente en Algarve et en Alentejo. Nous combinons des décennies d’expérience dans les postes de transformation et les télécommunications avec les dernières technologies.",
     "ctaButton": "Découvrez nos prestations",
     "benefits": [
       {
@@ -2316,7 +2326,7 @@ const translations = {
       },
       {
         "id": 2,
-        "text": "Électriciens certifiés"
+        "text": "Assistance Permanente"
       },
       {
         "id": 3,
@@ -2353,33 +2363,33 @@ const translations = {
     "leaveReview": "Laissez votre avis",
     "partnersTitle": "Partenaires et marques de confiance",
     "serviceCards": {
-      "projects": {
-        "title": "Projets d'électricité",
-        "desc": "Projets d'ingénierie électrique basse et moyenne tension, autorisations, mesures d'autoprotection et conseil en énergie."
-      },
       "plrs": {
         "title": "Demandes de connexion réseau",
-        "desc": "Exécution de demandes de connexion au réseau (PLR), de téléchargements souterrains ou aériens et de construction de branches de distribution d'énergie."
+        "desc": "Spécialistes des demandes de raccordement au réseau (PLR) dans tout l'Algarve et l'Alentejo."
       },
-      "installations": {
+      "infraestruturas": {
         "title": "Infrastructures électriques",
-        "desc": "Installations électriques industrielles et résidentielles, rénovations, augmentations de puissance, certification et maintenance technique."
+        "desc": "Exécution et maintenance des réseaux électriques Basse et Moyenne Tension et Postes de Transformation."
       },
       "substations": {
         "title": "Postes de transformation",
         "desc": "Assemblage de Postes de Transformation (PT), installation de cellules moyenne tension, transformateurs et maintenance préventive."
       },
-      "ev_charging": {
-        "title": "Bornes de recharge",
-        "desc": "Solutions clé en main pour la recharge des véhicules électriques (PCVE) dans les espaces publics et privés."
-      },
       "lighting": {
-        "title": "Éclairage professionnel",
+        "title": "Éclairage",
         "desc": "Éclairage festif, éclairage intelligent et solutions techniques."
+      },
+      "installations": {
+        "title": "Installations Électriques",
+        "desc": "Installations électriques basse tension pour l'habitat, le commerce et l'industrie. Nous garantissons sécurité, efficacité et respect des normes techniques."
+      },
+      "projects": {
+        "title": "Projets d'électricité",
+        "desc": "Projets d'ingénierie électrique basse et moyenne tension, autorisations, mesures d'autoprotection et conseil en énergie."
       },
       "telecommunications": {
         "title": "Télécommunications",
-        "desc": "Projets et installations ITED/ITUR, fusion de fibres optiques, réseaux de données structurées et certification d'infrastructures."
+        "desc": "Infrastructures de télécommunications d'avenir, conformes à toutes les normes !"
       },
       "others": {
         "title": "Autres services",
@@ -2397,12 +2407,35 @@ const translations = {
       {
         "id": "plrs",
         "title": "Demandes de connexion réseau (PLR)",
-        "description": "Gestion complète des processus de connexion au réseau électrique avec E-Redes. Nous réalisons clé en main téléchargements, extensions et montées en puissance.",
+        "description": "JF est spécialiste des demandes de raccordement au réseau (PLR) dans tout l'Algarve et l'Alentejo.",
+        "details": ["Relevé technique sur place", "Ouverture du dossier auprès d'E-Redes", "Exécution des branchements", "Certification finale"]
+      },
+      {
+        "id": "infraestruturas",
+        "title": "Infrastructures Électriques",
+        "description": "Exécution et maintenance des réseaux électriques Basse et Moyenne Tension et Postes de Transformation.",
+        "details": ["Basse Tension", "Moyenne Tension", "Postes de Transformation", "Maintenance des Réseaux", "Essais Techniques"]
+      },
+      {
+        "id": "substations",
+        "title": "Postes de transformation",
+        "description": "Installation, maintenance et exploitation de postes de transformation (PT) privés et publics. Solutions moyenne tension.",
         "details": [
-          "Chutes aériennes et souterraines",
-          "Installation de compteurs de construction",
-          "Gestion des processus E-Redes",
-          "Exécution des succursales"
+          "Assemblage de TP",
+          "Cellules moyenne tension",
+          "Transformateurs",
+          "Nettoyage et entretien"
+        ]
+      },
+      {
+        "id": "lighting",
+        "title": "Éclairage",
+        "description": "Éclairage festif, éclairage intelligent et solutions techniques.",
+        "details": [
+          "Éclairage public",
+          "Éclairage sportif",
+          "Éclairage festif",
+          "Villes intelligentes"
         ]
       },
       {
@@ -2417,37 +2450,21 @@ const translations = {
         ]
       },
       {
-        "id": "telecommunications",
-        "title": "Télécommunications (ITED/ITUR)",
-        "description": "Infrastructures de télécommunications dans les immeubles et lotissements. Installation de réseaux certifiés fibre optique, cuivre et coaxiaux.",
-        "details": [
-          "Projets ITED/ITUR",
-          "Fusion de fibres optiques",
-          "Réseaux structurés",
-          "Attestation"
-        ]
-      },
-      {
-        "id": "substations",
-        "title": "Postes de transformation",
-        "description": "Installation, maintenance et exploitation de postes de transformation (PT) privés et publics. Solutions moyenne tension.",
-        "details": [
-          "Assemblage de TP",
-          "Cellules moyenne tension",
-          "Transformateurs",
-          "Nettoyage et entretien"
-        ]
-      },
-      {
         "id": "projects",
-        "title": "Projets d'ingénierie",
-        "description": "Préparation de projets électriques, fiches électrotechniques et conseil en énergie pour l'autorisation et l'exécution des travaux.",
+        "title": "Projets et Certifications",
+        "description": "Tout grand projet commence par un bon design. Notre bureau d'études élabore des projets détaillés, assurant l'équilibre entre coût, efficacité et sécurité.",
         "details": [
-          "Projets électriques",
-          "Mesures d'autoprotection",
-          "Licence",
-          "Conseil"
+          "Projets moyenne tension",
+          "Projets basse tension",
+          "Projets d'installations électriques",
+          "Projets d'éclairage"
         ]
+      },
+      {
+        "id": "telecommunications",
+        "title": "Télécommunications",
+        "description": "Nous vivons à l'ère du numérique où la connectivité est fondamentale. JF conçoit et installe des infrastructures de télécommunications préparées pour l'avenir.",
+        "details": ["Projets ITED/ITUR", "Installations de réseau", "Installations de fibre", "Installations de CCTV"]
       },
       {
         "id": "others",
@@ -2465,39 +2482,32 @@ const translations = {
   "serviceDetails": {
     "plrs": {
       "seoTitle": "Demandes de connexion réseau (PLR)",
-      "title": "Exécution du PLR et des téléchargements",
-      "description": "Nous traitons votre demande de raccordement au réseau électrique de A à Z.",
-      "fullText": "Joaquim & Fernandes est spécialisé dans l'exécution de demandes de connexion au réseau (PLR) dans toute l'Algarve et l'Alentejo. Nous prenons en charge l'ensemble du processus bureaucratique avec E-Redes et réalisons les travaux physiques nécessaires (chutes aériennes ou souterraines, murs techniques, portails) afin que vous ayez l'électricité dans votre propriété le plus rapidement possible.",
-      "features": [
-        "Enquête technique sur site",
-        "Ouverture du processus chez E-Redes",
-        "Réalisation de tranchées et d'infrastructures",
-        "Installation de portes et cadres",
-        "Certification finale"
-      ],
-      "keywords": [
-        "DPP",
-        "téléchargements",
-        "E-Redes",
-        "Rallonges",
-        "Électricité"
-      ],
+      "title": "PLR",
+      "description": "JF est spécialiste des demandes de raccordement au réseau (PLR) dans tout l'Algarve et l'Alentejo.",
+      "fullText": "JF est spécialiste des demandes de raccordement au réseau (PLR) dans tout l'Algarve et l'Alentejo. Nous gérons l'ensemble du processus auprès d'E-Redes et exécutons tous les travaux, afin que vous ayez de l'électricité dans votre propriété le plus rapidement possible.",
+      "features": ["Relevé technique sur place", "Ouverture du dossier auprès d'E-Redes", "Exécution des branchements", "Certification finale"],
+      "keywords": ["PLR", "E-Redes", "Branchements", "Connexions", "Électricité"],
       "benefits": [
-        {
-          "title": "Clé en main",
-          "desc": "Nous nous occupons de la bureaucratie et du travail."
-        },
-        {
-          "title": "Vitesse",
-          "desc": "Nous connaissons les procédures pour accélérer le processus."
-        }
+        { "title": "Clé en main", "desc": "Nous prenons en charge l'ensemble du processus et de l'exécution des travaux." }
+      ]
+    },
+    "infraestruturas": {
+      "seoTitle": "Infrastructures Électriques - Basse et Moyenne Tension",
+      "title": "Infrastructures électriques",
+      "description": "Exécution et maintenance des réseaux électriques Basse et Moyenne Tension et Postes de Transformation.",
+      "fullText": "JF est spécialiste dans l'exécution et la maintenance d'infrastructures électriques de service public ou privé. Nous réalisons tous types d'installations électriques Basse et Moyenne Tension et Postes de Transformation, garantissant le respect rigoureux de toutes les normes techniques et de sécurité.",
+      "features": ["Basse Tension", "Moyenne Tension", "Postes de Transformation", "Réseaux d'Éclairage Public", "Essais et Certifications"],
+      "keywords": ["Installations Industrielles", "Basse Tension", "Tableaux Électriques", "Sécurité Électrique"],
+      "benefits": [
+        { "title": "Sécurité", "desc": "Respect rigoureux des normes techniques." },
+        { "title": "Expérience professionnelle", "desc": "Connaissance et compétence" }
       ]
     },
     "installations": {
       "seoTitle": "Installations électriques",
       "title": "Logements et installations industrielles",
       "description": "Des solutions électriques sûres et certifiées pour tout type de bâtiment.",
-      "fullText": "Nous réalisons tous types d'installations électriques basse tension. Des petites rénovations résidentielles aux grandes installations industrielles, notre équipe d’électriciens certifiés veille au strict respect des normes de sécurité et d’efficacité énergétique.",
+      "fullText": "Nous réalisons tous types d'installations électriques basse tension. Des petites rénovations résidentielles aux grandes installations industrielles, notre équipe d’assistance permanente veille au strict respect des normes de sécurité et d’efficacité énergétique.",
       "features": [
         "Panneaux électriques",
         "Câblage structuré",
@@ -2525,91 +2535,68 @@ const translations = {
     },
     "telecommunications": {
       "seoTitle": "Télécommunications ITED et ITUR",
-      "title": "Réseaux de fibre optique et de télécommunications",
-      "description": "Infrastructures de communication certifiées pour bâtiments et lotissements.",
-      "fullText": "Nous vivons à l’ère du numérique où la connectivité est fondamentale. Joaquim & Fernandes conçoit et installe des infrastructures de télécommunications (ITED pour les bâtiments et ITUR pour les lotissements) préparées pour l'avenir. De la fusion de la fibre optique à l'installation de racks et de réseaux structurés, nous garantissons que votre entreprise répond à toutes les normes ANACOM et offre le meilleur débit aux utilisateurs finaux.",
-      "features": [
-        "Projets ITED/ITUR",
-        "Fusion de fibres optiques",
-        "Réseaux coaxiaux et paire de cuivre",
-        "Installation de racks et de racks",
-        "Tests et certifications"
-      ],
-      "keywords": [
-        "ITED",
-        "Itur",
-        "Fibre Optique",
-        "Réseaux",
-        "Télécommunications"
-      ],
+      "title": "Télécommunications",
+      "description": "Nous vivons à l'ère du numérique où la connectivité est fondamentale. JF conçoit et installe des infrastructures de télécommunications préparées pour l'avenir.",
+      "fullText": "Nous vivons à l’ère du numérique où la connectivité est fondamentale. JF conçoit et installe des infrastructures de télécommunications préparées pour l'avenir. Nous garantissons que votre entreprise répond à toutes les normes !",
+      "features": ["Projets ITED/ITUR", "Installations de réseau", "Installations de fibre", "Installations de CCTV"],
+      "keywords": ["ITED", "ITUR", "Fibre Optique", "CCTV", "Telecom"],
       "benefits": [
-        {
-          "title": "Certification ANACOM",
-          "desc": "Garantie de conformité légale."
-        },
-        {
-          "title": "Grande vitesse",
-          "desc": "Infrastructures prêtes pour le Gigabit."
-        }
+        { "title": "Expérience professionnelle", "desc": "Connaissance et compétence" }
       ]
     },
     "substations": {
       "seoTitle": "Postes de transformation et moyenne tension",
-      "title": "Installation et maintenance des PT",
-      "description": "Solutions d'alimentation moyenne tension pour les industries et les grands bâtiments.",
-      "fullText": "Pour les industries, les hôtels ou les grandes zones commerciales, la connexion Basse Tension peut ne pas être suffisante. J&F est spécialisé dans l'assemblage de postes de transformation (PT) privés, assurant la transition en toute sécurité de la moyenne à la basse tension. Nous proposons des contrats de maintenance préventive obligatoires par la loi, garantissant la longévité des équipements et la sécurité des installations.",
+      "title": "Postes de Transformation (PT)",
+      "description": "Fourniture et montage de Postes de Transformation pour les industries et les grandes surfaces.",
+      "fullText": "Pour les industries, les hôtels, les exploitations agricoles ou les grandes surfaces commerciales, le raccordement en Basse Tension peut ne pas suffire. JF est spécialisée dans la fourniture et le montage de Postes de Transformation (PT). Nous proposons la maintenance et l'assistance, garantissant une plus grande longévité des équipements et la sécurité des installations.",
       "features": [
-        "Assemblage de cellules moyenne tension",
-        "Installation du transformateur",
-        "Tableaux Généraux Basse Tension (QGBT)",
-        "Maintenance préventive et corrective",
-        "Analyse de l'huile diélectrique"
+        "Fourniture et Installation de PT",
+        "Maintenance Préventive et Corrective",
+        "Assistance aux pannes",
+        "Analyse de l'Huile Diélectrique"
       ],
       "keywords": [
-        "Station de transformation",
+        "Poste de transformation",
         "Moyenne tension",
         "Transformateur",
-        "Industrie",
-        "Énergie"
+        "Maintenance"
       ],
       "benefits": [
         {
           "title": "Fiabilité",
-          "desc": "Équipements de grandes marques telles que Efacec et Siemens."
+          "desc": "Partenaires des Principaux Fabricants"
         },
         {
           "title": "Conformité",
-          "desc": "Entretien conforme à la législation en vigueur."
+          "desc": "Respect rigoureux de toutes les normes légales et réglementations techniques en vigueur."
         }
       ]
     },
     "projects": {
-      "seoTitle": "Projets de génie électrique",
-      "title": "Projets de conseil et spécialisés",
-      "description": "Ingénierie de détail pour les licences et l’exécution des travaux.",
-      "fullText": "Tout grand projet commence par un bon projet. Notre service d’ingénierie prépare des projets électriques détaillés, garantissant un équilibre entre coût, efficacité et sécurité. Nous gérons toutes les autorisations avec les entités compétentes (DGEG, E-Redes, Conseils municipaux) et développons des mesures d'autoprotection en matière de sécurité incendie.",
+      "seoTitle": "Projets et Certifications",
+      "title": "Projets et Certifications",
+      "description": "Tout grand projet commence par un bon design. Notre bureau d'études élabore des projets détaillés, assurant l'équilibre entre coût, efficacité et sécurité.",
+      "fullText": "Tout grand projet commence par un bon design. Notre bureau d'études élabore des projets détaillés, assurant l'équilibre entre coût, efficacité et sécurité.",
       "features": [
-        "Projets d'exécution électrique",
-        "Fiches techniques électrotechniques",
-        "Mesures d'autoprotection (SCIE)",
-        "Conseil en énergie",
-        "Dimensionnement du réseau"
+        "Projets moyenne tension",
+        "Projets basse tension",
+        "Projets d'installations électriques",
+        "Projets d'éclairage"
       ],
       "keywords": [
-        "Projet électrique",
+        "Projets",
+        "Certifications",
         "Ingénierie",
-        "Licences",
-        "DGEG",
-        "SIERRA"
+        "Licences"
       ],
       "benefits": [
         {
-          "title": "Amélioration",
-          "desc": "Des solutions techniques qui réduisent les coûts de construction."
+          "title": "Conformité Légale",
+          "desc": "Nous garantissons le respect de toutes les normes et réglementations."
         },
         {
-          "title": "Approbation",
-          "desc": "Taux d'approbation élevé auprès des entités officielles."
+          "title": "Délai de réponse",
+          "desc": "Agilité dans le développement et l'autorisation du projet."
         }
       ]
     },
@@ -2654,15 +2641,19 @@ const translations = {
         {
           "title": "Durabilité",
           "desc": "Solutions de recharge pour l'avenir."
+        },
+        {
+          "title": "Expérience professionnelle",
+          "desc": "Connaissance et compétence"
         }
       ]
     }
   },
-  "lighting": {
-    "heroTitle": "Un éclairage qui transforme",
-    "heroDesc": "De la magie des lumières de Noël à l'efficacité de l'éclairage public intelligent. Nous créons des ambiances et garantissons la sécurité par la lumière.",
-    "introTitle": "Solutions d'éclairage à 360º",
-    "introDesc": "Chez Joaquim & Fernandes, la lumière est plus que de la visibilité : c'est une expérience, une sécurité et une identité. Nous proposons un portefeuille complet allant de l'éclairage décoratif pour les périodes de fêtes aux systèmes techniques avancés pour les villes et les industries.",
+    "lighting": {
+      "heroTitle": "Un éclairage qui transforme",
+      "heroDesc": "De la magie des lumières de Noël à l'efficacité de l'éclairage public intelligent. Nous créons des ambiances et garantissons la sécurité par la lumière.",
+      "introTitle": "Solutions d'éclairage à 360º",
+      "introDesc": "Chez JF, la lumière est plus que de la visibilité : c'est une expérience, une sécurité et une identité. Nous proposons un portefeuille complet allant de l'éclairage public à l'éclairage pour les périodes de fêtes. Toujours avec entretien et assistance technique. Nous réalisons l'étude d'éclairage basée sur l'efficacité énergétique.",
     "stat1": "Projets festifs",
     "stat2": "Points lumineux LED",
     "types": [
@@ -2723,13 +2714,14 @@ const translations = {
   },
   "partners": {
     "heroTitle": "Partenaires de confiance",
-    "heroDesc": "L'excellence de Joaquim & Fernandes repose sur des relations solides avec des leaders mondiaux de l'industrie et des partenariats stratégiques exclusifs.",
+    "heroDesc": "L'excellence de JF repose sur des relations solides avec des leaders mondiaux de l'industrie et des partenariats stratégiques exclusifs.",
     "suppliersTitle": "Fournisseurs et marques certifiées",
     "suppliersDesc": "Nous travaillons uniquement avec des matériaux approuvés et des équipements haut de gamme pour garantir une sécurité et une durabilité maximales de nos installations électriques.",
     "eredesHighlight": {
-      "title": "Interconnexion avec le réseau de distribution",
+      "title": "INTERCONNEXION AVEC LE RÉSEAU DE DISTRIBUTION",
       "desc": "En tant qu'entreprise spécialisée, nous garantissons le strict respect de toutes les normes techniques requises par E-Redes (anciennement EDP Distribuição) pour les téléchargements, les extensions et les stations de transformation.",
-      "badge": "Normes techniques respectées"
+      "badge": "Normes techniques respectées",
+      "licenseLinkText": "Consultez toutes nos classes ici"
     },
     "brandsList": [
       {
@@ -2754,7 +2746,7 @@ const translations = {
       }
     ],
     "exclusiveTitle": "Entités publiques partenaires",
-    "exclusiveDesc": "Municipalités et organismes étatiques qui font confiance à Joaquim & Fernandes pour l'éclairage public et les infrastructures critiques.",
+    "exclusiveDesc": "Municipalités et organismes étatiques qui font confiance à JF pour l'éclairage public et les infrastructures critiques.",
     "exclusivePartners": [
       {
         "name": "Municipalité d'Olhão",
@@ -2888,11 +2880,11 @@ const translations = {
       }
     ]
   },
-  "careers": {
-    "heroTitle": "Recrutement",
-    "heroDesc": "Rejoignez une équipe avec près de 40 ans d'histoire. Nous construisons l’avenir de l’Algarve et de l’Alentejo avec rigueur et innovation.",
-    "introTitle": "Pourquoi travailler avec nous ?",
-    "introDesc": "Chez Joaquim & Fernandes, nous croyons que les gens sont notre plus grande énergie. Nous offrons de la stabilité, une formation continue et la possibilité de travailler sur des projets ambitieux en matière d'électricité, de construction et de mobilité durable.",
+    "careers": {
+      "heroTitle": "Recrutement",
+      "heroDesc": "Rejoignez une équipe avec près de 40 ans d'histoire. Nous construisons l’avenir de l’Algarve et de l’Alentejo avec rigueur et innovation.",
+      "introTitle": "Pourquoi travailler avec nous ?",
+      "introDesc": "Chez JF, nous croyons que les gens sont notre plus grande énergie. Nous offrons de la stabilité, une formation continue et la possibilité de travailler sur des projets ambitieux en matière d'électricité, de construction et de mobilité durable.",
     "benefits": [
       "Formation continue et certification",
       "Assurance maladie",
@@ -2957,7 +2949,7 @@ const translations = {
   "qualityPage": {
     "title": "Politique Qualité",
     "visionTitle": "Vision",
-    "visionDesc": "Joaquim & Fernandes Lda vise à être une entreprise de référence et un partenaire stratégique dans la construction d'infrastructures dans la région de l'Algarve, en suivant l'innovation et en étant un exemple dans son secteur d'activité.",
+    "visionDesc": "JF vise à être une entreprise de référence et un partenaire stratégique dans la construction d'infrastructures dans la région de l'Algarve, en suivant l'innovation et en étant un exemple dans son secteur d'activité.",
     "missionTitle": "Mission",
     "missionDesc": "Fournir des services efficaces et rapides dans le domaine de la construction et de l’entretien des infrastructures dans le sud du Portugal.",
     "valuesTitle": "Valeurs",
@@ -2999,11 +2991,11 @@ const translations = {
   },
   "privacyPage": {
     "title": "politique de confidentialité",
-    "intro": "Joaquim & Fernandes, Lda respecte votre vie privée et s'engage à protéger vos données personnelles. Cette politique décrit la manière dont nous collectons, utilisons et protégeons vos informations conformément au Règlement Général sur la Protection des Données (RGPD).",
+    "intro": "JF respecte votre vie privée et s'engage à protéger vos données personnelles. Cette politique décrit la manière dont nous collectons, utilisons et protégeons vos informations conformément au Règlement Général sur la Protection des Données (RGPD).",
     "sections": [
       {
         "title": "1. Responsable du traitement",
-        "content": "Le responsable du traitement de vos données personnelles est Joaquim & Fernandes, Lda, dont le siège social est situé Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. Pour toute question relative à la protection des données, vous pouvez nous contacter par e-mail à mail@joaquimfernandes.pt."
+        "content": "Le responsable du traitement de vos données personnelles est JF, dont le siège social est situé Estrada Nacional 125, Bias Norte, Moncarapacho, 8700-066 Olhão. Pour toute question relative à la protection des données, vous pouvez nous contacter par e-mail à mail@joaquimfernandes.pt."
       },
       {
         "title": "2. Données collectées",
@@ -3030,11 +3022,11 @@ const translations = {
   },
   "termsPage": {
     "title": "Termes et conditions",
-    "intro": "Bienvenue sur le site Joaquim & Fernandes. En accédant et en utilisant ce site Web, vous acceptez les termes et conditions d'utilisation suivants.",
+    "intro": "Bienvenue sur le site JF. En accédant et en utilisant ce site Web, vous acceptez les termes et conditions d'utilisation suivants.",
     "sections": [
       {
         "title": "1. Propriété intellectuelle",
-        "content": "Tout le contenu de ce site (textes, images, logos, vidéos) est la propriété exclusive de Joaquim & Fernandes, Lda ou de ses partenaires, et est protégé par la législation sur le droit d'auteur et la propriété industrielle. La copie, la reproduction ou la distribution sans autorisation préalable sont interdites."
+        "content": "Tout le contenu de ce site (textes, images, logos, vidéos) est la propriété exclusive de JF ou de ses partenaires, et est protégé par la législation sur le droit d'auteur et la propriété industrielle. La copie, la reproduction ou la distribution sans autorisation préalable sont interdites."
       },
       {
         "title": "2. Utilisation du Site",
@@ -3042,15 +3034,15 @@ const translations = {
       },
       {
         "title": "3. Limitation de responsabilité",
-        "content": "Joaquim & Fernandes s'efforce de maintenir les informations présentes sur le site Internet à jour et exactes. Cependant, nous ne garantissons pas l'absence d'erreurs ou d'omissions et ne sommes pas responsables des dommages résultant de l'utilisation des informations contenues dans ce document. Les propositions commerciales et les budgets nécessitent toujours une confirmation officielle de l'entreprise."
+        "content": "JF s'efforce de maintenir les informations présentes sur le site Internet à jour et exactes. Cependant, nous ne garantissons pas l'absence d'erreurs ou d'omissions et ne sommes pas responsables des dommages résultant de l'utilisation des informations contenues dans ce document. Les propositions commerciales et les budgets nécessitent toujours une confirmation officielle de l'entreprise."
       },
       {
         "title": "4. Liens externes",
-        "content": "Ce site Internet peut contenir des liens vers des sites Internet de tiers (par exemple partenaires, réseaux sociaux). Joaquim & Fernandes ne contrôle pas ou n'est pas responsable du contenu ou des politiques de confidentialité de ces sites Web externes."
+        "content": "Ce site Internet peut contenir des liens vers des sites Internet de tiers (par exemple partenaires, réseaux sociaux). JF ne contrôle pas ou n'est pas responsable du contenu ou des politiques de confidentialité de ces sites Web externes."
       },
       {
         "title": "5. Modes alternatifs de règlement des litiges (MARC)",
-        "content": "En cas de litige de consommation, le consommateur peut recourir à une entité compétente de règlement alternatif des litiges. Joaquim & Fernandes est membre des centres d'arbitrage de la région de l'Algarve. Plus d'informations sur le portail des consommateurs (www.consumidor.com.br)."
+        "content": "En cas de litige de consommation, le consommateur peut recourir à une entité compétente de règlement alternatif des litiges. JF est membre des centres d'arbitrage de la région de l'Algarve. Plus d'informations sur le portail des consommateurs (www.consumidor.pt)."
       },
       {
         "title": "6. Droit applicable et lieu",
@@ -3064,33 +3056,48 @@ const translations = {
     "timeline": [
       {
         "year": "1986",
-        "title": "La Fondation",
-        "description": "Joaquim & Fernandes démarre son activité en tant que petite entreprise familiale axée sur les installations électriques résidentielles dans la région de Faro."
+        "title": "Fondation de l'Entreprise",
+        "description": "JF démarre son activité en tant que petite entreprise familiale axée sur les installations électriques résidentielles dans la région de Faro."
       },
       {
         "year": "1998",
-        "title": "Expansion vers l'industrie",
-        "description": "Au fur et à mesure que l'équipe s'agrandit, l'entreprise étend ses services au secteur industriel dans toute l'Algarve."
+        "title": "1er Site Web",
+        "description": "Lancement de notre première présence numérique, suivant l'évolution technologique."
       },
       {
-        "year": "2005",
-        "title": "Département de construction",
-        "description": "Répondant aux besoins des clients, nous avons ouvert le département de construction civile pour proposer des solutions clé en main."
+        "year": "2000",
+        "title": "Chef de Consortium",
+        "description": "Reconnu comme Chef de Consortium en Algarve pour EDP (actuel E-REDES)."
       },
       {
-        "year": "2015",
-        "title": "Expansion à l’Alentejo",
-        "description": "Début des opérations dans l'Alentejo, axées sur des projets agricoles et industriels."
+        "year": "2001",
+        "title": "Certification de Qualité",
+        "description": "Reconnu avec la Certification de Qualité, renforçant notre engagement envers la rigueur."
       },
       {
-        "year": "2020",
-        "title": "Mobilité électrique",
-        "description": "Lancement du pôle dédié à la mobilité électrique, avec l'installation de bornes de recharge dans tout le Sud."
+        "year": "2008",
+        "title": "1er PME Líder",
+        "description": "Distinction publique de notre solidité financière et de nos performances économiques."
       },
       {
-        "year": "Aujourd'hui",
-        "title": "Leaders du marché du Sud",
-        "description": "Nous continuons à innover, en maintenant les valeurs de confiance qui nous définissent depuis près de 40 ans."
+        "year": "2011",
+        "title": "Nouvelle Direction",
+        "description": "Début d'un nouveau cycle stratégique avec l'arrivée d'une nouvelle direction."
+      },
+      {
+        "year": "2017",
+        "title": "Rénovation de l'Image",
+        "description": "Modernisation de l'identité visuelle de l'entreprise, reflétant l'innovation constante."
+      },
+      {
+        "year": "2018",
+        "title": "1er PME Excellence",
+        "description": "Label de réputation récompensant les meilleures performances économiques et financières."
+      },
+      {
+        "year": "2021",
+        "title": "Acquisition de l'Entreprise",
+        "description": "Acquisition de JF par la direction actuelle, consolidant l'avenir de l'entreprise."
       }
     ],
     "awards": {
@@ -3106,7 +3113,7 @@ const translations = {
           "desc": "Sceau de réputation qui récompense les meilleures performances économiques et financières. Distingué 3 fois (dernière en 2025)."
         },
         {
-          "name": "Entrepreneur qualifié en informatique",
+          "name": "Entrepreneur qualifié E-Redes",
           "desc": "Agrément technique par le distributeur pour la réalisation de travaux sur le réseau électrique."
         },
         {
@@ -3118,8 +3125,8 @@ const translations = {
           "desc": "Système de gestion de la qualité certifié, garantissant la rigueur dans tous les processus."
         },
         {
-          "name": "Certificat REPRO",
-          "desc": "Système de qualification des fournisseurs pour le secteur de l'énergie et des services publics dans la péninsule ibérique."
+          "name": "Engagement de Paiement Ponctuel",
+          "desc": "Initiative qui distingue les entreprises qui respectent les délais de paiement envers leurs fournisseurs et promeuvent l'éthique des affaires."
         }
       ]
     },

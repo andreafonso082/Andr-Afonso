@@ -16,12 +16,13 @@ const ServiceDetail: React.FC = () => {
   const getImage = (serviceId: string) => {
     switch(serviceId) {
         case 'projects': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
-        case 'plrs': return "https://drive.google.com/thumbnail?id=1giTPtE1cSEh-pJxVsDCHGYa5zrPoDTG_&sz=w1000-h800-c";
+        case 'plrs': return "https://drive.google.com/thumbnail?id=1aO8Fz5mHCGNCzvOYG709XORsodUGheQJ&sz=w1000";
+        case 'infraestruturas': return "https://drive.google.com/thumbnail?id=1kgeaUZc389LWYR_zGlPRgMmmkA3V2cHV&sz=w1000";
         case 'installations': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
         case 'substations': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
         case 'ev_charging': return "https://picsum.photos/seed/evcharging/1920/1080";
         case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
-        case 'others': return "https://drive.google.com/thumbnail?id=1Wit3urScrjL04cIozwOQVFapW5vf8XQ9&sz=w1000";
+        case 'others': return "https://drive.google.com/thumbnail?id=16EZQLSNq5Mu1vrMN4bX7AzQGVm2Q5Nq5&sz=w1000";
         default: return "https://picsum.photos/seed/electricity/1920/1080";
     }
   };
@@ -30,43 +31,44 @@ const ServiceDetail: React.FC = () => {
   const getGalleryImages = (serviceId: string) => {
      if (serviceId === 'installations') {
         return [
-           "https://drive.google.com/thumbnail?id=14AObSASEEP5cPNFrgoRvvOUc4gdsU3q4&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1EYw_1oYMkBtyyiYfV03_3wy3r5l3CG6-&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1CNmb8SetEpJwpcoiHqTBR8H0Gp0HKQgc&sz=w1000",
+           "https://drive.google.com/thumbnail?id=18H9oeluLrp2JTrcPU-HvdltEGU2dco0M&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1bivaf-8uCZMYJdYoFjOpcL1LORdMEYaQ&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1Uov_V6c6-7YOooxPbtmgeiGilbOd8la0&sz=w1000",
         ];
      }
      if (serviceId === 'others') {
         return [
            "https://drive.google.com/thumbnail?id=1uPRfbqyXmDv7lH31jgfDEi587Ct7AJZ6&sz=w1000",
            "https://drive.google.com/thumbnail?id=16EZQLSNq5Mu1vrMN4bX7AzQGVm2Q5Nq5&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1xOHxVp3Z28-JTkdHWdqh9QKFYghF6OXl&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1w2hNFrkGTVNxI0H2Brl3KBE13aX_0SEY&sz=w1000",
         ];
      }
      if (serviceId === 'plrs') {
         return [
            "https://drive.google.com/thumbnail?id=1AsquK-o0e0BBmy0BsL8eIQAumFiqiuEA&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1EMlMEZ-aM4fYmZ9lkBSp5E0A1_33Q7bn&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1igWkarPX2TRq6brqLxDueFWWFfX2W2gE&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1DljcNnpMIPxZfm8mcPnxZNEXxivD1tmr&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1aO8Fz5mHCGNCzvOYG709XORsodUGheQJ&sz=w1000",
         ];
      }
      if (serviceId === 'telecommunications') {
         return [
            "https://drive.google.com/thumbnail?id=1rEEVbgbvpruwpq_C--flPkId4qEadBEm&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1u_sx4sP_pSiS9F4lyn27zK9Y6kR0HXIj&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1obKSLR7N2Q3ZFnBGX9tHVeL337Sv93Rh&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1tUitwRQLrDmxwwf13W2egLL6WOrgAqM0&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1_ZQPdx8k_t1ySVh7UFWBPYvmS86zljmn&sz=w1000",
         ];
      }
      if (serviceId === 'substations') {
         return [
-           "https://drive.google.com/thumbnail?id=1kgeaUZc389LWYR_zGlPRgMmmkA3V2cHV&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1bEf5P4e4us8apOto_Zs3Bc1MN3Ab1j2_&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1ZC8dznQClrQhHKVNYRxl_JHxBN2Tsfdw&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1lH-G3b8HENvyb0RVTYJCZZIZO5oMPq-u&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1ET2-rNTDUDfwTcVrBrqoa9r2JfuSysK1&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1w6TZRjJmS6cxIiAV-BHNmyzEubZD_fe6&sz=w1000",
         ];
      }
      if (serviceId === 'projects') {
         return [
-           "https://drive.google.com/thumbnail?id=1X776w5_ysMLgR-Uur0VR7c5YCCCWzopO&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1FBv-lypBW849rd90iFFPReI6FZLZUn8a&sz=w1000",
            "https://drive.google.com/thumbnail?id=1Pk1M5dRC0NlcICICcoHEFM2tAhiQ0x6G&sz=w1000",
+           "https://drive.google.com/thumbnail?id=17wXC9EXJZRBE__G0xp9jxK2R0pWbakGc&sz=w1000",
         ];
      }
      return [
@@ -82,7 +84,7 @@ const ServiceDetail: React.FC = () => {
   if (!serviceData) {
     return (
       <div className="pt-32 pb-20 text-center container mx-auto px-6">
-        <SEO title="Serviço Não Encontrado | J&F" description="O serviço que procura não foi encontrado." />
+        <SEO title="Serviço Não Encontrado | JF" description="O serviço que procura não foi encontrado." />
         <h2 className="text-2xl font-normal text-corporate mb-4">Serviço não encontrado / Service not found</h2>
         <CTAButton to="/services" text="Voltar / Back" variant="secondary" />
       </div>
@@ -93,7 +95,7 @@ const ServiceDetail: React.FC = () => {
     <div className="bg-white">
       {/* Dynamic SEO based on service data */}
       <SEO 
-        title={`${serviceData.seoTitle} | Joaquim & Fernandes`} 
+        title={`${serviceData.seoTitle} | JF`} 
         description={serviceData.seoDescription || serviceData.description} 
         url={`/${id}`}
       />
@@ -116,12 +118,9 @@ const ServiceDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight max-w-4xl mx-auto px-2">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight max-w-4xl mx-auto px-2 uppercase">
               {serviceData.seoTitle}
             </h1>
-            <p className="text-sm md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed hidden sm:block">
-              {serviceData.description}
-            </p>
           </motion.div>
         </div>
       </div>
@@ -142,7 +141,7 @@ const ServiceDetail: React.FC = () => {
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-corporate mb-6 md:mb-8 border-l-4 border-brand-light pl-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-corporate mb-6 md:mb-8 border-l-4 border-brand-light pl-4 uppercase">
                 {serviceData.title}
               </h2>
               <div className="prose prose-lg text-gray-600 font-body leading-relaxed mb-12 text-sm md:text-base text-justify">
@@ -150,10 +149,10 @@ const ServiceDetail: React.FC = () => {
               </div>
 
               {/* FEATURES LIST */}
-              <h3 className="text-lg md:text-xl font-bold text-corporate mb-4 md:mb-6 uppercase tracking-wider">
+              <h3 className="text-2xl font-bold font-heading text-corporate mb-6 md:mb-8 uppercase tracking-wide">
                  O que incluímos
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
                 {serviceData.features.map((feature: any, index: number) => {
                   const isObject = typeof feature === 'object' && feature !== null;
                   const title = isObject ? feature.title : feature;
@@ -161,26 +160,31 @@ const ServiceDetail: React.FC = () => {
                   const bullets = isObject ? feature.bullets : null;
 
                   return (
-                    <div 
-                      key={index} 
-                      className={`flex flex-col gap-2 bg-detail p-5 md:p-6 rounded border border-gray-100 ${isObject ? 'md:col-span-2' : ''}`}
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className={`bg-white p-6 md:p-8 rounded-sm shadow-md border-t-4 border-brand-light ${isObject ? 'md:col-span-2' : ''} hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden`}
                     >
-                      <div className="flex items-start gap-4">
-                        <div className="bg-white p-1 rounded-full shadow-sm border border-gray-100 shrink-0">
-                          <Check size={18} className="text-accent" />
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-brand-light/5 rounded-bl-full -translate-y-8 translate-x-8 group-hover:translate-y-0 group-hover:translate-x-0 transition-transform duration-500"></div>
+                      <div className={`flex ${isObject ? 'items-start' : 'items-center'} gap-5`}>
+                        <div className="bg-detail p-3 rounded-full shrink-0 group-hover:bg-brand-light/20 transition-colors">
+                           <Check size={24} className="text-accent" />
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-corporate font-bold text-base md:text-lg">{title}</span>
+                          <h4 className="text-corporate font-bold text-base md:text-lg uppercase tracking-wide">{title}</h4>
                           {description && (
-                            <p className="text-gray-600 text-sm md:text-base mt-2 leading-relaxed">
+                            <p className="text-gray-500 text-sm md:text-base mt-2 leading-relaxed italic">
                               {description}
                             </p>
                           )}
                           {bullets && bullets.length > 0 && (
-                            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 border-t border-gray-100 pt-4">
                               {bullets.map((bullet: string, bIdx: number) => (
-                                <div key={bIdx} className="flex items-center gap-2 text-gray-500 text-sm">
-                                  <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
+                                <div key={bIdx} className="flex items-center gap-3 text-gray-400 text-xs font-semibold">
+                                  <div className="w-1.5 h-1.5 rounded-full bg-brand-light shrink-0"></div>
                                   {bullet}
                                 </div>
                               ))}
@@ -188,7 +192,7 @@ const ServiceDetail: React.FC = () => {
                           )}
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -197,7 +201,7 @@ const ServiceDetail: React.FC = () => {
               {serviceData.benefits && (
                 <div className="mb-16">
                    <h3 className="text-lg md:text-xl font-bold text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
-                      <ShieldCheck className="text-brand-light" /> Porquê a J&F?
+                      <ShieldCheck className="text-brand-light" /> Porquê a JF?
                    </h3>
                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {serviceData.benefits.map((benefit: any, index: number) => (
@@ -215,9 +219,9 @@ const ServiceDetail: React.FC = () => {
                  <h3 className="text-lg md:text-xl font-bold text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
                     <ImageIcon className="text-brand-light" /> Galeria
                  </h3>
-                 <div className={`grid grid-cols-1 ${id === 'projects' ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-4`}>
+                 <div className={`grid grid-cols-1 md:grid-cols-3 gap-4`}>
                     {getGalleryImages(id || 'default').map((img, index) => (
-                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-40 relative group ${index === 0 && !['others', 'installations', 'plrs', 'projects', 'substations', 'telecommunications'].includes(id || '') ? 'md:col-span-2 md:h-full' : ''}`}>
+                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-48 relative group ${index === 0 && !['others', 'installations', 'plrs', 'projects', 'substations', 'telecommunications', 'infraestruturas', 'ev_charging'].includes(id || '') ? 'md:col-span-2 md:h-full' : ''}`}>
                           <img 
                              src={img} 
                              alt="Exemplo de Obra" 

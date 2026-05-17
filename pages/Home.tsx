@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Zap, CheckCircle, Star, Activity, Wrench, Wifi, FileText, Layers, Pen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Zap, CheckCircle, Star, Activity, Wrench, Wifi, FileText, Layers, Pen, ChevronLeft, ChevronRight, Lightbulb } from 'lucide-react';
 import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from 'framer-motion';
 import CTAButton from '../components/CTAButton';
 import ServiceCard from '../components/ServiceCard';
@@ -33,7 +33,7 @@ const partners = [
   { name: "Proteção e Ligas Elétricas", image: "https://drive.google.com/thumbnail?id=119FF0aBhjvbInRS9O3W_yp8f9xEJVVVN&sz=w1000", url: "https://jobasi-sa.com/", scaleClass: "scale-150" },
   { name: "Materiais para Redes Elétricas", image: "https://drive.google.com/thumbnail?id=1Sqx9Rpe_Qvv1n7qMUn-Hbj1vI2CX5DXK&sz=w1000", url: "https://sicame-group.com/en", scaleClass: "scale-150" },
   { name: "Segurança Elétrica", image: "https://drive.google.com/thumbnail?id=1sbxYv2nu_vFuA9-PHpUx_E4ZknxqBHzX&sz=w1000", url: "https://sofamel.com/pt/", scaleClass: "scale-150" },
-  { name: "Iluminação Profissional", image: "https://drive.google.com/thumbnail?id=1lV9r7mXrBVgUWEmb18nI9_u67DLhxam0&sz=w1000", url: "https://www.ledvance.com/pt-pt", scaleClass: "scale-75" },
+  { name: "Iluminação", image: "https://drive.google.com/thumbnail?id=1lV9r7mXrBVgUWEmb18nI9_u67DLhxam0&sz=w1000", url: "https://www.ledvance.com/pt-pt", scaleClass: "scale-75" },
   { name: "Quadros e Envolvências", image: "https://drive.google.com/thumbnail?id=1R9UHdoPUDlf9IE2tzgrzzEsAaHqfpOwB&sz=w1000", url: "https://quiterios.pt/pt/inicio", scaleClass: "scale-75" },
   { name: "Fabrico de Cabos Elétricos", image: "https://drive.google.com/thumbnail?id=17MpsrXWxMTnHRH0P9EU9detWsqEsQhSc&sz=w1000", url: "https://www.miguelez.com/pt", scaleClass: "scale-[2.25]" },
   { name: "Eficiência Energética", image: "https://drive.google.com/thumbnail?id=18cwmEaBjEXKvGWvQApxWFkJF1nr8DWsk&sz=w1000", url: "https://circutor.com/pt/", scaleClass: "scale-75" },
@@ -420,10 +420,11 @@ const Home: React.FC = () => {
             {[
               { title: t.home.serviceCards.plrs.title, desc: t.home.serviceCards.plrs.desc, icon: <Activity size={32} />, link: "/plrs" },
               { title: t.home.serviceCards.infraestruturas.title, desc: t.home.serviceCards.infraestruturas.desc, icon: <Zap size={32} />, link: "/infraestruturas" },
-              { title: t.home.serviceCards.telecommunications.title, desc: t.home.serviceCards.telecommunications.desc, icon: <Wifi size={32} />, link: "/telecommunications" },
               { title: t.home.serviceCards.substations.title, desc: t.home.serviceCards.substations.desc, icon: <Zap size={32} />, link: "/substations" },
+              { title: t.home.serviceCards.lighting.title, desc: t.home.serviceCards.lighting.desc, icon: <Lightbulb size={32} />, link: "/lighting" },
               { title: t.home.serviceCards.installations.title, desc: t.home.serviceCards.installations.desc, icon: <Wrench size={32} />, link: "/installations" },
               { title: t.home.serviceCards.projects.title, desc: t.home.serviceCards.projects.desc, icon: <FileText size={32} />, link: "/projects" },
+              { title: t.home.serviceCards.telecommunications.title, desc: t.home.serviceCards.telecommunications.desc, icon: <Wifi size={32} />, link: "/telecommunications" },
               { title: t.home.serviceCards.others.title, desc: t.home.serviceCards.others.desc, icon: <Layers size={32} />, link: "/others" }
             ].map((service, index) => (
               <div key={index} className="min-w-[85vw] snap-center flex flex-col">
@@ -433,14 +434,15 @@ const Home: React.FC = () => {
           </div>
 
           {/* DESKTOP: Grid */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 justify-center">
             <ServiceCard title={t.home.serviceCards.plrs.title} description={t.home.serviceCards.plrs.desc} icon={<Activity size={32} />} delay={0.1} link="/plrs" />
             <ServiceCard title={t.home.serviceCards.infraestruturas.title} description={t.home.serviceCards.infraestruturas.desc} icon={<Zap size={32} />} delay={0.2} link="/infraestruturas" />
-            <ServiceCard title={t.home.serviceCards.telecommunications.title} description={t.home.serviceCards.telecommunications.desc} icon={<Wifi size={32} />} delay={0.3} link="/telecommunications" />
-            <ServiceCard title={t.home.serviceCards.substations.title} description={t.home.serviceCards.substations.desc} icon={<Zap size={32} />} delay={0.4} link="/substations" />
+            <ServiceCard title={t.home.serviceCards.substations.title} description={t.home.serviceCards.substations.desc} icon={<Zap size={32} />} delay={0.3} link="/substations" />
+            <ServiceCard title={t.home.serviceCards.lighting.title} description={t.home.serviceCards.lighting.desc} icon={<Lightbulb size={32} />} delay={0.4} link="/lighting" />
             <ServiceCard title={t.home.serviceCards.installations.title} description={t.home.serviceCards.installations.desc} icon={<Wrench size={32} />} delay={0.5} link="/installations" />
             <ServiceCard title={t.home.serviceCards.projects.title} description={t.home.serviceCards.projects.desc} icon={<FileText size={32} />} delay={0.6} link="/projects" />
-            <ServiceCard title={t.home.serviceCards.others.title} description={t.home.serviceCards.others.desc} icon={<Layers size={32} />} delay={0.7} link="/others" />
+            <ServiceCard title={t.home.serviceCards.telecommunications.title} description={t.home.serviceCards.telecommunications.desc} icon={<Wifi size={32} />} delay={0.7} link="/telecommunications" />
+            <ServiceCard title={t.home.serviceCards.others.title} description={t.home.serviceCards.others.desc} icon={<Layers size={32} />} delay={0.8} link="/others" />
           </div>
         </div>
       </section>

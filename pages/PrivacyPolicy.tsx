@@ -10,7 +10,7 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <div className="pt-24 pb-12 bg-white min-h-screen">
       <SEO 
-        title={`${content.title} | Joaquim & Fernandes`} 
+        title={`${content.title} | JF`} 
         description={content.intro} 
         url="/privacy"
       />

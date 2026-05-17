@@ -130,7 +130,6 @@ const Navbar: React.FC = () => {
     { name: t.nav.home, path: '/' },
     { name: t.nav.about, path: '/about' },
     { name: t.nav.services, path: '/services' },
-    { name: t.nav.lighting, path: '/lighting' },
     { name: t.nav.partners, path: '/partners' },
     { name: t.nav.careers, path: '/recrutamento' },
     { name: t.nav.contact, path: '/contact' },
@@ -145,7 +144,7 @@ const Navbar: React.FC = () => {
       {/* Logo Container - Aligned with Site Content (Container) */}
       <div className="absolute inset-0 flex items-center pointer-events-none">
         <div className="container mx-auto px-4 md:px-12">
-          <Link to="/" className="inline-flex items-center gap-2 group relative z-50 pointer-events-auto" aria-label="Joaquim & Fernandes">
+          <Link to="/" className="inline-flex items-center gap-2 group relative z-50 pointer-events-auto" aria-label="JF">
             <div className="hover:scale-105 transition-transform duration-300">
               {/* Adjusted logo size for mobile vs desktop */}
               <Logo className="h-12 w-12 md:h-20 md:w-20" />
@@ -231,7 +230,7 @@ const Navbar: React.FC = () => {
             {t.nav.quote}
           </Link>
           <p className="text-center text-xs text-gray-400">
-            Joaquim & Fernandes &copy; {new Date().getFullYear()}
+            JF &copy; {new Date().getFullYear()}
           </p>
         </div>
       </div>

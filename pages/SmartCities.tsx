@@ -55,12 +55,9 @@ const SmartCities: React.FC = () => {
               SMART CITIES & IOT
             </div>
             {/* Optimized h1 for mobile (text-4xl) up to desktop (text-7xl) */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-none">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-none uppercase">
               {t.smartCities.heroTitle}
             </h1>
-            <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-              {t.smartCities.heroDesc}
-            </p>
           </motion.div>
         </div>
       </div>
@@ -75,7 +72,7 @@ const SmartCities: React.FC = () => {
                viewport={{ once: true }}
                transition={{ duration: 0.6 }}
              >
-               <h2 className="text-3xl md:text-4xl font-bold text-corporate mb-8 leading-tight">
+               <h2 className="text-3xl md:text-4xl font-bold text-corporate mb-8 leading-tight uppercase">
                  {t.smartCities.introTitle}
                </h2>
                <div className="w-24 h-1 bg-accent mb-8"></div>
@@ -147,7 +144,7 @@ const SmartCities: React.FC = () => {
                   <div className="inline-block bg-accent px-3 py-1 text-xs font-bold uppercase tracking-widest rounded mb-6">
                     R&D + Tech
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">
+                  <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 uppercase">
                     {t.smartCities.innovationTitle}
                   </h2>
                   <p className="text-gray-400 text-lg mb-8 font-light">
@@ -201,7 +198,7 @@ const SmartCities: React.FC = () => {
              viewport={{ once: true }}
              className="bg-gradient-to-br from-detail to-white border border-gray-100 p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-corporate mb-4">{t.smartCities.ctaTitle}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-corporate mb-4 uppercase">{t.smartCities.ctaTitle}</h2>
             <p className="text-gray-600 mb-8 text-base md:text-lg">{t.smartCities.ctaDesc}</p>
             <CTAButton to="/contact" text={t.smartCities.ctaButton} variant="primary" />
           </motion.div>

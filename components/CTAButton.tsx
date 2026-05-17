@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 interface CTAButtonProps {
   text: string;
   to: string;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'accent';
   className?: string;
 }
 
@@ -16,6 +16,10 @@ const CTAButton: React.FC<CTAButtonProps> = ({ text, to, variant = 'primary', cl
     case 'primary':
       // Blue Base -> Darker Blue Hover
       variantStyles = "bg-accent text-white hover:bg-[#2A3345] shadow-lg hover:shadow-xl border-b-2 border-transparent hover:border-brand-light";
+      break;
+    case 'accent':
+      // Corporate Blue -> Accent Hover
+      variantStyles = "bg-corporate text-white hover:bg-accent shadow-lg hover:shadow-xl border-b-2 border-transparent hover:border-brand-light";
       break;
     case 'secondary':
       variantStyles = "bg-corporate text-white hover:bg-accent shadow-lg border-b-2 border-transparent hover:border-brand-light";

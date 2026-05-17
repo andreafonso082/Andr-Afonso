@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           
           {/* Company Info - Full width on mobile/tablet, 1 col on desktop */}
           <div className="col-span-2 lg:col-span-1">
-            <Link to="/" className="inline-block mb-6 hover:opacity-90 transition-opacity" aria-label="Joaquim & Fernandes - Início">
+            <Link to="/" className="inline-block mb-6 hover:opacity-90 transition-opacity" aria-label="JF - Início">
                <Logo className="h-24 w-24" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6 font-body max-w-md">
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-body">
           <div className="flex flex-col md:flex-row items-center gap-1 md:gap-4 text-center md:text-left w-full justify-between">
              <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2">
-               <span>&copy; {new Date().getFullYear()} Joaquim & Fernandes, Lda. {t.footer.rights}</span>
+               <span>&copy; {new Date().getFullYear()} JF. {t.footer.rights}</span>
                <span className="hidden md:inline text-gray-700">|</span>
                <span>
                  {t.footer.designedBy} <a href="https://agencia-vela.com" target="_blank" rel="noopener noreferrer" className="text-brand-light hover:text-white transition-colors font-medium">Agência Vela</a>

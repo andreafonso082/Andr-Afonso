@@ -39,7 +39,7 @@ const Partners: React.FC = () => {
     { type: "Proteção e Ligas Elétricas", image: "https://drive.google.com/thumbnail?id=119FF0aBhjvbInRS9O3W_yp8f9xEJVVVN&sz=w1000", url: "https://jobasi-sa.com/", scaleClass: "scale-150" },
     { type: "Materiais para Redes Elétricas", image: "https://drive.google.com/thumbnail?id=1Sqx9Rpe_Qvv1n7qMUn-Hbj1vI2CX5DXK&sz=w1000", url: "https://sicame-group.com/en", scaleClass: "scale-150" },
     { type: "Segurança Elétrica", image: "https://drive.google.com/thumbnail?id=1sbxYv2nu_vFuA9-PHpUx_E4ZknxqBHzX&sz=w1000", url: "https://sofamel.com/pt/", scaleClass: "scale-150" },
-    { type: "Iluminação Profissional", image: "https://drive.google.com/thumbnail?id=1lV9r7mXrBVgUWEmb18nI9_u67DLhxam0&sz=w1000", url: "https://www.ledvance.com/pt-pt", scaleClass: "scale-75" },
+    { type: "Iluminação", image: "https://drive.google.com/thumbnail?id=1lV9r7mXrBVgUWEmb18nI9_u67DLhxam0&sz=w1000", url: "https://www.ledvance.com/pt-pt", scaleClass: "scale-75" },
     { type: "Quadros e Envolvências", image: "https://drive.google.com/thumbnail?id=1R9UHdoPUDlf9IE2tzgrzzEsAaHqfpOwB&sz=w1000", url: "https://quiterios.pt/pt/inicio", scaleClass: "scale-75" },
     { type: "Fabrico de Cabos Elétricos", image: "https://drive.google.com/thumbnail?id=17MpsrXWxMTnHRH0P9EU9detWsqEsQhSc&sz=w1000", url: "https://www.miguelez.com/pt", scaleClass: "scale-[2.25]" },
     { type: "Eficiência Energética", image: "https://drive.google.com/thumbnail?id=18cwmEaBjEXKvGWvQApxWFkJF1nr8DWsk&sz=w1000", url: "https://circutor.com/pt/", scaleClass: "scale-75" },
@@ -107,9 +107,18 @@ const Partners: React.FC = () => {
                     <h3 className="text-xl font-bold text-corporate mb-4">
                        {t.partners.eredesHighlight.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed text-lg">
+                    <p className="text-gray-600 leading-relaxed text-lg mb-4">
                       {t.partners.eredesHighlight.desc}
                     </p>
+                    <a 
+                      href="https://www.impic.pt/impic/pt-pt/consultar/empresas-titulares-de-alvara-de-empreiteiro-de-obras-publicas" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-brand-light font-bold text-sm uppercase tracking-widest hover:text-corporate transition-colors border-b-2 border-brand-light pb-1"
+                    >
+                      {t.partners.eredesHighlight.licenseLinkText}
+                      <Zap size={14} fill="currentColor" />
+                    </a>
                  </div>
                  
                  <div className="bg-gray-50 p-6 border-l-4 border-yellow-400">
@@ -193,6 +202,47 @@ const Partners: React.FC = () => {
                );
              })}
           </div>
+        </section>
+
+        {/* 2.5 A QUEM NOS ASSOCIAMOS */}
+        <section className="mb-24 py-16 bg-corporate rounded-sm text-white px-8 md:px-16 relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-light/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+           
+           <div className="text-center mb-12 relative z-10">
+              <h2 className="text-2xl md:text-3xl font-bold uppercase font-heading tracking-wider mb-4 border-b-2 border-brand-light pb-4 inline-block">
+                 {t.partners.exclusiveTitle}
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto mt-4">
+                 {t.partners.exclusiveDesc}
+              </p>
+           </div>
+           
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-4xl mx-auto relative z-10">
+              {t.partners.exclusivePartners?.map((partner: any, idx: number) => (
+                 <motion.a 
+                   key={idx}
+                   href={partner.link} 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: idx * 0.2 }}
+                   className="flex flex-col items-center group bg-white/5 p-8 rounded-sm border border-white/10 hover:border-brand-light/50 transition-all duration-300"
+                 >
+                    <div className="bg-white p-6 rounded-sm mb-8 w-full h-40 flex items-center justify-center transition-transform group-hover:scale-105 shadow-xl">
+                       <img 
+                          src={partner.logo} 
+                          alt={partner.name} 
+                          className="max-h-24 w-auto object-contain" 
+                       />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 uppercase tracking-widest text-white group-hover:text-brand-light transition-colors">{partner.name}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed text-center">{partner.desc}</p>
+                    <div className="mt-6 text-brand-light text-xs font-bold uppercase tracking-widest border-b border-brand-light/30 pb-1 group-hover:border-brand-light">Visitar Website</div>
+                 </motion.a>
+              ))}
+           </div>
         </section>
 
       </div>

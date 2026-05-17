@@ -173,7 +173,7 @@ const About: React.FC = () => {
                   <div className="absolute top-4 left-4 w-full h-full border-2 border-corporate rounded-sm z-0"></div>
                   <img 
                     src="https://drive.google.com/thumbnail?id=1g2FamKcgGLjgcyCIeuRb-hLdjLnmxWtH&sz=w1000" 
-                    alt="Equipa Joaquim & Fernandes" 
+                    alt="Equipa JF" 
                     className="relative z-10 rounded-sm shadow-xl w-full object-cover h-[300px] md:h-[400px]"
                   />
                   {/* Floating Badge */}

@@ -16,7 +16,7 @@ const Lighting: React.FC = () => {
   return (
     <div className="pt-24 pb-0 bg-white overflow-x-hidden">
       <SEO 
-        title={t.seo.lighting?.title || "Iluminação Profissional | J&F"} 
+        title={t.seo.lighting?.title || "Iluminação | JF"} 
         description={t.seo.lighting?.description || "Soluções de Iluminação Festiva, Pública e Arquitetural."} 
         url="/lighting"
       />
@@ -25,9 +25,6 @@ const Lighting: React.FC = () => {
       <div className="bg-corporate py-16 mb-16 text-center text-white relative">
         <div className="container mx-auto px-4 md:px-12 relative z-10">
           <h1 className="text-3xl md:text-4xl font-bold uppercase font-heading mb-4">{t.lighting.heroTitle}</h1>
-          <p className="text-gray-300 max-w-2xl mx-auto font-light text-base md:text-lg">
-            {t.lighting.heroDesc}
-          </p>
         </div>
         {/* Background Element */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
@@ -52,15 +49,17 @@ const Lighting: React.FC = () => {
                <p className="text-lg text-gray-600 leading-relaxed font-body">
                  {t.lighting.introDesc}
                </p>
-               <div className="mt-8 flex gap-4">
-                 <div className="flex flex-col">
-                    <span className="text-3xl md:text-4xl font-bold text-accent">100+</span>
-                    <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.lighting.stat1}</span>
-                 </div>
-                 <div className="w-px bg-gray-200 mx-4"></div>
-                 <div className="flex flex-col">
-                    <span className="text-3xl md:text-4xl font-bold text-brand-light">15k</span>
-                    <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.lighting.stat2}</span>
+               <div className="mt-8 flex flex-col sm:flex-row gap-6 sm:items-center">
+                 <div className="flex gap-4">
+                   <div className="flex flex-col">
+                      <span className="text-3xl md:text-4xl font-bold text-accent">100+</span>
+                      <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.lighting.stat1}</span>
+                   </div>
+                   <div className="w-px bg-gray-200 mx-4"></div>
+                   <div className="flex flex-col">
+                      <span className="text-3xl md:text-4xl font-bold text-brand-light">15k</span>
+                      <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.lighting.stat2}</span>
+                   </div>
                  </div>
                </div>
              </motion.div>
@@ -68,7 +67,7 @@ const Lighting: React.FC = () => {
           <div className="w-full lg:w-1/2 relative">
              <div className="absolute -inset-4 bg-brand-light/20 rounded-lg blur-xl transform -rotate-2"></div>
              <img 
-               src="https://drive.google.com/thumbnail?id=11YB9ObbxVNgO-HNxOjUMwN8KJW-ZtAiD&sz=w1000" 
+               src="https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000" 
                alt="Festive Lighting" 
                className="relative rounded-lg shadow-2xl z-10 w-full h-[400px] object-cover object-center"
              />
@@ -134,6 +133,15 @@ const Lighting: React.FC = () => {
                       </div>
                     </div>
                   )}
+
+                  <div className="flex mb-8">
+                    <CTAButton 
+                      to="/contact?subject=orcamento&interest=lighting" 
+                      text={t.common.requestService} 
+                      variant="primary" 
+                      className="rounded-sm shadow-md"
+                    />
+                  </div>
                 </motion.div>
 
               </div>
