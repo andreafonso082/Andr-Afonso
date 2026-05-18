@@ -150,9 +150,9 @@ const ServiceDetail: React.FC = () => {
 
               {/* FEATURES LIST */}
               <h3 className="text-2xl font-bold font-heading text-corporate mb-6 md:mb-8 uppercase tracking-wide">
-                 O que incluímos
+                 O QUE INCLUÍMOS
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-16">
                 {serviceData.features.map((feature: any, index: number) => {
                   const isObject = typeof feature === 'object' && feature !== null;
                   const title = isObject ? feature.title : feature;
@@ -161,37 +161,35 @@ const ServiceDetail: React.FC = () => {
 
                   return (
                     <motion.div 
-                      key={index}
+                      key={index} 
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className={`bg-white p-6 md:p-8 rounded-sm shadow-md border-t-4 border-brand-light ${isObject ? 'md:col-span-2' : ''} hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden`}
+                      transition={{ delay: index * 0.05 }}
+                      className={`bg-[#f8f8f8] p-5 md:p-6 rounded-sm ${isObject ? 'md:col-span-2' : ''} flex flex-col`}
                     >
-                      <div className="absolute top-0 right-0 w-16 h-16 bg-brand-light/5 rounded-bl-full -translate-y-8 translate-x-8 group-hover:translate-y-0 group-hover:translate-x-0 transition-transform duration-500"></div>
-                      <div className={`flex ${isObject ? 'items-start' : 'items-center'} gap-5`}>
-                        <div className="bg-detail p-3 rounded-full shrink-0 group-hover:bg-brand-light/20 transition-colors">
-                           <Check size={24} className="text-accent" />
-                        </div>
+                      <div className={`flex ${isObject && bullets ? 'items-start' : 'items-center'} gap-4`}>
+                        <Check size={20} className="text-accent shrink-0" />
                         <div className="flex flex-col">
-                          <h4 className="text-corporate font-bold text-base md:text-lg uppercase tracking-wide">{title}</h4>
+                          <span className="text-corporate font-bold text-sm md:text-base uppercase tracking-tight">{title}</span>
                           {description && (
-                            <p className="text-gray-500 text-sm md:text-base mt-2 leading-relaxed italic">
+                            <p className="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">
                               {description}
                             </p>
                           )}
-                          {bullets && bullets.length > 0 && (
-                            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 border-t border-gray-100 pt-4">
-                              {bullets.map((bullet: string, bIdx: number) => (
-                                <div key={bIdx} className="flex items-center gap-3 text-gray-400 text-xs font-semibold">
-                                  <div className="w-1.5 h-1.5 rounded-full bg-brand-light shrink-0"></div>
-                                  {bullet}
-                                </div>
-                              ))}
-                            </div>
-                          )}
                         </div>
                       </div>
+                      
+                      {bullets && bullets.length > 0 && (
+                        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-gray-200 pt-4">
+                          {bullets.map((bullet: string, bIdx: number) => (
+                            <div key={bIdx} className="flex items-center gap-2 text-gray-500 text-xs">
+                              <div className="w-1 h-1 rounded-full bg-accent shrink-0"></div>
+                              {bullet}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </motion.div>
                   );
                 })}
