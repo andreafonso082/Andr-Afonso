@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Calendar, Award, Briefcase, Users, HardHat, GraduationCap, GripHorizontal, FileText, ShieldCheck, CheckCircle, Zap, Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calendar, Award, Briefcase, Users, HardHat, GraduationCap, GripHorizontal, FileText, ShieldCheck, CheckCircle, Zap, Star, ChevronDown } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,6 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 const About: React.FC = () => {
   const { t } = useLanguage();
   const [width, setWidth] = useState(0);
+  const [isCapabilitiesOpen, setIsCapabilitiesOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // Safe access for dependency array
@@ -153,6 +154,161 @@ const About: React.FC = () => {
                         </motion.div>
                     ))}
                 </div>
+            </div>
+
+            {/* COLLAPSIBLE CAPABILITIES SECTION */}
+            <div className="mt-20 max-w-6xl mx-auto">
+               <div 
+                  className="bg-[#f8f8f8] border border-gray-200 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-md"
+               >
+                  <button 
+                     onClick={() => setIsCapabilitiesOpen(!isCapabilitiesOpen)}
+                     className="w-full px-8 py-6 flex items-center justify-between text-left group"
+                  >
+                     <div className="flex items-center gap-4">
+                        <div className="bg-corporate p-2 rounded-sm text-white group-hover:bg-brand-light transition-colors">
+                           <FileText size={24} />
+                        </div>
+                        <div>
+                           <h2 className="text-xl md:text-2xl font-bold text-corporate font-heading uppercase tracking-wide">
+                              Certificações Técnicas & Alvará IMPIC
+                           </h2>
+                           <p className="text-gray-500 text-sm mt-1">
+                              Consulte aqui as nossas habilitações e capacidades técnicas certificadas.
+                           </p>
+                        </div>
+                     </div>
+                     <motion.div
+                        animate={{ rotate: isCapabilitiesOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-gray-400 group-hover:text-corporate"
+                     >
+                        <ChevronDown size={28} />
+                     </motion.div>
+                  </button>
+
+                  <AnimatePresence>
+                     {isCapabilitiesOpen && (
+                        <motion.div
+                           initial={{ height: 0, opacity: 0 }}
+                           animate={{ height: "auto", opacity: 1 }}
+                           exit={{ height: 0, opacity: 0 }}
+                           transition={{ duration: 0.4, ease: "easeInOut" }}
+                           style={{ overflow: 'hidden' }}
+                        >
+                           <div className="px-8 pb-12 pt-4 border-t border-gray-200">
+                              <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                                 
+                                 {/* Table Area (2/3) */}
+                                 <div className="lg:col-span-2">
+                                    <h3 className="text-lg font-bold text-corporate mb-6 uppercase tracking-wider">
+                                       Qualificações e Referências Técnicas Certificadas
+                                    </h3>
+                                    <div className="overflow-x-auto rounded-sm border border-gray-200 shadow-sm">
+                                       <table className="w-full text-left border-collapse bg-white">
+                                          <thead className="bg-corporate text-white">
+                                             <tr>
+                                                <th className="py-4 px-6 text-xs uppercase tracking-widest font-bold">Área de Atuação</th>
+                                                <th className="py-4 px-6 text-xs uppercase tracking-widest font-bold">Qualificação</th>
+                                                <th className="py-4 px-6 text-xs uppercase tracking-widest font-bold">Referência Técnica</th>
+                                             </tr>
+                                          </thead>
+                                          <tbody className="divide-y divide-gray-100">
+                                             {/* Média Tensão */}
+                                             <tr className="hover:bg-detail transition-colors">
+                                                <td rowSpan={2} className="py-4 px-6 text-sm font-bold text-corporate bg-gray-50/50 align-middle">Média Tensão</td>
+                                                <td className="py-4 px-6 text-sm text-gray-600">Ligações Aéreas e Subterrâneas</td>
+                                                <td className="py-4 px-6 text-sm font-bold text-accent">LAMT / LSMT</td>
+                                             </tr>
+                                             <tr className="hover:bg-detail transition-colors">
+                                                <td className="py-4 px-6 text-sm text-gray-600">Postos de Transformação e Seccionamento</td>
+                                                <td className="py-4 px-6 text-sm font-bold text-accent">PST</td>
+                                             </tr>
+                                             
+                                             {/* Baixa Tensão */}
+                                             <tr className="hover:bg-detail transition-colors">
+                                                <td rowSpan={2} className="py-4 px-6 text-sm font-bold text-corporate bg-gray-50/50 align-middle">Baixa Tensão</td>
+                                                <td className="py-4 px-6 text-sm text-gray-600">Redes de Distribuição e Iluminação Pública</td>
+                                                <td className="py-4 px-6 text-sm font-bold text-accent">RABT / RSBT / IP</td>
+                                             </tr>
+                                             <tr className="hover:bg-detail transition-colors">
+                                                <td className="py-4 px-6 text-sm text-gray-600">Ligações de Ramais e Edifícios</td>
+                                                <td className="py-4 px-6 text-sm font-bold text-accent">CHABT / CHSBT</td>
+                                             </tr>
+
+                                             {/* Trabalhos Especiais */}
+                                             <tr className="hover:bg-detail transition-colors">
+                                                <td rowSpan={2} className="py-4 px-6 text-sm font-bold text-corporate bg-gray-50/50 align-middle">Trabalhos Especiais</td>
+                                                <td className="py-4 px-6 text-sm text-gray-600">Trabalhos Em Tensão (sem corte)</td>
+                                                <td className="py-4 px-6 text-sm font-bold text-accent">TET</td>
+                                             </tr>
+                                             <tr className="hover:bg-detail transition-colors">
+                                                <td className="py-4 px-6 text-sm text-gray-600">Limpeza e Conservação de Postos de Seccionamento</td>
+                                                <td className="py-4 px-6 text-sm font-bold text-accent">TET LPZ PST</td>
+                                             </tr>
+
+                                             {/* Contagens e Dados */}
+                                             <tr className="hover:bg-detail transition-colors">
+                                                <td className="py-4 px-6 text-sm font-bold text-corporate bg-gray-50/50 align-middle">Contagens e Dados</td>
+                                                <td className="py-4 px-6 text-sm text-gray-600">Gestão de Contadores (BTN e BTE) e TeleServiços</td>
+                                                <td className="py-4 px-6 text-sm font-bold text-accent">TS / CONT MT BTE / BTN</td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                 </div>
+
+                                 {/* Classes Highlighting (1/3) */}
+                                 <div className="bg-white p-8 rounded-sm border-l-4 border-brand-light shadow-sm self-start">
+                                    <h3 className="text-lg font-bold text-corporate mb-8 uppercase tracking-wider">
+                                       Classes a Destacar
+                                    </h3>
+                                    <div className="space-y-8">
+                                       <div className="relative group">
+                                          <div className="flex items-center gap-3 mb-2 whitespace-nowrap">
+                                             <span className="bg-corporate text-white text-xs font-bold px-3 py-1 rounded-sm">CLASSE 5</span>
+                                             <h4 className="font-bold text-corporate uppercase text-sm">Instalações Elétricas</h4>
+                                          </div>
+                                          <p className="text-gray-600 text-sm leading-relaxed">
+                                             Capacidade técnica para grandes empreitadas até <span className="font-bold text-corporate">3,2M€</span>.
+                                          </p>
+                                       </div>
+
+                                       <div className="relative group">
+                                          <div className="flex items-center gap-3 mb-2 whitespace-nowrap">
+                                             <span className="bg-brand-light text-corporate text-xs font-bold px-3 py-1 rounded-sm">CLASSE 4</span>
+                                             <h4 className="font-bold text-corporate uppercase text-sm">Postos de Transformação</h4>
+                                          </div>
+                                          <p className="text-gray-600 text-sm leading-relaxed">
+                                             Especialização em infraestruturas elétricas até <span className="font-bold text-corporate">1,6M€</span>.
+                                          </p>
+                                       </div>
+
+                                       <div className="relative group">
+                                          <div className="flex items-center gap-3 mb-2 whitespace-nowrap">
+                                             <span className="bg-brand-light text-corporate text-xs font-bold px-3 py-1 rounded-sm">CLASSE 4</span>
+                                             <h4 className="font-bold text-corporate uppercase text-sm">Redes Elétricas</h4>
+                                          </div>
+                                          <p className="text-gray-600 text-sm leading-relaxed">
+                                             Habilitação certificada para redes e instalações até <span className="font-bold text-corporate">1,6M€</span>.
+                                          </p>
+                                       </div>
+                                    </div>
+
+                                    <div className="mt-10 pt-6 border-t border-gray-100 flex items-start gap-3">
+                                       <Award className="text-accent shrink-0" size={20} />
+                                       <p className="text-[10px] text-gray-400 leading-relaxed uppercase font-semibold">
+                                          Certificações atualizadas de acordo com as normas vigentes do IMPIC e padrões europeus de segurança elétrica.
+                                       </p>
+                                    </div>
+                                 </div>
+
+                              </div>
+                           </div>
+                        </motion.div>
+                     )}
+                  </AnimatePresence>
+               </div>
             </div>
          </div>
       </section>
