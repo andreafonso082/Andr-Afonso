@@ -71,6 +71,13 @@ const ServiceDetail: React.FC = () => {
            "https://drive.google.com/thumbnail?id=17wXC9EXJZRBE__G0xp9jxK2R0pWbakGc&sz=w1000",
         ];
      }
+     if (serviceId === 'infraestruturas') {
+        return [
+           "https://drive.google.com/thumbnail?id=1VSf1rBi5aIYuZfy8hsvO0hRzF9j72Vhe&sz=w1000",
+           "https://drive.google.com/thumbnail?id=18LVEZD7AhlLyiVDLFTQq1rFtAhO060r8&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1BzHsEsaS7dJz0ZiDDhxl4dxU-ukJ47uC&sz=w1000",
+        ];
+     }
      return [
         `https://picsum.photos/seed/${serviceId}1/600/400`,
         `https://picsum.photos/seed/${serviceId}2/600/400`,

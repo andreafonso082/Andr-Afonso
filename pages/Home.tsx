@@ -465,7 +465,7 @@ const Home: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2, duration: 0.8 }}
-                  className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3 bg-white p-3 sm:p-4 rounded shadow-sm border-l-4 border-brand-light"
+                  className="flex flex-col sm:flex-row items-start text-left gap-2 sm:gap-3 bg-white p-3 sm:p-4 rounded shadow-sm border-l-4 border-brand-light"
                 >
                   <CheckCircle className="text-accent shrink-0" size={20} />
                   <span className="font-semibold text-corporate font-body text-xs sm:text-sm md:text-base leading-tight">{benefit.text}</span>

@@ -791,10 +791,7 @@ const Contact: React.FC = () => {
                                 `}>
                                   {isSelected && <Check size={14} className="text-white" />}
                                 </div>
-                                <div className="flex flex-col">
-                                  <span className="text-sm font-medium leading-tight">{job.title}</span>
-                                  <span className="text-xs text-gray-400 mt-0.5">{job.location}</span>
-                                </div>
+                                <span className="text-sm font-medium leading-tight">{job.title}</span>
                               </div>
                             );
                           })}

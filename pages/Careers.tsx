@@ -15,23 +15,43 @@ const Careers: React.FC = () => {
 
   const handleScroll = () => {
     if (jobsContainerRef.current) {
-      const { scrollLeft, scrollWidth } = jobsContainerRef.current;
-      const numberOfItems = t.careers.jobs.length;
-      // Calculate approximate width of one item including gap
-      const itemWidth = scrollWidth / numberOfItems;
-      const newIndex = Math.round(scrollLeft / itemWidth);
-      setActiveJobIndex(newIndex);
+      const container = jobsContainerRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+      const children = Array.from(container.children);
+      
+      let closestIndex = 0;
+      let minDistance = Infinity;
+      
+      children.forEach((child, index) => {
+        const childRect = child.getBoundingClientRect();
+        const childCenter = childRect.left + childRect.width / 2;
+        const distance = Math.abs(containerCenter - childCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
+        }
+      });
+      
+      if (closestIndex !== activeJobIndex) {
+        setActiveJobIndex(closestIndex);
+      }
     }
   };
 
   const scrollToJob = (index: number) => {
     if (jobsContainerRef.current) {
-        const scrollWidth = jobsContainerRef.current.scrollWidth;
-        const itemWidth = scrollWidth / t.careers.jobs.length;
-        jobsContainerRef.current.scrollTo({
-            left: itemWidth * index,
-            behavior: 'smooth'
+      const container = jobsContainerRef.current;
+      const children = Array.from(container.children);
+      const targetChild = children[index] as HTMLElement;
+      
+      if (targetChild) {
+        targetChild.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'nearest', 
+          inline: 'center' 
         });
+      }
     }
   };
 
@@ -68,35 +88,37 @@ const Careers: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="px-6 md:px-12 overflow-x-hidden">
         
         {/* Intro Section */}
-        <div className="flex flex-col md:flex-row gap-12 items-center mb-20">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold uppercase text-corporate mb-6">{t.careers.introTitle}</h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              {t.careers.introDesc}
-            </p>
-            <ul className="space-y-3">
-              {t.careers.benefits.map((item: string, index: number) => (
-                <li key={index} className="flex items-center gap-3 text-gray-700 font-semibold">
-                  <CheckCircle size={18} className="text-brand-light" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="md:w-1/2">
-            <img 
-              src="https://drive.google.com/thumbnail?id=1YDXsDvJrvsNt3_HXSqv1UGUD7pNf4xT9&sz=w1000" 
-              alt="Equipa a trabalhar" 
-              className="rounded-lg shadow-xl w-full h-80 md:h-[500px] object-cover object-[50%_25%]"
-            />
+        <div className="container mx-auto mb-20">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl font-bold uppercase text-corporate mb-6">{t.careers.introTitle}</h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                {t.careers.introDesc}
+              </p>
+              <ul className="space-y-3">
+                {t.careers.benefits.map((item: string, index: number) => (
+                  <li key={index} className="flex items-center gap-3 text-gray-700 font-semibold">
+                    <CheckCircle size={18} className="text-brand-light" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="md:w-1/2">
+              <img 
+                src="https://drive.google.com/thumbnail?id=1YDXsDvJrvsNt3_HXSqv1UGUD7pNf4xT9&sz=w1000" 
+                alt="Equipa a trabalhar" 
+                className="rounded-lg shadow-xl w-full h-80 md:h-[500px] object-cover object-[50%_25%]"
+              />
+            </div>
           </div>
         </div>
 
         {/* Job Listings (Mobile Carousel / Desktop Grid) */}
-        <div className="mb-24">
+        <div className="mb-24 w-full max-w-[1800px] mx-auto">
           <h2 className="text-2xl font-bold uppercase text-corporate mb-8 border-b-2 border-brand-light inline-block pb-2">
             {t.careers.openingsTitle}
           </h2>
@@ -106,7 +128,8 @@ const Careers: React.FC = () => {
             onScroll={handleScroll}
             className="
               flex items-stretch overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-6 px-6 scrollbar-hide
-              md:gap-8 md:mx-auto md:px-0 md:max-w-6xl
+              md:gap-8 md:mx-auto md:px-0
+              lg:grid lg:grid-cols-2 xl:grid-cols-4 lg:overflow-visible lg:pb-0 lg:px-0
             "
           >
             {t.careers.jobs.map((job: any, index: number) => (
@@ -117,7 +140,7 @@ const Careers: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="
-                  min-w-[85vw] sm:min-w-[400px] md:min-w-[450px] snap-center
+                  min-w-[85vw] sm:min-w-[400px] md:min-w-[450px] lg:min-w-0 snap-center
                   bg-white border border-gray-100 rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group
                 "
               >
@@ -161,7 +184,7 @@ const Careers: React.FC = () => {
           </div>
           
           {/* Navigation Dots */}
-          <div className="flex justify-center gap-2 mt-2">
+          <div className="flex lg:hidden justify-center gap-2 mt-2">
             {t.careers.jobs.map((_: any, index: number) => (
                 <button
                     key={index}

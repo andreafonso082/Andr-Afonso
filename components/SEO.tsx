@@ -9,9 +9,9 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ title, description, keywords, url }) => {
-  const siteName = "JF - Soluções de Eletricidade e Construção";
-  const fullTitle = `${title} | ${siteName}`;
-  const defaultKeywords = "E-REDES, redes elétricas, baixa tensão, média tensão, alta tensão, instalações elétricas, infraestruturas elétricas, operador de rede de distribuição, ligação à rede E-REDES, certificação E-REDES, empreiteiro E-REDES, JF, construção civil, iluminação pública, telecomunicações, mobilidade elétrica, postos de carregamento";
+  const siteName = "Joaquim & Fernandes";
+  const fullTitle = title.includes("Joaquim & Fernandes") ? title : `${title} | ${siteName}`;
+  const defaultKeywords = "E-REDES, redes elétricas, baixa tensão, média tensão, alta tensão, instalações elétricas, infraestruturas elétricas, operador de rede de distribuição, ligação à rede E-REDES, certificação E-REDES, empreiteiro E-REDES, Joaquim & Fernandes, construção civil, iluminação pública, telecomunicações, mobilidade elétrica, postos de carregamento";
   const finalKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
   const currentUrl = url ? `https://joaquim-fernandes.pt${url}` : "https://joaquim-fernandes.pt";
 

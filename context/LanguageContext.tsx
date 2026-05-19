@@ -12,19 +12,19 @@ const translations = {
   pt: {
     seo: {
       home: {
-        title: "JF | Empresa de Eletricidade Algarve e Alentejo",
+        title: "Joaquim & Fernandes | Empresa de Eletricidade Algarve e Alentejo",
         description: "Eletricistas especializados em Instalações Elétricas, Ligação à Rede, Baixadas e PLR's, Postos de Transformação e Smart Cities. Atuamos em Faro, Portimão, Tavira, Beja e todo o Algarve."
       },
       about: {
-        title: "Sobre Nós | Assistência Permanente no Algarve | JF",
-        description: "Conheça a JF, empresa líder em eletricidade e telecomunicações no Sul. Servimos o Algarve (Faro, Albufeira) e Alentejo com rigor."
+        title: "Sobre Nós | Assistência Permanente no Algarve | Joaquim & Fernandes",
+        description: "Conheça a Joaquim & Fernandes, empresa líder em eletricidade e telecomunicações no Sul. Servimos o Algarve (Faro, Albufeira) e Alentejo com rigor."
       },
       services: {
         title: "Instalações Elétricas e Serviços de Engenharia | Algarve e Alentejo",
         description: "Serviços completos no Sul do país: Projetos de Eletricidade, Baixadas e PLR's, Postos de Transformação, Instalações Elétricas Industriais e Carregamento de Veículos Elétricos."
       },
       lighting: {
-        title: "Iluminação | Festiva, Pública e Decorativa | JF",
+        title: "Iluminação | Festiva, Pública e Decorativa | Joaquim & Fernandes",
         description: "Soluções completas de iluminação no Algarve. Iluminação de Natal, Iluminação Inteligente (Smart Cities) e Iluminação Técnica."
       },
       partners: {
@@ -36,15 +36,15 @@ const translations = {
         description: "Junte-se à nossa equipa. Vagas para Eletricistas, Engenheiros Eletrotécnicos e Técnicos de Manutenção no Algarve e Alentejo."
       },
       contact: {
-        title: "Contactos | Peça Orçamento Eletricista Algarve e Alentejo",
-        description: "Contacte a JF para orçamentos de instalações elétricas, Baixadas e PLR's ou manutenção. Atendemos Faro, Olhão, Tavira, Portimão e Beja."
+        title: "Contactos | Peça Orçamento Eletricista Algarve e Alentejo | Joaquim & Fernandes",
+        description: "Contacte a Joaquim & Fernandes para orçamentos de instalações elétricas, Baixadas e PLR's ou manutenção. Atendemos Faro, Olhão, Tavira, Portimão e Beja."
       },
       smartCities: {
-        title: "Smart Cities & IoT | Iluminação Pública Inteligente | JF",
+        title: "Smart Cities & IoT | Iluminação Pública Inteligente | Joaquim & Fernandes",
         description: "Transformamos cidades no Algarve em Smart Cities. Soluções de IoT, telegestão de iluminação pública e eficiência energética."
       },
       faqs: {
-        title: "Perguntas Frequentes | JF",
+        title: "Perguntas Frequentes | Joaquim & Fernandes",
         description: "Respostas às dúvidas mais comuns sobre pedidos de ligação à rede (PLR), baixadas, contadores e instalações elétricas."
       }
     },
@@ -131,7 +131,7 @@ const translations = {
          infraestruturas: { title: "Infraestruturas Elétricas", desc: "Redes de Baixa e Média Tensão e Postos de Transformação." },
          substations: { title: "PT’s", desc: "Fornecimento, limpeza, manutenção e assistência a postos de transformação." },
          lighting: { title: "Iluminação", desc: "Iluminação festiva, soluções inteligentes e iluminação técnica." },
-         installations: { title: "Instalações Elétricas", desc: "Quadros elétricos, iluminação interior e serviços de manutenção preventiva." },
+         installations: { title: "Instalações Elétricas", desc: "Quadros elétricos, iluminação interior e exterior e sistemas de segurança." },
          projects: { title: "Projetos e Certificações", desc: "Qualquer grande obra começa com um bom projeto. O nosso departamento de engenharia elabora projetos detalhados." },
          telecommunications: { title: "Telecomunicações", desc: "Infraestruturas de telecomunicações preparadas para o futuro de acordo com todas as normas!" },
          others: { title: "Outros Serviços", desc: "Mobilidade elétrica, construção civil, aluguer de equipamentos e apoio a eventos." }
@@ -171,8 +171,8 @@ const translations = {
         {
           id: 'installations',
           title: "INSTALAÇÕES ELÉTRICAS",
-          description: "Soluções elétricas completas para edifícios habitacionais e comerciais.",
-          details: ["Quadros elétricos", "Manutenção preventiva", "Iluminação interior"]
+          description: "Realizamos todo o tipo de instalações elétricas de baixa tensão, com foco industrial.",
+          details: ["Quadros Elétricos", "Iluminação interior e exterior", "Sistemas de segurança", "Rigor técnico"]
         },
         {
           id: 'projects',
@@ -245,12 +245,12 @@ const translations = {
         seoTitle: "INSTALAÇÕES ELÉTRICAS E MANUTENÇÃO",
         title: "INSTALAÇÕES ELÉTRICAS",
         description: "Soluções elétricas completas para edifícios e manutenção preventiva.",
-        fullText: "Realizamos todos os tipos de instalações elétricas em baixa tensão. De quadros elétricos complexos a sistemas de iluminação interior, a nossa equipa de assistência permanente assegura o rigor em cada detalhe.",
-        features: ["Quadros elétricos", "Manutenção preventiva", "Iluminação interior", "Instalações comerciais", "Domótica básica"],
+        fullText: "Realizamos todo o tipo de instalações elétricas de baixa tensão. Com foco em instalações industriais, preparadas e pensadas, especificamente para a sua empresa! A nossa equipa garante o cumprimento rigoroso das normas de segurança.",
+        features: ["Quadros Elétricos", "Iluminação interior e exterior", "Sistemas de segurança", "Rigor técnico"],
         keywords: ["Instalações", "Quadros Elétricos", "Iluminação", "Manutenção"],
         benefits: [
-          { title: "Eficiência", desc: "Soluções que otimizam o consumo de energia." },
-          { title: "Disponibilidade", desc: "Apoio técnico e manutenção periódica." }
+          { title: "Segurança", desc: "Garantimos o cumprimento rigoroso das normas." },
+          { title: "Experiência profissional", desc: "Conhecimento e competência" }
         ]
       },
       projects: {
@@ -528,6 +528,15 @@ const translations = {
           description: "Principais funções: Condução de camião com grua, transporte de materiais, levantamento de postes e movimentação de bobinas e cargas suspensas. Oferecemos: Salário atrativo e compatível com a experiência, prémios anuais e formação contínua.",
           requirements: ["Carta categoria C (obrigatório)", "Experiência em camião com grua", "Perfil responsável e polivalente", "Experiência com máquinas (valorizado)", "CAM de Pesados de mercadorias (valorizado)", "Preferência por pessoas da região com bom conhecimento da zona"],
           emailSubject: "Candidatura: Motorista de Pesados com Grua"
+        },
+        {
+          id: 4,
+          title: "Candidatura Espontânea",
+          location: "Algarve / Alentejo",
+          type: "Tudo",
+          description: "Envie-nos a sua candidatura e entraremos em contacto assim que surgir uma oportunidade adequada.",
+          requirements: ["Proatividade", "Vontade de trabalhar"],
+          emailSubject: "Candidatura Espontânea"
         }
       ],
       spontaneousTitle: "Não encontrou a vaga ideal?",
@@ -670,19 +679,19 @@ const translations = {
   en: {
     seo: {
       home: {
-        title: "JF | Electricity Company Algarve and Alentejo",
+        title: "Joaquim & Fernandes | Electricity Company Algarve and Alentejo",
         description: "Electricians specialized in Electrical Installations, Grid Connections, PLRs, Transformer Substations and Smart Cities. Operating in Faro, Portimão, Tavira, Beja and all Algarve."
       },
       about: {
-        title: "About Us | Permanent Assistance in Algarve | JF",
-        description: "Meet JF, a leading company in electricity and telecommunications in the South. Serving Algarve (Faro, Albufeira) and Alentejo with rigor."
+        title: "About Us | Permanent Assistance in Algarve | Joaquim & Fernandes",
+        description: "Meet Joaquim & Fernandes, a leading company in electricity and telecommunications in the South. Serving Algarve (Faro, Albufeira) and Alentejo with rigor."
       },
       services: {
         title: "Electrical Installations and Engineering Services | Algarve and Alentejo",
         description: "Complete services in the South: Electricity Projects, Grid Connections (PLRs), Transformer Substations, Industrial Electrical Installations, and EV Charging."
       },
       lighting: {
-        title: "Lighting | Festive, Public and Decorative | JF",
+        title: "Lighting | Festive, Public and Decorative | Joaquim & Fernandes",
         description: "Complete lighting solutions in Algarve. Christmas Lighting, Smart Lighting (Smart Cities) and Technical Lighting."
       },
       partners: {
@@ -694,15 +703,15 @@ const translations = {
         description: "Join our team. Vacancies for Electricians, Electrical Engineers and Maintenance Technicians in Algarve and Alentejo."
       },
       contact: {
-        title: "Contacts | Request Electrician Quote Algarve and Alentejo",
-        description: "Contact JF for quotes on electrical installations, Grid Connections (PLRs) or maintenance. Serving Faro, Olhão, Tavira, Portimão and Beja."
+        title: "Contacts | Request Electrician Quote Algarve and Alentejo | Joaquim & Fernandes",
+        description: "Contact Joaquim & Fernandes for quotes on electrical installations, Grid Connections (PLRs) or maintenance. Serving Faro, Olhão, Tavira, Portimão and Beja."
       },
       smartCities: {
-        title: "Smart Cities & IoT | Smart Public Lighting | JF",
+        title: "Smart Cities & IoT | Smart Public Lighting | Joaquim & Fernandes",
         description: "Transforming cities in Algarve into Smart Cities. IoT solutions, public lighting telemanagement, and energy efficiency."
       },
       faqs: {
-        title: "Frequently Asked Questions | JF",
+        title: "Frequently Asked Questions | Joaquim & Fernandes",
         description: "Answers to common questions about grid connection requests (PLR), drops, meters, and electrical installations."
       }
     },
@@ -950,6 +959,15 @@ const translations = {
           description: "Main functions: Driving a truck with a crane, transporting materials, lifting poles, and handling coils and suspended loads. We offer: Attractive salary compatible with experience, annual bonuses, and continuous training.",
           requirements: ["Category C License (mandatory)", "Experience with crane trucks", "Responsible and versatile profile", "Experience with machinery (valued)", "Goods Heavy Vehicle CAM (valued)", "Preference for locals with good knowledge of the area"],
           emailSubject: "Application: Heavy Vehicle Driver with Crane"
+        },
+        {
+          id: 4,
+          title: "Spontaneous Application",
+          location: "Algarve / Alentejo",
+          type: "All",
+          description: "Send us your application and we will contact you as soon as a suitable opportunity arises.",
+          requirements: ["Proactivity", "Willingness to work"],
+          emailSubject: "Spontaneous Application"
         }
       ],
       spontaneousTitle: "Didn't find the ideal vacancy?",
@@ -1273,12 +1291,12 @@ const translations = {
         seoTitle: "Electrical Installations and Maintenance",
         title: "Electrical Installations",
         description: "Complete electrical solutions for buildings and preventive maintenance.",
-        fullText: "We perform all types of low voltage electrical installations. From complex electrical panels to indoor lighting systems, our team of permanent assistance ensures precision in every detail.",
-        features: ["Electrical Panels", "Preventive Maintenance", "Indoor Lighting", "Commercial Installations", "Basic Home Automation"],
+        fullText: "We perform all types of low voltage electrical installations. With a focus on industrial installations, prepared and designed specifically for your company! Our team guarantees rigorous compliance with safety standards.",
+        features: ["Electrical Panels", "Indoor and Outdoor Lighting", "Security Systems", "Technical Rigor"],
         keywords: ["Installations", "Electrical Panels", "Lighting", "Maintenance"],
         benefits: [
-          { title: "Efficiency", desc: "Solutions that optimize energy consumption." },
-          { title: "Availability", desc: "Technical support and periodic maintenance." }
+          { title: "Safety", desc: "We guarantee strict compliance with standards." },
+          { title: "Professional Experience", desc: "Knowledge and competence" }
         ]
       },
       projects: {
@@ -1329,19 +1347,19 @@ const translations = {
   es: {
   "seo": {
       "home": {
-        "title": "JF | Compañía Eléctrica del Algarve y Alentejo",
+        "title": "Joaquim & Fernandes | Compañía Eléctrica del Algarve y Alentejo",
         "description": "Electricistas especializados en Instalaciones Eléctricas, Conexión de Red, Descargas y PLR's, Estaciones Transformadoras y Ciudades Inteligentes. Operamos en Faro, Portimão, Tavira, Beja y todo el Algarve."
       },
       "about": {
-        "title": "Acerca de nosotros | Asistencia Permanente en el Algarve | JF",
-        "description": "Descubra JF, empresa líder en electricidad y telecomunicaciones del Sur. Atendemos con rigor el Algarve (Faro, Albufeira) y el Alentejo."
+        "title": "Acerca de nosotros | Asistencia Permanente en el Algarve | Joaquim & Fernandes",
+        "description": "Descubra Joaquim & Fernandes, empresa líder en electricidad y telecomunicaciones del Sur. Atendemos con rigor el Algarve (Faro, Albufeira) y el Alentejo."
       },
     "services": {
       "title": "Instalaciones Eléctricas y Servicios de Ingeniería | Algarve y Alentejo",
       "description": "Servicios completos en el sur del país: Proyectos Eléctricos, Descargas y PLR's, Estaciones Transformadoras, Instalaciones Eléctricas Industriales y Carga de Vehículos Eléctricos."
     },
     "lighting": {
-      "title": "Iluminación | Festivo, Público y Decorativo | JF",
+      "title": "Iluminación | Festivo, Público y Decorativo | Joaquim & Fernandes",
       "description": "Soluciones completas de iluminación en el Algarve. Iluminación Navideña, Iluminación Inteligente (Smart Cities) e Iluminación Técnica."
     },
     "partners": {
@@ -1354,14 +1372,14 @@ const translations = {
     },
       "contact": {
         "title": "Contactos | Solicite un presupuesto a un electricista en Algarve y Alentejo",
-        "description": "Contacte con JF para cotizaciones de instalaciones eléctricas, descargas y PLR's o mantenimiento. Servimos a Faro, Olhão, Tavira, Portimão y Beja."
+        "description": "Contacte con Joaquim & Fernandes para cotizaciones de instalaciones eléctricas, descargas y PLR's o mantenimiento. Servimos a Faro, Olhão, Tavira, Portimão y Beja."
       },
     "smartCities": {
-      "title": "Ciudades inteligentes e IoT | Alumbrado público inteligente | JF",
+      "title": "Ciudades inteligentes e IoT | Alumbrado público inteligente | Joaquim & Fernandes",
       "description": "Transformamos ciudades del Algarve en Smart Cities. Soluciones IoT, telegestión del alumbrado público y eficiencia energética."
     },
       "faqs": {
-        "title": "Preguntas frecuentes | JF",
+        "title": "Preguntas frecuentes | Joaquim & Fernandes",
         "description": "Respuestas a las preguntas más habituales sobre solicitudes de conexión a red (PLR), descargas, contadores e instalaciones eléctricas."
       }
   },
@@ -1583,7 +1601,7 @@ const translations = {
       "seoTitle": "Infraestructuras Eléctricas - Baja y Media Tensión",
       "title": "Infraestructuras eléctricas",
       "description": "Ejecución y mantenimiento de redes eléctricas de Baja y Media Tensión y Centros de Transformación.",
-      "fullText": "JF es especialista en la ejecución y mantenimiento de infraestructuras eléctricas de servicio público o privado. Realizamos todo tipo de instalaciones eléctricas de Baja y Media Tensión y Centros de Transformación, garantizando el estricto cumplimiento de todas las normas técnicas y de seguridad.",
+      "fullText": "JF es especialista en la ejecución y mantenimiento de infraestructuras eléctricas de servicio público o privado. Realizamos todo tipo de instalaciones eléctricas de Baja y Media Tensión y Centros de Transformación, garantizando el estricto cumplimiento de todas las normas técnicas and de seguridad.",
       "features": ["Baja Tensión", "Media Tensión", "Centros de Transformación", "Redes de Alumbrado Público", "Pruebas y Certificaciones"],
       "keywords": ["Instalaciones Industriales", "Baja Tensión", "Cuadros Eléctricos", "Seguridad Eléctrica"],
       "benefits": [
@@ -1593,31 +1611,30 @@ const translations = {
     },
     "installations": {
       "seoTitle": "Instalaciones Eléctricas",
-      "title": "Instalaciones habitacionales e industriales",
+      "title": "Instalaciones eléctricas",
       "description": "Soluciones eléctricas seguras y certificadas para cualquier tipo de edificación.",
-      "fullText": "Realizamos todo tipo de instalaciones eléctricas de baja tensión. Desde pequeñas reformas en el hogar hasta grandes instalaciones industriales, nuestro equipo de asistencia permanente garantiza el estricto cumplimiento de los estándares de seguridad y eficiencia energética.",
+      "fullText": "Realizamos todo tipo de instalaciones eléctricas de baja tensión. ¡Con un enfoque en instalaciones industriales, preparadas y diseñadas específicamente para su empresa! Nuestro equipo garantiza el estricto cumplimiento de los estándares de seguridad.",
       "features": [
-        "Cuadros electricos",
-        "Cableado estructurado",
+        "Cuadros eléctricos",
         "Iluminación interior y exterior",
-        "Domótica",
-        "Sistemas de seguridad"
+        "Sistemas de seguridad",
+        "Rigor técnico"
       ],
       "keywords": [
         "Electricista",
         "Instalación",
         "Mantenimiento",
-        "Proceso de dar un título",
+        "Certificación",
         "Seguridad"
       ],
       "benefits": [
         {
           "title": "Seguridad",
-          "desc": "Materiales homologados y técnicos certificados."
+          "desc": "Garantizamos el estricto cumplimiento de los estándares."
         },
         {
-          "title": "Eficiencia",
-          "desc": "Soluciones que reducen el consumo energético."
+          "title": "Experiencia profesional",
+          "desc": "Conocimiento y competencia"
         }
       ]
     },
@@ -2028,6 +2045,18 @@ const translations = {
           "Preferencia por personas de la región con buen conocimiento del área."
         ],
         "emailSubject": "Aplicación: Conductor de grúa de servicio pesado"
+      },
+      {
+        "id": 4,
+        "title": "Candidatura Espontánea",
+        "location": "Algarve / Alentejo",
+        "type": "Todo",
+        "description": "Envíanos tu candidatura y nos pondremos en contacto contigo en cuanto surja una oportunidad adecuada.",
+        "requirements": [
+          "Proactividad",
+          "Ganas de trabajar"
+        ],
+        "emailSubject": "Candidatura Espontánea"
       }
     ],
     "spontaneousTitle": "¿No encontraste la vacante ideal?",
@@ -2236,19 +2265,19 @@ const translations = {
   fr: {
   "seo": {
       "home": {
-        "title": "JF | Compagnie d'électricité de l'Algarve et de l'Alentejo",
+        "title": "Joaquim & Fernandes | Compagnie d'électricité de l'Algarve et de l'Alentejo",
         "description": "Électriciens spécialisés dans les installations électriques, la connexion réseau, les téléchargements et PLR, les postes de transformation et les villes intelligentes. Nous opérons à Faro, Portimão, Tavira, Beja et dans tout l’Algarve."
       },
       "about": {
-        "title": "À propos de nous | Assistance Permanente en Algarve | JF",
-        "description": "Découvrez JF, entreprise leader de l'électricité et des télécommunications dans le Sud. Nous servons l'Algarve (Faro, Albufeira) et l'Alentejo avec rigueur."
+        "title": "À propos de nous | Assistance Permanente en Algarve | Joaquim & Fernandes",
+        "description": "Découvrez Joaquim & Fernandes, entreprise leader de l'électricité et des télécommunications dans le Sud. Nous servons l'Algarve (Faro, Albufeira) et l'Alentejo avec rigueur."
       },
     "services": {
       "title": "Installations électriques et services d'ingénierie | Algarve et Alentejo",
       "description": "Services complets dans le sud du pays : Projets électriques, téléchargements et PLR, postes de transformation, installations électriques industrielles et recharge de véhicules électriques."
     },
     "lighting": {
-      "title": "Éclairage | Festif, Public et Décoratif | JF",
+      "title": "Éclairage | Festif, Public et Décoratif | Joaquim & Fernandes",
       "description": "Solutions d'éclairage complètes en Algarve. Éclairage de Noël, éclairage intelligent (Smart Cities) et éclairage technique."
     },
     "partners": {
@@ -2261,14 +2290,14 @@ const translations = {
     },
     "contact": {
       "title": "Contacts | Demander un devis à un électricien en Algarve et Alentejo",
-      "description": "Contactez JF pour des devis d'installations électriques, de téléchargements et de PLR ​​ou de maintenance. Nous servons Faro, Olhão, Tavira, Portimão et Beja."
+      "description": "Contactez Joaquim & Fernandes pour des devis d'installations électriques, de téléchargements et de PLR ​​ou de maintenance. Nous servons Faro, Olhão, Tavira, Portimão et Beja."
     },
     "smartCities": {
-      "title": "Villes intelligentes et IoT | Éclairage public intelligent | JF",
+      "title": "Villes intelligentes et IoT | Éclairage public intelligent | Joaquim & Fernandes",
       "description": "Nous transformons les villes de l’Algarve en Smart Cities. Solutions IoT, gestion à distance de l’éclairage public et efficacité énergétique."
     },
       "faqs": {
-        "title": "Foire aux questions | JF",
+        "title": "Foire aux questions | Joaquim & Fernandes",
         "description": "Réponses aux questions les plus courantes concernant les demandes de connexion réseau (PLR), les téléchargements, les compteurs et les installations électriques."
       }
   },
@@ -2504,32 +2533,30 @@ const translations = {
       ]
     },
     "installations": {
-      "seoTitle": "Installations électriques",
-      "title": "Logements et installations industrielles",
-      "description": "Des solutions électriques sûres et certifiées pour tout type de bâtiment.",
-      "fullText": "Nous réalisons tous types d'installations électriques basse tension. Des petites rénovations résidentielles aux grandes installations industrielles, notre équipe d’assistance permanente veille au strict respect des normes de sécurité et d’efficacité énergétique.",
+      "seoTitle": "Installations Électriques",
+      "title": "Installations électriques",
+      "description": "Solutions électriques complètes pour les bâtiments et maintenance préventive.",
+      "fullText": "Nous réalisons tous types d'installations électriques basse tension. Avec un accent sur les installations industrielles, préparées et conçues spécifiquement pour votre entreprise ! Notre équipe garantit le respect rigoureux des normes de sécurité.",
       "features": [
-        "Panneaux électriques",
-        "Câblage structuré",
+        "Tableaux électriques",
         "Éclairage intérieur et extérieur",
-        "Domotique",
-        "Systèmes de sécurité"
+        "Systèmes de sécurité",
+        "Rigueur technique"
       ],
       "keywords": [
-        "Électricien",
-        "Installation",
-        "Entretien",
-        "Attestation",
-        "Sécurité"
+        "Installations",
+        "Tableaux électriques",
+        "Éclairage",
+        "Maintenance"
       ],
       "benefits": [
         {
           "title": "Sécurité",
-          "desc": "Matériel approuvé et techniciens certifiés."
+          "desc": "Nous garantissons le respect rigoureux des normes."
         },
         {
-          "title": "Efficacité",
-          "desc": "Des solutions qui réduisent la consommation d'énergie."
+          "title": "Expérience professionnelle",
+          "desc": "Connaissance et compétence"
         }
       ]
     },
@@ -2939,6 +2966,18 @@ const translations = {
           "Préférence pour les personnes originaires de la région ayant une bonne connaissance du territoire"
         ],
         "emailSubject": "Application : Conducteur de grue robuste"
+      },
+      {
+        "id": 4,
+        "title": "Candidature Spontanée",
+        "location": "Algarve / Alentejo",
+        "type": "Tout",
+        "description": "Envoyez-nous votre candidature et nous vous contacterons dès qu'une opportunité appropriée se présentera.",
+        "requirements": [
+          "Proactivité",
+          "Volonté de travailler"
+        ],
+        "emailSubject": "Candidature Spontanée"
       }
     ],
     "spontaneousTitle": "Vous n'avez pas trouvé le poste vacant idéal ?",

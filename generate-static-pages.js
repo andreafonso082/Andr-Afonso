@@ -15,11 +15,11 @@ if (!fs.existsSync(indexHtmlPath)) {
 
 const indexHtmlContent = fs.readFileSync(indexHtmlPath, 'utf-8');
 
-const siteName = "JF - Soluções de Eletricidade e Construção";
-const defaultKeywords = "E-REDES, redes elétricas, baixa tensão, média tensão, alta tensão, instalações elétricas, infraestruturas elétricas, operador de rede de distribuição, ligação à rede E-REDES, certificação E-REDES, empreiteiro E-REDES, JF, construção civil, iluminação pública, telecomunicações, mobilidade elétrica, postos de carregamento";
+const siteName = "Joaquim & Fernandes";
+const defaultKeywords = "E-REDES, redes elétricas, baixa tensão, média tensão, alta tensão, instalações elétricas, infraestruturas elétricas, operador de rede de distribuição, ligação à rede E-REDES, certificação E-REDES, empreiteiro E-REDES, Joaquim & Fernandes, construção civil, iluminação pública, telecomunicações, mobilidade elétrica, postos de carregamento";
 
 const seoData = {
-  'about': { title: 'Sobre Nós', description: 'Conheça a JF, especialistas em infraestruturas elétricas, construção civil e parceiros de confiança da E-REDES em Portugal.' },
+  'about': { title: 'Sobre Nós', description: 'Conheça a Joaquim & Fernandes, especialistas em infraestruturas elétricas, construção civil e parceiros de confiança da E-REDES em Portugal.' },
   'services': { title: 'Serviços', description: 'Oferecemos soluções completas em eletricidade, construção, telecomunicações e mobilidade elétrica. Empreiteiro certificado E-REDES.' },
   'projects': { title: 'Projetos Elétricos', description: 'Elaboração de projetos elétricos para redes de baixa, média e alta tensão. Especialistas em infraestruturas E-REDES.' },
   'plrs': { title: 'PLRs', description: 'Postos de Ligação à Rede (PLRs) para garantir a melhor ligação à rede E-REDES com total segurança e certificação.' },
@@ -30,10 +30,10 @@ const seoData = {
   'others': { title: 'Outros Serviços', description: 'Serviços complementares em construção civil, remodelações e manutenção de infraestruturas.' },
   'lighting': { title: 'Iluminação Pública', description: 'Projetos e instalação de iluminação pública eficiente e sustentável. Trabalhamos em conformidade com as normas da E-REDES.' },
   'partners': { title: 'Parceiros', description: 'Os nossos parceiros de negócio. Somos um parceiro de confiança da E-REDES e outras entidades de referência.' },
-  'recrutamento': { title: 'Recrutamento', description: 'Junte-se à equipa JF. Procuramos profissionais para a área de eletricidade, construção e infraestruturas E-REDES.' },
-  'contact': { title: 'Contactos', description: 'Contacte a JF para orçamentos e informações sobre serviços de eletricidade, construção e ligações E-REDES.' },
+  'recrutamento': { title: 'Recrutamento', description: 'Junte-se à equipa Joaquim & Fernandes. Procuramos profissionais para a área de eletricidade, construção e infraestruturas E-REDES.' },
+  'contact': { title: 'Contactos', description: 'Contacte a Joaquim & Fernandes para orçamentos e informações sobre serviços de eletricidade, construção e ligações E-REDES.' },
   'quality-policy': { title: 'Política de Qualidade', description: 'A nossa política de qualidade e compromisso com a excelência nos serviços prestados.' },
-  'privacy': { title: 'Política de Privacidade', description: 'Política de privacidade e proteção de dados da JF.' },
+  'privacy': { title: 'Política de Privacidade', description: 'Política de privacidade e proteção de dados da Joaquim & Fernandes.' },
   'terms': { title: 'Termos e Condições', description: 'Termos e condições de utilização do nosso website e serviços.' },
   'faqs': { title: 'FAQs', description: 'Perguntas frequentes sobre os nossos serviços, ligações à rede E-REDES e processos de construção.' }
 };
@@ -61,7 +61,7 @@ routes.forEach(route => {
 });
 
 // Also update the main index.html with base SEO
-const baseData = { title: 'Início', description: 'JF: Especialistas em infraestruturas elétricas, construção civil e telecomunicações. Empreiteiro certificado e parceiro de confiança da E-REDES.' };
+const baseData = { title: 'Início', description: 'Joaquim & Fernandes: Especialistas em infraestruturas elétricas, construção civil e telecomunicações. Empreiteiro certificado e parceiro de confiança da E-REDES.' };
 const baseFullTitle = `${baseData.title} | ${siteName}`;
 const baseUrl = `https://joaquim-fernandes.pt/`;
 let baseHtml = indexHtmlContent.replace(
