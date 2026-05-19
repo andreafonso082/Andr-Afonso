@@ -85,7 +85,7 @@ const translations = {
     },
     home: {
       hero: {
-        title: "Infraestruturas Elétricas,|Iluminação, PT’s|e PLR’s",
+        title: "Joaquim & Fernandes,|Infraestruturas Elétricas,|Iluminação, PT’s e PLR’s",
         subtitle: "A sua empresa de eletricidade de referência no Algarve e Alentejo. Excelência técnica em Baixadas, PLR's e Infraestruturas.",
         ctaPrimary: "Peça um orçamento",
         ctaSecondary: "Conheça os Serviços"
@@ -752,7 +752,7 @@ const translations = {
     },
     home: {
       hero: {
-        title: "Electrical Infrastructures,|Lighting, PT's|and PLR's",
+        title: "Joaquim & Fernandes,|Electrical Infrastructures,|Lighting, PT's and PLR's",
         subtitle: "Your reference electricity company in Algarve and Alentejo. Technical excellence in Grid Connections, PLRs and Infrastructures.",
         ctaPrimary: "Request a Quote",
         ctaSecondary: "Explore Services"
@@ -1420,7 +1420,7 @@ const translations = {
   },
     "home": {
       "hero": {
-        "title": "Infraestructuras Eléctricas,|Iluminación, PTs|y PLRs",
+        "title": "Joaquim & Fernandes,|Infraestructuras Eléctricas,|Iluminación, PTs y PLRs",
         "subtitle": "Su compañía eléctrica de referencia en el Algarve y Alentejo. Excelencia técnica en Baixadas, PLR's e Infraestructura.",
         "ctaPrimary": "Solicitar una cotización",
         "ctaSecondary": "Descubra los servicios"
@@ -2338,7 +2338,7 @@ const translations = {
   },
   "home": {
     "hero": {
-      "title": "Infrastructures Électriques,|Éclairage, PT|et PLR",
+      "title": "Joaquim & Fernandes,|Infrastructures Électriques,|Éclairage, PT et PLR",
       "subtitle": "Votre compagnie d'électricité de référence en Algarve et en Alentejo. Excellence technique dans les Baixadas, les PLR et les infrastructures.",
       "ctaPrimary": "Demander un devis",
       "ctaSecondary": "Découvrez les prestations"
