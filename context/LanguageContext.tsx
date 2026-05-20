@@ -648,7 +648,8 @@ const translations = {
         { year: "2011", title: "Nova Gerência", description: "Início de um novo ciclo estratégico com a entrada de uma nova liderança." },
         { year: "2017", title: "Renovação da Imagem", description: "Modernização da identidade visual da empresa, refletindo a inovação constante." },
         { year: "2018", title: "1º PME Excelência", description: "Selo de reputação que premeia os melhores desempenhos económico-financeiros." },
-        { year: "2021", title: "Aquisição da Empresa", description: "Aquisição da JF pela gerência atual, consolidando o futuro da empresa." }
+        { year: "2021", title: "Aquisição da Empresa", description: "Aquisição da JF pela gerência atual, consolidando o futuro da empresa." },
+        { year: "2026", title: "Selo Compromisso Pagamento Pontual.", description: "Reconhecimento do compromisso da empresa com a pontualidade nos pagamentos aos seus fornecedores." }
       ],
       awards: {
         title: "Reconhecimento, Certificações e Prémios",
@@ -1018,7 +1019,8 @@ const translations = {
         { year: "2011", title: "New Management", description: "Start of a new strategic cycle with the entry of new leadership." },
         { year: "2017", title: "Brand Renewal", description: "Modernization of the company's visual identity, reflecting constant innovation." },
         { year: "2018", title: "1st PME Excellence", description: "Reputation seal awarding the best economic-financial performances." },
-        { year: "2021", title: "Company Acquisition", description: "Acquisition of JF by the current management, consolidating the company's future." }
+        { year: "2021", title: "Company Acquisition", description: "Acquisition of JF by the current management, consolidating the company's future." },
+        { year: "2026", title: "Commitment to Prompt Payment Seal.", description: "Recognition of the company's commitment to timely payments to its suppliers." }
       ],
       awards: {
         title: "Recognition, Certifications and Awards",
@@ -2216,6 +2218,11 @@ const translations = {
         "year": "2021",
         "title": "Adquisición de la Empresa",
         "description": "Adquisición de JF por la gerencia actual, consolidando el futuro de la empresa."
+      },
+      {
+        "year": "2026",
+        "title": "Sello Compromiso de Pago Puntual.",
+        "description": "Reconocimiento del compromiso de la empresa con la puntualidad en los pagos a sus proveedores."
       }
     ],
     "awards": {
@@ -3137,6 +3144,11 @@ const translations = {
         "year": "2021",
         "title": "Acquisition de l'Entreprise",
         "description": "Acquisition de JF par la direction actuelle, consolidant l'avenir de l'entreprise."
+      },
+      {
+        "year": "2026",
+        "title": "Sceau d'engagement de paiement ponctuel.",
+        "description": "Reconnaissance de l'engagement de l'entreprise pour la ponctualité des paiements à ses fournisseurs."
       }
     ],
     "awards": {
