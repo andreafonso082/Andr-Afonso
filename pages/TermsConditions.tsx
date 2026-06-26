@@ -12,7 +12,7 @@ const TermsConditions: React.FC = () => {
       <SEO 
         title={`${content.title} | JF`} 
         description={content.intro} 
-        url="/terms"
+        url="/termos"
       />
       
       {/* Header */}

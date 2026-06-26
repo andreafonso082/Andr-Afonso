@@ -52,7 +52,7 @@ const Partners: React.FC = () => {
       <SEO 
         title={t.seo.partners.title} 
         description={t.seo.partners.description} 
-        url="/partners"
+        url="/parceiros"
       />
 
       {/* 1. Hero Section - Mais Sóbrio */}
@@ -70,16 +70,16 @@ const Partners: React.FC = () => {
       <div className="container mx-auto px-6 md:px-12 py-16 md:py-24">
         
         {/* 2. E-REDES: Layout Corporativo (Lado a Lado) */}
-        <section className="mb-24">
+        <section className="mb-24 flex justify-center">
            <motion.div 
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
-             className="flex flex-col md:flex-row gap-6 items-start"
+             className="flex flex-col items-center text-center gap-8 max-w-3xl w-full"
            >
-              {/* Lado Esquerdo: Identidade Visual / Badge */}
-              <div className="w-full md:w-auto md:min-w-[280px] flex flex-row md:flex-col items-center md:items-start justify-start gap-4 md:gap-0 shrink-0 border-b md:border-b-0 md:border-r border-gray-200 pb-6 md:pb-0 md:pr-8">
-                 <div className="w-32 md:w-52">
+              {/* Logo e Identificação */}
+              <div className="flex flex-col items-center gap-2">
+                 <div className="w-48 md:w-64">
                      <img 
                         src="https://drive.google.com/thumbnail?id=1UTAnm_KyFRSMMJbhwzrlkhB9kGsphfO6&sz=w1000" 
                         alt="E-REDES" 
@@ -87,45 +87,31 @@ const Partners: React.FC = () => {
                      />
                  </div>
                  
-                 {/* Mobile Text (Right side of logo) */}
-                 <div className="md:hidden text-left">
-                     <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400 leading-tight">
-                         Empreiteiro<br/>Qualificado
-                     </div>
-                 </div>
-
-                 {/* Desktop Text (Below logo) */}
-                 <div className="hidden md:flex justify-between w-52 text-xs font-bold uppercase tracking-widest text-gray-400 mt-2">
+                 <div className="flex justify-between w-48 md:w-64 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
                     <span>Empreiteiro</span>
                     <span>Qualificado</span>
                  </div>
               </div>
 
-              {/* Lado Direito: Conteúdo Técnico */}
-              <div className="md:flex-1 pt-2 md:pt-0 md:pl-8">
-                 <div className="mb-6">
-                    <h3 className="text-xl font-bold text-corporate mb-4">
-                       {t.partners.eredesHighlight.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-lg mb-4">
-                      {t.partners.eredesHighlight.desc}
-                    </p>
-                    <a 
-                      href="https://www.impic.pt/impic/pt-pt/consultar/empresas-titulares-de-alvara-de-empreiteiro-de-obras-publicas" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-brand-light font-bold text-sm uppercase tracking-widest hover:text-corporate transition-colors border-b-2 border-brand-light pb-1"
-                    >
-                      {t.partners.eredesHighlight.licenseLinkText}
-                      <Zap size={14} fill="currentColor" />
-                    </a>
-                 </div>
-                 
-                 <div className="bg-gray-50 p-6 border-l-4 border-yellow-400">
-                    <p className="text-sm text-gray-700 font-medium">
-                       <span className="font-bold text-corporate">Nota Técnica:</span> Cumprimento integral das normas DMA-C62-805/N (Baixadas) e DMA-C62-810/N (Postos de Transformação).
-                    </p>
-                 </div>
+              {/* Conteúdo Técnico */}
+              <div className="flex flex-col items-center">
+                 <h3 className="text-xl md:text-2xl font-bold text-corporate mb-4 uppercase tracking-wide">
+                    {t.partners.eredesHighlight.title}
+                 </h3>
+                 {t.partners.eredesHighlight.desc && (
+                   <p className="text-gray-600 leading-relaxed text-lg mb-6 max-w-2xl">
+                     {t.partners.eredesHighlight.desc}
+                   </p>
+                 )}
+                 <a 
+                   href="https://www.impic.pt/impic/pt-pt/consultar/empresas-titulares-de-alvara-de-empreiteiro-de-obras-publicas" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="inline-flex items-center gap-2 text-brand-light font-bold text-sm uppercase tracking-widest hover:text-corporate transition-colors border-b-2 border-brand-light pb-1"
+                 >
+                   {t.partners.eredesHighlight.licenseLinkText}
+                   <Zap size={14} fill="currentColor" />
+                 </a>
               </div>
            </motion.div>
         </section>
@@ -147,7 +133,7 @@ const Partners: React.FC = () => {
              </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="flex overflow-x-auto pb-10 gap-6 snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-3 md:gap-8 scrollbar-hide">
              {partnerSlots.map((slot, index) => {
                const CardContent = (
                  <>
@@ -182,7 +168,7 @@ const Partners: React.FC = () => {
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.3 }}
                    viewport={{ once: true }}
-                   className="h-48 md:h-56"
+                   className="h-48 md:h-56 min-w-[280px] md:min-w-0 snap-center flex-shrink-0"
                  >
                    {slot.url ? (
                      <a 
@@ -258,7 +244,7 @@ const Partners: React.FC = () => {
             </h2>
             <div className="flex justify-center">
                <CTAButton 
-                  to="/contact?subject=parceria" 
+                  to="/contacto?subject=parceria" 
                   text={t.partners.ctaButton} 
                   variant="outline"
                   className="text-white border-white hover:bg-white hover:text-[#3B455B] rounded-sm"

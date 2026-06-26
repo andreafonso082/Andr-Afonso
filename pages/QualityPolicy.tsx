@@ -13,7 +13,7 @@ const QualityPolicy: React.FC = () => {
       <SEO 
         title={`${content.title} | JF`} 
         description={content.visionDesc} 
-        url="/quality-policy"
+        url="/politica-qualidade"
       />
       
       {/* Header */}

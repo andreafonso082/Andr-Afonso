@@ -49,7 +49,7 @@ const FAQ: React.FC = () => {
       <SEO 
         title={t.seo.faqs.title} 
         description={t.seo.faqs.description} 
-        url="/faqs"
+        url="/perguntas-frequentes"
       />
 
       {/* 1. HERO SECTION (Standardized) */}
@@ -130,7 +130,7 @@ const FAQ: React.FC = () => {
                Não encontrou a resposta que procurava? Entre em contacto com a nossa equipa.
             </p>
             <CTAButton 
-               to="/contact" 
+               to="/contacto" 
                text="Contacte-nos" 
                variant="primary" 
             />

@@ -35,16 +35,16 @@ const App: React.FC = () => {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/lighting" element={<Lighting />} />
-              <Route path="/partners" element={<Partners />} />
+              <Route path="/sobre" element={<About />} />
+              <Route path="/servicos" element={<Services />} />
+              <Route path="/iluminacao" element={<Lighting />} />
+              <Route path="/parceiros" element={<Partners />} />
               <Route path="/recrutamento" element={<Careers />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/quality-policy" element={<QualityPolicy />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/terms" element={<TermsConditions />} />
-              <Route path="/faqs" element={<FAQ />} />
+              <Route path="/contacto" element={<Contact />} />
+              <Route path="/politica-qualidade" element={<QualityPolicy />} />
+              <Route path="/privacidade" element={<PrivacyPolicy />} />
+              <Route path="/termos" element={<TermsConditions />} />
+              <Route path="/perguntas-frequentes" element={<FAQ />} />
               <Route path="/:id" element={<ServiceDetail />} />
             </Routes>
           </main>

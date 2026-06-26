@@ -12,7 +12,7 @@ const PrivacyPolicy: React.FC = () => {
       <SEO 
         title={`${content.title} | JF`} 
         description={content.intro} 
-        url="/privacy"
+        url="/privacidade"
       />
       
       {/* Header */}

@@ -18,17 +18,30 @@ const Lighting: React.FC = () => {
       <SEO 
         title={t.seo.lighting?.title || "Iluminação | JF"} 
         description={t.seo.lighting?.description || "Soluções de Iluminação Festiva, Pública e Arquitetural."} 
-        url="/lighting"
+        url="/iluminacao"
       />
 
-      {/* 1. HEADER / HERO (Standardized) */}
-      <div className="bg-corporate py-16 mb-16 text-center text-white relative">
-        <div className="container mx-auto px-4 md:px-12 relative z-10">
-          <h1 className="text-3xl md:text-4xl font-bold uppercase font-heading mb-4">{t.lighting.heroTitle}</h1>
+      {/* 1. HEADER / HERO (Standardized with Background Image) */}
+      <div className="relative h-[40vh] min-h-[300px] md:h-[60vh] md:min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000" 
+            alt={t.lighting.heroTitle} 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-corporate/80"></div>
         </div>
-        {/* Background Element */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-           <div className="absolute -right-20 -top-20 w-96 h-96 bg-brand-light rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 md:px-12 relative z-10 text-center pt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 uppercase tracking-wider">
+              {t.lighting.heroTitle}
+            </h1>
+          </motion.div>
         </div>
       </div>
 
@@ -42,26 +55,11 @@ const Lighting: React.FC = () => {
                viewport={{ once: true }}
                transition={{ duration: 0.6 }}
              >
-               <h2 className="text-3xl md:text-4xl font-bold uppercase text-corporate mb-8 leading-tight">
-                 {t.lighting.introTitle}
-               </h2>
-               <div className="w-24 h-1 bg-accent mb-8"></div>
+
                <p className="text-lg text-gray-600 leading-relaxed font-body">
                  {t.lighting.introDesc}
                </p>
-               <div className="mt-8 flex flex-col sm:flex-row gap-6 sm:items-center">
-                 <div className="flex gap-4">
-                   <div className="flex flex-col">
-                      <span className="text-3xl md:text-4xl font-bold text-accent">100+</span>
-                      <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.lighting.stat1}</span>
-                   </div>
-                   <div className="w-px bg-gray-200 mx-4"></div>
-                   <div className="flex flex-col">
-                      <span className="text-3xl md:text-4xl font-bold text-brand-light">15k</span>
-                      <span className="text-xs uppercase text-gray-500 font-bold tracking-wider">{t.lighting.stat2}</span>
-                   </div>
-                 </div>
-               </div>
+
              </motion.div>
           </div>
           <div className="w-full lg:w-1/2 relative">
@@ -114,9 +112,7 @@ const Lighting: React.FC = () => {
                   <h3 className="text-3xl md:text-4xl font-bold uppercase text-corporate mb-6 font-heading">
                     {type.title}
                   </h3>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-8 text-justify">
-                    {type.desc}
-                  </p>
+
                   
                   {type.applications && (
                     <div className="bg-white border border-gray-100 p-6 rounded-lg shadow-sm mb-8">
@@ -136,7 +132,7 @@ const Lighting: React.FC = () => {
 
                   <div className="flex mb-8">
                     <CTAButton 
-                      to="/contact?subject=orcamento&interest=lighting" 
+                      to="/contacto?subject=orcamento&interest=lighting" 
                       text={t.common.requestService} 
                       variant="primary" 
                       className="rounded-sm shadow-md"
@@ -166,7 +162,7 @@ const Lighting: React.FC = () => {
              </h2>
              <p className="text-gray-300 text-lg mb-6 max-w-xl mx-auto">{t.lighting.ctaDesc}</p>
              <CTAButton 
-               to="/contact?subject=orcamento&interest=lighting" 
+               to="/contacto?subject=orcamento&interest=lighting" 
                text={t.lighting.ctaButton} 
                variant="outline" 
                className="text-white border-white hover:bg-white hover:text-[#3B455B] rounded-sm" 

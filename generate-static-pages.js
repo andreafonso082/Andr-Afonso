@@ -19,23 +19,22 @@ const siteName = "Joaquim & Fernandes";
 const defaultKeywords = "E-REDES, redes elétricas, baixa tensão, média tensão, alta tensão, instalações elétricas, infraestruturas elétricas, operador de rede de distribuição, ligação à rede E-REDES, certificação E-REDES, empreiteiro E-REDES, Joaquim & Fernandes, construção civil, iluminação pública, telecomunicações, mobilidade elétrica, postos de carregamento";
 
 const seoData = {
-  'about': { title: 'Sobre Nós', description: 'Conheça a Joaquim & Fernandes, especialistas em infraestruturas elétricas, construção civil e parceiros de confiança da E-REDES em Portugal.' },
-  'services': { title: 'Serviços', description: 'Oferecemos soluções completas em eletricidade, construção, telecomunicações e mobilidade elétrica. Empreiteiro certificado E-REDES.' },
-  'projects': { title: 'Projetos Elétricos', description: 'Elaboração de projetos elétricos para redes de baixa, média e alta tensão. Especialistas em infraestruturas E-REDES.' },
+  'sobre': { title: 'Sobre Nós', description: 'Conheça a Joaquim & Fernandes, especialistas em infraestruturas elétricas, construção civil e parceiros de confiança da E-REDES em Portugal.' },
+  'servicos': { title: 'Serviços', description: 'Oferecemos soluções completas em eletricidade, construção, telecomunicações e mobilidade elétrica. Empreiteiro certificado E-REDES.' },
+  'projetos': { title: 'Projetos Elétricos', description: 'Elaboração de projetos elétricos para redes de baixa, média e alta tensão. Especialistas em infraestruturas E-REDES.' },
   'plrs': { title: 'PLRs', description: 'Postos de Ligação à Rede (PLRs) para garantir a melhor ligação à rede E-REDES com total segurança e certificação.' },
-  'installations': { title: 'Instalações Elétricas', description: 'Instalações elétricas industriais e comerciais. Certificação e ligação à rede E-REDES.' },
-  'substations': { title: 'Postos de Transformação', description: 'Construção e manutenção de Postos de Transformação (PTs) e subestações. Parceiro E-REDES.' },
-  'ev_charging': { title: 'Mobilidade Elétrica', description: 'Instalação de postos de carregamento para veículos elétricos (VE). Soluções completas de mobilidade elétrica.' },
-  'telecommunications': { title: 'Telecomunicações', description: 'Infraestruturas de telecomunicações, redes de fibra ótica e estruturadas.' },
-  'others': { title: 'Outros Serviços', description: 'Serviços complementares em construção civil, remodelações e manutenção de infraestruturas.' },
-  'lighting': { title: 'Iluminação Pública', description: 'Projetos e instalação de iluminação pública eficiente e sustentável. Trabalhamos em conformidade com as normas da E-REDES.' },
-  'partners': { title: 'Parceiros', description: 'Os nossos parceiros de negócio. Somos um parceiro de confiança da E-REDES e outras entidades de referência.' },
+  'instalacoes': { title: 'Instalações Elétricas', description: 'Instalações elétricas industriais e comerciais. Certificação e ligação à rede E-REDES.' },
+  'postos-transformacao': { title: 'Postos de Transformação', description: 'Construção e manutenção de Postos de Transformação (PTs) e subestações. Parceiro E-REDES.' },
+  'telecomunicacoes': { title: 'Telecomunicações', description: 'Infraestruturas de telecomunicações, redes de fibra ótica e estruturadas.' },
+  'outros': { title: 'Outros Serviços', description: 'Serviços complementares em construção civil, remodelações e manutenção de infraestruturas.' },
+  'iluminacao': { title: 'Iluminação Pública', description: 'Projetos e instalação de iluminação pública eficiente e sustentável. Trabalhamos em conformidade com as normas da E-REDES.' },
+  'parceiros': { title: 'Parceiros', description: 'Os nossos parceiros de negócio. Somos um parceiro de confiança da E-REDES e outras entidades de referência.' },
   'recrutamento': { title: 'Recrutamento', description: 'Junte-se à equipa Joaquim & Fernandes. Procuramos profissionais para a área de eletricidade, construção e infraestruturas E-REDES.' },
-  'contact': { title: 'Contactos', description: 'Contacte a Joaquim & Fernandes para orçamentos e informações sobre serviços de eletricidade, construção e ligações E-REDES.' },
-  'quality-policy': { title: 'Política de Qualidade', description: 'A nossa política de qualidade e compromisso com a excelência nos serviços prestados.' },
-  'privacy': { title: 'Política de Privacidade', description: 'Política de privacidade e proteção de dados da Joaquim & Fernandes.' },
-  'terms': { title: 'Termos e Condições', description: 'Termos e condições de utilização do nosso website e serviços.' },
-  'faqs': { title: 'FAQs', description: 'Perguntas frequentes sobre os nossos serviços, ligações à rede E-REDES e processos de construção.' }
+  'contacto': { title: 'Contactos', description: 'Contacte a Joaquim & Fernandes para orçamentos e informações sobre serviços de eletricidade, construção e ligações E-REDES.' },
+  'politica-qualidade': { title: 'Política de Qualidade', description: 'A nossa política de qualidade e compromisso com a excelência nos serviços prestados.' },
+  'privacidade': { title: 'Política de Privacidade', description: 'Política de privacidade e proteção de dados da Joaquim & Fernandes.' },
+  'termos': { title: 'Termos e Condições', description: 'Termos e condições de utilização do nosso website e serviços.' },
+  'perguntas-frequentes': { title: 'FAQs', description: 'Perguntas frequentes sobre os nossos serviços, ligações à rede E-REDES e processos de construção.' }
 };
 
 const routes = Object.keys(seoData);

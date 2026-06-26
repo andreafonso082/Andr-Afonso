@@ -128,11 +128,11 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: t.nav.home, path: '/' },
-    { name: t.nav.about, path: '/about' },
-    { name: t.nav.services, path: '/services' },
-    { name: t.nav.partners, path: '/partners' },
+    { name: t.nav.about, path: '/sobre' },
+    { name: t.nav.services, path: '/servicos' },
+    { name: t.nav.partners, path: '/parceiros' },
     { name: t.nav.careers, path: '/recrutamento' },
-    { name: t.nav.contact, path: '/contact' },
+    { name: t.nav.contact, path: '/contacto' },
   ];
 
   return (
@@ -175,7 +175,7 @@ const Navbar: React.FC = () => {
           <LanguageSwitcher showSolidNav={showSolidNav} />
 
           <Link
-            to="/contact"
+            to="/contacto"
             className="bg-accent hover:bg-[#2A3345] text-white font-bold py-2 px-6 rounded-sm transition-colors uppercase text-xs tracking-widest shadow-lg border-b-2 border-transparent hover:border-brand-light whitespace-nowrap"
           >
             {t.nav.quote}
@@ -223,7 +223,7 @@ const Navbar: React.FC = () => {
         
         <div className="p-6 bg-gray-50 mt-auto border-t border-gray-200">
           <Link
-            to="/contact"
+            to="/contacto"
             onClick={() => setIsOpen(false)}
             className="block w-full bg-accent hover:bg-[#2A3345] text-center text-white font-bold py-4 rounded shadow-md uppercase text-sm tracking-widest transition-colors mb-4"
           >

@@ -200,7 +200,7 @@ const SmartCities: React.FC = () => {
           >
             <h2 className="text-2xl md:text-3xl font-bold text-corporate mb-4 uppercase">{t.smartCities.ctaTitle}</h2>
             <p className="text-gray-600 mb-8 text-base md:text-lg">{t.smartCities.ctaDesc}</p>
-            <CTAButton to="/contact" text={t.smartCities.ctaButton} variant="primary" />
+            <CTAButton to="/contacto" text={t.smartCities.ctaButton} variant="primary" />
           </motion.div>
         </div>
       </section>

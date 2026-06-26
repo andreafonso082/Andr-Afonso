@@ -116,8 +116,7 @@ const ComplexLightningBolt = ({ isMainStrike }: { isMainStrike: boolean }) => (
 );
 
 const heroImages = [
-  "https://drive.google.com/thumbnail?id=1mxFbGSVK8APyt_TgubTnif3HcvJh0__O&sz=w1920",
-  "https://drive.google.com/thumbnail?id=1INKw9knKkyBuUU8qxa-r-_F8UWrPttAy&sz=w1920"
+  "https://drive.google.com/thumbnail?id=1NSWL_bq-WRZ4mMsEM1ff057AjCKRbTY7&sz=w1920"
 ];
 
 const Home: React.FC = () => {
@@ -143,10 +142,35 @@ const Home: React.FC = () => {
   // Hero Carousel State
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
   
+  // Services Carousel State
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
+  const servicesScrollRef = useRef<HTMLDivElement>(null);
+  
+  const services = [
+    { title: t.home.serviceCards.plrs.title, desc: t.home.serviceCards.plrs.desc, icon: <Activity size={32} />, link: "/plrs" },
+    { title: t.home.serviceCards.infraestruturas.title, desc: t.home.serviceCards.infraestruturas.desc, icon: <Zap size={32} />, link: "/infraestruturas" },
+    { title: t.home.serviceCards['postos-transformacao'].title, desc: t.home.serviceCards['postos-transformacao'].desc, icon: <Zap size={32} />, link: "/postos-transformacao" },
+    { title: t.home.serviceCards.iluminacao.title, desc: t.home.serviceCards.iluminacao.desc, icon: <Lightbulb size={32} />, link: "/iluminacao" },
+    { title: t.home.serviceCards.instalacoes.title, desc: t.home.serviceCards.instalacoes.desc, icon: <Wrench size={32} />, link: "/instalacoes" },
+    { title: t.home.serviceCards.projetos.title, desc: t.home.serviceCards.projetos.desc, icon: <FileText size={32} />, link: "/projetos" },
+    { title: t.home.serviceCards.telecomunicacoes.title, desc: t.home.serviceCards.telecomunicacoes.desc, icon: <Wifi size={32} />, link: "/telecomunicacoes" },
+    { title: t.home.serviceCards.outros.title, desc: t.home.serviceCards.outros.desc, icon: <Layers size={32} />, link: "/outros" }
+  ];
+
+  const handleServicesScroll = () => {
+    if (servicesScrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = servicesScrollRef.current;
+      const scrollPercentage = scrollLeft / (scrollWidth - clientWidth);
+      const index = Math.round(scrollPercentage * (services.length - 1));
+      setActiveServiceIndex(index);
+    }
+  };
+
   // Track if slogan has animated
   const [hasAnimatedSlogan, setHasAnimatedSlogan] = useState(false);
 
   useEffect(() => {
+    if (heroImages.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
     }, 4000); // 4 seconds interval
@@ -336,46 +360,6 @@ const Home: React.FC = () => {
                 ></motion.span>
               </motion.div>
 
-              {/* RESTORED: Larger text size for Tablet (md:text-4xl) */}
-              <motion.h1 
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0, 
-                    transition: { 
-                      delay: 2.5, // Wait for the entire top animation (0.5 + 1.5 + 0.5)
-                      duration: 1.5, 
-                      ease: "easeOut" 
-                    } 
-                  }
-                }}
-                className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold uppercase font-heading text-white mb-6 flex flex-col gap-y-1 md:gap-y-2 leading-snug"
-              >
-                {t.home.hero.title && t.home.hero.title.split('|').map((part: string, i: number) => (
-                  <span key={i} className="block">{part.trim()}</span>
-                ))}
-              </motion.h1>
-              
-              {/* RESTORED: Larger subtitle for Tablet (md:text-lg) */}
-              <motion.p 
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0, 
-                    transition: { 
-                      delay: 2.7, // Staggered slightly after title
-                      duration: 1.5, 
-                      ease: "easeOut" 
-                    } 
-                  }
-                }}
-                className="text-base md:text-lg lg:text-xl text-gray-200 mb-8 md:mb-10 font-light border-l-4 border-brand-light pl-4 leading-relaxed max-w-2xl"
-              >
-                {t.home.hero.subtitle}
-              </motion.p>
-              
               <motion.div 
                 variants={{
                   hidden: { opacity: 0, y: 40 },
@@ -383,7 +367,7 @@ const Home: React.FC = () => {
                     opacity: 1, 
                     y: 0, 
                     transition: { 
-                      delay: 2.9, // Staggered slightly after subtitle
+                      delay: 2.9, // Staggered slightly
                       duration: 1.5, 
                       ease: "easeOut" 
                     } 
@@ -392,14 +376,7 @@ const Home: React.FC = () => {
                 className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center"
               >
                 {/* RESTORED: Standard button sizing */}
-                <CTAButton to="/contact" text={t.home.hero.ctaPrimary} variant="primary" className="w-full sm:w-auto text-center" />
-                {/* SMALLER SECONDARY BUTTON LINKING TO SERVICES */}
-                <CTAButton 
-                  to="/services" 
-                  text={t.home.hero.ctaSecondary} 
-                  variant="outline" 
-                  className="w-full sm:w-auto text-center !py-2 !px-6 !text-xs" 
-                />
+                <CTAButton to="/contacto" text={t.home.hero.ctaPrimary} variant="primary" className="w-full sm:w-auto text-center" />
               </motion.div>
             </motion.div>
             <div className="hidden lg:block w-full lg:w-1/4"></div>
@@ -416,20 +393,25 @@ const Home: React.FC = () => {
           </div>
           
           {/* MOBILE: Horizontal Scroll Carousel */}
-          <div className="md:hidden flex items-stretch overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 scrollbar-hide">
-            {[
-              { title: t.home.serviceCards.plrs.title, desc: t.home.serviceCards.plrs.desc, icon: <Activity size={32} />, link: "/plrs" },
-              { title: t.home.serviceCards.infraestruturas.title, desc: t.home.serviceCards.infraestruturas.desc, icon: <Zap size={32} />, link: "/infraestruturas" },
-              { title: t.home.serviceCards.substations.title, desc: t.home.serviceCards.substations.desc, icon: <Zap size={32} />, link: "/substations" },
-              { title: t.home.serviceCards.lighting.title, desc: t.home.serviceCards.lighting.desc, icon: <Lightbulb size={32} />, link: "/lighting" },
-              { title: t.home.serviceCards.installations.title, desc: t.home.serviceCards.installations.desc, icon: <Wrench size={32} />, link: "/installations" },
-              { title: t.home.serviceCards.projects.title, desc: t.home.serviceCards.projects.desc, icon: <FileText size={32} />, link: "/projects" },
-              { title: t.home.serviceCards.telecommunications.title, desc: t.home.serviceCards.telecommunications.desc, icon: <Wifi size={32} />, link: "/telecommunications" },
-              { title: t.home.serviceCards.others.title, desc: t.home.serviceCards.others.desc, icon: <Layers size={32} />, link: "/others" }
-            ].map((service, index) => (
+          <div 
+            ref={servicesScrollRef}
+            onScroll={handleServicesScroll}
+            className="md:hidden flex items-stretch overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-4 px-4 scrollbar-hide"
+          >
+            {services.map((service, index) => (
               <div key={index} className="min-w-[85vw] snap-center flex flex-col">
                 <ServiceCard {...service} delay={0} className="flex-1" />
               </div>
+            ))}
+          </div>
+
+          {/* MOBILE: Navigation Dots */}
+          <div className="md:hidden flex justify-center gap-2 mb-8">
+            {services.map((_, index) => (
+              <div 
+                key={index}
+                className={`h-2 rounded-full transition-all duration-300 ${index === activeServiceIndex ? 'w-6 bg-brand-light' : 'w-2 bg-gray-300'}`}
+              />
             ))}
           </div>
 
@@ -437,12 +419,12 @@ const Home: React.FC = () => {
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 justify-center">
             <ServiceCard title={t.home.serviceCards.plrs.title} description={t.home.serviceCards.plrs.desc} icon={<Activity size={32} />} delay={0.1} link="/plrs" />
             <ServiceCard title={t.home.serviceCards.infraestruturas.title} description={t.home.serviceCards.infraestruturas.desc} icon={<Zap size={32} />} delay={0.2} link="/infraestruturas" />
-            <ServiceCard title={t.home.serviceCards.substations.title} description={t.home.serviceCards.substations.desc} icon={<Zap size={32} />} delay={0.3} link="/substations" />
-            <ServiceCard title={t.home.serviceCards.lighting.title} description={t.home.serviceCards.lighting.desc} icon={<Lightbulb size={32} />} delay={0.4} link="/lighting" />
-            <ServiceCard title={t.home.serviceCards.installations.title} description={t.home.serviceCards.installations.desc} icon={<Wrench size={32} />} delay={0.5} link="/installations" />
-            <ServiceCard title={t.home.serviceCards.projects.title} description={t.home.serviceCards.projects.desc} icon={<FileText size={32} />} delay={0.6} link="/projects" />
-            <ServiceCard title={t.home.serviceCards.telecommunications.title} description={t.home.serviceCards.telecommunications.desc} icon={<Wifi size={32} />} delay={0.7} link="/telecommunications" />
-            <ServiceCard title={t.home.serviceCards.others.title} description={t.home.serviceCards.others.desc} icon={<Layers size={32} />} delay={0.8} link="/others" />
+            <ServiceCard title={t.home.serviceCards['postos-transformacao'].title} description={t.home.serviceCards['postos-transformacao'].desc} icon={<Zap size={32} />} delay={0.3} link="/postos-transformacao" />
+            <ServiceCard title={t.home.serviceCards.iluminacao.title} description={t.home.serviceCards.iluminacao.desc} icon={<Lightbulb size={32} />} delay={0.4} link="/iluminacao" />
+            <ServiceCard title={t.home.serviceCards.instalacoes.title} description={t.home.serviceCards.instalacoes.desc} icon={<Wrench size={32} />} delay={0.5} link="/instalacoes" />
+            <ServiceCard title={t.home.serviceCards.projetos.title} description={t.home.serviceCards.projetos.desc} icon={<FileText size={32} />} delay={0.6} link="/projetos" />
+            <ServiceCard title={t.home.serviceCards.telecomunicacoes.title} description={t.home.serviceCards.telecomunicacoes.desc} icon={<Wifi size={32} />} delay={0.7} link="/telecomunicacoes" />
+            <ServiceCard title={t.home.serviceCards.outros.title} description={t.home.serviceCards.outros.desc} icon={<Layers size={32} />} delay={0.8} link="/outros" />
           </div>
         </div>
       </section>
@@ -473,7 +455,7 @@ const Home: React.FC = () => {
               ))}
             </div>
             <div className="mt-10">
-              <CTAButton to="/services" text={t.home.ctaButton} variant="secondary" className="w-full sm:w-auto text-center" />
+              <CTAButton to="/servicos" text={t.home.ctaButton} variant="secondary" className="w-full sm:w-auto text-center" />
             </div>
           </div>
         </div>
@@ -534,7 +516,7 @@ const Home: React.FC = () => {
                {animStep === 3 && (
                  <div className="absolute inset-0 bg-brand-light blur-2xl opacity-20 animate-pulse rounded-full"></div>
                )}
-               <CTAButton to="/contact" text={t.home.lightUp.cta} variant="primary" className="text-base md:text-lg py-3 md:py-4 px-8 md:px-10 relative z-10 w-full sm:w-auto shadow-[0_0_20px_rgba(141,200,232,0.3)]" />
+               <CTAButton to="/contacto" text={t.home.lightUp.cta} variant="primary" className="text-base md:text-lg py-3 md:py-4 px-8 md:px-10 relative z-10 w-full sm:w-auto shadow-[0_0_20px_rgba(141,200,232,0.3)]" />
             </div>
           </motion.div>
         </div>

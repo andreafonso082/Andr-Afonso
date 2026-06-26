@@ -15,56 +15,62 @@ const ServiceDetail: React.FC = () => {
   // Helper to map images (reused logic for consistency)
   const getImage = (serviceId: string) => {
     switch(serviceId) {
-        case 'projects': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
+        case 'projetos': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
         case 'plrs': return "https://drive.google.com/thumbnail?id=1aO8Fz5mHCGNCzvOYG709XORsodUGheQJ&sz=w1000";
         case 'infraestruturas': return "https://drive.google.com/thumbnail?id=1kgeaUZc389LWYR_zGlPRgMmmkA3V2cHV&sz=w1000";
-        case 'installations': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
-        case 'substations': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
+        case 'instalacoes': return "https://drive.google.com/thumbnail?id=1vFfKmmmxVzPktDOZ4YNYDGFVjO-oTpWy&sz=w1000";
+        case 'postos-transformacao': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
         case 'ev_charging': return "https://picsum.photos/seed/evcharging/1920/1080";
-        case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
-        case 'others': return "https://drive.google.com/thumbnail?id=16EZQLSNq5Mu1vrMN4bX7AzQGVm2Q5Nq5&sz=w1000";
+        case 'telecomunicacoes': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
+        case 'outros': return "https://drive.google.com/thumbnail?id=16EZQLSNq5Mu1vrMN4bX7AzQGVm2Q5Nq5&sz=w1000";
+        case 'iluminacao': return "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000";
         default: return "https://picsum.photos/seed/electricity/1920/1080";
     }
   };
 
   // Helper to get Gallery Images (Mock data based on ID seed)
   const getGalleryImages = (serviceId: string) => {
-     if (serviceId === 'installations') {
+     if (serviceId === 'instalacoes') {
         return [
            "https://drive.google.com/thumbnail?id=18H9oeluLrp2JTrcPU-HvdltEGU2dco0M&sz=w1000",
            "https://drive.google.com/thumbnail?id=1bivaf-8uCZMYJdYoFjOpcL1LORdMEYaQ&sz=w1000",
            "https://drive.google.com/thumbnail?id=1Uov_V6c6-7YOooxPbtmgeiGilbOd8la0&sz=w1000",
         ];
      }
-     if (serviceId === 'others') {
+     if (serviceId === 'outros') {
         return [
            "https://drive.google.com/thumbnail?id=1uPRfbqyXmDv7lH31jgfDEi587Ct7AJZ6&sz=w1000",
            "https://drive.google.com/thumbnail?id=16EZQLSNq5Mu1vrMN4bX7AzQGVm2Q5Nq5&sz=w1000",
            "https://drive.google.com/thumbnail?id=1w2hNFrkGTVNxI0H2Brl3KBE13aX_0SEY&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1adtAn85YzIk-VygRQnSokR46zimX1cwd&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1hnViOlbPqzatOL9DxAPv5Cojdmf-Sqjs&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1yhWe6Ae9YJGb6Wf9H0399AlXwGsvW6mc&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1jlP6-bjzZOcjhE5kIzieU2mQ0X_H1pdh&sz=w1000",
         ];
      }
      if (serviceId === 'plrs') {
         return [
-           "https://drive.google.com/thumbnail?id=1AsquK-o0e0BBmy0BsL8eIQAumFiqiuEA&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1DljcNnpMIPxZfm8mcPnxZNEXxivD1tmr&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1kNQX2zzIbh4SXP66__t4nRBLULjryBiY&sz=w1000",
+           "https://drive.google.com/thumbnail?id=12VNxerQUOpcAAqu3Q5Zo09XxiRHAcSUk&sz=w1000",
+           "https://drive.google.com/thumbnail?id=17stwA_y-kuEybGTqiyT0T2sLoKf8PUKI&sz=w1000",
            "https://drive.google.com/thumbnail?id=1aO8Fz5mHCGNCzvOYG709XORsodUGheQJ&sz=w1000",
         ];
      }
-     if (serviceId === 'telecommunications') {
+     if (serviceId === 'telecomunicacoes') {
         return [
            "https://drive.google.com/thumbnail?id=1rEEVbgbvpruwpq_C--flPkId4qEadBEm&sz=w1000",
            "https://drive.google.com/thumbnail?id=1tUitwRQLrDmxwwf13W2egLL6WOrgAqM0&sz=w1000",
            "https://drive.google.com/thumbnail?id=1_ZQPdx8k_t1ySVh7UFWBPYvmS86zljmn&sz=w1000",
         ];
      }
-     if (serviceId === 'substations') {
+     if (serviceId === 'postos-transformacao') {
         return [
            "https://drive.google.com/thumbnail?id=1lH-G3b8HENvyb0RVTYJCZZIZO5oMPq-u&sz=w1000",
            "https://drive.google.com/thumbnail?id=1ET2-rNTDUDfwTcVrBrqoa9r2JfuSysK1&sz=w1000",
            "https://drive.google.com/thumbnail?id=1w6TZRjJmS6cxIiAV-BHNmyzEubZD_fe6&sz=w1000",
         ];
      }
-     if (serviceId === 'projects') {
+     if (serviceId === 'projetos') {
         return [
            "https://drive.google.com/thumbnail?id=1FBv-lypBW849rd90iFFPReI6FZLZUn8a&sz=w1000",
            "https://drive.google.com/thumbnail?id=1Pk1M5dRC0NlcICICcoHEFM2tAhiQ0x6G&sz=w1000",
@@ -73,9 +79,9 @@ const ServiceDetail: React.FC = () => {
      }
      if (serviceId === 'infraestruturas') {
         return [
-           "https://drive.google.com/thumbnail?id=1VSf1rBi5aIYuZfy8hsvO0hRzF9j72Vhe&sz=w1000",
-           "https://drive.google.com/thumbnail?id=18LVEZD7AhlLyiVDLFTQq1rFtAhO060r8&sz=w1000",
-           "https://drive.google.com/thumbnail?id=1BzHsEsaS7dJz0ZiDDhxl4dxU-ukJ47uC&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1bG7V0Qp7dWD2oC3zXP1Bgm0UpJdJxDGw&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1322b6omK4CcuAeWKzN8lHzKJEC5kBho0&sz=w1000",
+           "https://drive.google.com/thumbnail?id=1L_NPl3ANcvtx03wm5-RKvP_81HSBN_oy&sz=w1000",
         ];
      }
      return [
@@ -93,7 +99,7 @@ const ServiceDetail: React.FC = () => {
       <div className="pt-32 pb-20 text-center container mx-auto px-6">
         <SEO title="Serviço Não Encontrado | JF" description="O serviço que procura não foi encontrado." />
         <h2 className="text-2xl font-normal text-corporate mb-4">Serviço não encontrado / Service not found</h2>
-        <CTAButton to="/services" text="Voltar / Back" variant="secondary" />
+        <CTAButton to="/servicos" text="Voltar / Back" variant="secondary" />
       </div>
     );
   }
@@ -135,7 +141,7 @@ const ServiceDetail: React.FC = () => {
       <div className="container mx-auto px-4 md:px-12 py-12 md:py-16">
         
         {/* Breadcrumb / Back Link */}
-        <Link to="/services" className="inline-flex items-center text-gray-500 hover:text-brand-light mb-8 md:mb-12 transition-colors font-semibold text-sm">
+        <Link to="/servicos" className="inline-flex items-center text-gray-500 hover:text-brand-light mb-8 md:mb-12 transition-colors font-semibold text-sm">
           <ArrowLeft size={16} className="mr-2" /> {t.nav.services}
         </Link>
 
@@ -157,7 +163,7 @@ const ServiceDetail: React.FC = () => {
 
               {/* FEATURES LIST */}
               <h3 className="text-2xl font-bold font-heading text-corporate mb-6 md:mb-8 uppercase tracking-wide">
-                 O QUE INCLUÍMOS
+                 {t.services.featuresTitle || "O QUE INCLUÍMOS"}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-16">
                 {serviceData.features.map((feature: any, index: number) => {
@@ -220,23 +226,25 @@ const ServiceDetail: React.FC = () => {
               )}
 
               {/* GALLERY SECTION - NEW */}
-              <div className="mb-12">
-                 <h3 className="text-lg md:text-xl font-bold text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
-                    <ImageIcon className="text-brand-light" /> Galeria
-                 </h3>
-                 <div className={`grid grid-cols-1 md:grid-cols-3 gap-4`}>
-                    {getGalleryImages(id || 'default').map((img, index) => (
-                       <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-48 relative group ${index === 0 && !['others', 'installations', 'plrs', 'projects', 'substations', 'telecommunications', 'infraestruturas', 'ev_charging'].includes(id || '') ? 'md:col-span-2 md:h-full' : ''}`}>
-                          <img 
-                             src={img} 
-                             alt="Exemplo de Obra" 
-                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                          />
-                          <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-                       </div>
-                    ))}
-                 </div>
-              </div>
+              {id !== 'projetos' && (
+                <div className="mb-12">
+                   <h3 className="text-lg md:text-xl font-bold text-corporate mb-6 uppercase tracking-wider flex items-center gap-2">
+                      <ImageIcon className="text-brand-light" /> Galeria
+                   </h3>
+                   <div className={`grid grid-cols-1 md:grid-cols-3 gap-4`}>
+                      {getGalleryImages(id || 'default').map((img, index) => (
+                         <div key={index} className={`rounded-lg overflow-hidden h-48 md:h-48 relative group ${index === 0 && !['outros', 'instalacoes', 'plrs', 'projetos', 'postos-transformacao', 'telecomunicacoes', 'infraestruturas', 'ev_charging'].includes(id || '') ? 'md:col-span-2 md:h-full' : ''}`}>
+                            <img 
+                               src={img} 
+                               alt="Exemplo de Obra" 
+                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                            />
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                         </div>
+                      ))}
+                   </div>
+                </div>
+              )}
 
             </motion.div>
           </div>
@@ -285,7 +293,7 @@ const ServiceDetail: React.FC = () => {
              Explore outros serviços
            </h3>
            <CTAButton 
-             to="/services" 
+             to="/servicos" 
              text="Ver todos os serviços" 
              variant="outline" 
              className="text-white border-white hover:bg-white hover:text-[#3B455B]" 

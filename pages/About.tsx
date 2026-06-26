@@ -79,7 +79,7 @@ const About: React.FC = () => {
       <SEO 
         title={t.seo.about.title} 
         description={t.seo.about.description} 
-        url="/about"
+        url="/sobre"
       />
 
       {/* 1. HEADER / HERO */}

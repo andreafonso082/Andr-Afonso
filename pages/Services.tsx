@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Check, FileText, Activity, Wrench, BatteryCharging, Layers, Router, Lightbulb } from 'lucide-react';
+import { Check } from 'lucide-react';
 import CTAButton from '../components/CTAButton';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
@@ -13,32 +13,17 @@ const Services: React.FC = () => {
     return null;
   }
 
-  // Mapping icons to category IDs for rendering
-  const getIcon = (id: string) => {
-     switch(id) {
-         case 'plrs': return <Activity className="w-12 h-12 text-accent" />;
-         case 'infraestruturas': return <Zap className="w-12 h-12 text-accent" />;
-         case 'installations': return <Wrench className="w-12 h-12 text-accent" />;
-         case 'telecommunications': return <Router className="w-12 h-12 text-accent" />;
-         case 'substations': return <Zap className="w-12 h-12 text-accent" />;
-         case 'projects': return <FileText className="w-12 h-12 text-accent" />;
-         case 'others': return <Layers className="w-12 h-12 text-accent" />;
-         case 'lighting': return <Lightbulb className="w-12 h-12 text-accent" />;
-         default: return <Zap className="w-12 h-12 text-accent" />;
-     }
-  };
-
   // Mapping images (could be in translation file or static, keeping static here but mapped by ID)
   const getImage = (id: string) => {
     switch(id) {
         case 'plrs': return "https://drive.google.com/thumbnail?id=1aO8Fz5mHCGNCzvOYG709XORsodUGheQJ&sz=w1000";
         case 'infraestruturas': return "https://drive.google.com/thumbnail?id=1kgeaUZc389LWYR_zGlPRgMmmkA3V2cHV&sz=w1000";
-        case 'telecommunications': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
-        case 'substations': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
-        case 'installations': return "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop";
-        case 'projects': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
-        case 'others': return "https://drive.google.com/thumbnail?id=16EZQLSNq5Mu1vrMN4bX7AzQGVm2Q5Nq5&sz=w1000";
-        case 'lighting': return "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000";
+        case 'telecomunicacoes': return "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop";
+        case 'postos-transformacao': return "https://drive.google.com/thumbnail?id=1u7DLNgNbHwWHuej4Omw7iR6YJ054n1UA&sz=w1000";
+        case 'instalacoes': return "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop";
+        case 'projetos': return "https://drive.google.com/thumbnail?id=1XcIH3U-OGPbbRxaJZGRkjg3zOUH02I13&sz=w1000";
+        case 'outros': return "https://drive.google.com/thumbnail?id=16EZQLSNq5Mu1vrMN4bX7AzQGVm2Q5Nq5&sz=w1000";
+        case 'iluminacao': return "https://drive.google.com/thumbnail?id=1Q7Ak5kMhDW4Xxk9VWPrOu5mThEKDGo0x&sz=w1000";
         default: return "https://picsum.photos/seed/electricity/800/600";
     }
   };
@@ -48,7 +33,7 @@ const Services: React.FC = () => {
       <SEO 
         title={t.seo.services.title} 
         description={t.seo.services.description} 
-        url="/services"
+        url="/servicos"
       />
       <div className="bg-corporate py-16 mb-16 text-center text-white">
         <div className="container mx-auto px-4 md:px-12">
@@ -87,7 +72,6 @@ const Services: React.FC = () => {
 
             {/* Content Side */}
             <div className="w-full lg:w-1/2">
-              <div className="mb-4 md:mb-6">{getIcon(service.id)}</div>
               <h2 className="text-2xl md:text-3xl font-bold uppercase text-corporate mb-4">{service.title}</h2>
               <p className="text-gray-600 mb-6 md:mb-8 leading-relaxed font-body">
                 {service.description}
@@ -124,7 +108,7 @@ const Services: React.FC = () => {
              </h2>
              <p className="text-gray-300 text-lg mb-6 max-w-xl mx-auto">{t.services.notFoundDesc}</p>
              <CTAButton 
-               to="/contact" 
+               to="/contacto" 
                text={t.services.notFoundCta} 
                variant="outline" 
                className="text-white border-white hover:bg-white hover:text-[#3B455B] rounded-sm" 

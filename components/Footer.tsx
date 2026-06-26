@@ -50,12 +50,12 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-bold font-heading mb-6 border-b-2 border-brand-light inline-block pb-1">{t.footer.navTitle}</h4>
             <ul className="space-y-3 font-body text-sm">
               <li><Link to="/" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.home}</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.about}</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.services}</Link></li>
-              <li><Link to="/lighting" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.lighting}</Link></li>
-              <li><Link to="/partners" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.partners}</Link></li>
+              <li><Link to="/sobre" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.about}</Link></li>
+              <li><Link to="/servicos" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.services}</Link></li>
+              <li><Link to="/iluminacao" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.lighting}</Link></li>
+              <li><Link to="/parceiros" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.partners}</Link></li>
               <li><Link to="/recrutamento" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.careers}</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.contact}</Link></li>
+              <li><Link to="/contacto" className="text-gray-400 hover:text-brand-light transition-colors">{t.nav.contact}</Link></li>
             </ul>
           </div>
 
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
 
             {/* FAQs CTA - Desktop Only (Hidden on Mobile/Tablet) */}
              <Link 
-               to="/faqs"
+               to="/perguntas-frequentes"
                className="hidden lg:inline-flex items-center bg-brand-light hover:bg-white text-corporate font-bold py-3 px-6 rounded-sm text-xs uppercase tracking-widest transition-colors w-full justify-center shadow-lg"
              >
                FAQS
@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
           {/* FAQs CTA - Mobile/Tablet Only (Full Width below nav/contacts) */}
           <div className="col-span-2 lg:hidden">
              <Link 
-               to="/faqs"
+               to="/perguntas-frequentes"
                className="inline-flex items-center bg-brand-light hover:bg-white text-corporate font-bold py-3 px-6 rounded-sm text-xs uppercase tracking-widest transition-colors w-full justify-center shadow-lg"
              >
                FAQS
@@ -108,9 +108,9 @@ const Footer: React.FC = () => {
                </span>
              </div>
              <div className="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
-               <Link to="/quality-policy" className="hover:text-white transition-colors">{t.footer.quality}</Link>
-               <Link to="/privacy" className="hover:text-white transition-colors">{t.footer.privacy}</Link>
-               <Link to="/terms" className="hover:text-white transition-colors">{t.footer.terms}</Link>
+               <Link to="/politica-qualidade" className="hover:text-white transition-colors">{t.footer.quality}</Link>
+               <Link to="/privacidade" className="hover:text-white transition-colors">{t.footer.privacy}</Link>
+               <Link to="/termos" className="hover:text-white transition-colors">{t.footer.terms}</Link>
                <a 
                  href="https://www.livroreclamacoes.pt/Inicio/" 
                  target="_blank" 
